@@ -1,0 +1,11 @@
+
+---
+#NTP
+- name: Instalando o NTP
+  apt:
+    name: "krb5-user"    
+- name: Criando ficheiro krb5.conf
+  template:
+    src: "kerberos.j2"
+    dest: "/etc/krb5.conf"
+    backup: yes    
