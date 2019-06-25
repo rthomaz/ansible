@@ -1,2 +1,12 @@
 ---
 # tasks file for ansible-codes
+- name: "Hosts"
+  hosts: [servers]
+  become: true
+  tasks:
+  - include: ntp.yml
+    tags: ntp
+  - include: clamav.yml
+    tags: clamav
+  - include: apt-sources-list.yml
+    tags: apt-sources-list
