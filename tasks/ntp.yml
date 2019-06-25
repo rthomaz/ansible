@@ -3,21 +3,17 @@
 - name: Ajustando o timezone do sistema para {{ timezone }}
   timezone: name={{ timezone }}
 #NTP
-- name: Instalando o NTP/ntpdate
+- name: Instalando o NTP
   apt:
     name: "{{ packages }}"
   vars:
     packages:
     - ntp
-    - ntpdate
     - ntp-doc
 - name: Parando o NTP
   service:
     name: ntp
     state: stopped
-- name: Atualizando o relógio com o servidor de NTP
-  command: ntpdate pdc-server.rthomaz.local 
-  ignore_errors: yes
 - name: Criando ficheiro NTP
   template:
     src: "ntp-conf.j2"
