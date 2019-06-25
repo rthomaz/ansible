@@ -20,6 +20,6 @@ restrict 127.0.0.1
 restrict   pdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
 # restrict bdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
 
-{% for i in range(3)%}
+{% for i in ntp-servers%}
 restrict   {{ i }}   mask 255.255.255.255    nomodify notrap nopeer noquery
 {% endfor %}
