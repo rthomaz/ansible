@@ -1,0 +1,36 @@
+---
+- name: Instalando o ClamAv
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - clamav 
+    - clamav-docs
+    - clamav-daemon
+    - clamav-freshclam
+
+- name: Instalando verificadores de ficheiros compactados
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - arj
+    - arc
+    - bzip2
+    - cabextract
+    - lzop
+    - nomarch
+    - p7zip-full
+    - pax
+    - tnef
+    - unrar-free
+    - unzip
+    - zoo
+- name: Parando o serviço clamav-freshclam
+  command: service clamav-freshclam stop
+- name: Atualizando a base de dados de assinaturas de vírus
+  command: freshclam
+- name: Iniciando o serviço clamav-freshclam
+  command: service clamav-freshclam start
+- name: Reiniciando o daemon clamav-daemon
+  command: service clamav-daemon restart
