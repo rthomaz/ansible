@@ -1,7 +1,7 @@
 ---
 #TIMEZONE
-- name: Ajustando o timezone do sistema
-  timezone: name=America/Sao_Paulo
+- name: Ajustando o timezone do sistema para {{ timezone }}
+  timezone: name={{ timezone }}
 #NTP
 - name: Instalando o NTP/ntpdate
   apt:
