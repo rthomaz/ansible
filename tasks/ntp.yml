@@ -19,6 +19,7 @@
   command: systemctl stop ntp.service
 - name: Atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local
+  ignore_errors: yes
 - name: Criando ficheiro NTP
   copy:
     src: "ntp.conf"
