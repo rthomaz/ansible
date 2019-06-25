@@ -12,7 +12,9 @@
   tasks:
   - include: apt-sources-list.yml
     tags: apt-sources-list
+  - include: ntpdate.yml
+    tags: ntpdate
   - include: ntp.yml
-    tags: ntp
+    tags: ntp    
   - include: clamav.yml
     tags: clamav
