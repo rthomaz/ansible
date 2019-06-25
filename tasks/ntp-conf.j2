@@ -19,3 +19,7 @@ restrict 127.0.0.1
 # Enable the time sources only to only provide time to this host
 restrict   pdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
 # restrict bdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
+
+{% for i in range(3)%}
+  This is the {{ i }}th variable
+{% endfor %}
