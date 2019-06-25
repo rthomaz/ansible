@@ -22,4 +22,9 @@
 - name: Parando o winbind
   service:
     name: winbind
-    state: stopped    
+    state: stopped
+- name: Criando ficheiro smb.conf
+  template:
+    src: "smb.conf.j2"
+    dest: "/etc/samba/smb.conf"
+    backup: yes        
