@@ -30,6 +30,7 @@
   command: service clamav-freshclam stop
 - name: Atualizando a base de dados de assinaturas de vírus
   command: freshclam
+  ignore_errors: yes
 - name: Iniciando o serviço clamav-freshclam
   command: service clamav-freshclam start
 - name: Reiniciando o daemon clamav-daemon
