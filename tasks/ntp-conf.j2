@@ -7,7 +7,7 @@ server   pdc-server.rthomaz.local      iburst prefer
 # server bdc-server.rthomaz.local      iburst
 
 {% for i in ntp_servers%}
-server   {{ i.cname }}      iburst if (i.prefer == true) 'ok' else 'cancel'
+server   {{ i.cname }}      iburst {%if (i.prefer == true) 'ok' else 'cancel'%}
 {% endfor %}
 
 driftfile /var/lib/ntp/ntp.drift
