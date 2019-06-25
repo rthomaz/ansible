@@ -7,7 +7,3 @@
     src: "krb5.conf.j2"
     dest: "/etc/krb5.conf"
     backup: yes    
-- name: TEST - Requisitando um ticket com o utilitário kinit para {{ admin_name }}@{{ domain_name }}
-  command: kinit {{ admin_name }}@{{ domain_name }}
-- name: TEST - Listando o ticket
-  command: klist
