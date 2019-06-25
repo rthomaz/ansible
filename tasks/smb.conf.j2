@@ -1,0 +1,46 @@
+[global]
+        # No .tld
+        workgroup = RTHOMAZ
+
+        # Active Directory System
+        security = ADS
+
+        # With .tld
+        realm = RTHOMAZ.LOCAL
+
+        # Just a member server
+        domain master = no
+        local master = no
+        preferred master = no
+
+        # Works both in samba 3.2 and 3.6.
+        idmap uid = 10000-20000
+        idmap gid = 10000-20000
+        # no .tld
+        idmap config * : range = 10000-20000
+        idmap config * : backend = tdb
+        winbind enum users = yes
+        winbind enum groups = yes
+
+        # This way users log in with username instead of username@example.org
+        winbind use default domain = yes
+
+        # Inherit groups in groups
+        winbind nested groups = yes
+        winbind refresh tickets = yes
+        winbind offline logon = true
+
+        # Becomes /home/rthomaz/username
+        template homedir = /home/%D/%U
+
+        # Shell access
+        template shell = /bin/bash
+        client use spnego = yes
+        client ntlmv2 auth = yes
+        encrypt passwords = yes
+        restrict anonymous = 2
+
+        log file = /var/log/samba/%m.log
+        log level = 1
+
+        os level = 0
