@@ -3,6 +3,12 @@
 - name: "Hosts"
   hosts: [servers]
   become: true
+  vars:
+    packages:
+    - clamav 
+    - clamav-docs
+    - clamav-daemon
+    - clamav-freshclam
   tasks:
   - include: apt-sources-list.yml
     tags: apt-sources-list
