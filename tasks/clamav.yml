@@ -1,5 +1,5 @@
 ---
-- name: Instalando o ClamAv
+- name: Instalando o ClamAv "{{ packages }}"
   apt:
     name: "{{ packages }}"
   vars:
