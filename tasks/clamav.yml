@@ -27,7 +27,9 @@
     - unzip
     - zoo
 - name: Parando o serviço clamav-freshclam
-  command: service clamav-freshclam stop
+  service:
+    name: clamav-freshclam
+    state: stopped
 - name: Atualizando a base de dados de assinaturas de vírus
   command: freshclam
   ignore_errors: yes
