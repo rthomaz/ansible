@@ -7,6 +7,7 @@
     debian_codename: 'stretch'
     timezone: 'America/Sao_Paulo'
     domain_name: 'RTHOMAZ.LOCAL'
+    admin_name : 'rodrigo'
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #      - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
