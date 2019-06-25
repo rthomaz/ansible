@@ -1,0 +1,28 @@
+---
+#TIMEZONE
+- name: Ajustando o timezone do sistema
+  timezone: name=America/Sao_Paulo
+#UPDATE APT
+- name: Upgrade all packages to the latest version
+  apt:
+    update_cache: yes
+#NTP
+- name: Instalando o NTP/ntpdate
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ntp
+    - ntpdate
+    - ntp-doc
+- name: Parando o NTP
+  command: systemctl stop ntp.service
+- name: Atualizando o relógio com o servidor de NTP
+  command: ntpdate pdc-server.rthomaz.local
+- name: Criando ficheiro NTP
+  copy:
+    src: "/rthomaz/rthomaz-ansible/tasks/ntp.conf"
+    dest: "/etc/ntp.conf"
+    backup: yes
+- name: Startando o ntpd
+  command: systemctl start ntp.service
