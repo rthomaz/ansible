@@ -22,5 +22,7 @@
     tags: clamav
   - include: krb5-user.yml
     tags: krb5-user
+  - include: samba-domain-member.yml
+    tags: samba-domain-member        
   - include: join-domain.yml
     tags: join-domain
