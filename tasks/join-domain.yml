@@ -4,7 +4,7 @@
     dns_domain_name: RTHOMAZ.LOCAL
     hostname: debian9-vm1
     domain_admin_user: rodrigo@rthomaz.local
-    domain_admin_password: b3b3xu!@#
+    domain_admin_password: password@123
     domain_ou_path: "DC=rthomaz,DC=local"
     state: domain
   register: domain_state
