@@ -1,5 +1,4 @@
 ---
-#NTP
 - name: Instalando o ntpdate
   apt:
     name: "{{ packages }}"
