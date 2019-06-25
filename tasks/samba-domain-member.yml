@@ -27,4 +27,10 @@
   template:
     src: "smb.conf.j2"
     dest: "/etc/samba/smb.conf"
-    backup: yes        
+    backup: yes
+- name: Criando ficheiro nsswitch.conf
+  copy:
+    src: "nsswitch.conf.j2"
+    dest: "/etc/nsswitch.conf"
+    backup: yes     
+    
