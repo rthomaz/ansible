@@ -6,6 +6,7 @@
   vars:
     debian_codename: 'stretch'
     timezone: 'America/Sao_Paulo'
+    domain_name: 'RTHOMAZ.LOCAL'
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #      - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
@@ -18,3 +19,5 @@
     tags: ntp    
   - include: clamav.yml
     tags: clamav
+  - include: kerberos.yml
+    tags: kerberos
