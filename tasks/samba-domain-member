@@ -1,0 +1,25 @@
+---
+- name: Instalando o samba
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - samba
+    - winbind
+    - smbclient
+    - ldap-utils
+    - libpam-krb5
+    - libnss-winbind
+    - libpam-winbind
+- name: Parando o smbd
+  service:
+    name: smbd
+    state: stopped
+- name: Parando o nmbd
+  service:
+    name: nmbd
+    state: stopped
+- name: Parando o winbind
+  service:
+    name: winbind
+    state: stopped    
