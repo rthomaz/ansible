@@ -21,9 +21,9 @@
   command: ntpdate pdc-server.rthomaz.local
   ignore_errors: yes
 - name: Criando ficheiro NTP
-  copy:
-    src: "ntp.conf"
+  template:
+    src: "ntp-conf.j2"
     dest: "/etc/ntp.conf"
-    backup: yes
+#    backup: yes
 - name: Startando o ntpd
   command: systemctl start ntp.service
