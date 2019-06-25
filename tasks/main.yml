@@ -4,9 +4,9 @@
   hosts: [servers]
   become: true
   tasks:
+  - include: apt-sources-list.yml
+    tags: apt-sources-list
   - include: ntp.yml
     tags: ntp
   - include: clamav.yml
     tags: clamav
-  - include: apt-sources-list.yml
-    tags: apt-sources-list
