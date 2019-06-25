@@ -21,7 +21,7 @@
   command: ntpdate pdc-server.rthomaz.local
 - name: Criando ficheiro NTP
   copy:
-    src: "/rthomaz/rthomaz-ansible/tasks/ntp.conf"
+    src: "ntp.conf"
     dest: "/etc/ntp.conf"
     backup: yes
 - name: Startando o ntpd
