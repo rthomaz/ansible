@@ -19,5 +19,5 @@
     tags: ntp    
   - include: clamav.yml
     tags: clamav
-  - include: kerberos.yml
-    tags: kerberos
+  - include: krb5-user.yml
+    tags: krb5-user
