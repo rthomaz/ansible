@@ -12,7 +12,9 @@
     - ntpdate
     - ntp-doc
 - name: Parando o NTP
-  command: systemctl stop ntp.service
+  service:
+    name: ntp
+    state: stopped
 - name: Atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local
   ignore_errors: yes
@@ -22,4 +24,6 @@
     dest: "/etc/ntp.conf"
     backup: yes
 - name: Startando o ntpd
-  command: systemctl start ntp.service
+  service:
+    name: ntp
+    state: started
