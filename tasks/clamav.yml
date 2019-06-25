@@ -34,6 +34,11 @@
   command: freshclam
   ignore_errors: yes
 - name: Iniciando o serviço clamav-freshclam
-  command: service clamav-freshclam start
+  service:
+    name: clamav-freshclam
+    state: started
 - name: Reiniciando o daemon clamav-daemon
-  command: service clamav-daemon restart
+  service:
+    name: clamav-daemon
+    state: restarted
+  
