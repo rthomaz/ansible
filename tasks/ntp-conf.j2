@@ -6,6 +6,10 @@ fudge  127.127.1.0 stratum 10
 server   pdc-server.rthomaz.local      iburst prefer
 # server bdc-server.rthomaz.local      iburst
 
+{% for i in ntp_servers%}
+server   {{ i.cname }}      iburst prefer
+{% endfor %}
+
 driftfile /var/lib/ntp/ntp.drift
 logfile   /var/log/ntp
 
@@ -17,9 +21,6 @@ restrict default ignore
 restrict 127.0.0.1
 
 # Enable the time sources only to only provide time to this host
-restrict   pdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
-# restrict bdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
-
 {% for i in ntp_servers%}
-restrict   {{ i }}   mask 255.255.255.255    nomodify notrap nopeer noquery
+restrict   {{ i.cname }}   mask 255.255.255.255    nomodify notrap nopeer noquery
 {% endfor %}
