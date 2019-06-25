@@ -4,9 +4,9 @@
   hosts: [servers]
   become: true
   vars:
-    ntp-servers: 
-      pdc-server.rthomaz.local
-      bdc-server.rthomaz.local
+    ntp_servers: 
+      1
+      2
   tasks:
   - include: apt-sources-list.yml
     tags: apt-sources-list
