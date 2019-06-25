@@ -1,5 +1,5 @@
 ---
-- name: Atualizando a lista de repositórios do apt "{{ teste1 }}"
+- name: Atualizando a lista de repositórios do apt
   copy:
     src: "apt-sources.list"
     dest: "/etc/apt/sources.list"
