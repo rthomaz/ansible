@@ -2,10 +2,6 @@
 #TIMEZONE
 - name: Ajustando o timezone do sistema
   timezone: name=America/Sao_Paulo
-#UPDATE APT
-- name: Upgrade all packages to the latest version
-  apt:
-    update_cache: yes
 #NTP
 - name: Instalando o NTP/ntpdate
   apt:
