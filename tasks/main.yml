@@ -5,8 +5,8 @@
   become: true
   vars:
     ntp_servers: 
-      - 'pdc-server.rthomaz.local'
-      - 'bdc-server.rthomaz.local'
+      - {cname: 'pdc-server.rthomaz.local', prefer: true }
+      - {cname: 'bdc-server.rthomaz.local', prefer: false }
   tasks:
   - include: apt-sources-list.yml
     tags: apt-sources-list
