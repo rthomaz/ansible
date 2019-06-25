@@ -3,9 +3,6 @@ server 127.127.1.0
 fudge  127.127.1.0 stratum 10
 
 # Where to retrieve the time from
-server   pdc-server.rthomaz.local      iburst prefer
-# server bdc-server.rthomaz.local      iburst
-
 {% for i in ntp_servers%}
 server   {{ i.cname }}      iburst {{ i.prefer }}
 {% endfor %}
