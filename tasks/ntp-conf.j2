@@ -21,5 +21,5 @@ restrict   pdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap n
 # restrict bdc-server.rthomaz.local    mask 255.255.255.255    nomodify notrap nopeer noquery
 
 {% for i in range(3)%}
-  This is the {{ i }}th variable
+restrict   {{ i }}   mask 255.255.255.255    nomodify notrap nopeer noquery
 {% endfor %}
