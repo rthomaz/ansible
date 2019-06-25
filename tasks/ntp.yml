@@ -16,7 +16,7 @@
     name: ntp
     state: stopped
 - name: Atualizando o relógio com o servidor de NTP
-  command: ntpdate pdc-server.rthomaz.local   {{ vars | json_query('ntp_servers[?prefer==`prefer`].cname') }} 
+  command: ntpdate {{ vars | json_query('ntp_servers[?prefer==`prefer`].cname') }} 
   ignore_errors: yes
 - name: Criando ficheiro NTP
   template:
