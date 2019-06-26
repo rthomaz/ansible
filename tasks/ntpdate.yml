@@ -6,16 +6,14 @@
     packages:
     - ntpdate
     - ntp-doc
-- name: Parando o NTP
-  service:
-    name: ntp
-    state: stopped
-    ignore_errors: yes
+#- name: Parando o NTP
+#  service:
+#    name: ntp
+#    state: stopped
 - name: Atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local 
   ignore_errors: yes
-- name: Startando o ntpd
-  service:
-    name: ntp
-    state: started
-    ignore_errors: yes    
+#- name: Startando o ntpd
+#  service:
+#    name: ntp
+#    state: started
