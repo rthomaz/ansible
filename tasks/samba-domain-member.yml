@@ -39,7 +39,7 @@
     responses:
       (?i)password: "b3b3xu!@#"
   # you don't want to show passwords in your logs
-  no_log: true    
+  no_log: false    
 #- name: Habilitando e startando o winbind
 #  service:
 #    name: winbind
