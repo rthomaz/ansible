@@ -33,8 +33,8 @@
     src: "nsswitch.conf.j2"
     dest: "/etc/nsswitch.conf"
     backup: yes     
-- name: Habilitando e startando o winbind
-  service:
-    name: winbind
-    state: started
-    enabled: yes
+#- name: Habilitando e startando o winbind
+#  service:
+#    name: winbind
+#    state: started
+#    enabled: yes
