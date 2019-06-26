@@ -1,6 +1,6 @@
-- name: Instalando pacotes defaults
+- name: Instalando pacotes extras para o ansible
   apt:
     name: "{{ packages }}"
   vars:
     packages:
-    - pexpect
+    - python-pexpect
