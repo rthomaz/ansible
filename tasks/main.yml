@@ -20,8 +20,8 @@
     tags: ntpdate
   - include: ntp.yml
     tags: ntp    
-  - include: clamav.yml
-    tags: clamav
+#  - include: clamav.yml
+#    tags: clamav
   - include: krb5-user.yml
     tags: krb5-user
   - include: samba-domain-member.yml
