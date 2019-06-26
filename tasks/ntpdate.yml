@@ -10,6 +10,7 @@
   service:
     name: ntp
     state: stopped
+    ignore_errors: yes
 - name: Atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local 
   ignore_errors: yes
@@ -17,3 +18,4 @@
   service:
     name: ntp
     state: started
+    ignore_errors: yes    
