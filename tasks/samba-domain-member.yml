@@ -33,6 +33,13 @@
     src: "nsswitch.conf.j2"
     dest: "/etc/nsswitch.conf"
     backup: yes     
+- name: Ingressando no domínio
+  expect:
+    command: net ads join -U rodrigo
+    responses:
+      (?i)password: "b3b3xu!@#"
+  # you don't want to show passwords in your logs
+  no_log: true    
 #- name: Habilitando e startando o winbind
 #  service:
 #    name: winbind
