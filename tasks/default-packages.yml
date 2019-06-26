@@ -1,0 +1,6 @@
+- name: Instalando pacotes defaults
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - pexpect
