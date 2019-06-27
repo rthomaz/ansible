@@ -43,14 +43,14 @@
 - name: adicionando winbind no passwd do ficheiro nsswitch.conf
   lineinfile:
     dest: /etc/nsswitch.conf
-    regexp: '^(.*)passwd:(.*)$' 
+    regexp: '^passwd:(.*)$' 
     line: 'passwd:         compat winbind'
     backrefs: yes  
 - name: adicionando winbind no group do ficheiro nsswitch.conf
   lineinfile:
     dest: /etc/nsswitch.conf
     regexp: '^group:(.*)$' 
-    line: 'group:         compat winbind'
+    line: 'group:          compat winbind'
     backrefs: yes      
 - name: Habilitando e startando o winbind
   service:
