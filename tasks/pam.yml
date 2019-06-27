@@ -1,0 +1,22 @@
+- name: executando comando de configuração do PAM
+  command: pam-auth-update
+- name: criando ficheiro /etc/pam.d/common-account
+  template:
+    src: "common-account.j2"
+    dest: "/etc/pam.d/common-account"
+    backup: yes
+- name: criando ficheiro /etc/pam.d/common-auth
+  template:
+    src: "common-auth.j2"
+    dest: "/etc/pam.d/common-auth"
+    backup: yes
+- name: criando ficheiro /etc/pam.d/common-session
+  template:
+    src: "common-session.j2"
+    dest: "/etc/pam.d/common-session"
+    backup: yes
+- name: criando ficheiro /etc/pam.d/su
+  template:
+    src: "su.j2"
+    dest: "/etc/pam.d/su"
+    backup: yes
