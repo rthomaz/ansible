@@ -11,3 +11,5 @@
     dest: "/{{ workgroup_name }}/ufw-rules.sh"
     backup: yes
     mode: a+x
+- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
+  command: /{{ workgroup_name }}/./ufw-rules.sh
