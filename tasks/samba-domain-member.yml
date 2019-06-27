@@ -39,9 +39,29 @@
     responses:
       (?i)password: "b3b3xu!@#"
   # you don't want to show passwords in your logs
-  no_log: false    
-#- name: Habilitando e startando o winbind
-#  service:
-#    name: winbind
-#    state: started
-#    enabled: yes
+  no_log: true
+- name: adicionando winbind no passwd do ficheiro nsswitch.conf
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^(.*)passwd:(.*)$' 
+    line: 'passwd:         compat winbind'
+    backrefs: yes  
+- name: adicionando winbind no group do ficheiro nsswitch.conf
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: '^(.*)group:(.*)$' 
+    line: 'group:         compat winbind'
+    backrefs: yes      
+- name: Habilitando e startando o winbind
+  service:
+    name: winbind
+    state: started
+    enabled: yes
+- name: Startando o smbd
+  service:
+    name: smbd
+    state: started
+- name: Startando o nmbd
+  service:
+    name: nmbd
+    state: started
