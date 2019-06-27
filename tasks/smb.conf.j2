@@ -1,12 +1,12 @@
 [global]
         # No .tld
-        workgroup = RTHOMAZ
+        workgroup = {{ workgroup }}
 
         # Active Directory System
         security = ADS
 
         # With .tld
-        realm = RTHOMAZ.LOCAL
+        realm = {{ dns_domain_name }}
 
         # Just a member server
         domain master = no
