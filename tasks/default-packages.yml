@@ -1,4 +1,4 @@
-- name: Instalando pacotes extras para o ansible
+- name: instalando pacotes extras para o ansible
   apt:
     name: "{{ packages }}"
   vars:
