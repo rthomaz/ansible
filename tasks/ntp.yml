@@ -1,25 +1,25 @@
 ---
 #TIMEZONE
-- name: Ajustando o timezone do sistema para {{ timezone }}
+- name: ajustando o timezone do sistema para {{ timezone }}
   timezone: name={{ timezone }}
 #NTP
-- name: Instalando o NTP
+- name: instalando o NTP
   apt:
     name: "{{ packages }}"
   vars:
     packages:
     - ntp
     - ntp-doc
-- name: Parando o NTP
+- name: parando o NTP
   service:
     name: ntp
     state: stopped
-- name: Criando ficheiro NTP
+- name: criando ficheiro NTP
   template:
     src: "ntp-conf.j2"
     dest: "/etc/ntp.conf"
     backup: yes
-- name: Startando o ntpd
+- name: iniciando o ntpd
   service:
     name: ntp
     state: started
