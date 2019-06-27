@@ -16,7 +16,7 @@
 - name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
   shell: ufw-rules.sh
   args:
-    chdir: /{{ workgroup_name }}
+    chdir: /{{ workgroup_name }}/
 #  expect:
 #    shell: /{{ workgroup_name }}/ufw-rules.sh
 #    responses:
