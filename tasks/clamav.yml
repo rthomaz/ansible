@@ -1,5 +1,5 @@
 ---
-- name: Instalando o ClamAv
+- name: instalando o ClamAv
   apt:
     name: "{{ packages }}"
   vars:
@@ -9,7 +9,7 @@
     - clamav-daemon
     - clamav-freshclam
 
-- name: Instalando verificadores de ficheiros compactados
+- name: instalando verificadores de ficheiros compactados
   apt:
     name: "{{ packages }}"
   vars:
@@ -26,18 +26,18 @@
     - unrar-free
     - unzip
     - zoo
-- name: Parando o serviço clamav-freshclam
+- name: parando o serviço clamav-freshclam
   service:
     name: clamav-freshclam
     state: stopped
-- name: Atualizando a base de dados de assinaturas de vírus
+- name: atualizando a base de dados de assinaturas de vírus
   command: freshclam
   ignore_errors: yes
-- name: Iniciando o serviço clamav-freshclam
+- name: iniciando o serviço clamav-freshclam
   service:
     name: clamav-freshclam
     state: started
-- name: Reiniciando o daemon clamav-daemon
+- name: reiniciando o daemon clamav-daemon
   service:
     name: clamav-daemon
     state: restarted
