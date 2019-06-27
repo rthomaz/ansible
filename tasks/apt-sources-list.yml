@@ -1,14 +1,14 @@
 ---
-- name: Instalando gestor de pacotes aptitude
+- name: instalando gestor de pacotes aptitude
   apt:
     name: "aptitude"    
 
-- name: Atualizando a lista de repositórios do apt
+- name: atualizando a lista de repositórios do apt
   template:
     src: "apt-sources-list.j2"
     dest: "/etc/apt/sources.list"
     backup: yes
     
-- name: Upgrade all packages to the latest version
+- name: atualizando todos os pacotes para a última versão
   apt:
     update_cache: yes    
