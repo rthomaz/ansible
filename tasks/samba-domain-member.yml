@@ -1,5 +1,5 @@
 ---
-- name: Instalando o samba
+- name: instalando o samba
   apt:
     name: "{{ packages }}"
   vars:
@@ -11,57 +11,57 @@
     - libpam-krb5
     - libnss-winbind
     - libpam-winbind
-- name: Parando o smbd
+- name: parando o smbd
   service:
     name: smbd
     state: stopped
-- name: Parando o nmbd
+- name: parando o nmbd
   service:
     name: nmbd
     state: stopped
-- name: Parando o winbind
+- name: parando o winbind
   service:
     name: winbind
     state: stopped
-- name: Criando ficheiro smb.conf
+- name: criando ficheiro smb.conf
   template:
     src: "smb.conf.j2"
     dest: "/etc/samba/smb.conf"
     backup: yes
-- name: Criando ficheiro nsswitch.conf
+- name: criando ficheiro nsswitch.conf
   copy:
     src: "nsswitch.conf.j2"
     dest: "/etc/nsswitch.conf"
     backup: yes     
-- name: Ingressando no domínio
+- name: ingressando no domínio
   expect:
     command: net ads join -U rodrigo
     responses:
       (?i)password: "b3b3xu!@#"
   # you don't want to show passwords in your logs
   no_log: true
-- name: adicionando winbind no passwd do ficheiro nsswitch.conf
+- name: adicionando winbind na configuração passwd do ficheiro nsswitch.conf
   lineinfile:
     dest: /etc/nsswitch.conf
     regexp: '^passwd:(.*)$' 
     line: 'passwd:         compat winbind'
     backrefs: yes  
-- name: adicionando winbind no group do ficheiro nsswitch.conf
+- name: adicionando winbind na configuração group do ficheiro nsswitch.conf
   lineinfile:
     dest: /etc/nsswitch.conf
     regexp: '^group:(.*)$' 
     line: 'group:          compat winbind'
     backrefs: yes      
-- name: Habilitando e startando o winbind
+- name: habilitando e iniciando o winbind
   service:
     name: winbind
     state: started
     enabled: yes
-- name: Startando o smbd
+- name: iniciando o smbd
   service:
     name: smbd
     state: started
-- name: Startando o nmbd
+- name: iniciando o nmbd
   service:
     name: nmbd
     state: started
