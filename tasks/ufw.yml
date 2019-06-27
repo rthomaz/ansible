@@ -14,10 +14,8 @@
 - name: reiniciando a máquina
   reboot:    
 - name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
-  shell: ufw-rules.sh
-  args:
-    chdir: /{{ workgroup_name }}/
-#  expect:
+  shell: /{{ workgroup_name }}/ufw-rules.sh
+  expect:
 #    shell: /{{ workgroup_name }}/ufw-rules.sh
-#    responses:
-#      (?i)Proceed with operation (y|n)? 'y'    
+    responses:
+      (?i)Proceed with operation (y|n)? 'y'    
