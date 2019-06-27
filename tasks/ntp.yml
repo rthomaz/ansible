@@ -9,6 +9,7 @@
   vars:
     packages:
     - ntp
+    - ntpdate
     - ntp-doc
 - name: parando o NTP
   service:
@@ -19,6 +20,9 @@
     src: "ntp-conf.j2"
     dest: "/etc/ntp.conf"
     backup: yes
+- name: atualizando o relógio com o servidor de NTP
+  command: ntpdate pdc-server.rthomaz.local 
+  ignore_errors: yes    
 - name: iniciando o ntpd
   service:
     name: ntp
