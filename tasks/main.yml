@@ -18,8 +18,8 @@
     tags: apt-sources-list
   - include: default-packages.yml
     tags: default-packages
-# - include: ntpdate.yml
-#   tags: ntpdate
+  - include: ntpdate.yml
+    tags: ntpdate
   - include: ntp.yml
     tags: ntp    
 # - include: clamav.yml
