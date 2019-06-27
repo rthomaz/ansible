@@ -10,8 +10,6 @@
   service:
     name: ntp
     state: stopped
-  register: service_status
-  failed_when: service_status|failed and not 'could not find the requested service' in service_status
 - name: atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local 
   ignore_errors: yes
