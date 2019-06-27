@@ -10,7 +10,7 @@
   service:
     name: ntp
     state: stopped
-    when: "'puppet' in services"
+  when: "'puppet' in services"
 - name: atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local 
   ignore_errors: yes
