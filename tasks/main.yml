@@ -7,7 +7,7 @@
     debian_codename: 'stretch'
     timezone: 'America/Sao_Paulo'
     dns_domain_name: 'RTHOMAZ.LOCAL'
-    admin_name : 'rodrigo'
+    admin_name1 : 'rodrigo'
     domain_admin_user : 'rodrigo'
     domain_admin_password : 'b3b3xu!@#'
     ntp_servers: 
