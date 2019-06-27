@@ -8,6 +8,7 @@
     timezone: 'America/Sao_Paulo'
     domain_name: 'RTHOMAZ.LOCAL'
     admin_name : 'rodrigo'
+    admin_password : 'b3b3xu!@#'
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #      - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
