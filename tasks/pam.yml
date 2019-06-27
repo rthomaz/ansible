@@ -1,5 +1,5 @@
 - name: executando comando de configuração do PAM
-  command: pam-auth-update --package
+  command: pam-auth-update
 - name: criando ficheiro /etc/pam.d/common-account
   template:
     src: "common-account.j2"
