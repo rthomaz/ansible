@@ -1,6 +1,5 @@
-- name: atualizando pam em sistemas Debian
+- name: atualizando pam
   command: 'pam-auth-update --package'
-#  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   changed_when: False
   environment:
     DEBIAN_FRONTEND: noninteractive    
