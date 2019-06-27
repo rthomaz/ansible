@@ -11,10 +11,10 @@
     dest: "/{{ workgroup_name }}/ufw-rules.sh"
     backup: yes
     mode: a+x
-- name: reinicia a máquina
+- name: reiniciando a máquina
   reboot:    
-#- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
-#  expect:
-#    command: /{{ workgroup_name }}/./ufw-rules.sh
-#    responses:
-#      (?i)password: 'y'
+- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
+  expect:
+    command: /{{ workgroup_name }}/./ufw-rules.sh
+    responses:
+      (?i)Proceed with operation (y|n)? 'y'
