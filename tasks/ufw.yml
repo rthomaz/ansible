@@ -15,6 +15,6 @@
   reboot:    
 - name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
   expect:
-    command: /{{ workgroup_name }}/./ufw-rules.sh
+    script: /{{ workgroup_name }}/ufw-rules.sh
     responses:
-      (?i)Proceed with operation (y|n)? 'y'
+      (?i)Proceed with operation (y|n)? 'y'    
