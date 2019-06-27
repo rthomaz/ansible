@@ -35,9 +35,9 @@
     backup: yes     
 - name: ingressando no domínio
   expect:
-    command: net ads join -U rodrigo
+    command: net ads join -U {{ domain_admin_user }}
     responses:
-      (?i)password: "b3b3xu!@#"
+      (?i)password: '{{ vault_ad_admin_pass }}'
   # you don't want to show passwords in your logs
   no_log: true
 - name: adicionando winbind na configuração passwd do ficheiro nsswitch.conf
