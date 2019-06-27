@@ -1,0 +1,13 @@
+- name: instalando o ufw
+  apt:
+    name: 'ufw'
+- name: cria o diretório /{{ workgroup_name }} se ele não existir
+  file:
+    path: /{{ workgroup_name }}
+    state: directory
+- name: criando ficheiro /{{ workgroup_name }}/ufw-rules.sh
+  template:
+    src: "ufw-rules.sh.j2"
+    dest: "/{{ workgroup_name }}/ufw-rules.sh"
+    backup: yes
+    mode: a+x
