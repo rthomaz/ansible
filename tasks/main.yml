@@ -18,8 +18,6 @@
     tags: apt-sources-list
   - include: default-packages.yml
     tags: default-packages
-# - include: ntpdate.yml
-#   tags: ntpdate
   - include: ntp.yml
     tags: ntp    
 # - include: clamav.yml
@@ -28,3 +26,5 @@
     tags: krb5-user
   - include: samba-domain-member.yml
     tags: samba-domain-member 
+  - include: pam.yml
+    tags: pam
