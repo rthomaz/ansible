@@ -10,6 +10,8 @@
   service:
     name: ntp
     state: stopped
+    failed_when: no  # We expect this to fail, but make it always succeed
+    #ignore_errors: yes  # We expect it to fail, show it as failed, but continue anyway
 - name: atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local 
   ignore_errors: yes
