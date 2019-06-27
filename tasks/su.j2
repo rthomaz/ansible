@@ -1,0 +1,7 @@
+auth sufficient pam_winbind.so
+auth sufficient pam_unix.so use_first_pass
+auth required   pam_deny.so
+    
+@include common-auth
+@include common-account
+@include common-session
