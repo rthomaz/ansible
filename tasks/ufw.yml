@@ -11,5 +11,8 @@
     dest: "/{{ workgroup_name }}/ufw-rules.sh"
     backup: yes
     mode: a+x
-- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
-  command: /{{ workgroup_name }}/./ufw-rules.sh
+#- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
+#  expect:
+#    command: /{{ workgroup_name }}/./ufw-rules.sh
+#    responses:
+#      (?i)password: 'y'
