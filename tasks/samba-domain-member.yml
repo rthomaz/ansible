@@ -37,7 +37,7 @@
   expect:
     command: net ads join -U {{ domain_admin_user }}
     responses:
-      (?i)password: '{{ vault_ad_admin_pass }}'
+      (?i)password: '{{ domain_admin_password }}'
   # you don't want to show passwords in your logs
   no_log: true
 - name: adicionando winbind na configuração passwd do ficheiro nsswitch.conf
