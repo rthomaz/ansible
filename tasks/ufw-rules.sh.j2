@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# disable firewall
+ufw disable
+
+# reset all firewall rules
+ufw reset --force
+
+# enable logging
+ufw logging on
+
+# set default rules: deny all incoming traffic, allow all outgoing traffic
+ufw default deny incoming
+ufw default allow outgoing
+
+# -------------------------------------
+#  My rules
+
+# open ports for DNS
+ufw allow from 192.168.1.0/24 to any port 53
+
+# -------------------------------------
+#  re-start
+
+# enable firewall
+ufw enable
+
+# list all firewall rules
+ufw status verbose
