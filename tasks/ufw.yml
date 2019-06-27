@@ -17,6 +17,6 @@
   expect:
     become: yes
     become_method: sudo
-    script: /{{ workgroup_name }}/ufw-rules.sh
+    command: /{{ workgroup_name }}/./ufw-rules.sh
     responses:
       (?i)Proceed with operation (y|n)? 'y'    
