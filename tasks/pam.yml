@@ -20,9 +20,9 @@
     src: "su.j2"
     dest: "/etc/pam.d/su"
     backup: yes
-- name: cria o diretório RTHOMAZ se ele não existir
+- name: cria o diretório {{ workgroup_name }} se ele não existir
   file:
-    path: /home/RTHOMAZ
+    path: /home/{{ workgroup_name }}
     state: directory
 - name: reiniciando o winbind
   service:
