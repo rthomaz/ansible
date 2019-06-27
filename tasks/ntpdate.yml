@@ -1,5 +1,5 @@
 ---
-- name: Instalando o ntpdate
+- name: instalando o ntpdate
   apt:
     name: "{{ packages }}"
   vars:
@@ -10,7 +10,7 @@
 #  service:
 #    name: ntp
 #    state: stopped
-- name: Atualizando o relógio com o servidor de NTP
+- name: atualizando o relógio com o servidor de NTP
   command: ntpdate pdc-server.rthomaz.local 
   ignore_errors: yes
 #- name: Startando o ntpd
