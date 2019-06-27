@@ -6,7 +6,7 @@
   vars:
     debian_codename: 'stretch'
     timezone: 'America/Sao_Paulo'
-    domain_name: 'RTHOMAZ.LOCAL'
+    dns_domain_name: 'RTHOMAZ.LOCAL'
     admin_name : 'rodrigo'
     domain_admin_user : 'rodrigo'
     domain_admin_password : 'b3b3xu!@#'
