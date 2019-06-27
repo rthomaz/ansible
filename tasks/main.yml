@@ -18,6 +18,8 @@
     tags: apt-sources-list
   - include: default-packages.yml
     tags: default-packages
+  - include: ufw.yml
+    tags: ufw
   - include: ntp.yml
     tags: ntp    
 # - include: clamav.yml
