@@ -17,4 +17,4 @@
   expect:
     command: /bin/bash -c '/{{ workgroup_name }}/ufw-rules.sh'
     responses:
-      (?i)(y|n)?: 'y'    
+      (?i)Proceed with operation (y|n)?: "y"
