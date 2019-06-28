@@ -12,4 +12,4 @@
     dest: /{{ workgroup_name }}/ufw-rules.sh
     insertbefore: '^#  End My rules(.*)$' 
     line: 'teste'
-    backrefs: yes      
+#    backrefs: yes      
