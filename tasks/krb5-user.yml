@@ -6,4 +6,10 @@
   template:
     src: "krb5.conf.j2"
     dest: "/etc/krb5.conf"
-    backup: yes    
+    backup: yes
+- name: liberando portas no firewall para krb5
+  lineinfile:
+    dest: /rthomaz/ufw-rules.sh
+    regexp: '^#  My rules(.*)$' 
+    line: 'teste'
+    backrefs: yes      
