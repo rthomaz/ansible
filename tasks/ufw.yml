@@ -12,10 +12,10 @@
     backup: yes
     mode: a+x
 - name: reiniciando a máquina
-  reboot:    
+  reboot:
 - name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
   shell: /{{ workgroup_name }}/ufw-rules.sh
-  expect:
+#  expect:
 #    shell: /{{ workgroup_name }}/ufw-rules.sh
 #    responses:
 #      (?i)Proceed with operation (y|n)? 'y'    
