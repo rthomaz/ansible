@@ -16,7 +16,7 @@ ufw default deny incoming
 ufw default allow outgoing
 
 # -------------------------------------
-#  Start My rules
+#  StartMyRules
 
 # open ports for DNS
 ufw allow from 192.168.1.0/24 to any port 53
@@ -24,7 +24,7 @@ ufw allow from 192.168.1.0/24 to any port 53
 # open ports for SSH
 ufw allow from 192.168.1.0/24 to any port 22 proto tcp
 
-#  End My rules
+#  EndMyRules
 # -------------------------------------
 
 # -------------------------------------
