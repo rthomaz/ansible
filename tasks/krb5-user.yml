@@ -10,6 +10,6 @@
 - name: liberando portas no firewall para krb5
   lineinfile:
     dest: /{{ workgroup_name }}/ufw-rules.sh
-    insertbefore: '^#  End My rules(.*)$' 
+    insertbefore: .*EndMyrules 
     line: 'teste'
 #    backrefs: yes      
