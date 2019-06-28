@@ -17,5 +17,5 @@
   shell: /{{ workgroup_name }}/ufw-rules.sh
   expect:
 #    shell: /{{ workgroup_name }}/ufw-rules.sh
-    responses:
-      (?i)Proceed with operation (y|n)? 'y'    
+#    responses:
+#      (?i)Proceed with operation (y|n)? 'y'    
