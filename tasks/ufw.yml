@@ -13,7 +13,7 @@
     mode: a+x
 #- name: reiniciando a máquina
 #  reboot:
-- name: Reboot system if required
+- name: reinicia o sistema se requerido
   command: shutdown -r now 'Rebooting to complete system upgrade'
             removes=/var/run/reboot-required
 - name: rodando o script /{{ workgroup_name }}/ufw-rules.sh  
