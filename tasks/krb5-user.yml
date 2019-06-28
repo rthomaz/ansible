@@ -9,7 +9,7 @@
     backup: yes
 - name: liberando portas no firewall para krb5
   lineinfile:
-    dest: /rthomaz/ufw-rules.sh
+    dest: /{{ workgroup_name }}/ufw-rules.sh
     regexp: '^#  My rules(.*)$' 
     line: 'teste'
     backrefs: yes      
