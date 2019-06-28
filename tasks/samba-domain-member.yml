@@ -40,6 +40,27 @@
       (?i)password: '{{ domain_admin_password }}'
   # you don't want to show passwords in your logs
   no_log: true
+- name: adicionando regras em /{{ workgroup_name }}/ufw-rules.sh para o samba
+  lineinfile:
+    dest: /{{ workgroup_name }}/ufw-rules.sh
+    insertbefore: .*EndMyRules 
+    line: |
+      # open ports for Samba
+      ufw allow from 192.168.1.0/24 to any port 135 proto tcp
+      ufw allow from 192.168.1.0/24 to any port 137 proto udp
+      ufw allow from 192.168.1.0/24 to any port 138 proto udp
+      ufw allow from 192.168.1.0/24 to any port 139 proto tcp
+      ufw allow from 192.168.1.0/24 to any port 389
+      ufw allow from 192.168.1.0/24 to any port 445 proto tcp
+      ufw allow from 192.168.1.0/24 to any port 636 proto tcp
+      ufw allow from 192.168.1.0/24 to any port 1024:5000 proto tcp
+      ufw allow from 192.168.1.0/24 to any port 3268 proto tcp
+      ufw allow from 192.168.1.0/24 to any port 3269 proto tcp
+- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
+  expect:
+    command: /bin/bash -c '/{{ workgroup_name }}/ufw-rules.sh'
+    responses:
+      (?i)Proceed with operation (y|n)?: "y"
 - name: adicionando winbind na configuração passwd do ficheiro nsswitch.conf
   lineinfile:
     dest: /etc/nsswitch.conf
