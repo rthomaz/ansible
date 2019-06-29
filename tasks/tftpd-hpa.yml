@@ -47,3 +47,8 @@
     src: "/srv/tftp/debian-installer/amd64/bootnetx64.efi"
     dest: "/srv/tftp/"
     state: link
+- name: configuração pxe no arquivo txt.cfg
+  template:
+    src: "txt.cfg.j2"
+    dest: "/srv/tftp/debian-installer/amd64/boot-screens/txt.cfg"
+    backup: yes
