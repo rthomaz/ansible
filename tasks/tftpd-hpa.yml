@@ -47,6 +47,7 @@
   file:
     src: "/srv/tftp/debian-installer/amd64/bootnetx64.efi"
     dest: "/srv/tftp/"
+    remote_src: yes
     state: link
 - name: criando o arquivo de configuração pxe txt.cfg
   template:
