@@ -37,3 +37,8 @@
     src: http://ftp.nl.debian.org/debian/dists/stretch/main/installer-amd64/current/images/netboot/netboot.tar.gz
     dest: /srv/tftp/
     remote_src: yes
+- name: copiando arquivo memdisk do pacote Syslinux para o caminho da raiz TFTP
+  copy:
+    src: "/usr/lib/syslinux/memdisk"
+    dest: "/srv/tftp/"
+    backup: yes         
