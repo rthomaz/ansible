@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   
   #config.ssh.host = 'deb-01'  
   #config.ssh.username = "root"
-  #config.ssh.private_key_path = "/root/.ssh/id_rsa.pub"
+  config.ssh.private_key_path = "/root/.ssh/id_rsa.pub"
   
   config.vm.provider :libvirt do |provider|
     provider.memory = 512
