@@ -2,6 +2,11 @@
 - name: instalando o tftpd-hpa
   apt:
     name: "tftpd-hpa"
+- name: criando ficheiro tftpd-hpa
+  template:
+    src: "tftpd-hpa.j2"
+    dest: "/etc/default/tftpd-hpa"
+    backup: yes    
 - name: adicionando regras em /{{ workgroup_name }}/ufw-rules.sh para tftpd-hpa
   lineinfile:
     dest: /{{ workgroup_name }}/ufw-rules.sh
