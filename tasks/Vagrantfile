@@ -13,14 +13,7 @@ Vagrant.configure("2") do |config|
   
   #config.ssh.host = 'deb-01'  
   #config.ssh.username = "root"
-  #config.ssh.private_key_path = "~/.ssh/id_rsa.pub"
-  
-  config.ssh.private_key_path = ["keys/private", "~/.vagrant.d/insecure_private_key"]
-  config.vm.provision "file", source: "keys/public", destination: "~/.ssh/authorized_keys"
-  config.vm.provision "shell", inline: <<-EOC
-    sudo sed -i -e "\\#PasswordAuthentication yes# s#PasswordAuthentication yes#PasswordAuthentication no#g" /etc/ssh/sshd_config
-    sudo service ssh restart
-  EOC
+  #config.ssh.private_key_path = "/root/.ssh/id_rsa.pub"
   
   config.vm.provider :libvirt do |provider|
     provider.memory = 512
