@@ -30,5 +30,5 @@
     tags: samba-domain-member 
   - include: pam.yml
     tags: pam
-  - include: tftpd-hpa.yml
-    tags: tftpd-hpa
+  #- include: tftpd-hpa.yml
+  #  tags: tftpd-hpa
