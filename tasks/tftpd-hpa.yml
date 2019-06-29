@@ -32,3 +32,8 @@
     packages:
     - syslinux-utils
     - syslinux
+- name: download da versão mais recente do arquivo netboot do Debian
+  unarchive:
+    src: http://ftp.nl.debian.org/debian/dists/stretch/main/installer-amd64/current/images/netboot/netboot.tar.gz
+    dest: /srv/tftp/
+    remote_src: yes
