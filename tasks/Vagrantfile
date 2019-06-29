@@ -7,13 +7,8 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "deb-01"  
   config.vm.network :public_network, :dev => "br0", :mode => "bridge", :type => "bridge", ip: "192.168.1.185", :netmask => "255.255.255.0"
   config.vm.synced_folder '.', '/vagrant', disabled: true
-# config.vm.synced_folder "PATH_DOT_SSH", "/home/vagrant/.ssh"
  
   config.ssh.insert_key = false
-  
-  #config.ssh.host = 'deb-01'  
-  #config.ssh.username = "root"
-  config.ssh.private_key_path = "/root/.ssh/id_rsa.pub"
   
   config.vm.provider :libvirt do |provider|
     provider.memory = 512
