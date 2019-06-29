@@ -42,3 +42,8 @@
     src: "/usr/lib/syslinux/memdisk"
     dest: "/srv/tftp/"
     backup: yes         
+- name: criando link para o arquivo de bootloader UEFI do pacote netinstall para o caminho raiz TFTP
+  file:
+    src: "/srv/tftp/debian-installer/amd64/bootnetx64.efi"
+    dest: "/srv/tftp/"
+    state: link
