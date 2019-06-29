@@ -25,3 +25,10 @@
     command: /bin/bash -c '/{{ workgroup_name }}/ufw-rules.sh'
     responses:
       (?i)Proceed with operation (y|n)?: "y"
+- name: instalando os utilitários do carregador de inicialização do Syslinux
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - syslinux-utils
+    - syslinux
