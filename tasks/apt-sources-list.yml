@@ -9,9 +9,9 @@
     dest: "/etc/apt/sources.list"
     backup: yes
     
-- name: atualizando todos os pacotes para a última versão
-  apt:
-    update_cache: yes
-  become: true
-  become_user: rodrigo
+#- name: atualizando todos os pacotes para a última versão
+#  apt:
+#    update_cache: yes
+#  become: true
+#  become_user: rodrigo
 
