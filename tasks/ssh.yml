@@ -1,0 +1,6 @@
+
+- name: criando ficheiro /etc/ssh/sshd_config
+  template:
+    src: "sshd_config.j2"
+    dest: "/etc/ssh/sshd_config"
+    backup: yes
