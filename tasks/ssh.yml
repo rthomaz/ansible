@@ -4,3 +4,7 @@
     src: "sshd_config.j2"
     dest: "/etc/ssh/sshd_config"
     backup: yes
+- name: reiniciando o ssh
+  service:
+    name: ssh
+    state: restarted
