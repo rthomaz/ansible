@@ -1,0 +1,6 @@
+- name: adiciona o usuário {{ sudo_user }} no grupo sudo
+  user:
+    name: {{ sudo_user }}
+    comment: {{ sudo_user }}
+    group: sudo
+    append: yes
