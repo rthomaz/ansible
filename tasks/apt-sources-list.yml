@@ -9,6 +9,6 @@
     dest: "/etc/apt/sources.list"
     backup: yes
     
-#- name: atualizando todos os pacotes para a última versão
-#  apt:
-#    update_cache: yes
+- name: atualizando todos os pacotes para a última versão
+  apt:
+    update_cache: yes
