@@ -11,7 +11,8 @@
 - name: criando ficheiro /{{ workgroup_name }}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
-    dest: "/{{ workgroup_name }}/ufw-rules.sh"
+#    dest: "/{{ workgroup_name }}/ufw-rules.sh"
+    dest: "/etc/ufw-rules.sh"
     backup: yes
     mode: a+x
     owner: root
