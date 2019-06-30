@@ -1,0 +1,13 @@
+
+Port 22
+ListenAddress 192.168.1.108
+LoginGraceTime 2m
+PermitRootLogin prohibit-password
+StrictModes yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem       sftp    /usr/lib/openssh/sftp-server
