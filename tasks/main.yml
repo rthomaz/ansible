@@ -20,8 +20,8 @@
     tags: default-packages
   - include: ufw.yml
     tags: ufw
-  - include: sshd.yml
-    tags: sshd
+  - include: ssh.yml
+    tags: ssh
   - include: ntp.yml
     tags: ntp    
 # - include: clamav.yml
