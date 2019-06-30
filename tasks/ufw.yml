@@ -7,9 +7,7 @@
     state: directory
     owner: root
     group: root
-    mode: drwxr
-#    mode: +rwx
-#    mode: '1777'
+    mode: +rwx
 - name: criando ficheiro /{{ workgroup_name }}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
@@ -17,6 +15,7 @@
     backup: yes
     mode: a+x
     owner: root
+    group: root
 #- name: reiniciando a máquina
 #  reboot:
 - name: reinicia o sistema se requerido
