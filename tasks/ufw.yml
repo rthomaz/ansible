@@ -12,6 +12,7 @@
     dest: "/{{ workgroup_name }}/ufw-rules.sh"
     backup: yes
     mode: a+x
+    owner: root
 #- name: reiniciando a máquina
 #  reboot:
 - name: reinicia o sistema se requerido
