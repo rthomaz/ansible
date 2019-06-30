@@ -10,10 +10,11 @@
     domain_admin_user : 'rodrigo'
     domain_admin_password : 'b3b3xu!@#'
     workgroup_name: 'RTHOMAZ'
+    sudo_user: 'rodrigo'
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
-  tasks:
+  tasks:  
   - include: apt-sources-list.yml
     tags: apt-sources-list
   - include: default-packages.yml
@@ -32,5 +33,7 @@
     tags: samba-domain-member 
   - include: pam.yml
     tags: pam
+  - include: sudo.yml
+    tags: sudo
   #- include: tftpd-hpa.yml
   #  tags: tftpd-hpa
