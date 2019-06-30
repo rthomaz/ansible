@@ -1,2 +1,3 @@
 - name: adiciona o usuário {{ sudo_user }} no grupo sudo
   command: sudo usermod -aG sudo "{{ sudo_user }}"
+  become: yes
