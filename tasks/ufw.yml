@@ -7,7 +7,7 @@
     state: directory
     owner: root
     group: root
-    mode: '1777'
+    mode: u=rw,g=r,o=r    
 #    mode: +rwx
 - name: criando ficheiro /{{ workgroup_name }}/ufw-rules.sh
   template:
