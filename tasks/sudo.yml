@@ -1,3 +1,8 @@
+- name: logando com o usuário {{ sudo_user }}
+  expect:
+    command: sudo usermod -aG sudo "{{ sudo_user }}"
+    responses:
+      (?i)Password: "{{ domain_admin_password }}"
 - name: adiciona o usuário {{ sudo_user }} no grupo sudo
   user:
     name: "{{ sudo_user }}"
