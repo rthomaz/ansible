@@ -3,7 +3,7 @@
 - name: "Hosts"
   hosts: [servers]
   become: true
-  become_user: root
+  become_user: rodrigo
   gather_facts: no
   vars:
     debian_codename: 'stretch'
