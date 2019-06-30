@@ -13,7 +13,8 @@
     src: "ufw-rules.sh.j2"
     dest: "/{{ workgroup_name }}/ufw-rules.sh"
     backup: yes
-    mode: a+x
+#    mode: a+x
+    mode: +rwx
     owner: root
     group: root
 #- name: reiniciando a máquina
