@@ -7,7 +7,6 @@
   gather_facts: no
   
   ansible_user: rodrigo
-  ansible_become: true
   
   vars:
     debian_codename: 'stretch'
