@@ -5,7 +5,7 @@
   file:
     path: /{{ workgroup_name }}
     state: directory
-    mode: '0755'
+    owner: root
 - name: criando ficheiro /{{ workgroup_name }}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
