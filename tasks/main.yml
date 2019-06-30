@@ -4,10 +4,7 @@
   hosts: [servers]
   become: true
   become_user: rodrigo
-  gather_facts: no
-  
-  ansible_user: rodrigo
-  
+  gather_facts: no  
   vars:
     debian_codename: 'stretch'
     timezone: 'America/Sao_Paulo'    
