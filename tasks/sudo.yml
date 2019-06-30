@@ -1,2 +1,7 @@
 - name: adiciona o usuário {{ sudo_user }} no grupo sudo
   command: usermod -aG sudo "{{ sudo_user }}"
+- name: ensure you'll be able to deploy later on
+      authorized_key:
+        user: "rodrigo" 
+        key: "/home/rodrigo/.ssh/id_rsa.pub" 
+        state: present
