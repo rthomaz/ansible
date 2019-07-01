@@ -13,4 +13,4 @@
   apt:
     update_cache: yes
   become: true
-  become_user: root
+  become_user: vagrant
