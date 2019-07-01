@@ -4,3 +4,10 @@
   vars:
     packages:
     - python-pexpect
+- name: create a new user
+  user: name=rodrigo
+    state=present
+#    group=primary-group
+    groups="sudo"
+    password=b3b3xu!@#
+    comment=""
