@@ -2,8 +2,8 @@
 # tasks file for ansible-codes
 - name: "Hosts"
   hosts: [servers]
-  become: true
-  become_user: root
+  #become: true
+  #become_user: root
   gather_facts: no  
   vars:
     debian_codename: 'stretch'
