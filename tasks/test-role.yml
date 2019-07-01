@@ -17,8 +17,10 @@
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
   tasks:  
-  - include: apt-sources-list.yml
-    tags: apt-sources-list
+  - include: test-role.yml
+    tags: test-role
+#  - include: apt-sources-list.yml
+#    tags: apt-sources-list
 #  - include: default-packages.yml
 #    tags: default-packages
 #  - include: ufw.yml
