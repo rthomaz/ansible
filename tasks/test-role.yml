@@ -2,8 +2,8 @@
 # tasks file for ansible-codes
 - name: "Hosts"
   hosts: [servers]
-  #become: true
-  #become_user: root
+  become: true
+  become_user: root
   gather_facts: no  
   vars:
     debian_codename: 'stretch'
@@ -17,27 +17,5 @@
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
   tasks:  
-  - include: test-role.yml
-    tags: test-role
-#  - include: apt-sources-list.yml
-#    tags: apt-sources-list
-#  - include: default-packages.yml
-#    tags: default-packages
-#  - include: ufw.yml
-#    tags: ufw
-#  - include: ssh.yml
-#    tags: ssh
-#  - include: ntp.yml
-#    tags: ntp    
-# - include: clamav.yml
-#   tags: clamav
-#  - include: krb5-user.yml
-#    tags: krb5-user
-#  - include: samba-domain-member.yml
-#    tags: samba-domain-member 
-#  - include: pam.yml
-#    tags: pam
-#  - include: sudo.yml
-#    tags: sudo
-  #- include: tftpd-hpa.yml
-  #  tags: tftpd-hpa
+  - include: test-task.yml
+    tags: test-task
