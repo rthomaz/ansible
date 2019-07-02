@@ -5,8 +5,13 @@
     packages:
     - python-pexpect
 - name: create a new user
-  user: name=rodrigo
+  user: 
+    name=rodrigo
     state=present
-    groups="sudo"
-    password=b3b3xu!@#
+    groups="sudo"    
     comment=""
+- name: Add public ssh key to user
+  authorized_key:
+    user: rodrigo
+    state: present
+    key: "{{ lookup('file', 'files/ssh/id_rsa.pub') }}"
