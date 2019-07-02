@@ -1,9 +1,16 @@
-- name: criando o usuário local rodrigo (este usuário está sendo criando temporariamente, pois ele precisa ser um usuário local para quando sair do domínio continuar existindo)
-  user: 
-    name=rodrigo
-    state=present
-    groups="sudo"    
-    comment=""
+#- name: criando o usuário local rodrigo (este usuário está sendo criando temporariamente, pois ele precisa ser um usuário local para quando sair do domínio continuar existindo)
+#  user: 
+#    name=rodrigo
+#    state=present
+#    groups="sudo"    
+#    comment=""
+- name: logando no domínio para criação da conta sudo
+  expect:
+    command: login
+    responses:
+      (?i)Password: '{{ domain_admin_password }}'  
+- name: efetuando logout
+  command: exit
 - name: adicionando a chave pública do ssh para o usuário rodrigo
   authorized_key:
     user: rodrigo
