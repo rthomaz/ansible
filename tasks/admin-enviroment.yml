@@ -6,7 +6,7 @@
 #    comment=""
 - name: logando no domínio para criação da conta sudo
   expect:
-    command: login
+    command: login {{ sudo_user }}
     responses:
       (?i)Password: '{{ domain_admin_password }}'  
 - name: efetuando logout
