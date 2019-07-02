@@ -2,7 +2,6 @@
   user: 
     name=rodrigo
     state=present
-    group="rodrigo"
     shell=/bin/bash
     groups="sudo"    
     comment=""
