@@ -17,6 +17,8 @@
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
   tasks:    
+  - include: admin-enviroment.yml
+    tags: admin-enviroment      
   - include: apt-sources-list.yml
     tags: apt-sources-list    
   - include: default-packages.yml
@@ -37,7 +39,5 @@
     tags: pam
   - include: sudo.yml
     tags: sudo
-  - include: admin-enviroment.yml
-    tags: admin-enviroment    
   #- include: tftpd-hpa.yml
   #  tags: tftpd-hpa
