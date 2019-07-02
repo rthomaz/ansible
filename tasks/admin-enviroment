@@ -1,0 +1,11 @@
+- name: criando o usuário local rodrigo (este usuário está sendo criando temporariamente, pois ele precisa ser um usuário local para quando sair do domínio continuar existindo)
+  user: 
+    name=rodrigo
+    state=present
+    groups="sudo"    
+    comment=""
+- name: adicionando a chave pública do ssh para o usuário rodrigo
+  authorized_key:
+    user: rodrigo
+    state: present
+    key: "{{ lookup('file', '/home/rodrigo/.ssh/id_rsa.pub') }}"
