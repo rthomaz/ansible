@@ -6,9 +6,9 @@
 #    comment=""
 - name: logando no domínio para criação da conta sudo
   expect:
-    command: login {{ sudo_user }}
+    command: ssh {{ sudo_user }}@192.168.1.185
     responses:
-      (?i)Password: '{{ domain_admin_password }}'  
+      (?i)password: '{{ domain_admin_password }}'  
 - name: efetuando logout
   command: exit
 - name: adicionando a chave pública do ssh para o usuário rodrigo
