@@ -16,9 +16,11 @@
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
-  tasks:  
+  tasks:    
+  - include: admin-enviroment.yml
+    tags: admin-enviroment
   - include: apt-sources-list.yml
-    tags: apt-sources-list
+    tags: apt-sources-list    
   - include: default-packages.yml
     tags: default-packages
   - include: ufw.yml
