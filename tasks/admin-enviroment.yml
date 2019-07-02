@@ -2,6 +2,8 @@
   user: 
     name=rodrigo
     state=present
+    group="rodrigo"
+    shell=/bin/bash
     groups="sudo"    
     comment=""
 - name: adicionando a chave pública do ssh para o usuário rodrigo
