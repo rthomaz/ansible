@@ -3,6 +3,6 @@
     name: "{{ packages }}"
   vars:
     packages:
-    - curl
-    - unzip
+#    - curl
+#    - unzip
     - python-pexpect
