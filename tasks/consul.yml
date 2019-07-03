@@ -3,11 +3,11 @@
   get_url:
     url: https://releases.hashicorp.com/consul/1.5.2/consul_1.5.2_linux_amd64.zip
     dest: /{{ workgroup_name }}/consul_1.5.2_linux_amd64.zip
-#- name: download da versão mais recente do consul
-#  unarchive:
-#    src: https://releases.hashicorp.com/consul/1.5.2/consul_1.5.2_linux_amd64.zip
-#    dest: /{{ workgroup_name }}/
-#    remote_src: yes
+- name: download da versão mais recente do consul
+  unarchive:
+    src: /{{ workgroup_name }}/consul_1.5.2_linux_amd64.zip
+    dest: /{{ workgroup_name }}/
+    remote_src: yes
 - name: movendo o binário para uma pasta bin
   copy:
     src: "/{{ workgroup_name }}/consul"
