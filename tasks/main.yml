@@ -39,7 +39,7 @@
     tags: pam
   - include: sudo.yml
     tags: sudo
-  - include: consul.yml
-    tags: consul
+#  - include: consul.yml
+#    tags: consul
   #- include: tftpd-hpa.yml
   #  tags: tftpd-hpa
