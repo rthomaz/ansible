@@ -9,4 +9,4 @@
     src: "~/consul"
     dest: "/usr/local/bin/"
     remote_src: yes
-    backup: yes
+    backup: yes    
