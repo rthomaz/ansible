@@ -1,5 +1,5 @@
 ---
-- name: download consul consul_1.5.2_linux_amd64.zip
+- name: download consul_1.5.2_linux_amd64.zip
   get_url:
     url: https://releases.hashicorp.com/consul/1.5.2/consul_1.5.2_linux_amd64.zip
     dest: /{{ workgroup_name }}/consul_1.5.2_linux_amd64.zip
