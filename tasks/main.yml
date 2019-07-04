@@ -45,5 +45,7 @@
     tags: consul
   - include: vault.yml
     tags: vault  
+  - include: terraform.yml
+    tags: terraform
   - include: tftpd-hpa.yml
     tags: tftpd-hpa
