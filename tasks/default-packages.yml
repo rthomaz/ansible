@@ -4,5 +4,5 @@
   vars:
     packages:
 #    - curl
-#    - unzip
+    - unzip
     - python-pexpect
