@@ -43,5 +43,7 @@
     tags: sudo
   - include: consul.yml
     tags: consul
+  - include: vault.yml
+    tags: vault  
   #- include: tftpd-hpa.yml
   #  tags: tftpd-hpa
