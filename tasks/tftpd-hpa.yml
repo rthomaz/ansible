@@ -32,9 +32,15 @@
     packages:
     - syslinux-utils
     - syslinux
-- name: download da versão mais recente do arquivo netboot do Debian
+- name: copiando a versão mais recente do arquivo netboot.tar.gz do Debian para /tmp
+  copy:
+    src: /rthomaz/netboot.tar.gz
+    dest: /tmp/netboot.tar.gz
+    remote_src: no
+    backup: no    
+- name: extraindo netboot.tar.gz
   unarchive:
-    src: http://ftp.nl.debian.org/debian/dists/stretch/main/installer-amd64/current/images/netboot/netboot.tar.gz
+    src: /tmp/netboot.tar.gz
     dest: /srv/tftp/
     remote_src: yes
 - name: copiando arquivo memdisk do pacote Syslinux para o caminho da raiz TFTP
