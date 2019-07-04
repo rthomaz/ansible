@@ -49,14 +49,14 @@
     dest: "/srv/tftp/"
     remote_src: yes
     backup: yes         
-- name: criando link para o arquivo de bootloader UEFI do pacote netinstall para o caminho raiz TFTP
-  command: ln -s /srv/tftp/debian-installer/amd64/bootnetx64.efi /srv/tftp/
 #- name: criando link para o arquivo de bootloader UEFI do pacote netinstall para o caminho raiz TFTP
-#  file:
-#    src: "/srv/tftp/debian-installer/amd64/bootnetx64.efi"
-#    dest: "/srv/tftp/"
-#    remote_src: yes
-#    state: link
+#  command: ln -s /srv/tftp/debian-installer/amd64/bootnetx64.efi /srv/tftp/
+- name: criando link para o arquivo de bootloader UEFI do pacote netinstall para o caminho raiz TFTP
+  file:
+    src: /srv/tftp/debian-installer/amd64/bootnetx64.efi
+    dest: /srv/tftp/bootnetx64.efi
+    remote_src: yes
+    state: link
 - name: criando o arquivo de configuração pxe txt.cfg
   template:
     src: "txt.cfg.j2"
