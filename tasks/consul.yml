@@ -3,7 +3,7 @@
   copy:
     src: /mnt/rthomaz/consul_1.5.2_linux_amd64.zip
     dest: ~/consul_1.5.2_linux_amd64.zip
-    remote_src: no
+    remote_src: yes
     backup: no
 - name: extraindo consul_1.5.2_linux_amd64.zip
   unarchive:
