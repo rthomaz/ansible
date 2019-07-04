@@ -13,6 +13,6 @@
 - name: copiando o binário para uma pasta bin
   copy:
     src: /tmp/consul
-    dest: /usr/local/bin/
+    dest: /usr/bin/
     remote_src: yes
     backup: yes 
