@@ -1,9 +1,9 @@
 ---
 - name: copiando o arquivo consul_1.5.2_linux_amd64.zip para ~/
   copy:
-    src: /mnt/rthomaz/consul_1.5.2_linux_amd64.zip
+    src: /rthomaz/consul_1.5.2_linux_amd64.zip
     dest: /tmp/consul_1.5.2_linux_amd64.zip
-    remote_src: yes
+    remote_src: no
     backup: no
 - name: extraindo consul_1.5.2_linux_amd64.zip
   unarchive:
