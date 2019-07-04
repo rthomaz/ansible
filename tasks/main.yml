@@ -27,8 +27,6 @@
     tags: ufw
   - include: ssh.yml
     tags: ssh
-  - include: nfs-client.yml
-    tags: nfs    
   - include: ntp.yml
     tags: ntp    
 # - include: clamav.yml
