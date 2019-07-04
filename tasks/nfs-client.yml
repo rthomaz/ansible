@@ -4,4 +4,8 @@
 - name: Create mountable dir
   file: path=/mnt/rthomaz state=directory mode=777 owner=root group=root
 - name: set mountpoints
-  mount: name=/rthomaz src=192.168.1.108:/rthomaz fstype=nfs opts=defaults,nobootwait dump=0 passno=2 state=mounted
+  mount: 
+    path=/mnt/rthomaz
+    src=192.168.1.108:/rthomaz
+    fstype=nfs
+    state=present
