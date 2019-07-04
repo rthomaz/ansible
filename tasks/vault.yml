@@ -1,22 +1,21 @@
 ---
-- name: copiando o arquivo consul_1.5.2_linux_amd64.zip para /tmp
+- name: copiando o arquivo vault_1.1.3_linux_amd64.zip para /tmp
   copy:
-    src: /rthomaz/consul_1.5.2_linux_amd64.zip
-    dest: /tmp/consul_1.5.2_linux_amd64.zip
+    src: /rthomaz/vault_1.1.3_linux_amd64.zip
+    dest: /tmp/vault_1.1.3_linux_amd64.zip
     remote_src: no
     backup: no
-- name: extraindo consul_1.5.2_linux_amd64.zip
+- name: extraindo vault_1.1.3_linux_amd64.zip
   unarchive:
-    src: /tmp/consul_1.5.2_linux_amd64.zip
+    src: /tmp/vault_1.1.3_linux_amd64.zip
     dest: /tmp/
     remote_src: yes    
 - name: copiando o binário para uma pasta bin
   copy:
-    src: /tmp/consul
+    src: /tmp/vault
     dest: /usr/local/bin/
     owner: root
     group: root
     mode: 0770
     remote_src: yes
-    backup: yes 
-© 2019 GitHub, Inc.
+    backup: yes
