@@ -10,7 +10,7 @@
     src: /tmp/consul_1.5.2_linux_amd64.zip
     dest: /tmp/
     remote_src: yes    
-- name: copiando o binário para uma pasta bin
+- name: copiando o binário consul para uma pasta bin
   copy:
     src: /tmp/consul
     dest: /usr/local/bin/
