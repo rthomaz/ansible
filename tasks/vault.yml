@@ -10,7 +10,7 @@
     src: /tmp/vault_1.1.3_linux_amd64.zip
     dest: /tmp/
     remote_src: yes    
-- name: copiando o binário para uma pasta bin
+- name: copiando o binário vault para uma pasta bin
   copy:
     src: /tmp/vault
     dest: /usr/local/bin/
