@@ -14,5 +14,8 @@
   copy:
     src: /tmp/consul
     dest: /usr/local/bin/
+    owner: root
+    group: root
+    mode: 0770
     remote_src: yes
     backup: yes 
