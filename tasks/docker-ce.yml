@@ -53,3 +53,12 @@
     group: root
     mode: 0770
     backup: yes
+    
+- name: instalando o pacote python-pip
+  apt:
+    name: "python-pip"
+  tags:
+    - docker-ce
+    
+- name: rodando o comando pip install docker
+  shell: pip install docker
