@@ -43,5 +43,12 @@
   tags:
     - docker-ce
     
-- name: Ensure docker-compose is installed and available
-  shell: curl -L "https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+- name: copiando o arquivo para /usr/local/bin/docker-compose
+  copy:
+    src: /rthomaz/docker-compose
+    dest: /usr/local/bin/docker-compose
+    remote_src: no
+    owner: root
+    group: root
+    mode: 0770
+    backup: yes
