@@ -1,3 +1,7 @@
+- name: cria a network docknet
+  docker_network:
+    name: docknet
+    internal: false
 - name: cria o container do MySQL
   docker_container:
     name: mysql
