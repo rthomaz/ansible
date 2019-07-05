@@ -1,0 +1,29 @@
+---
+- name: instalando o docker ce
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - apt-transport-https 
+    - ca-certificates
+    - gnupg2
+    - software-properties-common
+- name: Add Apt signing key from official docker repo
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+- name: add docker official repository for Debian Stretch
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+    state: present
+- name: Index new repo into the cache
+  become: yes
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
+    force_apt_get: yes
+- name: actually install docker
+  apt:
+    name: "docker-ce"
+    state: latest
