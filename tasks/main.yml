@@ -43,6 +43,8 @@
     tags: sudo
   - include: docker-ce.yml
     tags: docker-ce
+  - include: docker-my-sql.yml
+    tags: docker-my-sql
   - include: consul.yml
     tags: consul
   - include: vault.yml
