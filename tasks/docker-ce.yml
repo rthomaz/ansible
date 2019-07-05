@@ -1,4 +1,5 @@
 ---
+
 - name: instalando os pacotes necessários para o apt trabalhar com repositórios sobre HTTPS 
   apt:
     name: "{{ packages }}"
@@ -8,14 +9,23 @@
     - ca-certificates
     - gnupg2
     - software-properties-common
+  tags:
+    - docker-ce
+    
 - name: adicionando apt signing key do repositório oficial do docker
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
     state: present
+  tags:
+    - docker-ce
+    
 - name: adicionando repositório oficial do docker para Debian Stretch
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
     state: present
+  tags:
+    - docker-ce
+    
 - name: indexando o novo repositório com o cache
   become: yes
   apt:
@@ -23,12 +33,20 @@
     state: latest
     update_cache: yes
     force_apt_get: yes
+  tags:
+    - docker-ce
+    
 - name: atualizando a instalação do docker-ce
   apt:
     name: "docker-ce"
     state: latest
+  tags:
+    - docker-ce
+    
 - name: Ensure docker-compose is installed and available
   get_url:
     url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-{{ ansible_system }}-{{ ansible_userspace_architecture }}
     dest: /usr/local/bin/docker-compose
     mode: 'u+x,g+x'
+  tags:
+    - docker-ce
