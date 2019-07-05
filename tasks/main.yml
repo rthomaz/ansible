@@ -41,6 +41,8 @@
     tags: pam
   - include: sudo.yml
     tags: sudo
+  - include: docker-ce.yml
+    tags: docker-ce
   - include: consul.yml
     tags: consul
   - include: vault.yml
