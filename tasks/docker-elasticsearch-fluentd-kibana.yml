@@ -13,10 +13,13 @@
     name: kibanaconfig
     driver: local    
 
+- name: exclui o container do elasticsearch
+  command: docker rm elasticsearch-1 -f
+    
 - name: cria o container do elasticsearch
   command: docker run 
     --restart=always -d 
-    --name elasticsearch-3 
+    --name elasticsearch-1
     -p 9200:9200 
     -e "http.host=0.0.0.0" 
     -e "transport.host=127.0.0.1" 
