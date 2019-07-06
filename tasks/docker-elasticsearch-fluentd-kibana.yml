@@ -30,7 +30,7 @@
     docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data
     --network stack 
-    --health-interval "30s"
+    --health-interval="30s"
     
 #- name: cria o container do elasticsearch
 #  docker_container:
