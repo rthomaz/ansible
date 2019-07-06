@@ -1,0 +1,33 @@
+- name: cria a network docknet
+  docker_network:
+    name: stack
+    driver: bridge
+    
+- name: cria o volume elasticsearchdata
+  docker_volume:
+    name: elasticsearchdata
+    driver: local
+    
+- name: cria o volume kibanaconfig
+  docker_volume:
+    name: kibanaconfig
+    driver: local    
+    
+- name: cria o container do elasticsearch
+  docker_container:
+    name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:$ELK_VERSION
+    restart: unless-stopped
+    env:
+      cluster.name: "log-cluster"
+      http.host: 0.0.0.0
+      transport.host: 127.0.0.1
+      bootstrap.memory_lock: true
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    purge_networks: yes
+    networks:
+      - name: "stack"
+    volumes:
+      - elasticsearchdata:/usr/share/elasticsearch/data
+    ports:
+     - "9200:9200"
