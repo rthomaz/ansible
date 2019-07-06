@@ -83,6 +83,8 @@
     name: rt-fluentd-1
     image: rt-fluentd:latest
     restart: yes
+    recreate: '{{ True if image_build.changed else omit }}'
+    state: started
     purge_networks: yes
     networks_cli_compatible: yes
     networks:
