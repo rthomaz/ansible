@@ -54,11 +54,27 @@
 #    mode: 0770
 #    backup: yes
     
-#- name: instalando o pacote python-pip
-#  apt:
-#    name: "python-pip"
-#  tags:
-#    - docker-ce
+- name: instalando o pacote python-pip
+  apt:
+    name: "python-pip"
+  tags:
+    - docker-ce
     
-#- name: rodando o comando pip install docker
-#  shell: pip install docker
+- name: rodando o comando pip install docker
+  shell: pip install docker
+
+- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }} se ele não existir
+  file:
+    path: /{{ workgroup_name }}/{{ docker_work_path }}
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx    
+    
+- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/images se ele não existir
+  file:
+    path: /{{ workgroup_name }}/{{ docker_work_path }}/images
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx
