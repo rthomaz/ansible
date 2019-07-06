@@ -2,6 +2,11 @@
   docker_network:
     name: docknet
     internal: false
+    
+- name: cria o volume
+  docker_volume:
+    name: mysql-data    
+    
 - name: cria o container do MySQL
   docker_container:
     name: mysql
