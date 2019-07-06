@@ -72,7 +72,7 @@
   docker_image:
     name: fluentd
     build:
-      path: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd
+      path: /{{ workgroup_name }}/{{ docker_work_path }}/images
       dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
       pull: yes
     push: no
