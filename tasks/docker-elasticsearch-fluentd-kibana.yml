@@ -1,11 +1,3 @@
-- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }} se ele não existir
-  file:
-    path: /{{ workgroup_name }}/{{ docker_work_path }}
-    state: directory
-    owner: root
-    group: root
-    mode: +rwx    
-    
 - name: cria a network stack
   docker_network:
     name: stack
