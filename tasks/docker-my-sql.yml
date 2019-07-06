@@ -3,22 +3,39 @@
     name: docknet
     internal: false
     
-- name: cria o volume
+- name: cria o volume do mysql
   docker_volume:
     name: mysql-data    
     
-- name: cria o container do MySQL
-  docker_container:
-    name: mysql
-    image: mysql:5.7.24
-    restart: yes
-    env:
-      MYSQL_ROOT_PASSWORD: "changeme"
-    purge_networks: yes
-    networks_cli_compatible: yes
-    networks:
-      - name: "docknet"
-    volumes:
-      - mysql-data:/var/lib/mysql
-    ports:
-     - "3306:3306"
+- name: exclui o container do mysql
+  command: docker rm -f -v mysql-1
+  ignore_errors: yes    
+    
+- name: cria o container do mysql
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name mysql-1
+    --mount source=mysql-data,target=/var/lib/mysql
+    --network docknet    
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.mysql
+    -p 3306:3306 
+    -e "MYSQL_ROOT_PASSWORD=changeme"
+    mysql:5.7.24
+    
+#- name: cria o container do MySQL
+#  docker_container:
+#    name: mysql
+#    image: mysql:5.7.24
+#    restart: yes
+#    env:
+#      MYSQL_ROOT_PASSWORD: "changeme"
+#    purge_networks: yes
+#    networks_cli_compatible: yes
+#    networks:
+#      - name: "docknet"
+#    volumes:
+#      - mysql-data:/var/lib/mysql
+#    ports:
+#     - "3306:3306"
