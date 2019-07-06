@@ -1,0 +1,26 @@
+---
+# tasks file for ansible-codes
+- name: "Hosts"
+  hosts: [servers]
+  become: true
+  become_user: root
+  gather_facts: no  
+  vars:
+    debian_codename: 'stretch'
+    timezone: 'America/Sao_Paulo'    
+    dns_domain_name: 'RTHOMAZ.LOCAL'
+    domain_admin_user : 'rodrigo'
+    domain_admin_password : 'b3b3xu!@#'
+    workgroup_name: 'RTHOMAZ'
+    sudo_user: 'rodrigo'
+    docker_work_path: 'docker-projects'
+    ntp_servers: 
+      - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
+#     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
+  tasks:    
+  - include: admin-enviroment.yml
+    tags: admin-enviroment      
+  - include: docker-elasticsearch-fluentd-kibana.yml
+    tags: docker-elasticsearch-fluentd-kibana
+  - include: docker-my-sql.yml
+    tags: docker-my-sql
