@@ -1,4 +1,4 @@
-- name: cria a network docknet
+- name: cria a network stack
   docker_network:
     name: stack
     driver: bridge
