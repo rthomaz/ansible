@@ -38,7 +38,7 @@
 #      retries: 3
     ports:
      - "9200:9200"
-     - "9300:9300"
+#     - "9300:9300"
 #    purge_networks: yes
 #    networks_cli_compatible: yes
 #    networks:
