@@ -79,8 +79,8 @@
     source: build
     
 - name: cria o container fluentd
-  docker_container:
-    name: fluentd
+  docker:
+    name: fluentd-1
     image: fluentd-oi:latest
     restart: yes
     purge_networks: yes
