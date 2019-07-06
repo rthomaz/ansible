@@ -18,6 +18,8 @@
     name: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
     restart: yes
+    recreate: yes
+    state: started
     env:
       cluster.name: "log-cluster"
       http.host: 0.0.0.0
