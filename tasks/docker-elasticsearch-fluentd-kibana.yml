@@ -68,12 +68,27 @@
     owner: root
     group: root    
     
-- name: cria o container fluentd
+- name: cria a imagem fluentd
   docker_image:
-    name: fluentd
+    name: fluentd-oi
     build:
       path: /{{ workgroup_name }}/{{ docker_work_path }}/images
       dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
       pull: yes
     push: no
     source: build
+    
+- name: cria o container fluentd
+  docker_container:
+    name: fluentd
+    image: fluentd-oi:latest
+    restart: yes
+    purge_networks: yes
+    networks_cli_compatible: yes
+    networks:
+      - name: "stack"
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    ports:
+     - "24224:24224"
+     - "24224:24224/udp"
