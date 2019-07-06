@@ -21,15 +21,16 @@
   command: docker run 
     --restart=always -d 
     --name elasticsearch-1
+    --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data    
+    --network stack
     -p 9200:9200 
     -p 9300:9300 
     -e "cluster.name=log-cluster"
     -e "http.host=0.0.0.0" 
     -e "transport.host=127.0.0.1"
     -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    --network stack
     docker.elastic.co/elasticsearch/elasticsearch:7.2.0
-    --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data
+
 
     
 #- name: cria o container do elasticsearch
