@@ -22,7 +22,6 @@
       cluster.name: "log-cluster"
       http.host: 0.0.0.0
       transport.host: 127.0.0.1
-      bootstrap.memory_lock: yes
       ES_JAVA_OPTS: -Xms512m -Xmx512m
     purge_networks: yes
     networks_cli_compatible: yes
