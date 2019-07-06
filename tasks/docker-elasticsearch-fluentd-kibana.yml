@@ -17,7 +17,7 @@
   docker_container:
     name: elasticsearch
     hostname: elasticsearch
-    image: elasticsearch:6.4.3
+    image: elasticsearch:latest
     restart: yes
     recreate: yes
     state: started
