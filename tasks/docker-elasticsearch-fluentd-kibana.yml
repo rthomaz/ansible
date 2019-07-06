@@ -79,7 +79,7 @@
     source: build
     
 - name: cria o container fluentd
-  docker:
+  docker_container:
     name: fluentd-1
     image: fluentd-oi:latest
     restart: yes
