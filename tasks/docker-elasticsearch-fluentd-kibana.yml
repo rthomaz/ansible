@@ -3,65 +3,6 @@
     name: stack
     driver: bridge
 
-# elasticsearch
-
-- name: cria o volume elasticsearchdata
-  docker_volume:
-    name: elasticsearchdata
-    driver: local    
-
-- name: exclui o container do elasticsearch
-  command: docker rm -f -v elasticsearch-1
-  ignore_errors: yes
-    
-- name: cria o container do elasticsearch
-  command: docker run 
-    --restart=unless-stopped -d 
-    --name elasticsearch-1
-    --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data    
-    --network stack    
-    --ulimit memlock=-1:-1
-    --health-cmd='["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]'
-    --health-interval="30s"
-    --health-timeout="30s"
-    --health-retries="3"
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.elasticsearch
-    --expose="9200"
-    --expose="9300"    
-    -p 9200:9200 
-    -p 9300:9300 
-    -e "cluster.name=log-cluster"
-    -e "http.host=0.0.0.0" 
-    -e "transport.host=127.0.0.1"
-    -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    docker.elastic.co/elasticsearch/elasticsearch:6.4.3
-
-# kibana
-
-- name: cria o volume kibanaconfig
-  docker_volume:
-    name: kibanaconfig
-    driver: local    
-
-- name: exclui o container do kibana
-  command: docker rm -f -v kibana-1
-  ignore_errors: yes
-
-- name: cria o container do kibana
-  command: docker run 
-    --restart=unless-stopped -d 
-    --name kibana-1
-    --mount source=kibanaconfig,target=/usr/share/kibana/config
-    --network stack    
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.kibana
-    -p 5601:5601 
-    -e "ELASTICSEARCH_URL=http://elasticsearch-1:9200"
-    docker.elastic.co/kibana/kibana:6.4.3
-    
 # Fluentd
 
 - name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/fluentd se ele não existir
@@ -129,3 +70,62 @@
     ports:
      - "24224:24224"
      - "24224:24224/udp"
+
+# elasticsearch
+
+- name: cria o volume elasticsearchdata
+  docker_volume:
+    name: elasticsearchdata
+    driver: local    
+
+- name: exclui o container do elasticsearch
+  command: docker rm -f -v elasticsearch-1
+  ignore_errors: yes
+    
+- name: cria o container do elasticsearch
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name elasticsearch-1
+    --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data    
+    --network stack    
+    --ulimit memlock=-1:-1
+    --health-cmd='["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]'
+    --health-interval="30s"
+    --health-timeout="30s"
+    --health-retries="3"
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.elasticsearch
+    --expose="9200"
+    --expose="9300"    
+    -p 9200:9200 
+    -p 9300:9300 
+    -e "cluster.name=log-cluster"
+    -e "http.host=0.0.0.0" 
+    -e "transport.host=127.0.0.1"
+    -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+
+# kibana
+
+- name: cria o volume kibanaconfig
+  docker_volume:
+    name: kibanaconfig
+    driver: local    
+
+- name: exclui o container do kibana
+  command: docker rm -f -v kibana-1
+  ignore_errors: yes
+
+- name: cria o container do kibana
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name kibana-1
+    --mount source=kibanaconfig,target=/usr/share/kibana/config
+    --network stack    
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.kibana
+    -p 5601:5601 
+    -e "ELASTICSEARCH_URL=http://elasticsearch-1:9200"
+    docker.elastic.co/kibana/kibana:6.4.3
