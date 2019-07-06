@@ -40,7 +40,6 @@
     source: build
     restart: yes
     purge_networks: yes
-    networks_cli_compatible: yes
     networks:
       - name: "stack"
     volumes:
