@@ -33,7 +33,7 @@
      - "9200:9200"
 
 - name: cria o container fluentd
-  docker_container:
+  docker_image:
     name: fluentd
     build:
       path: ./fluentd
