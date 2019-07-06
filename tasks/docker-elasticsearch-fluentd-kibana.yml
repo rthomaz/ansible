@@ -19,7 +19,7 @@
     
 - name: cria o container do elasticsearch
   command: docker run 
-    --restart=always -d 
+    --restart=unless-stopped -d 
     --name elasticsearch-1
     --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data    
     --network stack    
