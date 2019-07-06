@@ -15,20 +15,20 @@
     
 - name: cria o container do elasticsearch
   docker_container:
-    name: elasticsearch
+    name: elasticsearch-3
     hostname: elasticsearch
-    image: elasticsearch:7.2.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     restart: yes
     recreate: yes
     state: started
-#    env:
+    env:
 #      cluster.name: "log-cluster"
-#      http.host: "0.0.0.0"
-#      transport.host: "127.0.0.1"
+      http.host: "0.0.0.0"
+      transport.host: "127.0.0.1"
 #      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
 #      bootstrap.memory_lock: "true"
-    exposed_ports:
-      - "9200"
+#    exposed_ports:
+#      - "9200"
 #    volumes:
 #      - elasticsearchdata:/usr/share/elasticsearch/data
 #    healthcheck:
@@ -39,10 +39,10 @@
     ports:
      - "9200:9200"
      - "9300:9300"
-    purge_networks: yes
-    networks_cli_compatible: yes
-    networks:
-      - name: "stack"
+#    purge_networks: yes
+#    networks_cli_compatible: yes
+#    networks:
+#      - name: "stack"
 
 # Fluentd
 
