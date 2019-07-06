@@ -15,6 +15,7 @@
 
 - name: exclui o container do elasticsearch
   command: docker rm -f -v elasticsearch-1
+  ignore_errors: yes
     
 - name: cria o container do elasticsearch
   command: docker run 
