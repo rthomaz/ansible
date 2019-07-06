@@ -28,7 +28,7 @@
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
       bootstrap.memory_lock: "true"
     exposed_ports:
-      - 9200
+      - "9200"
 #    volumes:
 #      - elasticsearchdata:/usr/share/elasticsearch/data
     healthcheck:
