@@ -16,6 +16,7 @@
 - name: cria o container do elasticsearch
   docker_container:
     name: elasticsearch
+    hostname: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
     restart: yes
     recreate: yes
