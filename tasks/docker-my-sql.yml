@@ -15,6 +15,7 @@
     env:
       MYSQL_ROOT_PASSWORD: "changeme"
     purge_networks: yes
+    networks_cli_compatible: yes
     networks:
       - name: "docknet"
     volumes:
