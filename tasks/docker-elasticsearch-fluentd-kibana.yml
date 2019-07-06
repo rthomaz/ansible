@@ -14,7 +14,7 @@
     driver: local    
 
 - name: exclui o container do elasticsearch
-  command: docker rm elasticsearch-1 -f
+  command: docker rm -f -v elasticsearch-1
     
 - name: cria o container do elasticsearch
   command: docker run 
