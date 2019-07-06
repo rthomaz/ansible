@@ -59,7 +59,7 @@
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.kibana
     -p 5601:5601 
-    -e "ELASTICSEARCH_URL=http://elasticsearch:9200"
+    -e "ELASTICSEARCH_URL=http://elasticsearch-1:9200"
     docker.elastic.co/kibana/kibana:6.4.3
     
 # Fluentd
