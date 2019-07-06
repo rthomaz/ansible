@@ -29,8 +29,8 @@
       bootstrap.memory_lock: "true"
     exposed_ports:
       - 9200
-    volumes:
-      - elasticsearchdata:/usr/share/elasticsearch/data
+#    volumes:
+#      - elasticsearchdata:/usr/share/elasticsearch/data
     healthcheck:
       test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
       interval: 30s
