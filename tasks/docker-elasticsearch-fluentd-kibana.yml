@@ -36,6 +36,6 @@
   docker_image:
     name: fluentd
     build:
-      path: /{{ workgroup_name }}/fluentd
+      path: ./fluentd
     push: no
     source: build
