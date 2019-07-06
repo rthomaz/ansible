@@ -37,6 +37,7 @@
     name: fluentd
     build:
       path: /tmp/
+      dockerfile: docker-fluentd-dockerfile
       pull: yes
     push: no
     source: build
