@@ -26,6 +26,7 @@
     -e "cluster.name=log-cluster"
     -e "http.host=0.0.0.0" 
     -e "transport.host=127.0.0.1"
+    -e "bootstrap.memory_lock=true"
     -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     
