@@ -70,7 +70,7 @@
     
 - name: cria a imagem fluentd
   docker_image:
-    name: fluentd-oi
+    name: rt-fluentd
     build:
       path: /{{ workgroup_name }}/{{ docker_work_path }}/images
       dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
@@ -80,15 +80,15 @@
     
 - name: cria o container fluentd
   docker_container:
-    name: fluentd-1
-    image: fluentd-oi:latest
+    name: rt-fluentd-1
+    image: rt-fluentd:latest
     restart: yes
     purge_networks: yes
     networks_cli_compatible: yes
     networks:
       - name: "stack"
-#    volumes:
-#      - ./fluentd/conf:/fluentd/etc
+    volumes:
+      - /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf/fluent.conf:/fluentd/etc
     ports:
      - "24224:24224"
      - "24224:24224/udp"
