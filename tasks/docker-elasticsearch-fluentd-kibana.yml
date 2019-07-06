@@ -2,15 +2,12 @@
   docker_network:
     name: stack
     driver: bridge
-    
+
+# elasticsearch
+
 - name: cria o volume elasticsearchdata
   docker_volume:
     name: elasticsearchdata
-    driver: local
-    
-- name: cria o volume kibanaconfig
-  docker_volume:
-    name: kibanaconfig
     driver: local    
 
 - name: exclui o container do elasticsearch
@@ -40,6 +37,15 @@
     -e "transport.host=127.0.0.1"
     -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+
+# kibana
+
+- name: cria o volume kibanaconfig
+  docker_volume:
+    name: kibanaconfig
+    driver: local    
+
+
 
 # Fluentd
 
