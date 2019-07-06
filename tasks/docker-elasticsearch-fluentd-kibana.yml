@@ -27,6 +27,7 @@
     -e "http.host=0.0.0.0" 
     -e "transport.host=127.0.0.1"
     -e "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    --network stack
     docker.elastic.co/elasticsearch/elasticsearch:7.2.0
     --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data
 
