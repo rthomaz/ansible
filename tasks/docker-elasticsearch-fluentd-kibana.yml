@@ -108,7 +108,11 @@
       pull: yes
     push: no
     source: build
-    
+
+- name: exclui o container do fluentd
+  command: docker rm -f -v fluentd
+  ignore_errors: yes
+
 - name: cria o container fluentd
   docker_container:
     name: rt-fluentd-1
