@@ -37,4 +37,5 @@
     name: fluentd
     build:
       path: ./fluentd
+    push: yes
     source: build
