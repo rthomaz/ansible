@@ -123,7 +123,8 @@
     networks_cli_compatible: yes
     networks:
       - name: "stack"
-#    volumes:
+    volumes:
+      - /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf:/fluentd/etc
 #      - ./fluentd/conf:/fluentd/etc
     ports:
      - "24224:24224"
