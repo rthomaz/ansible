@@ -14,6 +14,14 @@
     group: root
     mode: +rwx    
     
+- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf se ele não existir
+  file:
+    path: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx        
+    
 - name: cria a network stack
   docker_network:
     name: stack
@@ -48,12 +56,21 @@
     ports:
      - "9200:9200"
 
+- name: criando Dockerfile /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
+  template:
+    src: "docker-fluentd-dockerfile.j2"
+    dest: "/{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile"
+    backup: yes
+    mode: a+x
+    owner: root
+    group: root
+    
 - name: cria o container fluentd
   docker_image:
     name: fluentd
     build:
       path: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd
-      dockerfile: docker-fluentd-dockerfile
+      dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
       pull: yes
     push: no
     source: build
