@@ -65,6 +65,15 @@
     owner: root
     group: root
     
+- name: criando ficheiro /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf/fluent.conf
+  template:
+    src: "fluent.conf.j2"
+    dest: "/{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf/fluent.conf"
+    backup: yes
+    mode: a+x
+    owner: root
+    group: root    
+    
 - name: cria o container fluentd
   docker_image:
     name: fluentd
