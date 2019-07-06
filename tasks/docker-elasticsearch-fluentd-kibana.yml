@@ -89,8 +89,8 @@
     networks_cli_compatible: yes
     networks:
       - name: "stack"
-    volumes:
-      - ./fluentd/conf:/fluentd/etc
+#    volumes:
+#      - ./fluentd/conf:/fluentd/etc
     ports:
      - "24224:24224"
      - "24224:24224/udp"
