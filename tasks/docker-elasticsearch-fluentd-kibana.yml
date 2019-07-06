@@ -88,7 +88,7 @@
     networks:
       - name: "stack"
     volumes:
-      - /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf/fluent.conf:/fluentd/etc
+      - ./fluentd/conf:/fluentd/etc
     ports:
      - "24224:24224"
      - "24224:24224/udp"
