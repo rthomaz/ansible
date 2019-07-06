@@ -45,8 +45,23 @@
     name: kibanaconfig
     driver: local    
 
+- name: exclui o container do kibana
+  command: docker rm -f -v kibana-1
+  ignore_errors: yes
 
-
+- name: cria o container do kibana
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name kibana-1
+    --mount source=kibanaconfig,target=/usr/share/kibana/config
+    --network stack    
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.kibana
+    -p 5601:5601 
+    -e "ELASTICSEARCH_URL=http://elasticsearch:9200"
+    docker.elastic.co/kibana/kibana:6.4.3
+    
 # Fluentd
 
 - name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/fluentd se ele não existir
