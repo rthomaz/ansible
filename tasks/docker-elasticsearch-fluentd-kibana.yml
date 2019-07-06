@@ -23,6 +23,7 @@
     --name elasticsearch-1
     --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data    
     --network stack    
+    --ulimit memlock=-1:-1
     --health-cmd='["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]'
     --health-interval="30s"
     --health-timeout="30s"
