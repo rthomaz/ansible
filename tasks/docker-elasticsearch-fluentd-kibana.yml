@@ -30,7 +30,7 @@
     --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data
     -p 9200:9200 
     -p 9300:9300 
-    --network stack
+#    --network stack
     
 #- name: cria o container do elasticsearch
 #  docker_container:
