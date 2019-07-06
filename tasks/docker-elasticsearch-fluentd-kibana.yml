@@ -36,7 +36,7 @@
   docker_image:
     name: fluentd
     build:
-      path: fluentd
+      path: /etc/fluentd
       pull: yes
     push: no
     source: build
