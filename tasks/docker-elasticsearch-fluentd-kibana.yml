@@ -31,3 +31,20 @@
       - elasticsearchdata:/usr/share/elasticsearch/data
     ports:
      - "9200:9200"
+
+- name: cria o container fluentd
+  docker_container:
+    name: fluentd
+    build:
+      path: ./fluentd
+    source: build
+    restart: yes
+    purge_networks: yes
+    networks_cli_compatible: yes
+    networks:
+      - name: "stack"
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    ports:
+     - "24224:24224"
+     - "24224:24224/udp"
