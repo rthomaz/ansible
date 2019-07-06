@@ -17,27 +17,28 @@
   docker_container:
     name: elasticsearch
     hostname: elasticsearch
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+    image: elasticsearch:6.4.3
     restart: yes
     recreate: yes
     state: started
-    env:
-      cluster.name: "log-cluster"
-      http.host: "0.0.0.0"
-      transport.host: "127.0.0.1"
-      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      bootstrap.memory_lock: "true"
+#    env:
+#      cluster.name: "log-cluster"
+#      http.host: "0.0.0.0"
+#      transport.host: "127.0.0.1"
+#      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+#      bootstrap.memory_lock: "true"
     exposed_ports:
       - "9200"
 #    volumes:
 #      - elasticsearchdata:/usr/share/elasticsearch/data
-    healthcheck:
-      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
-      interval: 30s
-      timeout: 30s
-      retries: 3
+#    healthcheck:
+#      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
+#      interval: 30s
+#      timeout: 30s
+#      retries: 3
     ports:
      - "9200:9200"
+     - "9300:9300"
     purge_networks: yes
     networks_cli_compatible: yes
     networks:
