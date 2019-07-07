@@ -6,6 +6,7 @@
   gather_facts: no  
   vars:
     workgroup_name: 'RTHOMAZ'
+    docker_work_path: 'docker-projects'
   roles:
     - docker-ce
     - docker-elasticsearch-fluentd-kibana
