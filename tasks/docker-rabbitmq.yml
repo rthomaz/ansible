@@ -29,7 +29,7 @@
   command: docker rm -f -v rt-rabbitmq-1
   ignore_errors: yes    
   
-  - name: cria o container do rabbitmq
+- name: cria o container do rabbitmq
   command: docker run -d 
     --hostname rthomaz-rabbit 
     --name rthomaz-rabbit-container 
