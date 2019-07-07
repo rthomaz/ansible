@@ -21,5 +21,7 @@
   - include: admin-enviroment.yml
     tags: admin-enviroment      
   - include: docker-postgres.yml
-    tags: docker-postgres      
+    tags: docker-postgres
+  - include: docker-mongodb.yml
+    tags: docker-mongodb
   
