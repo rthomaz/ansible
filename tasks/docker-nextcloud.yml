@@ -52,4 +52,5 @@
     -e "NEXTCLOUD_ADMIN_USER=root"
     -e "NEXTCLOUD_ADMIN_PASSWORD=changeme"
     -e "NEXTCLOUD_DATA_DIR=/var/www/html/data"
+    -e "NEXTCLOUD_TRUSTED_DOMAINS=192.168.1.185"
     nextcloud
