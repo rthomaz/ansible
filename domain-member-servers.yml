@@ -1,0 +1,17 @@
+# playbook for domain-member-servers tier
+
+- hosts: servers
+  roles:
+    - admin-enviroment
+    - apt-sources-list
+    - default-packages
+    - ssh
+    - ufw 
+    - nfs-client    
+    - samba-domain-member
+    - sudo
+#   - clamav
+    - consul
+    - vault
+    - terraform
+    - pxe

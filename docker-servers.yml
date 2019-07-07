@@ -1,0 +1,13 @@
+# playbook for docker-servers tier
+
+- hosts: servers
+  roles:
+    - docker-ce
+    - docker-elasticsearch-fluentd-kibana
+    - docker-mongodb
+#   - docker-my-sql
+    - docker-postgres
+    - docker-postgres-adminer
+    - docker-rabbitmq         
+    - docker-nuget-server
+    - docker-nextcloud

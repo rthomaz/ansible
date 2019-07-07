@@ -18,27 +18,33 @@
     docker_work_path: 'docker-projects'
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
-#     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
-  roles:   
-    - admin-enviroment
-    - apt-sources-list
-    - default-packages
-    - ssh
-    - ufw 
-    - nfs-client    
-    - samba-domain-member
-    - sudo
-#   - clamav
-    - consul
-    - vault
-    - terraform
-    - pxe
-    - docker-ce
-    - docker-elasticsearch-fluentd-kibana
-    - docker-mongodb
-#   - docker-my-sql
-    - docker-postgres
-    - docker-postgres-adminer
-    - docker-rabbitmq         
-    - docker-nuget-server
-    - docker-nextcloud
+#     - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
+
+- import_playbook: domain-member-servers.yml
+- import_playbook: docker-servers.yml
+
+
+#  roles:   
+#     - admin-enviroment
+#     - apt-sources-list
+#     - default-packages
+#     - ssh
+#     - ufw 
+#     - nfs-client    
+#     - samba-domain-member
+#     - sudo
+# #   - clamav
+#     - consul
+#     - vault
+#     - terraform
+#     - pxe
+
+#    - docker-ce
+#    - docker-elasticsearch-fluentd-kibana
+#    - docker-mongodb
+##   - docker-my-sql
+#    - docker-postgres
+#    - docker-postgres-adminer
+#    - docker-rabbitmq         
+#    - docker-nuget-server
+#    - docker-nextcloud
