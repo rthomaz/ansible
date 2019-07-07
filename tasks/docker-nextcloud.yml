@@ -1,0 +1,55 @@
+---
+
+# MariaDb
+
+- name: cria o volume do mariadb
+  docker_volume:
+    name: mariadb-data    
+    
+- name: exclui o container do mariadb
+  command: docker rm -f -v mariadb-1
+  ignore_errors: yes    
+    
+- name: cria o container do mariadb
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name mariadb-1
+    --mount source=mariadb-data,target=/var/lib/mysql
+    --network rthomaz-network
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.mariadb
+    -e "MYSQL_ROOT_PASSWORD=changeme"
+    -e "MYSQL_PASSWORD=changeme"
+    -e "MYSQL_DATABASE=nextcloud"
+    -e "MYSQL_USER=nextcloud"
+    mariadb
+    
+# Nextcloud    
+    
+- name: cria o volume do nextcloud
+  docker_volume:
+    name: nextcloud-data    
+    
+- name: exclui o container do nextcloud
+  command: docker rm -f -v nextcloud-1
+  ignore_errors: yes    
+    
+- name: cria o container do nextcloud
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name nextcloud-1
+    --mount source=nextcloud-data,target=/var/www/html
+    --network rthomaz-network
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.nextcloud
+    -p 8088:80 
+    -e "MYSQL_DATABASE=nextcloud"
+    -e "MYSQL_USER=nextcloud"
+    -e "MYSQL_PASSWORD=changeme"
+    -e "MYSQL_HOST=mariadb-1"
+    -e "NEXTCLOUD_ADMIN_USER=root"
+    -e "NEXTCLOUD_ADMIN_PASSWORD=changeme"
+    -e "NEXTCLOUD_DATA_DIR=/var/www/html/data"
+    nextcloud
