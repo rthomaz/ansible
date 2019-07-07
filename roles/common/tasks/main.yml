@@ -3,7 +3,66 @@
     update_cache: yes
   tags:
     - system
- 
-# Import docker tasks
-- name: Import docker rabbitmq tasks
+  
+- name: admin-enviroment
+  include_tasks: admin-enviroment.yml
+
+- name: apt-sources-list
+  include_tasks: apt-sources-list.yml
+
+- name: default-packages
+  include_tasks: default-packages.yml
+
+- name: ufw
+  include_tasks: ufw.yml
+
+- name: ssh
+  include_tasks: ssh.yml
+
+- name: nfs-client
+  include_tasks: nfs-client.yml
+
+- name: ntp
+  include_tasks: ntp.yml
+
+# - name: clamav
+#   include_tasks: clamav.yml
+
+- name: krb5-user
+  include_tasks: krb5-user.yml
+
+- name: samba-domain-member
+  include_tasks: samba-domain-member.yml
+
+- name: pam
+  include_tasks: pam.yml
+
+- name: sudo
+  include_tasks: sudo.yml
+
+- name: docker-ce
+  include_tasks: docker-ce.yml 
+
+- name: docker-elasticsearch-fluentd-kibana
+  include_tasks: docker-elasticsearch-fluentd-kibana.yml
+
+#  - name: docker-my-sql
+#    include_tasks: docker-my-sql.yml
+
+- name: docker-rabbitmq
   include_tasks: docker-rabbitmq.yml
+
+- name: docker-postgres-adminer
+  include_tasks: docker-postgres-adminer.yml 
+
+- name: consul
+  include_tasks: consul.yml
+
+- name: vault
+  include_tasks: vault.yml
+
+- name: terraform
+  include_tasks: terraform.yml
+
+- name: tftpd-hpa
+  include_tasks: tftpd-hpa.yml 
