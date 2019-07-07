@@ -1,6 +1,6 @@
-- name: cria a network docknet
+- name: cria a network rthomaz-network-mysql
   docker_network:
-    name: docknet
+    name: rthomaz-network-mysql
     internal: false
     
 - name: cria o volume do mysql
@@ -16,7 +16,7 @@
     --restart=unless-stopped -d 
     --name mysql-1
     --mount source=mysql-data,target=/var/lib/mysql
-    --network docknet    
+    --network rthomaz-network-mysql    
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.mysql
