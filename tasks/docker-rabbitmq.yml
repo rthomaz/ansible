@@ -1,3 +1,8 @@
+- name: cria a network rthomaz-network-rabbitmq
+  docker_network:
+    name: rthomaz-network-rabbitmq
+    internal: false
+    
 - name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq se ele não existir
   file:
     path: /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq
@@ -36,6 +41,7 @@
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.rabbitmq
+    --network rthomaz-network-rabbitmq
     -e RABBITMQ_DEFAULT_USER=rodrigo 
     -e RABBITMQ_DEFAULT_PASS=12345 
     -p 1883:1883 
