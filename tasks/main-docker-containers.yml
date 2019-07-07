@@ -20,6 +20,6 @@
   tasks:    
   - include: admin-enviroment.yml
     tags: admin-enviroment      
-  - include: postgres.yml
-    tags: postgres      
+  - include: docker-postgres.yml
+    tags: docker-postgres      
   
