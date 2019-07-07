@@ -1,5 +1,7 @@
 ---
 
+# mongodb
+
 - name: cria o volume do mongodb
   docker_volume:
     name: mongodb-data    
@@ -20,6 +22,12 @@
     -e "MONGO_INITDB_ROOT_USERNAME=root"
     -e "MONGO_INITDB_ROOT_PASSWORD=test"
     mongo
+    
+# mongo-express    
+    
+- name: exclui o container do mongo-express
+  command: docker rm -f -v mongo-express-1
+  ignore_errors: yes        
     
 - name: cria o container do mongo-express
   command: docker run 
