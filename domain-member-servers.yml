@@ -22,7 +22,7 @@
     - default-packages
     - ssh
     - ufw 
-    - nfs-client    
+#   - nfs-client    
     - samba-domain-member
     - sudo
 #   - clamav

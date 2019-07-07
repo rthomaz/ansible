@@ -4,6 +4,8 @@
   become: true
   become_user: root
   gather_facts: no  
+  vars:
+    workgroup_name: 'RTHOMAZ'
   roles:
     - docker-ce
     - docker-elasticsearch-fluentd-kibana

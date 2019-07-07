@@ -9,7 +9,7 @@ cd /rthomaz/ansible-codes/
 
 vagrant up
 
-ansible-playbook -i roles/common/tasks/hosts roles/common/tasks/main-docker-containers.yml 
+ansible-playbook -i hosts site.yml 
 
 
 
