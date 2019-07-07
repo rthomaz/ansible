@@ -1,0 +1,48 @@
+- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq se ele não existir
+  file:
+    path: /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx        
+    
+- name: criando Dockerfile /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq/Dockerfile
+  template:
+    src: "docker-rabbitmq-dockerfile.j2"
+    dest: "/{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq/Dockerfile"
+    backup: yes
+    mode: a+x
+    owner: root
+    group: root
+    
+- name: cria a imagem rabbitmq
+  docker_image:
+    name: rthomaz/rabbitmq
+    build:
+      path: /{{ workgroup_name }}/{{ docker_work_path }}/images
+      dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq/Dockerfile
+      pull: yes
+    push: no
+    source: build
+    
+- name: exclui o container do rabbitmq
+  command: docker rm -f -v rt-rabbitmq-1
+  ignore_errors: yes    
+  
+  - name: cria o container do rabbitmq
+  command: docker run -d 
+    --hostname rthomaz-rabbit 
+    --name rthomaz-rabbit-container 
+    -e RABBITMQ_DEFAULT_USER=rodrigo 
+    -e RABBITMQ_DEFAULT_PASS=12345 
+    -p 1883:1883 
+    -p 4369:4369 
+    -p 5671:5671 
+    -p 5672:5672 
+    -p 15671:15671 
+    -p 15672:15672 
+    -p 15674:15674 
+    -p 15675:15675 
+    -p 25672:25672 
+    -p 61613:61613 
+    rthomaz/rabbitmq:latest
