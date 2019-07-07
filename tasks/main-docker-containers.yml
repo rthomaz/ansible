@@ -24,6 +24,8 @@
     tags: docker-postgres
   - include: docker-mongodb.yml
     tags: docker-mongodb
-  - include: nuget-server.yml
+  - include: docker-nuget-server.yml
     tags: docker-nuget-server    
+  - include: docker-nextcloud.yml
+    tags: docker-nextcloud-server        
   
