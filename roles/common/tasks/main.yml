@@ -1,0 +1,62 @@
+---
+# tasks file for ansible-codes
+- name: "Hosts"
+  hosts: [servers]
+  become: true
+  become_user: root
+  gather_facts: no  
+  vars:
+    debian_codename: 'stretch'
+    timezone: 'America/Sao_Paulo'    
+    dns_domain_name: 'RTHOMAZ.LOCAL'
+    domain_admin_user : 'rodrigo'
+    domain_admin_password : 'b3b3xu!@#'
+    workgroup_name: 'RTHOMAZ'
+    sudo_user: 'rodrigo'
+    docker_work_path: 'docker-projects'
+    ntp_servers: 
+      - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
+#     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
+  tasks:    
+  - include: admin-enviroment.yml
+    tags: admin-enviroment      
+  - include: apt-sources-list.yml
+    tags: apt-sources-list    
+  - include: default-packages.yml
+    tags: default-packages
+  - include: ufw.yml
+    tags: ufw
+  - include: ssh.yml
+    tags: ssh
+  - include: nfs-client.yml
+    tags: nfs-client
+  - include: ntp.yml
+    tags: ntp    
+# - include: clamav.yml
+#   tags: clamav
+  - include: krb5-user.yml
+    tags: krb5-user
+  - include: samba-domain-member.yml
+    tags: samba-domain-member 
+  - include: pam.yml
+    tags: pam
+  - include: sudo.yml
+    tags: sudo
+  - include: docker-ce.yml
+    tags: docker-ce    
+  - include: docker-elasticsearch-fluentd-kibana.yml
+    tags: docker-elasticsearch-fluentd-kibana
+#  - include: docker-my-sql.yml
+#    tags: docker-my-sql
+  - include: docker-rabbitmq.yml
+    tags: docker-rabbitmq
+  - include: docker-postgres-adminer.yml
+    tags: docker-postgres-adminer    
+  - include: consul.yml
+    tags: consul
+  - include: vault.yml
+    tags: vault  
+  - include: terraform.yml
+    tags: terraform
+  - include: tftpd-hpa.yml
+    tags: tftpd-hpa
