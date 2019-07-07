@@ -65,7 +65,7 @@
   include_tasks: docker-nuget-server.yml
   
 - name: docker-nextcloud
-  include_tasks: docker-nextcloud-server.yml
+  include_tasks: docker-nextcloud.yml
 
 - name: consul
   include_tasks: consul.yml
