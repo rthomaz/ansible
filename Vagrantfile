@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
 #    ansible.verbose = "vvvv"
-    ansible.playbook = "main.yml"
+    ansible.playbook = "site.yml"
     ansible.inventory_path = "hosts"
     ansible.limit = "192.168.1.185"
   end
