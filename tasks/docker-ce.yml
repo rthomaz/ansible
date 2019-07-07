@@ -49,9 +49,11 @@
     name: "python-pip"
   tags:
     - docker-ce
-    
+        
 - name: rodando o comando pip install docker
   shell: pip install docker
+
+# Configurando o ambiente
 
 - name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }} se ele não existir
   file:
@@ -68,3 +70,8 @@
     owner: root
     group: root
     mode: +rwx
+
+- name: cria a network rthomaz-network
+  docker_network:
+    name: rthomaz-network
+    internal: false
