@@ -13,5 +13,5 @@
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.postgres
     -p 5432:5432 
-    -e "MYSQL_ROOT_PASSWORD=changeme"
-    mysql:5.7.24
+    -e "POSTGRES_PASSWORD=changeme"
+    postgres
