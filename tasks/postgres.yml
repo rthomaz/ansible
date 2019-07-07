@@ -1,0 +1,17 @@
+---
+
+- name: exclui o container do postgres
+  command: docker rm -f -v postgres-1
+  ignore_errors: yes    
+    
+- name: cria o container do postgres
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name postgres-1
+    --network rthomaz-network
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.postgres
+    -p 5432:5432 
+    -e "POSTGRES_PASSWORD=changeme"
+    mysql:5.7.24
