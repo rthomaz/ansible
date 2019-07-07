@@ -24,3 +24,5 @@
     tags: docker-elasticsearch-fluentd-kibana
   - include: docker-my-sql.yml
     tags: docker-my-sql
+- include: docker-rabbitmq.yml
+    tags: docker-rabbitmq 
