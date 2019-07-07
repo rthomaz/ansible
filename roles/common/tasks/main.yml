@@ -25,9 +25,6 @@
 - name: ntp
   include_tasks: ntp.yml
 
-# - name: clamav
-#   include_tasks: clamav.yml
-
 - name: krb5-user
   include_tasks: krb5-user.yml
 
@@ -39,9 +36,3 @@
 
 - name: sudo
   include_tasks: sudo.yml
-
-- name: docker-ce
-  include_tasks: docker-ce.yml 
-
-#  - name: docker-my-sql
-#    include_tasks: docker-my-sql.yml

@@ -17,6 +17,6 @@
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.mysql
-    -p 3306:3306 
+    -p 3307:3306 
     -e "MYSQL_ROOT_PASSWORD=changeme"
     mysql:5.7.24
