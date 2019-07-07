@@ -21,4 +21,9 @@
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
   roles:    
     - common
-    - docker-rabbitmq
+    - docker-mongodb
+    - docker-nextcloud
+    - docker-nuget-server
+    - docker-postgres
+    - docker-postgres-adminer
+    - docker-rabbitmq 

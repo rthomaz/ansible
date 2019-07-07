@@ -49,23 +49,23 @@
 #  - name: docker-my-sql
 #    include_tasks: docker-my-sql.yml
 
-#- name: docker-rabbitmq
-#  include_tasks: docker-rabbitmq.yml
 
-- name: docker-postgres-adminer
-  include_tasks: docker-postgres-adminer.yml 
 
-- name: docker-postgres
-  include_tasks: docker-postgres.yml
+#- name: docker-postgres-adminer
+#  include_tasks: docker-postgres-adminer.yml 
+
+#- name: docker-postgres
+#  include_tasks: docker-postgres.yml
   
-- name: docker-mongodb
-  include_tasks: docker-mongodb.yml
+#- name: docker-mongodb
+#  include_tasks: docker-mongodb.yml
   
-- name: docker-nuget-server
-  include_tasks: docker-nuget-server.yml
+#- name: docker-nuget-server
+#  include_tasks: docker-nuget-server.yml
   
-- name: docker-nextcloud
-  include_tasks: docker-nextcloud.yml
+#- name: docker-nextcloud
+#  include_tasks: docker-nextcloud.yml
+
 
 - name: consul
   include_tasks: consul.yml
