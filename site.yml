@@ -21,6 +21,9 @@
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
   roles:    
     - common
+    - consul
+    - vault
+    - terraform
     - docker-mongodb
     - docker-nextcloud
     - docker-nuget-server
