@@ -31,8 +31,8 @@
   
 - name: cria o container do rabbitmq
   command: docker run -d 
-    --hostname rthomaz-rabbit 
-    --name rthomaz-rabbit-container 
+    --hostname rt-rabbitmq-1
+    --name rt-rabbitmq-1
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.rabbitmq
