@@ -49,8 +49,8 @@
 #  - name: docker-my-sql
 #    include_tasks: docker-my-sql.yml
 
-- name: docker-rabbitmq
-  include_tasks: docker-rabbitmq.yml
+#- name: docker-rabbitmq
+#  include_tasks: docker-rabbitmq.yml
 
 - name: docker-postgres-adminer
   include_tasks: docker-postgres-adminer.yml 
