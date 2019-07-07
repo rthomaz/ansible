@@ -33,6 +33,3 @@
 
 - name: pam
   include_tasks: pam.yml
-
-- name: sudo
-  include_tasks: sudo.yml

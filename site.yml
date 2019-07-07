@@ -21,7 +21,8 @@
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
   roles:    
     - common
-    - clamav
+    - sudo
+#   - clamav
     - consul
     - vault
     - terraform
@@ -29,7 +30,7 @@
     - docker-ce
     - docker-elasticsearch-fluentd-kibana
     - docker-mongodb
-    - docker-my-sql
+#   - docker-my-sql
     - docker-nextcloud
     - docker-nuget-server
     - docker-postgres
