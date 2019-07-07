@@ -19,6 +19,7 @@
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.mariadb
+     -p 3306:3306 
     -e "MYSQL_ROOT_PASSWORD=changeme"
     -e "MYSQL_PASSWORD=changeme"
     -e "MYSQL_DATABASE=nextcloud"
