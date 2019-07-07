@@ -43,11 +43,5 @@
 - name: docker-ce
   include_tasks: docker-ce.yml 
 
-- name: docker-elasticsearch-fluentd-kibana
-  include_tasks: docker-elasticsearch-fluentd-kibana.yml
-
 #  - name: docker-my-sql
 #    include_tasks: docker-my-sql.yml
-
-- name: tftpd-hpa
-  include_tasks: tftpd-hpa.yml

@@ -24,6 +24,8 @@
     - consul
     - vault
     - terraform
+    - pxe
+    - docker-elasticsearch-fluentd-kibana
     - docker-mongodb
     - docker-nextcloud
     - docker-nuget-server

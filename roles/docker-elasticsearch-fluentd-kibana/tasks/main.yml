@@ -15,7 +15,7 @@
 
 - name: criando Dockerfile /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
   template:
-    src: "docker-fluentd-dockerfile.j2"
+    src: "fluentd-dockerfile.j2"
     dest: "/{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile"
     backup: yes
     mode: a+x
