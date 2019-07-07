@@ -33,6 +33,9 @@
   command: docker run -d 
     --hostname rthomaz-rabbit 
     --name rthomaz-rabbit-container 
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.rabbitmq
     -e RABBITMQ_DEFAULT_USER=rodrigo 
     -e RABBITMQ_DEFAULT_PASS=12345 
     -p 1883:1883 
