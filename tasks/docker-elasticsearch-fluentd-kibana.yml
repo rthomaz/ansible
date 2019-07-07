@@ -1,6 +1,6 @@
-- name: cria a network stack
+- name: cria a network rthomaz-network-log
   docker_network:
-    name: stack
+    name: rthomaz-network-log
     driver: bridge
 
 # Fluentd
@@ -63,7 +63,7 @@
     purge_networks: yes
     networks_cli_compatible: yes
     networks:
-      - name: "stack"
+      - name: "rthomaz-network-log"
     volumes:
       - /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf:/fluentd/etc
 #      - ./fluentd/conf:/fluentd/etc
@@ -87,7 +87,7 @@
     --restart=unless-stopped -d 
     --name elasticsearch-1
     --mount source=elasticsearchdata,target=/usr/share/elasticsearch/data    
-    --network stack    
+    --network rthomaz-network-log    
     --ulimit memlock=-1:-1
     --health-cmd='["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]'
     --health-interval="30s"
@@ -122,7 +122,7 @@
     --restart=unless-stopped -d 
     --name kibana-1
     --mount source=kibanaconfig,target=/usr/share/kibana/config
-    --network stack    
+    --network rthomaz-network-log    
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.kibana
