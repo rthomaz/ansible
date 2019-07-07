@@ -1,0 +1,16 @@
+---
+
+- name: exclui o container do postgres adminer
+  command: docker rm -f -v postgres-adminer-1
+  ignore_errors: yes    
+    
+- name: cria o container do postgres adminer
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name postgres-adminer-1
+    --network rthomaz-network
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.postgres.adminer
+    -p 8091:8080 
+    adminer
