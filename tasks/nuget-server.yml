@@ -1,0 +1,18 @@
+---
+
+- name: exclui o container do nuget server
+  command: docker rm -f -v nuget-server-1
+  ignore_errors: yes    
+    
+- name: cria o container do nuget server
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name nuget-server-1
+    --volume /srv/docker/nuget/database:/var/www/db
+    --volume /srv/docker/nuget/packages:/var/www/packagefiles
+    --network rthomaz-network
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.nuget.server
+    -p 5000:80
+    sunside/simple-nuget-server
