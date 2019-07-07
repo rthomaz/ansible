@@ -1,6 +1,9 @@
 # playbook for docker-servers tier
 
 - hosts: servers
+  become: true
+  become_user: root
+  gather_facts: yes  
   roles:
     - docker-ce
     - docker-elasticsearch-fluentd-kibana
