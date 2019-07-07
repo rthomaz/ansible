@@ -1,0 +1,9 @@
+- name: Update apt packages
+  apt:
+    update_cache: yes
+  tags:
+    - system
+ 
+# Import docker tasks
+- name: Import docker rabbitmq tasks
+  include_tasks: docker-rabbitmq.yml
