@@ -43,11 +43,15 @@
   - include: sudo.yml
     tags: sudo
   - include: docker-ce.yml
-    tags: docker-ce
+    tags: docker-ce    
   - include: docker-elasticsearch-fluentd-kibana.yml
     tags: docker-elasticsearch-fluentd-kibana
   - include: docker-my-sql.yml
     tags: docker-my-sql
+  - include: docker-rabbitmq.yml
+    tags: docker-rabbitmq
+  - include: docker-postgres-adminer.yml
+    tags: docker-postgres-adminer    
   - include: consul.yml
     tags: consul
   - include: vault.yml
