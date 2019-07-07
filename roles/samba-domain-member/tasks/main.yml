@@ -1,0 +1,17 @@
+- name: Update apt packages
+  apt:
+    update_cache: yes
+  tags:
+    - system
+  
+- name: ntp
+  include_tasks: ntp.yml
+
+- name: krb5-user
+  include_tasks: krb5-user.yml
+
+- name: samba-domain-member
+  include_tasks: samba-domain-member.yml
+
+- name: pam
+  include_tasks: pam.yml

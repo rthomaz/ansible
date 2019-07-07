@@ -8,7 +8,7 @@
   service:
     name: ssh
     state: restarted
-- name: Update Root user's Password
+- name: atualizando a senha do usuário root !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   user: 
     name: root
     update_password: always 

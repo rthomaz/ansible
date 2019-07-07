@@ -19,8 +19,14 @@
     ntp_servers: 
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }    
-  roles:    
-    - common
+  roles:   
+    - admin-enviroment
+    - apt-sources-list
+    - default-packages
+    - ssh
+    - ufw 
+    - nfs-client    
+    - samba-domain-member
     - sudo
 #   - clamav
     - consul
