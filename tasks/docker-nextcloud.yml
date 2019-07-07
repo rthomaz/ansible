@@ -15,7 +15,6 @@
     --restart=unless-stopped -d 
     --name mariadb-1
     --mount source=mariadb-data,target=/var/lib/mysql
-#    --network rthomaz-network
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.mariadb
@@ -40,7 +39,6 @@
     --restart=unless-stopped -d 
     --name nextcloud-1
     --mount source=nextcloud-data,target=/var/www/html
-#    --network rthomaz-network
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.nextcloud
