@@ -1,2 +1,2 @@
 ---
-# vars file for ansible-codes
+docker_folder_images_path: /{{workgroup_name}}/{{docker_work_path}}/images

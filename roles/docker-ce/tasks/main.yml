@@ -62,9 +62,9 @@
     group: root
     mode: +rwx    
     
-- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/images se ele não existir
+- name: cria o diretório {{docker_folder_images_path}} se ele não existir
   file:
-    path: /{{ workgroup_name }}/{{ docker_work_path }}/images
+    path: '{{docker_folder_images_path}}'
     state: directory
     owner: root
     group: root
