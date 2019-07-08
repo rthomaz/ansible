@@ -16,14 +16,14 @@
       - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 #     - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
   roles:
-    - admin-enviroment
     - apt-sources-list
     - default-packages
+    - admin-enviroment        
     - ssh
+    - sudo
 #    - ufw 
 ##   - nfs-client    
 #    - samba-domain-member
-    - sudo
 ##   - clamav
 #    - consul
 #    - vault
