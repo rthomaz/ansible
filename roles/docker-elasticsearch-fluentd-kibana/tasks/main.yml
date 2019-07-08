@@ -15,7 +15,7 @@
 
 - name: criando Dockerfile /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
   template:
-    src: "fluentd-dockerfile.j2"
+    src: "Dockerfile.j2"
     dest: "/{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile"
     backup: yes
     mode: a+x
@@ -66,7 +66,6 @@
       - name: "rthomaz-network-log"
     volumes:
       - /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf:/fluentd/etc
-#      - ./fluentd/conf:/fluentd/etc
     ports:
      - "24224:24224"
      - "24224:24224/udp"
