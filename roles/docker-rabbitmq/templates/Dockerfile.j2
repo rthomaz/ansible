@@ -1,2 +1,2 @@
 FROM rabbitmq:{{ docker_rabbitmq_release }}
-RUN rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_stomp rabbitmq_web_stomp rabbitmq_federation_management 
+RUN rabbitmq-plugins enable --offline {{docker_rabbitmq_plugins}}

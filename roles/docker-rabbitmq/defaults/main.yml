@@ -5,3 +5,9 @@ docker_rabbitmq_directory_name: rabbitmq
 docker_rabbitmq_files_owner: root
 docker_rabbitmq_files_group: root
 docker_rabbitmq_files_mode: a+x
+docker_rabbitmq_plugins: 
+  - rabbitmq_mqtt 
+  - rabbitmq_web_mqtt
+  - rabbitmq_stomp
+  - rabbitmq_web_stomp
+  - rabbitmq_federation_management 
