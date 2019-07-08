@@ -5,3 +5,6 @@ docker_rabbitmq_network: rthomaz-network
 docker_rabbitmq_default_user: rodrigo
 docker_rabbitmq_default_pass: 12345
 docker_rabbitmq_log_driver: fluentd
+docker_rabbitmq_log_opts:
+  - { name: 'fluentd-address', value: 'localhost:24224'}
+  - { name: 'tag', value: 'efk.rabbitmq' }
