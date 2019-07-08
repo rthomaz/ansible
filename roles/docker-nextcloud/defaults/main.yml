@@ -1,2 +1,3 @@
 ---
-# defaults file for ansible-codes
+
+docker_netxcloud_container_name: nextcloud
