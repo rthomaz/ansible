@@ -17,7 +17,7 @@
     group: '{{docker_rabbitmq_files_group}}'
     mode: '{{docker_rabbitmq_files_mode}}'
     
-- name: cria a imagem {{docker_rabbitmq_image_name}}
+- name: cria a imagem {{docker_rabbitmq_image_name}} from release rabbitmq:{{docker_rabbitmq_release}}
   docker_image:
     name: '{{docker_rabbitmq_image_name}}'
     build:

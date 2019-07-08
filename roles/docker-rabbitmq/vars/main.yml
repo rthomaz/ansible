@@ -2,7 +2,7 @@
 docker_rabbitmq_network: '{{docker_network}}'
 docker_rabbitmq_default_user: rodrigo
 docker_rabbitmq_default_pass: 12345
-docker_rabbitmq_release: '{{docker_rabbitmq_release}}'
+docker_rabbitmq_release: 3.6-management
 docker_rabbitmq_plugins: 
   - rabbitmq_management
   - rabbitmq_mqtt
