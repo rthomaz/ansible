@@ -9,7 +9,8 @@
     - ca-certificates
     - gnupg2
     - software-properties-common
-    - python-pip
+#    - python-pip
+    - python3-pip
   tags:
     - docker-ce
     
