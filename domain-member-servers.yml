@@ -19,7 +19,7 @@
     - apt-sources-list
     - default-packages
     - admin-enviroment        
-    - ssh
+#    - ssh
     - sudo
 #    - ufw 
 ##   - nfs-client    
