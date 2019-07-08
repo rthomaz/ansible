@@ -26,14 +26,9 @@
       pull: yes
     push: no
     source: build
-    
-#- name: exclui o container {{docker_rabbitmq_container_name}}
-#  command: docker rm -f -v {{docker_rabbitmq_container_name}}
-#  ignore_errors: yes    
 
 - name: exclui qualquer container baseado na imagem {{docker_rabbitmq_image_name}} 
   shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_rabbitmq_image_name}}:latest | awk '{print $1 }' | xargs -I {} docker rm -f {}
-  ignore_errors: yes 
   
 - name: cria o container {{docker_rabbitmq_container_name}}
   command: docker run -d 
