@@ -10,7 +10,7 @@
   roles:
     - apt-sources-list
     - default-packages
-    - admin-enviroment        
+    - admin-environment        
     - ssh
     - sudo
     - ufw 
