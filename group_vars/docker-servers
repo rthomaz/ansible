@@ -1,3 +1,2 @@
-#workgroup_name: 'RTHOMAZ'
-docker_work_path: 'docker-projects'
-docker_folder_images_path: /RTHOMAZ/{{docker_work_path}}/images
+docker_work_path: '/docker-projects'
+docker_folder_images_path: {{docker_work_path}}/images

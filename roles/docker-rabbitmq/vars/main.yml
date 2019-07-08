@@ -2,7 +2,7 @@
 docker_rabbitmq_network: rthomaz-network
 docker_rabbitmq_default_user: rodrigo
 docker_rabbitmq_default_pass: 12345
-docker_rabbitmq_directory_path: /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}
+docker_rabbitmq_directory_path: {{docker_work_path}}/{{docker_rabbitmq_directory_name}}
 docker_rabbitmq_image_name: rthomaz/rabbitmq
 docker_rabbitmq_plugins: 
   - rabbitmq_management

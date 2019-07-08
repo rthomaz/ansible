@@ -1,8 +1,8 @@
 ---
 
-- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }} se ele não existir
+- name: cria o diretório {{ docker_work_path }} se ele não existir
   file:
-    path: /{{ workgroup_name }}/{{ docker_work_path }}
+    path: {{ docker_work_path }}
     state: directory
     owner: root
     group: root
