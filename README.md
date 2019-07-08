@@ -11,6 +11,11 @@ vagrant up
 
 ansible-playbook -i hosts site.yml 
 
+ansible-playbook -i hosts domain-member-servers.yml 
+
+ansible-playbook -i hosts docker-servers.yml 
+
+
 
 
 
