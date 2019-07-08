@@ -1,17 +1,17 @@
 ---
 
-- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq se ele não existir
+- name: cria o diretório /{{workgroup_name}}/{{docker_work_path}}/rabbitmq se ele não existir
   file:
-    path: /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq
+    path: /{{workgroup_name}}/{{docker_work_path}}/rabbitmq
     state: directory
     owner: root
     group: root
     mode: +rwx        
     
-- name: criando Dockerfile /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq/Dockerfile
+- name: criando Dockerfile /{{workgroup_name}}/{{docker_work_path}}/rabbitmq/Dockerfile
   template:
     src: "Dockerfile.j2"
-    dest: "/{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq/Dockerfile"
+    dest: "/{{workgroup_name}}/{{docker_work_path}}/rabbitmq/Dockerfile"
     backup: yes
     mode: a+x
     owner: root
@@ -21,8 +21,8 @@
   docker_image:
     name: rthomaz/rabbitmq
     build:
-      path: /{{ workgroup_name }}/{{ docker_work_path }}/images
-      dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/rabbitmq/Dockerfile
+      path: /{{workgroup_name}}/{{docker_work_path}}/images
+      dockerfile: /{{workgroup_name}}/{{docker_work_path}}/rabbitmq/Dockerfile
       pull: yes
     push: no
     source: build
@@ -35,12 +35,12 @@
   command: docker run -d 
     --hostname {{docker_rabbitmq_container_name}}
     --name {{docker_rabbitmq_container_name}}
-    --log-driver="fluentd"
+    --log-driver={{docker_rabbitmq_log_driver}}
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.rabbitmq
-    --network rthomaz-network
-    -e RABBITMQ_DEFAULT_USER=rodrigo 
-    -e RABBITMQ_DEFAULT_PASS=12345 
+    --network {{docker_rabbitmq_network}}
+    -e RABBITMQ_DEFAULT_USER={{docker_rabbitmq_default_user}} 
+    -e RABBITMQ_DEFAULT_PASS={{docker_rabbitmq_default_pass}} 
     -p 1883:1883 
     -p 4369:4369 
     -p 5671:5671 

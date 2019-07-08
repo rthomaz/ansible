@@ -1,3 +1,7 @@
 ---
 docker_rabbitmq_release: 3.7-management
 docker_rabbitmq_container_name: rt-rabbitmq-1
+docker_rabbitmq_network: rthomaz-network
+docker_rabbitmq_default_user: rodrigo
+docker_rabbitmq_default_pass: 12345
+docker_rabbitmq_log_driver: fluentd
