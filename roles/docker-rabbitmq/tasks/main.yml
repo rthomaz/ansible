@@ -32,7 +32,7 @@
 #  ignore_errors: yes    
 
 - name: exclui qualquer container baseado na imagem {{docker_rabbitmq_image_name}} 
-  command: "docker ps -a | awk '{ print $1,$2 }' | grep {{docker_rabbitmq_image_name}}:latest | awk '{print $1 }' | xargs -I {} docker rm -f {}"
+  command: docker ps -a | awk '{ print $1,$2 }' | grep rthomaz/rabbitmq:latest | awk '{print $1 }' | xargs -I {} docker rm -f {}
   
 - name: cria o container {{docker_rabbitmq_container_name}}
   command: docker run -d 
