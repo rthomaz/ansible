@@ -17,7 +17,7 @@
     owner: root
     group: root
     
-- name: cria a imagem rabbitmq
+- name: cria a imagem rthomaz/rabbitmq
   docker_image:
     name: rthomaz/rabbitmq
     build:
@@ -27,14 +27,14 @@
     push: no
     source: build
     
-- name: exclui o container do rabbitmq
-  command: docker rm -f -v rt-rabbitmq-1
+- name: exclui o container {{docker_rabbitmq_container_name}}
+  command: docker rm -f -v {{docker_rabbitmq_container_name}}
   ignore_errors: yes    
   
-- name: cria o container do rabbitmq
+- name: cria o container {{docker_rabbitmq_container_name}}
   command: docker run -d 
-    --hostname rt-rabbitmq-1
-    --name rt-rabbitmq-1
+    --hostname {{docker_rabbitmq_container_name}}
+    --name {{docker_rabbitmq_container_name}}
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.rabbitmq
