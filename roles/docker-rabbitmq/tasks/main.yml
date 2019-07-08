@@ -8,10 +8,10 @@
     group: root
     mode: +rwx        
     
-- name: criando Dockerfile /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}/Dockerfile
+- name: criando Dockerfile {{docker_rabbitmq_directory_path}}/Dockerfile
   template:
-    src: "Dockerfile.j2"
-    dest: "/{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}/Dockerfile"
+    src: 'Dockerfile.j2'
+    dest: '{{docker_rabbitmq_directory_path}}/Dockerfile'
     backup: yes
     mode: a+x
     owner: root
@@ -22,7 +22,7 @@
     name: rthomaz/rabbitmq
     build:
       path: /{{workgroup_name}}/{{docker_work_path}}/images
-      dockerfile: /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}/Dockerfile
+      dockerfile: '{{docker_rabbitmq_directory_path}}/Dockerfile'
       pull: yes
     push: no
     source: build
