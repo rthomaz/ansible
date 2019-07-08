@@ -43,14 +43,14 @@
   tags:
     - docker-ce
     
-- name: instalando o pacote python-pip
+- name: instalando o pacote python3-pip
   apt:
     name: "python3-pip"
 #    name: "python-pip"
   tags:
     - docker-ce
         
-- name: rodando o comando pip install docker
+- name: rodando o comando pip3 install docker
   shell: pip3 install docker
 
 # Configurando o ambiente
