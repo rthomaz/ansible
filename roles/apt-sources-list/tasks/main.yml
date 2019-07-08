@@ -2,11 +2,11 @@
 - name: instalando gestor de pacotes aptitude
   apt:
     name: "{{ packages }}"
+    update_cache: yes
   vars:
     packages:
     - python-apt
-    - aptitude
-  update_cache: yes
+    - aptitude  
 
 - name: atualizando a lista de repositórios do apt
   template:
