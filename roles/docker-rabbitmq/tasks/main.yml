@@ -42,14 +42,36 @@
     --network {{docker_rabbitmq_network}}
     -e RABBITMQ_DEFAULT_USER={{docker_rabbitmq_default_user}} 
     -e RABBITMQ_DEFAULT_PASS={{docker_rabbitmq_default_pass}} 
-    -p 1883:1883 
     -p 4369:4369 
     -p 5671:5671 
-    -p 5672:5672 
-    -p 15671:15671 
-    -p 15672:15672 
-    -p 15674:15674 
-    -p 15675:15675 
+    -p 5672:5672     
     -p 25672:25672 
-    -p 61613:61613 
+    {% for plugin in docker_rabbitmq_plugins %}
+        {% if plugin == 'rabbitmq_management' -%}
+    -p 15671:15671 
+    -p 15672:15672
+        {% elif plugin == 'rabbitmq_mqtt' -%}
+    -p 1883:1883
+        {% elif plugin == 'rabbitmq_web_mqtt' -%}
+    -p 15675:15675
+        {% elif plugin == 'rabbitmq_stomp' -%}
+    -p 61613:61613
+        {% elif plugin == 'rabbitmq_web_stomp' -%}
+    -p 15674:15674   
+        {-% endif %}         
+    {% endfor %}
     {{docker_rabbitmq_image_name}}:latest
+
+# default ports
+
+# 4369  = ?
+# 5671  = amqp ssl
+# 5672  = amqp
+# 25672 = clustering
+
+# 15671 = http ssl
+# 15672 = http (RabbitMQ Management)
+# 1883  = mqtt
+# 15675 = http/web-mqtt
+# 61613 = stomp
+# 15674 = http/web-stomp
