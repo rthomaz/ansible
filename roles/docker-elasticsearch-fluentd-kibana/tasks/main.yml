@@ -65,7 +65,7 @@
     networks:
       - name: "rthomaz-network-log"
     volumes:
-      - {{ docker_work_path }}/fluentd/conf:/fluentd/etc
+      - '{{ docker_work_path }}/fluentd/conf:/fluentd/etc'
     ports:
      - "24224:24224"
      - "24224:24224/udp"
