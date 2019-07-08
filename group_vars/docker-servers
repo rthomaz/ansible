@@ -1,10 +1,14 @@
 docker_work_path: '/docker-projects'
 docker_folder_images_path: '{{docker_work_path}}/images'
+
 docker_company_image_prefix: rthomaz
+
 docker_network: rthomaz-network
+
 docker_log_driver: fluentd
 docker_log_opts:
   - { name: 'fluentd-address', value: 'localhost:24224'}
   - { name: 'tag', value: 'efk.rabbitmq' }
 
-docker_rabbitmq_release: 3.7-management
+docker_apps_default_user: rodrigo
+docker_apps_default_pass: 12345

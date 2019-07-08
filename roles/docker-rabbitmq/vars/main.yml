@@ -1,15 +1,12 @@
 ---
 docker_rabbitmq_network: '{{docker_network}}'
-docker_rabbitmq_default_user: rodrigo
-docker_rabbitmq_default_pass: 12345
-docker_rabbitmq_release: 3.6-management
-docker_rabbitmq_plugins: 
-  - rabbitmq_management
-  - rabbitmq_mqtt
-  - rabbitmq_web_mqtt
-  - rabbitmq_stomp
-  - rabbitmq_web_stomp
-  - rabbitmq_federation
-  - rabbitmq_federation_management
+
+docker_rabbitmq_default_user: '{{docker_apps_default_user}}'
+docker_rabbitmq_default_pass: '{{docker_apps_default_pass}}'
+
+docker_rabbitmq_image_name: '{{docker_company_image_prefix}}/rabbitmq'
+
+docker_rabbitmq_directory_path: '{{docker_work_path}}/{{docker_rabbitmq_directory_name}}'
+  
 docker_rabbitmq_log_driver: '{{docker_log_driver}}'
 docker_rabbitmq_log_opts: '{{docker_log_opts}}'
