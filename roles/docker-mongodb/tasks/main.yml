@@ -13,9 +13,9 @@
     --restart=unless-stopped -d 
     --name mongodb-1
     --network {{docker_mongodb_network}}
-    --log-driver='{{docker_mongodb_log_driver}}'
-    --log-opt='{{docker_mongodb_log_address}}'
-    --log-opt='{{docker_mongodb_log_tag}}'
+#    --log-driver='{{docker_mongodb_log_driver}}'
+#    --log-opt='{{docker_mongodb_log_address}}'
+#    --log-opt='{{docker_mongodb_log_tag}}'
     -p 27017:27017 
     -e "MONGO_INITDB_ROOT_USERNAME=root"
     -e "MONGO_INITDB_ROOT_PASSWORD=test"
