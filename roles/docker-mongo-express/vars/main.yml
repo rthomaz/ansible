@@ -1,0 +1,5 @@
+---
+docker_mongo_express_network: '{{docker_network}}'
+
+docker_mongo_express_log_driver: '{{docker_log_driver}}'
+docker_mongo_express_log_opts: '{{docker_log_opts}}'
