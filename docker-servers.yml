@@ -10,11 +10,11 @@
   roles:
     - docker-ce
     - docker-environment
-#     - docker-elasticsearch-fluentd-kibana
-#     - docker-mongodb
-# #   - docker-my-sql
-#     - docker-postgres
-#     - docker-postgres-adminer
+    - docker-elasticsearch-fluentd-kibana
+    - docker-mongodb
+#   - docker-my-sql
+    - docker-postgres
+    - docker-postgres-adminer
     - docker-rabbitmq
-#     - docker-nuget-server
-#     - docker-nextcloud
+    - docker-nuget-server
+    - docker-nextcloud
