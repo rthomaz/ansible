@@ -30,7 +30,7 @@
     backup: yes
 - name: criando ficheiro nsswitch.conf
   copy:
-    src: "nsswitch.conf.j2"
+    src: "nsswitch.conf"
     dest: "/etc/nsswitch.conf"
     backup: yes     
 - name: ingressando no domínio
