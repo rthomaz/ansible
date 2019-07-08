@@ -1,9 +1,8 @@
 ---
-docker_rabbitmq_network: rthomaz-network
+docker_rabbitmq_network: '{{docker_network}}'
 docker_rabbitmq_default_user: rodrigo
 docker_rabbitmq_default_pass: 12345
-docker_rabbitmq_directory_path: '{{docker_work_path}}/{{docker_rabbitmq_directory_name}}'
-docker_rabbitmq_image_name: rthomaz/rabbitmq
+docker_rabbitmq_release: '{{docker_rabbitmq_release}}'
 docker_rabbitmq_plugins: 
   - rabbitmq_management
   - rabbitmq_mqtt
@@ -12,7 +11,5 @@ docker_rabbitmq_plugins:
   - rabbitmq_web_stomp
   - rabbitmq_federation
   - rabbitmq_federation_management
-docker_rabbitmq_log_driver: fluentd
-docker_rabbitmq_log_opts:
-  - { name: 'fluentd-address', value: 'localhost:24224'}
-  - { name: 'tag', value: 'efk.rabbitmq' }
+docker_rabbitmq_log_driver: '{{docker_log_driver}}'
+docker_rabbitmq_log_opts: '{{docker_log_opts}}'
