@@ -4,18 +4,19 @@
   file:
     path: '{{docker_rabbitmq_directory_path}}'
     state: directory
-    owner: root
-    group: root
-    mode: +rwx        
+    owner: {{docker_rabbitmq_files_owner}}
+    group: {{docker_rabbitmq_files_group}}
+    mode: {{docker_rabbitmq_files_mode}}
+#    mode: +rwx        
     
 - name: criando Dockerfile {{docker_rabbitmq_directory_path}}/Dockerfile
   template:
     src: 'Dockerfile.j2'
     dest: '{{docker_rabbitmq_directory_path}}/Dockerfile'
-    backup: yes
-    mode: a+x
-    owner: root
-    group: root
+    backup: yes    
+    owner: {{docker_rabbitmq_files_owner}}
+    group: {{docker_rabbitmq_files_group}}
+    mode: {{docker_rabbitmq_files_mode}}
     
 - name: cria a imagem rthomaz/rabbitmq
   docker_image:

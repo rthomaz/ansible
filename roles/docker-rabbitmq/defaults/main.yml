@@ -1,2 +1,5 @@
 ---
 docker_rabbitmq_directory_name: rabbitmq
+docker_rabbitmq_files_owner: root
+docker_rabbitmq_files_group: root
+docker_rabbitmq_files_mode: a+x
