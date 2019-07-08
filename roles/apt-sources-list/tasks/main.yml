@@ -6,7 +6,7 @@
 
 - name: atualizando a lista de repositórios do apt
   template:
-    src: "apt-sources-list.j2"
+    src: "sources.list.j2"
     dest: "/etc/apt/sources.list"
     backup: yes
     
