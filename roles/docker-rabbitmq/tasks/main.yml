@@ -47,18 +47,18 @@
     -p 5672:5672     
     -p 25672:25672 
     {% for plugin in docker_rabbitmq_plugins %}
-        {% if plugin == 'rabbitmq_management' -%}
+        {% if plugin == 'rabbitmq_management' %}
     -p 15671:15671 
     -p 15672:15672
-        {% elif plugin == 'rabbitmq_mqtt' -%}
+        {% elif plugin == 'rabbitmq_mqtt' %}
     -p 1883:1883
-        {% elif plugin == 'rabbitmq_web_mqtt' -%}
+        {% elif plugin == 'rabbitmq_web_mqtt' %}
     -p 15675:15675
-        {% elif plugin == 'rabbitmq_stomp' -%}
+        {% elif plugin == 'rabbitmq_stomp' %}
     -p 61613:61613
-        {% elif plugin == 'rabbitmq_web_stomp' -%}
+        {% elif plugin == 'rabbitmq_web_stomp' %}
     -p 15674:15674   
-        {-% endif %}         
+        {% endif %}         
     {% endfor %}
     {{docker_rabbitmq_image_name}}:latest
 
