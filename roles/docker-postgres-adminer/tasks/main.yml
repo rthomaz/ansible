@@ -8,9 +8,9 @@
   command: docker run 
     --restart=unless-stopped -d 
     --name postgres-adminer-1
-    --network rthomaz-network
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.postgres.adminer
+    --network {{docker_postgres_adminer_network}}
+    --log-driver={{docker_postgres_adminer_log_driver}}
+    --log-opt fluentd-address={{docker_postgres_adminer_log_address}}
+    --log-opt tag={{docker_postgres_adminer_log_tag}}
     -p 8091:8080 
     adminer

@@ -8,10 +8,10 @@
   command: docker run 
     --restart=unless-stopped -d 
     --name mongo-express-1
-    --network rthomaz-network
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.mongo.express
+    --network {{docker_mongo_express_network}}
+    --log-driver={{docker_mongo_express_log_driver}}
+    --log-opt fluentd-address={{docker_mongo_express_log_address}}
+    --log-opt tag={{docker_mongo_express_log_tag}}
     -p 8081:8081 
     -e "ME_CONFIG_MONGODB_SERVER=mongodb-1"
     -e "ME_CONFIG_MONGODB_ADMINUSERNAME=root"

@@ -41,10 +41,10 @@
     --restart=unless-stopped -d 
     --name nextcloud-1
     --mount source=nextcloud-data,target=/var/www/html
-    --network rthomaz-network
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.nextcloud
+    --network {{docker_nextcloud_network}}
+    --log-driver={{docker_nextcloud_log_driver}}
+    --log-opt fluentd-address={{docker_nextcloud_log_address}}
+    --log-opt tag={{docker_nextcloud_log_tag}}
     -p 8088:80 
     -e "MYSQL_DATABASE=nextcloud"
     -e "MYSQL_USER=nextcloud"

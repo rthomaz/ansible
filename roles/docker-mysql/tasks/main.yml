@@ -13,10 +13,10 @@
     --restart=unless-stopped -d 
     --name mysql-1
     --mount source=mysql-data,target=/var/lib/mysql
-    --network rthomaz-network
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.mysql
+    --network {{docker_mysql_network}}
+    --log-driver={{docker_mysql_log_driver}}
+    --log-opt fluentd-address={{docker_mysql_log_address}}
+    --log-opt tag={{docker_mysql_log_tag}}
     -p 3307:3306 
     -e "MYSQL_ROOT_PASSWORD=changeme"
     mysql:5.7.24

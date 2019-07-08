@@ -8,10 +8,10 @@
   command: docker run 
     --restart=unless-stopped -d 
     --name postgres-1
-    --network rthomaz-network
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.postgres
+    --network {{docker_postgres_network}}
+    --log-driver={{docker_postgres_log_driver}}
+    --log-opt fluentd-address={{docker_postgres_log_address}}
+    --log-opt tag={{docker_postgres_log_tag}}
     -p 5432:5432 
     -e "POSTGRES_PASSWORD=changeme"
     postgres

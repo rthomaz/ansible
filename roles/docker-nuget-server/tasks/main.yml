@@ -10,9 +10,9 @@
     --name nuget-server-1
     --volume /srv/docker/nuget/database:/var/www/db
     --volume /srv/docker/nuget/packages:/var/www/packagefiles
-    --network rthomaz-network
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.nuget.server
+    --network {{docker_nuget_server_network}}
+    --log-driver={{docker_nuget_server_log_driver}}
+    --log-opt fluentd-address={{docker_nuget_server_log_address}}
+    --log-opt tag={{docker_nuget_server_log_tag}}
     -p 5000:80
     sunside/simple-nuget-server
