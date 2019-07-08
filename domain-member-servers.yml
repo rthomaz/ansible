@@ -20,9 +20,9 @@
     - apt-sources-list
     - default-packages
     - ssh
-    - ufw 
+#    - ufw 
 ##   - nfs-client    
-    - samba-domain-member
+#    - samba-domain-member
     - sudo
 ##   - clamav
 #    - consul
