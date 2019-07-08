@@ -1,17 +1,17 @@
 ---
 
-- name: cria o diretório /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}} se ele não existir
+- name: cria o diretório {{docker_rabbitmq_directory_path}} se ele não existir
   file:
-    path: /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}
+    path: {{docker_rabbitmq_directory_path}}
     state: directory
     owner: root
     group: root
     mode: +rwx        
     
-- name: criando Dockerfile /{{workgroup_name}}/{{docker_work_path}}/rabbitmq/Dockerfile
+- name: criando Dockerfile /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}/Dockerfile
   template:
     src: "Dockerfile.j2"
-    dest: "/{{workgroup_name}}/{{docker_work_path}}/rabbitmq/Dockerfile"
+    dest: "/{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}/Dockerfile"
     backup: yes
     mode: a+x
     owner: root
@@ -22,7 +22,7 @@
     name: rthomaz/rabbitmq
     build:
       path: /{{workgroup_name}}/{{docker_work_path}}/images
-      dockerfile: /{{workgroup_name}}/{{docker_work_path}}/rabbitmq/Dockerfile
+      dockerfile: /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}/Dockerfile
       pull: yes
     push: no
     source: build

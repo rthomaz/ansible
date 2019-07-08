@@ -4,6 +4,7 @@ docker_rabbitmq_container_name: rt-rabbitmq-1
 docker_rabbitmq_network: rthomaz-network
 docker_rabbitmq_default_user: rodrigo
 docker_rabbitmq_default_pass: 12345
+docker_rabbitmq_directory_path: /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}
 docker_rabbitmq_log_driver: fluentd
 docker_rabbitmq_log_opts:
   - { name: 'fluentd-address', value: 'localhost:24224'}
