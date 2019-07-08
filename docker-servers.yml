@@ -5,10 +5,8 @@
   become_user: root
   gather_facts: no  
   vars_files:
+  - group_vars/all
   - group_vars/docker-servers
-#  vars:
-#    workgroup_name: 'RTHOMAZ'
-#    docker_work_path: 'docker-projects'
   roles:
     - docker-ce
     - docker-elasticsearch-fluentd-kibana
