@@ -5,5 +5,5 @@ galaxy_info:
   license: license (GPL-2.0)
   min_ansible_version: 2.4
   galaxy_tags: []
-  dependencies:
+dependencies:
     - role: docker-ce  
