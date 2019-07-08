@@ -36,8 +36,9 @@
     --hostname {{docker_rabbitmq_container_name}}
     --name {{docker_rabbitmq_container_name}}
     --log-driver={{docker_rabbitmq_log_driver}}
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.rabbitmq
+    {% for mounts in ansible_mounts %}
+    --log-opt {{ options }}
+    {% endfor %}
     --network {{docker_rabbitmq_network}}
     -e RABBITMQ_DEFAULT_USER={{docker_rabbitmq_default_user}} 
     -e RABBITMQ_DEFAULT_PASS={{docker_rabbitmq_default_pass}} 
@@ -52,3 +53,10 @@
     -p 25672:25672 
     -p 61613:61613 
     rthomaz/rabbitmq:latest
+  vars:
+    options:
+      - 'fluentd-address=localhost:24224'
+      - 'tag=efk.rabbitmq'
+
+#--log-opt fluentd-address=localhost:24224
+#--log-opt tag=efk.rabbitmq
