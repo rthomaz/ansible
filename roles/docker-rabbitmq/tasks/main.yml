@@ -1,13 +1,12 @@
 ---
 
-- name: cria o diretório {{docker_rabbitmq_directory_path}} se ele não existirss
+- name: cria o diretório {{docker_rabbitmq_directory_path}} se ele não existir
   file:
     path: '{{docker_rabbitmq_directory_path}}'
     state: directory
     owner: '{{docker_rabbitmq_files_owner}}'
     group: '{{docker_rabbitmq_files_group}}'
     mode: '{{docker_rabbitmq_files_mode}}'
-#    mode: +rwx        
     
 - name: criando Dockerfile {{docker_rabbitmq_directory_path}}/Dockerfile
   template:
@@ -18,9 +17,9 @@
     group: '{{docker_rabbitmq_files_group}}'
     mode: '{{docker_rabbitmq_files_mode}}'
     
-- name: cria a imagem rthomaz/rabbitmq
+- name: cria a imagem {{docker_rabbitmq_image_name}}
   docker_image:
-    name: rthomaz/rabbitmq
+    name: {{docker_rabbitmq_image_name}}
     build:
       path: /{{workgroup_name}}/{{docker_work_path}}/images
       dockerfile: '{{docker_rabbitmq_directory_path}}/Dockerfile'

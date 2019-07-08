@@ -1,4 +1,6 @@
 ---
+docker_rabbitmq_release: 3.7-management
+docker_rabbitmq_container_name: rt-rabbitmq-1
 docker_rabbitmq_directory_name: rabbitmq
 docker_rabbitmq_files_owner: root
 docker_rabbitmq_files_group: root
