@@ -1,6 +1,4 @@
 FROM rabbitmq:{{ docker_rabbitmq_release }}
 RUN rabbitmq-plugins enable --offline {{docker_rabbitmq_plugins}}
 
-{% for plugin in docker_rabbitmq_plugins %}
-#  {{plugin}}
-{% endfor %}
+# {% for plugin in docker_rabbitmq_plugins %} {{plugin}} {% endfor %}
