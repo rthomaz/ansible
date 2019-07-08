@@ -14,8 +14,8 @@
   command: docker run 
     --restart=unless-stopped -d 
     --name mongodb-1
-    --network rthomaz-network
-    --log-driver="fluentd"
+    --network {{docker_mongodb_network}}
+    --log-driver={{docker_mongodb_log_driver}}
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=efk.mongodb
     -p 27017:27017 
