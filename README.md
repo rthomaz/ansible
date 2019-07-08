@@ -9,11 +9,11 @@ cd /rthomaz/ansible-codes/
 
 vagrant up
 
-ansible-playbook -i hosts site.yml 
+ansible-playbook -i production site.yml 
 
-ansible-playbook -i hosts domain-member-servers.yml 
+ansible-playbook -i production domain-member-servers.yml 
 
-ansible-playbook -i hosts docker-servers.yml 
+ansible-playbook -i production docker-servers.yml 
 
 
 
