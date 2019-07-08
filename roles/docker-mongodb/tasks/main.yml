@@ -1,21 +1,21 @@
 ---
 
-- name: cria o volume do mongodb
+- name: cria volume do mongodb-data
   docker_volume:
     name: mongodb-data    
     
-- name: exclui o container do mongodb
+- name: exclui container mongodb-1
   command: docker rm -f -v mongodb-1
   ignore_errors: yes    
     
-- name: cria o container do mongodb
+- name: cria container mongodb-1
   command: docker run 
     --restart=unless-stopped -d 
     --name mongodb-1
     --network {{docker_mongodb_network}}
     --log-driver={{docker_mongodb_log_driver}}
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.mongodb
+    --log-opt={{docker_mongodb_log_address}}
+    --log-opt={{docker_mongodb_log_tag}}
     -p 27017:27017 
     -e "MONGO_INITDB_ROOT_USERNAME=root"
     -e "MONGO_INITDB_ROOT_PASSWORD=test"

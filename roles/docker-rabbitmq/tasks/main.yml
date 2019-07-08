@@ -8,7 +8,7 @@
     group: '{{docker_rabbitmq_files_group}}'
     mode: '{{docker_rabbitmq_files_mode}}'
     
-- name: criando Dockerfile {{docker_rabbitmq_directory_path}}/Dockerfile
+- name: cria {{docker_rabbitmq_directory_path}}/Dockerfile
   template:
     src: 'Dockerfile.j2'
     dest: '{{docker_rabbitmq_directory_path}}/Dockerfile'
@@ -17,7 +17,7 @@
     group: '{{docker_rabbitmq_files_group}}'
     mode: '{{docker_rabbitmq_files_mode}}'
     
-- name: cria a imagem {{docker_rabbitmq_image_name}} do release rabbitmq:{{docker_rabbitmq_release}}
+- name: cria imagem {{docker_rabbitmq_image_name}} do release rabbitmq:{{docker_rabbitmq_release}}
   docker_image:
     name: '{{docker_rabbitmq_image_name}}'
     build:
@@ -30,15 +30,14 @@
 - name: exclui qualquer container baseado na imagem {{docker_rabbitmq_image_name}} 
   shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_rabbitmq_image_name}}:latest | awk '{print $1 }' | xargs -I {} docker rm -f {}
   
-- name: cria o container {{docker_rabbitmq_container_name}}
+- name: cria container {{docker_rabbitmq_container_name}}
   command: docker run -d 
     --hostname {{docker_rabbitmq_container_name}}
     --name {{docker_rabbitmq_container_name}}
     --network {{docker_rabbitmq_network}}
     --log-driver={{docker_rabbitmq_log_driver}}
-    {% for log_opt in docker_rabbitmq_log_opts %}
-    --log-opt {{log_opt.name}}={{log_opt.value}}
-    {% endfor %}    
+    --log-opt={{docker_rabbitmq_log_address}}
+    --log-opt={{docker_rabbitmq_log_tag}}
     -e RABBITMQ_DEFAULT_USER={{docker_rabbitmq_default_user}} 
     -e RABBITMQ_DEFAULT_PASS={{docker_rabbitmq_default_pass}} 
     -p 4369:4369 

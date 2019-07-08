@@ -2,5 +2,6 @@
 docker_mysql_network: '{{docker_network}}'
 
 docker_mysql_log_driver: '{{docker_log_driver}}'
-docker_mysql_log_opts: '{{docker_log_opts}}'
+docker_mysql_log_address: '{{docker_log_address}}'
+docker_mysql_log_tag: 'efk.mysql'
 

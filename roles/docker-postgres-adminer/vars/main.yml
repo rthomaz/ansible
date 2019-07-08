@@ -2,4 +2,5 @@
 docker_postgres_adminer_network: '{{docker_network}}'
 
 docker_postgres_adminer_log_driver: '{{docker_log_driver}}'
-docker_postgres_adminer_log_opts: '{{docker_log_opts}}'
+docker_postgres_adminer_log_address: '{{docker_log_address}}'
+docker_postgres_adminer_log_tag: 'efk.postgres.adminer'

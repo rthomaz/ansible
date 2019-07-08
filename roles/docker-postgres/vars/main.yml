@@ -2,5 +2,6 @@
 docker_postgres_network: '{{docker_network}}'
 
 docker_postgres_log_driver: '{{docker_log_driver}}'
-docker_postgres_log_opts: '{{docker_log_opts}}'
+docker_postgres_log_address: '{{docker_log_address}}'
+docker_postgres_log_tag: 'efk.postgres'
 

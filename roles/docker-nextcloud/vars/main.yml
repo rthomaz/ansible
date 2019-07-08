@@ -2,5 +2,6 @@
 docker_nextcloud_network: '{{docker_network}}'
 
 docker_nextcloud_log_driver: '{{docker_log_driver}}'
-docker_nextcloud_log_opts: '{{docker_log_opts}}'
+docker_nextcloud_log_address: '{{docker_log_address}}'
+docker_nextcloud_log_tag: 'efk.nextcloud'
 

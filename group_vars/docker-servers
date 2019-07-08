@@ -8,9 +8,7 @@ docker_company_image_prefix: rthomaz
 docker_network: rthomaz-network
 
 docker_log_driver: fluentd
-docker_log_opts:
-  - { name: 'fluentd-address', value: 'localhost:24224'}
-  - { name: 'tag', value: 'efk.rabbitmq' }
+docker_log_address: localhost:24224
 
 docker_apps_default_user: rodrigo
 docker_apps_default_pass: 12345
