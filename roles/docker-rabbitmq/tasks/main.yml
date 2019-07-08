@@ -36,8 +36,8 @@
     --hostname {{docker_rabbitmq_container_name}}
     --name {{docker_rabbitmq_container_name}}
     --log-driver={{docker_rabbitmq_log_driver}}
-    {% for mounts in ansible_mounts %}
-    --log-opt {{ options }}
+    {% for option in options %}
+    --log-opt {{ option }}
     {% endfor %}
     --network {{docker_rabbitmq_network}}
     -e RABBITMQ_DEFAULT_USER={{docker_rabbitmq_default_user}} 
