@@ -1,2 +1,2 @@
 ---
-# vars file for ansible-codes
+docker_rabbitmq_release: 3.7-management
