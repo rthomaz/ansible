@@ -9,8 +9,6 @@
     - ca-certificates
     - gnupg2
     - software-properties-common
-#    - python-pip
-    - python3-pip
   tags:
     - docker-ce
     
@@ -47,12 +45,13 @@
     
 - name: instalando o pacote python-pip
   apt:
-    name: "python-pip"
+    name: "python3-pip"
+#    name: "python-pip"
   tags:
     - docker-ce
         
 - name: rodando o comando pip install docker
-  shell: pip install docker
+  shell: pip3 install docker
 
 # Configurando o ambiente
 
