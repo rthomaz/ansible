@@ -4,6 +4,14 @@ docker_rabbitmq_default_user: rodrigo
 docker_rabbitmq_default_pass: 12345
 docker_rabbitmq_directory_path: /{{workgroup_name}}/{{docker_work_path}}/{{docker_rabbitmq_directory_name}}
 docker_rabbitmq_image_name: rthomaz/rabbitmq
+docker_rabbitmq_plugins: 
+  - rabbitmq_management
+  - rabbitmq_mqtt
+  - rabbitmq_web_mqtt
+  - rabbitmq_stomp
+  - rabbitmq_web_stomp
+  - rabbitmq_federation
+  - rabbitmq_federation_management
 docker_rabbitmq_log_driver: fluentd
 docker_rabbitmq_log_opts:
   - { name: 'fluentd-address', value: 'localhost:24224'}
