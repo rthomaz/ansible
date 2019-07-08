@@ -8,12 +8,11 @@
   - group_vars/all
   - group_vars/docker-servers
   roles:
-#     - docker-ce
-#     - docker-elasticsearch-fluentd-kibana
-#     - docker-mongodb
-# #   - docker-my-sql
-#     - docker-postgres
-#     - docker-postgres-adminer
-     - docker-rabbitmq         
-#     - docker-nuget-server
-#     - docker-nextcloud
+    - docker-elasticsearch-fluentd-kibana
+    - docker-mongodb
+#   - docker-my-sql
+    - docker-postgres
+    - docker-postgres-adminer
+    - docker-rabbitmq         
+    - docker-nuget-server
+    - docker-nextcloud
