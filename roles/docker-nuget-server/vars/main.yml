@@ -1,2 +1,6 @@
 ---
-# vars file for ansible-codes
+docker_nuget_server_network: '{{docker_network}}'
+
+docker_nuget_server_log_driver: '{{docker_log_driver}}'
+docker_nuget_server_log_opts: '{{docker_log_opts}}'
+

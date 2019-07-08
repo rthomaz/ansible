@@ -1,2 +1,5 @@
 ---
-# vars file for ansible-codes
+docker_mongodb_network: '{{docker_network}}'
+
+docker_mongodb_log_driver: '{{docker_log_driver}}'
+docker_mongodb_log_opts: '{{docker_log_opts}}'

@@ -12,7 +12,7 @@
     - docker-environment
     - docker-elasticsearch-fluentd-kibana
     - docker-mongodb
-#   - docker-my-sql
+#   - docker-mysql
     - docker-postgres
     - docker-postgres-adminer
     - docker-rabbitmq
