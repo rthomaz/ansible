@@ -46,7 +46,6 @@
 - name: instalando o pacote python3-pip
   apt:
     name: "python3-pip"
-#    name: "python-pip"
   tags:
     - docker-ce
         
