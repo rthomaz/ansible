@@ -1,6 +1,10 @@
 ---
 docker_rabbitmq_network: '{{docker_network}}'
 
+docker_rabbitmq_files_owner: '{{docker_files_owner}}'
+docker_rabbitmq_files_group: '{{docker_files_group}}'
+docker_rabbitmq_files_mode: '{{docker_files_mode}}'
+
 docker_rabbitmq_default_user: '{{docker_apps_default_user}}'
 docker_rabbitmq_default_pass: '{{docker_apps_default_pass}}'
 

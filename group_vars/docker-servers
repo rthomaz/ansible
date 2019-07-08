@@ -12,3 +12,7 @@ docker_log_opts:
 
 docker_apps_default_user: rodrigo
 docker_apps_default_pass: 12345
+
+docker_files_owner: root
+docker_files_group: root
+docker_files_mode: a+x
