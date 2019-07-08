@@ -19,7 +19,7 @@
     
 - name: cria a imagem {{docker_rabbitmq_image_name}}
   docker_image:
-    name: {{docker_rabbitmq_image_name}}
+    name: '{{docker_rabbitmq_image_name}}'
     build:
       path: /{{workgroup_name}}/{{docker_work_path}}/images
       dockerfile: '{{docker_rabbitmq_directory_path}}/Dockerfile'
@@ -52,4 +52,4 @@
     -p 15675:15675 
     -p 25672:25672 
     -p 61613:61613 
-    rthomaz/rabbitmq:latest
+    {{docker_rabbitmq_image_name}}:latest
