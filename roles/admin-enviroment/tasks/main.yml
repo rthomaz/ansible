@@ -8,8 +8,16 @@
     shell=/bin/bash
     groups="sudo"    
     comment=""
+    
 - name: adicionando a chave pública do ssh para o usuário rodrigo
   authorized_key:
     user: rodrigo
     state: present
     key: "{{ lookup('file', '/home/rodrigo/.ssh/id_rsa.pub') }}"
+
+- name: atualizando a senha do usuário root !!!!!!!!!!
+  user: 
+    name: root
+    update_password: always 
+    password: $6$rounds=656000$nv6b5eRCf0MA3Uth$YLcyFUT63rTMB8crCejv5IdyOYIpv62l5FVt.jjw4cNuqPX8HyYwmx/w48SFq/LJtYLrEV92mje7jV0Nfm/9g0
+

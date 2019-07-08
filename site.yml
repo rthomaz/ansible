@@ -1,4 +1,4 @@
 # master playbook
 
 - import_playbook: domain-member-servers.yml
-#- import_playbook: docker-servers.yml
+- import_playbook: docker-servers.yml

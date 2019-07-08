@@ -19,13 +19,13 @@
     - apt-sources-list
     - default-packages
     - admin-enviroment        
-#    - ssh
+    - ssh
     - sudo
-#    - ufw 
-##   - nfs-client    
-#    - samba-domain-member
-##   - clamav
-#    - consul
-#    - vault
-#    - terraform
-#    - pxe
+    - ufw 
+#   - nfs-client    
+    - samba-domain-member
+#   - clamav
+    - consul
+    - vault
+    - terraform
+    - pxe
