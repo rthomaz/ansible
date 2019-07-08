@@ -1,6 +1,6 @@
 ---
 
-- name: cria o diretório {{docker_rabbitmq_directory_path}} se ele não existir
+- name: cria o diretório {{docker_rabbitmq_directory_path}} se ele não existirss
   file:
     path: '{{docker_rabbitmq_directory_path}}'
     state: directory
