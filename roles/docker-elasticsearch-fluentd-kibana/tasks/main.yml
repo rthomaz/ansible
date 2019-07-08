@@ -5,35 +5,35 @@
 
 # Fluentd
 
-- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/fluentd se ele não existir
+- name: cria o diretório {{ docker_work_path }}/fluentd se ele não existir
   file:
-    path: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd
+    path: '{{ docker_work_path }}/fluentd'
     state: directory
     owner: root
     group: root
     mode: +rwx        
 
-- name: criando Dockerfile /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
+- name: criando Dockerfile {{ docker_work_path }}/fluentd/Dockerfile
   template:
     src: "Dockerfile.j2"
-    dest: "/{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile"
+    dest: "{{ docker_work_path }}/fluentd/Dockerfile"
     backup: yes
     mode: a+x
     owner: root
     group: root
     
-- name: cria o diretório /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf se ele não existir
+- name: cria o diretório {{ docker_work_path }}/fluentd/conf se ele não existir
   file:
-    path: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf
+    path: '{{ docker_work_path }}/fluentd/conf'
     state: directory
     owner: root
     group: root
     mode: +rwx        
     
-- name: criando ficheiro /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf/fluent.conf
+- name: criando ficheiro {{ docker_work_path }}/fluentd/conf/fluent.conf
   template:
     src: "fluent.conf.j2"
-    dest: "/{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf/fluent.conf"
+    dest: "{{ docker_work_path }}/fluentd/conf/fluent.conf"
     backup: yes
     mode: a+x
     owner: root
@@ -43,8 +43,8 @@
   docker_image:
     name: rt-fluentd
     build:
-      path: /{{ workgroup_name }}/{{ docker_work_path }}/images
-      dockerfile: /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/Dockerfile
+      path: '{{ docker_folder_images_path }}'
+      dockerfile: '{{ docker_work_path }}/fluentd/Dockerfile'
       pull: yes
     push: no
     source: build
@@ -65,7 +65,7 @@
     networks:
       - name: "rthomaz-network-log"
     volumes:
-      - /{{ workgroup_name }}/{{ docker_work_path }}/fluentd/conf:/fluentd/etc
+      - {{ docker_work_path }}/fluentd/conf:/fluentd/etc
     ports:
      - "24224:24224"
      - "24224:24224/udp"
