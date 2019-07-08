@@ -4,4 +4,4 @@
   vars:
     packages:
     - unzip
-    - python-pexpect
+    - python3-pexpect
