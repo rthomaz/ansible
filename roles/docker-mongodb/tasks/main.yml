@@ -15,7 +15,7 @@
     --log-driver={{docker_mongodb_log_driver}}
     --log-opt fluentd-address={{docker_mongodb_log_address}}
     --log-opt tag={{docker_mongodb_log_tag}}
-    -p 27017:27017 
-    -e "MONGO_INITDB_ROOT_USERNAME=root"
-    -e "MONGO_INITDB_ROOT_PASSWORD=test"
+    -p {{docker_mongodb_port}}:27017 
+    -e "MONGO_INITDB_ROOT_USERNAME={{docker_mongodb_initdb_root_name}}"
+    -e "MONGO_INITDB_ROOT_PASSWORD={{docker_mongodb_initdb_root_pass}}"
     {{docker_mongodb_image_name}} 

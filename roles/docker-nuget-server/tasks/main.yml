@@ -1,18 +1,17 @@
 ---
 
-- name: exclui o container do nuget server
-  command: docker rm -f -v nuget-server-1
-  ignore_errors: yes    
+- name: exclui qualquer container baseado na imagem {{docker_nuget_server_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_nuget_server_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
     
-- name: cria o container do nuget server
+- name: cria container {{docker_nuget_server_container_name}}
   command: docker run 
     --restart=unless-stopped -d 
-    --name nuget-server-1
+    --name {{docker_nuget_server_container_name}}
     --volume /srv/docker/nuget/database:/var/www/db
     --volume /srv/docker/nuget/packages:/var/www/packagefiles
     --network {{docker_nuget_server_network}}
     --log-driver={{docker_nuget_server_log_driver}}
     --log-opt fluentd-address={{docker_nuget_server_log_address}}
     --log-opt tag={{docker_nuget_server_log_tag}}
-    -p 5000:80
-    sunside/simple-nuget-server
+    -p {{docker_nuget_server_port}}:80
+    {{docker_nuget_server_image_name}}

@@ -3,6 +3,11 @@ docker_mongodb_network: '{{docker_network}}'
 
 docker_mongodb_image_name: 'mongo'
 
+docker_mongodb_port: 27017
+
+docker_mongodb_initdb_root_name: 'root'
+docker_mongodb_initdb_root_pass: 'test'
+
 docker_mongodb_log_driver: '{{docker_log_driver}}'
 docker_mongodb_log_address: '{{docker_log_address}}'
 docker_mongodb_log_tag: 'efk.mongodb'

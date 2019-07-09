@@ -11,7 +11,7 @@
     --log-driver={{docker_mongo_express_log_driver}}
     --log-opt fluentd-address={{docker_mongo_express_log_address}}
     --log-opt tag={{docker_mongo_express_log_tag}}
-    -p 8081:8081 
+    -p {{docker_mongo_express_port}}:8081 
     -e "ME_CONFIG_MONGODB_SERVER=mongodb-1"
     -e "ME_CONFIG_MONGODB_ADMINUSERNAME=root"
     -e "ME_CONFIG_MONGODB_ADMINPASSWORD=test"

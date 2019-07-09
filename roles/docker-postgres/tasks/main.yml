@@ -1,17 +1,16 @@
 ---
 
-- name: exclui o container do postgres
-  command: docker rm -f -v postgres-1
-  ignore_errors: yes    
+- name: exclui qualquer container baseado na imagem {{docker_postgres_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_postgres_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
     
-- name: cria o container do postgres
+- name: cria container {{docker_postgres_container_name}}
   command: docker run 
     --restart=unless-stopped -d 
-    --name postgres-1
+    --name {{docker_postgres_container_name}}
     --network {{docker_postgres_network}}
     --log-driver={{docker_postgres_log_driver}}
     --log-opt fluentd-address={{docker_postgres_log_address}}
     --log-opt tag={{docker_postgres_log_tag}}
-    -p 5432:5432 
-    -e "POSTGRES_PASSWORD=changeme"
-    postgres
+    -p {{docker_postgres_port}}:5432 
+    -e "POSTGRES_PASSWORD={{docker_postgres_pass}}"
+    {{docker_postgres_image_name}}
