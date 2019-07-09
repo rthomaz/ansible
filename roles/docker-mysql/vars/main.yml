@@ -1,7 +1,8 @@
 ---
 docker_mysql_network: '{{docker_network}}'
 
-docker_mysql_image_name: '{{docker_company_image_prefix}}/mysql'
+docker_mysql_image_name: 'mysql'
+docker_mysql_image_release: '5.7.24'
 
 docker_mysql_log_driver: '{{docker_log_driver}}'
 docker_mysql_log_address: '{{docker_log_address}}'

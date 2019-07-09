@@ -1,17 +1,16 @@
 ---
 
-- name: cria o volume do mysql
+- name: cria o volume mysql-data
   docker_volume:
     name: mysql-data    
     
-- name: exclui o container do mysql
-  command: docker rm -f -v mysql-1
-  ignore_errors: yes    
+- name: exclui qualquer container baseado na imagem {{docker_mysql_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_mysql_image_name}}:{{docker_mysql_image_release}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
     
-- name: cria o container do mysql
+- name: cria container {{docker_mysql_container_name}}
   command: docker run 
     --restart=unless-stopped -d 
-    --name mysql-1
+    --name {{docker_mysql_container_name}}
     --mount source=mysql-data,target=/var/lib/mysql
     --network {{docker_mysql_network}}
     --log-driver={{docker_mysql_log_driver}}
@@ -19,4 +18,4 @@
     --log-opt tag={{docker_mysql_log_tag}}
     -p 3307:3306 
     -e "MYSQL_ROOT_PASSWORD=changeme"
-    mysql:5.7.24
+    {{docker_mysql_image_name}}:{{docker_mysql_image_release}}
