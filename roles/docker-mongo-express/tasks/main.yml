@@ -1,9 +1,5 @@
 ---
     
-# - name: exclui o container {{docker_mongo_express_container_name}}
-#   command: docker rm -f -v {{docker_mongo_express_container_name}}
-#   ignore_errors: yes        
-    
 - name: exclui qualquer container baseado na imagem {{docker_mongo_express_image_name}} 
   shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_mongo_express_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
 
