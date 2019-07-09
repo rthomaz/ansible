@@ -1,0 +1,8 @@
+---
+docker_adminer_network: '{{docker_network}}'
+
+docker_adminer_image_name: 'adminer'
+
+docker_adminer_log_driver: '{{docker_log_driver}}'
+docker_adminer_log_address: '{{docker_log_address}}'
+docker_adminer_log_tag: 'efk.adminer'

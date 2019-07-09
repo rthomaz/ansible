@@ -13,9 +13,9 @@
     - docker-elasticsearch-fluentd-kibana
     - docker-mongodb
     - docker-mongo-express
-#   - docker-mysql
+    - docker-mysql
     - docker-postgres
-    - docker-postgres-adminer
+    - docker-adminer
     - docker-rabbitmq
     - docker-nuget-server
     - docker-nextcloud

@@ -1,0 +1,15 @@
+---
+
+- name: exclui qualquer container baseado na imagem {{docker_adminer_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_adminer_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
+    
+- name: cria o container {{docker_adminer_container_name}}
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name {{docker_adminer_container_name}}
+    --network {{docker_adminer_network}}
+    --log-driver={{docker_adminer_log_driver}}
+    --log-opt fluentd-address={{docker_adminer_log_address}}
+    --log-opt tag={{docker_adminer_log_tag}}
+    -p 8091:8080 
+    {{docker_adminer_image_name}}
