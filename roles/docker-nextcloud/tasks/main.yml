@@ -1,23 +1,22 @@
 ---
     
-- name: cria o volume do nextcloud
+- name: cria o volume do nextcloud-data    
   docker_volume:
     name: nextcloud-data    
     
-- name: exclui o container do nextcloud
-  command: docker rm -f -v nextcloud-1
-  ignore_errors: yes    
+- name: exclui qualquer container baseado na imagem {{docker_nextcloud_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_nextcloud_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
     
-- name: cria o container do nextcloud
+- name: cria container {{docker_nextcloud_container_name}}
   command: docker run 
     --restart=unless-stopped -d 
-    --name nextcloud-1
+    --name {{docker_nextcloud_container_name}}
     --mount source=nextcloud-data,target=/var/www/html
     --network {{docker_nextcloud_network}}
     --log-driver={{docker_nextcloud_log_driver}}
     --log-opt fluentd-address={{docker_nextcloud_log_address}}
     --log-opt tag={{docker_nextcloud_log_tag}}
-    -p 8088:80 
+    -p {{docker_nextcloud_port}}:80 
     -e "MYSQL_DATABASE=nextcloud"
     -e "MYSQL_USER=nextcloud"
     -e "MYSQL_PASSWORD=changeme"
@@ -27,4 +26,4 @@
     -e "NEXTCLOUD_DATA_DIR=/var/www/html/data"
     -e "EXTERNAL_URL=192.168.1.185:8088"
     -e "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud-1 localhost mariadb-1 192.168.1.185:8088 rthomaz.local 127.0.0.1"
-    nextcloud
+    {{docker_nextcloud_image_name}}
