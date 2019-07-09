@@ -12,10 +12,10 @@
     - docker-environment
     - docker-elasticsearch-fluentd-kibana
     - docker-mongodb
-    - docker-mongo-express
-#    - docker-mysql
-    - docker-postgres
-    - docker-adminer
-    - docker-rabbitmq
-    - docker-nuget-server
-    - docker-nextcloud
+#     - docker-mongo-express
+# #    - docker-mysql
+#     - docker-postgres
+#     - docker-adminer
+#     - docker-rabbitmq
+#     - docker-nuget-server
+#     - docker-nextcloud
