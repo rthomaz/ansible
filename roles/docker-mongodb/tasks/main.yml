@@ -4,14 +4,13 @@
   docker_volume:
     name: mongodb-data    
     
-- name: exclui container mongodb-1
-  command: docker rm -f -v mongodb-1
-  ignore_errors: yes    
+- name: exclui qualquer container baseado na imagem {{docker_mongodb_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_mongodb_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
     
-- name: cria container mongodb-1
+- name: cria container {{docker_mongodb_container_name}} 
   command: docker run 
     --restart=unless-stopped -d 
-    --name mongodb-1
+    --name {{docker_mongodb_container_name}} 
     --network {{docker_mongodb_network}}
     --log-driver={{docker_mongodb_log_driver}}
     --log-opt fluentd-address={{docker_mongodb_log_address}}
@@ -19,4 +18,4 @@
     -p 27017:27017 
     -e "MONGO_INITDB_ROOT_USERNAME=root"
     -e "MONGO_INITDB_ROOT_PASSWORD=test"
-    mongo 
+    {{docker_mongodb_image_name}} 

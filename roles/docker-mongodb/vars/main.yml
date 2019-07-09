@@ -1,7 +1,7 @@
 ---
 docker_mongodb_network: '{{docker_network}}'
 
-docker_mongodb_image_name: '{{docker_company_image_prefix}}/mongodb'
+docker_mongodb_image_name: 'mongo'
 
 docker_mongodb_log_driver: '{{docker_log_driver}}'
 docker_mongodb_log_address: '{{docker_log_address}}'
