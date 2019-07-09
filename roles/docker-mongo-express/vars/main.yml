@@ -1,6 +1,8 @@
 ---
 docker_mongo_express_network: '{{docker_network}}'
 
+docker_mongo_express_image_name: 'mongo-express'
+
 docker_mongo_express_log_driver: '{{docker_log_driver}}'
 docker_mongo_express_log_address: '{{docker_log_address}}'
 docker_mongo_express_log_tag: 'efk.mongo.express'
