@@ -3,8 +3,6 @@
 docker_work_path: '/docker-projects'
 docker_folder_images_path: '{{docker_work_path}}/images'
 
-docker_company_image_prefix: rthomaz
-
 docker_network: rthomaz-network
 
 docker_log_driver: fluentd

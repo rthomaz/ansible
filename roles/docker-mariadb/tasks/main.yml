@@ -1,0 +1,24 @@
+---
+
+- name: cria o volume mariadb-data
+  docker_volume:
+    name: mariadb-data    
+    
+- name: exclui qualquer container baseado na imagem {{docker_mariadb_image_name}} 
+  shell: docker ps -a | awk '{ print $1,$2 }' | grep {{docker_mariadb_image_name}} | awk '{print $1 }' | xargs -I {} docker rm -f {}
+    
+- name: cria container {{docker_mariadb_container_name}}
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name {{docker_mariadb_container_name}}
+    --mount source=mariadb-data,target=/var/lib/mysql
+    --network {{docker_mariadb_network}}
+    --log-driver={{docker_mariadb_log_driver}}
+    --log-opt fluentd-address={{docker_mariadb_log_address}}
+    --log-opt tag={{docker_mariadb_log_tag}}
+    -p {{docker_mariadb_port}}:3306 
+    -e "MYSQL_DATABASE={{docker_mariadb_database}}"
+    -e "MYSQL_ROOT_PASSWORD={{docker_mariadb_root_pass}}"
+    -e "MYSQL_USER={{docker_mariadb_user}}"
+    -e "MYSQL_PASSWORD={{docker_mariadb_pass}}"
+    {{docker_mariadb_image_name}}

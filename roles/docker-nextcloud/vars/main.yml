@@ -1,7 +1,7 @@
 ---
 docker_nextcloud_network: '{{docker_network}}'
 
-docker_nextcloud_image_name: '{{docker_company_image_prefix}}/nextcloud'
+docker_nextcloud_image_name: 'nextcloud'
 
 docker_nextcloud_log_driver: '{{docker_log_driver}}'
 docker_nextcloud_log_address: '{{docker_log_address}}'

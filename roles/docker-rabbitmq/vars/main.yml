@@ -8,7 +8,7 @@ docker_rabbitmq_files_mode: '{{docker_files_mode}}'
 docker_rabbitmq_default_user: '{{docker_apps_default_user}}'
 docker_rabbitmq_default_pass: '{{docker_apps_default_pass}}'
 
-docker_rabbitmq_image_name: '{{docker_company_image_prefix}}/rabbitmq'
+docker_rabbitmq_image_name: 'rabbitmq'
 
 docker_rabbitmq_directory_path: '{{docker_work_path}}/{{docker_rabbitmq_directory_name}}'
   

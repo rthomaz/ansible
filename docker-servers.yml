@@ -13,7 +13,7 @@
     - docker-elasticsearch-fluentd-kibana
     - docker-mongodb
     - docker-mongo-express
-#    - docker-mysql
+    - docker-mariadb
     - docker-postgres
     - docker-adminer
     - docker-rabbitmq

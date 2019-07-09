@@ -1,0 +1,16 @@
+---
+docker_mariadb_network: '{{docker_network}}'
+
+docker_mariadb_image_name: 'mariadb'
+
+docker_mariadb_port: 3306
+
+docker_mariadb_database: nextcloud
+docker_mariadb_root_pass: changeme
+docker_mariadb_user: nextcloud
+docker_mariadb_pass: changeme
+
+docker_mariadb_log_driver: '{{docker_log_driver}}'
+docker_mariadb_log_address: '{{docker_log_address}}'
+docker_mariadb_log_tag: 'efk.mariadb'
+
