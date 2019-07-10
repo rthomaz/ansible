@@ -1,14 +1,14 @@
 # deb http://deb.debian.org/debian {{ debian_codename }} main
 
-deb {{apt_mirror_default_url}} {{ debian_codename }} main contrib non-free
-deb-src {{apt_mirror_default_url}} {{ debian_codename }} main contrib non-free
+deb [trusted=yes] {{apt_mirror_default_url}} {{ debian_codename }} main contrib non-free
+deb-src [trusted=yes] {{apt_mirror_default_url}} {{ debian_codename }} main contrib non-free
 
-deb {{apt_mirror_security_url}} {{ debian_codename }}/updates main contrib non-free
-deb-src {{apt_mirror_security_url}} {{ debian_codename }}/updates main contrib non-free
+deb [trusted=yes] {{apt_mirror_security_url}} {{ debian_codename }}/updates main contrib non-free
+deb-src [trusted=yes] {{apt_mirror_security_url}} {{ debian_codename }}/updates main contrib non-free
 
 # {{ debian_codename }}-updates, previously known as 'volatile'
-deb {{apt_mirror_update_url}} {{ debian_codename }}-updates main contrib non-free
-deb-src {{apt_mirror_update_url}} {{ debian_codename }}-updates main contrib non-free
+deb [trusted=yes] {{apt_mirror_update_url}} {{ debian_codename }}-updates main contrib non-free
+deb-src [trusted=yes] {{apt_mirror_update_url}} {{ debian_codename }}-updates main contrib non-free
 
 # debian-backports
-deb {{apt_mirror_backports_url}} {{ debian_codename }}-backports main contrib non-free
+deb [trusted=yes] {{apt_mirror_backports_url}} {{ debian_codename }}-backports main contrib non-free
