@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
   
   config.vm.box = "debian/stretch64"
   config.vm.hostname = "deb-01"  
+  config.disksize.size = '20GB'
   config.vm.network :public_network, :dev => "br0", :mode => "bridge", :type => "bridge", ip: "192.168.1.185", :netmask => "255.255.255.0"
   config.vm.synced_folder '.', '/vagrant', disabled: true
   
