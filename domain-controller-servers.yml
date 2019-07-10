@@ -1,6 +1,6 @@
 ---
 
-- hosts: domain-controller-servers
+- hosts: domain_controller_servers
   become: true
   become_user: root
   gather_facts: no  

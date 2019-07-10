@@ -1,6 +1,6 @@
 ---
 
-- hosts: kvm01-server
+- hosts: kvm01_server
   become: true
   become_user: root
   gather_facts: no  

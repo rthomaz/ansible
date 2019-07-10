@@ -1,14 +1,14 @@
 # inventory file for production servers
 
-[domain-controller-servers]
+[domain_controller_servers]
 192.168.1.100
 
-[domain-member-servers]
+[domain_member_servers]
 192.168.1.185 
 #192.168.1.109
 
-[kvm01-server]
+[kvm01_server]
 192.168.1.108
 
-[docker-servers]
+[docker_servers]
 192.168.1.185
