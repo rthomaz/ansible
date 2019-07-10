@@ -1,0 +1,11 @@
+# playbook for domain-member-servers tier
+
+- hosts: nexus
+  become: true
+  become_user: root
+  gather_facts: no  
+  vars_files:
+  - group_vars/all
+  - group_vars/nexus-server
+  roles:
+    - sudo
