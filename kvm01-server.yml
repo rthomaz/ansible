@@ -6,6 +6,6 @@
   gather_facts: no  
   vars_files:
   - group_vars/all
-  - group_vars/nexus-server
+  - group_vars/kvm01-server
   roles:
     - sudo
