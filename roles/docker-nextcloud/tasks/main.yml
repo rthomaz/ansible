@@ -16,14 +16,14 @@
     --log-driver={{docker_nextcloud_log_driver}}
     --log-opt fluentd-address={{docker_nextcloud_log_address}}
     --log-opt tag={{docker_nextcloud_log_tag}}
-    -p {{docker_nextcloud_port}}:80 
-    -e "MYSQL_DATABASE=nextcloud"
-    -e "MYSQL_USER=nextcloud"
-    -e "MYSQL_PASSWORD=changeme"
-    -e "MYSQL_HOST=mariadb-1"
-    -e "NEXTCLOUD_ADMIN_USER=root"
-    -e "NEXTCLOUD_ADMIN_PASSWORD=changeme"
-    -e "NEXTCLOUD_DATA_DIR=/var/www/html/data"
+    -p {{docker_nextcloud_port}}:80
+    -e "MYSQL_DATABASE={{docker_nextcloud_mysql_database}}"
+    -e "MYSQL_USER={{docker_nextcloud_mysql_user}}"
+    -e "MYSQL_PASSWORD={{docker_nextcloud_mysql_pass}}"
+    -e "MYSQL_HOST={{docker_nextcloud_mysql_host}}"
+    -e "NEXTCLOUD_ADMIN_USER={{docker_nextcloud_admin_user}}"
+    -e "NEXTCLOUD_ADMIN_PASSWORD={{docker_nextcloud_admin_pass}}"
+    -e "NEXTCLOUD_DATA_DIR={{docker_nextcloud_admin_data_dir}}"
     -e "EXTERNAL_URL=192.168.1.185:8088"
     -e "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud-1 localhost mariadb-1 192.168.1.185:8088 rthomaz.local 127.0.0.1"
     {{docker_nextcloud_image_name}}

@@ -4,7 +4,14 @@ docker_nextcloud_network: '{{docker_network}}'
 docker_nextcloud_image_name: 'nextcloud'
 docker_nextcloud_port: 8088
 
+docker_nextcloud_mysql_database: nextcloud
+docker_nextcloud_mysql_user: nextcloud
+docker_nextcloud_mysql_pass: changeme
+docker_nextcloud_mysql_host: mariadb-1
+docker_nextcloud_admin_user: root
+docker_nextcloud_admin_pass: changeme
+docker_nextcloud_admin_data_dir: /var/www/html/data
+
 docker_nextcloud_log_driver: '{{docker_log_driver}}'
 docker_nextcloud_log_address: '{{docker_log_address}}'
 docker_nextcloud_log_tag: 'efk.nextcloud'
-
