@@ -1,0 +1,11 @@
+---
+
+- hosts: nexus
+  become: true
+  become_user: root
+  gather_facts: no  
+  vars_files:
+  - group_vars/all
+  - group_vars/domain-controller-servers
+  roles:
+    - sudo
