@@ -1,6 +1,6 @@
 # playbook for domain-member-servers tier
 
-- hosts: servers
+- hosts: domain-member-servers
   become: true
   become_user: root
   gather_facts: no  

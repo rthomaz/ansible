@@ -1,6 +1,6 @@
 ---
 
-- hosts: nexus
+- hosts: kvm01-server
   become: true
   become_user: root
   gather_facts: no  

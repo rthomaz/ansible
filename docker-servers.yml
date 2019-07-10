@@ -1,6 +1,6 @@
 # playbook for docker-servers tier
 
-- hosts: servers
+- hosts: docker-servers
   become: true
   become_user: root
   gather_facts: no  

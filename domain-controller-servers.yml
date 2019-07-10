@@ -1,6 +1,6 @@
 ---
 
-- hosts: nexus
+- hosts: domain-controller-servers
   become: true
   become_user: root
   gather_facts: no  
