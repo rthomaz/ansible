@@ -10,7 +10,7 @@
   roles:
     - apt-config
     - default-packages
-    - admin-environment        
+    - vagrant-admin-environment
     - ssh
     - sudo-config
     - ufw 
