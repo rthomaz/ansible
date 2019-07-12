@@ -1,3 +1,6 @@
+- name: instalar bridge-utils
+  apt:
+    name: "bridge-utils"   
 - name: criar ficheiro /etc/network/interfaces
   template:
     src: "interfaces.j2"
