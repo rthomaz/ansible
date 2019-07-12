@@ -8,7 +8,5 @@
     backup: no
   register: criar_network_interfaces
 - name: reiniciar o servidor
-  service:
-    name: networking
-    state: restarted    
+  reboot:
   when: criar_network_interfaces.changed
