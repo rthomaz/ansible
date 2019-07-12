@@ -1,3 +1,4 @@
 ansible_python_interpreter: /usr/bin/python3
-sudo_user: 'rodrigo'
-domain_name: 'rthomaz.local'
+sudo_user: rodrigo
+domain_name: rthomaz.local
+directory_scripts: /rthomaz/scripts

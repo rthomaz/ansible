@@ -19,10 +19,10 @@ ufw default allow outgoing
 #  StartMyRules
 
 # open ports for DNS
-ufw allow from 192.168.1.0/24 to any port 53
+ufw allow from {{interface_network_prefix}} to any port 53
 
 # open ports for SSH
-ufw allow from 192.168.1.0/24 to any port 22 proto tcp
+ufw allow from {{interface_network_prefix}} to any port 22 proto tcp
 
 #  EndMyRules
 # -------------------------------------

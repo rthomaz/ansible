@@ -1,28 +1,28 @@
-- name: instalando o ufw
+- name: instalar ufw
   apt:
     name: 'ufw'
-- name: cria o diretório /{{ workgroup_name }} se ele não existir
+- name: reiniciar sistema se requerido
+  command: shutdown -r now 'Rebooting to complete system upgrade'
+            removes=/var/run/reboot-required    
+- name: criar diretório /{{directory_scripts}} se ele não existir
   file:
-    path: /{{ workgroup_name }}
+    path: /{{directory_scripts}}
     state: directory
     owner: root
     group: root
     mode: +rwx
-- name: criando ficheiro /{{ workgroup_name }}/ufw-rules.sh
+- name: criar ficheiro /{{directory_scripts}}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
-    dest: "/{{ workgroup_name }}/ufw-rules.sh"
+    dest: "/{{directory_scripts}}/ufw-rules.sh"
     backup: yes
     mode: a+x
     owner: root
     group: root
-#- name: reiniciando a máquina
-#  reboot:
-- name: reinicia o sistema se requerido
-  command: shutdown -r now 'Rebooting to complete system upgrade'
-            removes=/var/run/reboot-required
-- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh  
+  register: criar_ficheiro_ufw_rules
+- name: rodando o script /{{directory_scripts}}/ufw-rules.sh  
   expect:
-    command: /bin/bash -c '/{{ workgroup_name }}/ufw-rules.sh'
+    command: /bin/bash -c '/{{directory_scripts}}/ufw-rules.sh'
     responses:
       (?i)Proceed with operation (y|n)?: "y"
+  when: criar_ficheiro_ufw_rules.changed
