@@ -8,4 +8,4 @@
   - group_vars/all
   - group_vars/domain-controller-servers
   roles:
-    - sudo
+    - sudo-config

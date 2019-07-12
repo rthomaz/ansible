@@ -1,5 +1,9 @@
+- name: Determine available groups
+  getent:
+    database: group
 - name: adiciona o usuário {{ sudo_user }} no grupo sudo
   command: usermod -aG sudo "{{ sudo_user }}"
+  when: item in ansible_facts.getent_group
 - name: criando ficheiro /etc/sudoers
   template:
     src: "sudoers.j2"

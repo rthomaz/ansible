@@ -1,17 +1,17 @@
 ---
 
-- name: atualizando a lista de repositórios do apt
+- name: atualiza lista de repositórios do apt
   template:
     src: "sources.list.j2"
     dest: "/etc/apt/sources.list"
     backup: yes
   register: atualiza_sources_list
 
-- name: atualizando todos os pacotes para a última versão
+- name: atualiza todos os pacotes para a última versão
   apt:
     update_cache: yes
   when: atualiza_sources_list.changed
 
-- name: instalando gestor de pacotes aptitude
+- name: instala gestor de pacotes aptitude
   apt:
     name: "aptitude"

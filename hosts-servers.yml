@@ -11,4 +11,4 @@
     - apt-config
     - default-packages
     - network-interfaces-kvm
-    - sudo
+    - sudo-config

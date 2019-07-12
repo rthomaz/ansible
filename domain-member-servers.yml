@@ -12,7 +12,7 @@
     - default-packages
     - admin-environment        
     - ssh
-    - sudo
+    - sudo-config
     - ufw 
 #   - nfs-client    
     - samba-domain-member
