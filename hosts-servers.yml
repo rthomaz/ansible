@@ -1,11 +1,11 @@
 ---
 
-- hosts: kvm01_server
+- hosts: hosts-servers
   become: true
   become_user: root
   gather_facts: no  
   vars_files:
   - group_vars/all
-  - group_vars/kvm01-server
+  - group_vars/hosts-servers
   roles:
     - sudo

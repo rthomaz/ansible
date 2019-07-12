@@ -6,7 +6,6 @@ dns_domain_name: 'RTHOMAZ.LOCAL'
 domain_admin_user : 'rodrigo'
 domain_admin_password : 'b3b3xu!@#'
 workgroup_name: 'RTHOMAZ'
-sudo_user: 'rodrigo'
 docker_work_path: 'docker-projects'
 ntp_servers: 
   - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }

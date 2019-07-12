@@ -1,6 +1,6 @@
 # master playbook
 
+- import_playbook: hosts-servers.yml
 - import_playbook: domain-controller-servers.yml
 - import_playbook: domain-member-servers.yml
 - import_playbook: docker-servers.yml
-- import_playbook: kvm01-server.yml
