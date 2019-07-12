@@ -4,25 +4,25 @@
 - name: reiniciar sistema se requerido
   command: shutdown -r now 'Rebooting to complete system upgrade'
             removes=/var/run/reboot-required    
-- name: criar diretório /{{directory_scripts}} se ele não existir
+- name: criar diretório {{directory_scripts}} se ele não existir
   file:
-    path: /{{directory_scripts}}
+    path: {{directory_scripts}}
     state: directory
     owner: root
     group: root
     mode: +rwx
-- name: criar ficheiro /{{directory_scripts}}/ufw-rules.sh
+- name: criar ficheiro {{directory_scripts}}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
-    dest: "/{{directory_scripts}}/ufw-rules.sh"
+    dest: "{{directory_scripts}}/ufw-rules.sh"
     backup: yes
     mode: a+x
     owner: root
     group: root
   register: criar_ficheiro_ufw_rules
-- name: rodando o script /{{directory_scripts}}/ufw-rules.sh  
+- name: rodando o script {{directory_scripts}}/ufw-rules.sh  
   expect:
-    command: /bin/bash -c '/{{directory_scripts}}/ufw-rules.sh'
+    command: /bin/bash -c '{{directory_scripts}}/ufw-rules.sh'
     responses:
       (?i)Proceed with operation (y|n)?: "y"
   when: criar_ficheiro_ufw_rules.changed
