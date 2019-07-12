@@ -16,4 +16,4 @@ interface_dns_nameservers:
   - 8.8.4.4
 interface_bridge_ports: enp4s0
 
-ssh_listen_address: {{interface_address}}
+ssh_listen_address: '{{interface_address}}'
