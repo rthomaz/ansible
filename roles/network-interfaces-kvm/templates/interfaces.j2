@@ -14,7 +14,7 @@ iface br0 inet static
         network {{interface_network}}
         broadcast {{interface_broadcast}}
         gateway {{interface_gateway}}
-        dns-search {{interface_dns_search | lower}}
+        dns-search {{interface_dns_search}}
         dns-nameservers {% for dns in interface_dns_nameservers %}{{dns}} {% endfor %}
         bridge_ports {{interface_bridge_ports}}  # replace {{interface_bridge_ports}} with your actual interface name
         bridge_stp off       # disable Spanning Tree Protocol
