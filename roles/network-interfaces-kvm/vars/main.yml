@@ -1,12 +1,2 @@
 ---
 
-interface_address: 192.168.1.120
-interface_netmask: 255.255.255.0
-interface_network: 192.168.1.0
-interface_broadcast: 192.168.1.255
-interface_gateway: 192.168.1.1
-interface_dns_search: rthomaz.local
-interface_dns_nameservers: 
-  - 8.8.8.8
-  - 8.8.4.4
-interface_bridge_ports: enp4s0

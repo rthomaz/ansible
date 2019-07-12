@@ -4,3 +4,14 @@ apt_mirror_default_url: http://deb.debian.org/debian
 apt_mirror_security_url: http://deb.debian.org/debian-security/
 apt_mirror_update_url: http://deb.debian.org/debian
 apt_mirror_backports_url: http://deb.debian.org/debian
+
+interface_address: 192.168.1.120
+interface_netmask: 255.255.255.0
+interface_network: 192.168.1.0
+interface_broadcast: 192.168.1.255
+interface_gateway: 192.168.1.1
+interface_dns_search: {{domain_name}}
+interface_dns_nameservers: 
+  - 8.8.8.8
+  - 8.8.4.4
+interface_bridge_ports: enp4s0
