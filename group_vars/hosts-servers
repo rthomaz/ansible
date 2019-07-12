@@ -1,0 +1,6 @@
+debian_codename: 'stretch'
+
+apt_mirror_default_url: http://deb.debian.org/debian
+apt_mirror_security_url: http://deb.debian.org/debian-security/
+apt_mirror_update_url: http://deb.debian.org/debian
+apt_mirror_backports_url: http://deb.debian.org/debian

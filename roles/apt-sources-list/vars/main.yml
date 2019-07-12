@@ -1,5 +1,2 @@
 ---
-apt_mirror_default_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch/
-apt_mirror_security_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch-security/ 
-apt_mirror_update_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch-updates/
-apt_mirror_backports_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch-backports/
+

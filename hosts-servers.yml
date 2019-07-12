@@ -8,5 +8,7 @@
   - group_vars/all
   - group_vars/hosts-servers
   roles:
+    - apt-sources-list
+    - default-packages
     - network-interfaces-kvm
     - sudo
