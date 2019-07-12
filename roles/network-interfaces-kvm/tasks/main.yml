@@ -1,0 +1,9 @@
+- name: criar ficheiro /etc/network/interfaces
+  template:
+    src: "interfaces.j2"
+    dest: "/etc/network/interfaces"
+    backup: yes
+- name: reiniciar serviço de rede
+  service:
+    name: networking
+    state: restarted    

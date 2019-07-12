@@ -8,4 +8,5 @@
   - group_vars/all
   - group_vars/hosts-servers
   roles:
+    - network-interfaces-kvm
     - sudo
