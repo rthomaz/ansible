@@ -11,7 +11,7 @@
     - apt-config
     - default-packages
     - vagrant-admin-environment
-    - ssh
+    - ssh-config
     - sudo-config
     - ufw 
 #   - nfs-client    

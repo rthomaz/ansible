@@ -1,0 +1,12 @@
+
+- name: criar ficheiro /etc/ssh/sshd_config
+  template:
+    src: "sshd_config.j2"
+    dest: "/etc/ssh/sshd_config"
+    backup: yes
+  register: criar_ficheiro_sshd_config
+- name: reiniciar ssh
+  service:
+    name: ssh
+    state: restarted
+  when: criar_ficheiro_sshd_config.changed
