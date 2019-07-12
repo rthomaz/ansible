@@ -1,6 +1,6 @@
 ---
 
-- hosts: hosts-servers
+- hosts: hosts_servers
   become: true
   become_user: root
   gather_facts: no  
