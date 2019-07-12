@@ -5,8 +5,10 @@
   template:
     src: "interfaces.j2"
     dest: "/etc/network/interfaces"
-    backup: yes
-- name: reiniciar serviço de rede
+    backup: no
+  register: criar_network_interfaces
+- name: reiniciar o servidor
   service:
     name: networking
     state: restarted    
+  when: criar_network_interfaces.changed
