@@ -1,4 +1,4 @@
-# playbook for domain-member-servers tier
+---
 
 - hosts: domain_member_servers
   become: true
@@ -14,10 +14,10 @@
     - ssh-config
     - sudo-config
     - ufw 
-#   - nfs-client    
     - samba-domain-member
+#   - nfs-client    
 #   - clamav
-    - consul
-    - vault
-    - terraform
-    - pxe
+#   - consul
+#   - vault
+#   - terraform
+#   - pxe
