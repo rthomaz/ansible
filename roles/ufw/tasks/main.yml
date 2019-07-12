@@ -6,7 +6,7 @@
             removes=/var/run/reboot-required    
 - name: criar diretório {{directory_scripts}} se ele não existir
   file:
-    path: {{directory_scripts}}
+    path: '{{directory_scripts}}'
     state: directory
     owner: root
     group: root
@@ -14,7 +14,7 @@
 - name: criar ficheiro {{directory_scripts}}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
-    dest: "{{directory_scripts}}/ufw-rules.sh"
+    dest: '{{directory_scripts}}/ufw-rules.sh'
     backup: yes
     mode: a+x
     owner: root
