@@ -1,12 +1,16 @@
+---
+
 - name: instalar bridge-utils
   apt:
     name: "bridge-utils"   
+
 - name: criar ficheiro /etc/network/interfaces
   template:
     src: "interfaces.j2"
     dest: "/etc/network/interfaces"
     backup: yes
   register: criar_network_interfaces
+
 - name: reiniciar o servidor
   reboot:
   when: criar_network_interfaces.changed
