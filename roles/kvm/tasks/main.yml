@@ -31,3 +31,15 @@
 - name: reiniciar servidor
   reboot:
   when: kvm_instalar_pacotes.changed
+
+- name: adicionar usuário root no grupo libvirt
+  user:
+    name: root
+    groups: libvirt
+    append: yes
+
+- name: adicionar usuário {{sudo_user}} no grupo libvirt
+  user:
+    name: '{{sudo_user}}'
+    groups: libvirt
+    append: yes
