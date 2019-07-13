@@ -54,3 +54,13 @@
     name: libvirtd
     state: started
     enabled: yes
+
+- name: criar arquivo {{directory_scripts}}/bridged.xml
+  file:
+    src: "bridged.xml"
+    dest: '{{directory_scripts}}/bridged.xml'
+    backup: yes
+    mode: a+x
+    owner: root
+    group: root
+  register: criar_arquivo_bridged
