@@ -10,11 +10,11 @@
   roles:
     - admin-environment
 #    - apt-config
-    - default-packages
-#    - time-zone-config
+#    - default-packages
+    - time-zone-config
     - vagrant-admin-environment
     - ssh-config
-#    - sudo-config
+    - sudo-config
 #    - ufw 
 
 
