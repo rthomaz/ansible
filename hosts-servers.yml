@@ -12,6 +12,7 @@
     - default-packages
     - network-interfaces-kvm-config
     - network-config
+    - time-zone-config
     - ssh-config
     - sudo-config
     - ufw

@@ -10,6 +10,7 @@
   roles:
     - apt-config
     - default-packages
+    - time-zone-config
     - vagrant-admin-environment
     - ssh-config
     - sudo-config

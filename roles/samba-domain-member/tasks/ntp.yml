@@ -1,8 +1,5 @@
 ---
-#TIMEZONE
-- name: ajustando o timezone do sistema para {{ timezone }}
-  timezone: name={{ timezone }}
-#NTP
+
 - name: instalando o NTP
   apt:
     name: "{{ packages }}"

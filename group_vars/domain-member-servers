@@ -1,7 +1,6 @@
 # here we assign variables to particular groups
 
 debian_codename: 'stretch'
-timezone: 'America/Sao_Paulo'    
 dns_domain_name: '{{domain_name | upper}}'
 domain_admin_user : 'rodrigo'
 domain_admin_password : 'b3b3xu!@#'
