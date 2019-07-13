@@ -16,11 +16,11 @@
 #     groups="sudo"    
 #     comment=""
 
-# - name: adicionando a chave pública do ssh para o usuário rodrigo
-#   authorized_key:
-#     user: rodrigo
-#     state: present
-#     key: "{{ lookup('file', '/home/rodrigo/.ssh/id_rsa.pub') }}"
+- name: adicionando a chave pública do ssh para o usuário rodrigo
+  authorized_key:
+    user: rodrigo
+    state: present
+    key: "{{ lookup('file', '/home/rodrigo/.ssh/id_rsa.pub') }}"
 
 - name: atualizando a senha do usuário root !!!!!!!!!!
   user: 

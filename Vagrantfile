@@ -13,9 +13,6 @@ Vagrant.configure("2") do |config|
     config.ssh.username = 'rodrigo'
   end
 
-#  config.ssh.username = 'rodrigo'
-#  config.ssh.private_key_path = '/home/rodrigo/.ssh/id_rsa.pub'
-
   config.ssh.insert_key = false
     
   config.vm.provider :libvirt do |provider|
