@@ -6,9 +6,6 @@
   wait_for_connection:
     timeout: 900
   when: instalar_ufw.changed    
-#- name: reiniciar sistema se requerido
-#  reboot:
-#  when: instalar_ufw.changed
 - name: criar ficheiro {{directory_scripts}}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
