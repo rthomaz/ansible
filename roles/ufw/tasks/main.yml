@@ -1,10 +1,11 @@
 - name: instalar ufw
   apt:
     name: 'ufw'
-#  register: instalar_ufw
+  register: instalar_ufw
 - name: aguardar o reboot
   wait_for_connection:
     timeout: 900
+  when: instalar_ufw.changed    
 #- name: reiniciar sistema se requerido
 #  reboot:
 #  when: instalar_ufw.changed
