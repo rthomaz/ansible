@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-#   apt-get update
+   apt-get update
     
     ## add rodrigo
     useradd -m -s /bin/bash -U rodrigo -u 666 --groups sudo
