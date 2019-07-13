@@ -67,9 +67,12 @@
 
 - name: definir rede virtual bridge
   command: 'virsh net-define --file {{directory_scripts}}/bridged.xml'
+  when: criar_arquivo_bridged.changed
 
 - name: definir autostart para rede virtual bridge
   command: virsh net-autostart br0
+  when: criar_arquivo_bridged.changed
 
 - name: definir start para rede virtual bridge
   command: virsh net-start br0
+  when: criar_arquivo_bridged.changed
