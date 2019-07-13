@@ -17,3 +17,5 @@ interface_dns_nameservers:
 interface_bridge_ports: enp4s0
 interface_network_prefix: 192.168.1.0/24
 ssh_listen_address: '{{interface_address}}'
+
+host_name: host01
