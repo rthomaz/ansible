@@ -1,0 +1,14 @@
+- name: criar ficheiro /etc/default/grub
+  copy:
+    src: grub
+    dest: /etc/default/grub
+    backup: yes
+  register: criar_ficheiro_grub
+
+- name: criar novo arquivo grub.cfg
+  command: grub-mkconfig -o /boot/grub/grub.cfg
+  when: criar_ficheiro_grub.changed
+
+- name: reiniciar servidor
+  reboot:
+  when: criar_ficheiro_grub.changed

@@ -10,6 +10,7 @@
   roles:
     - apt-config
     - default-packages
+    - network-interfaces-rename
     - network-interfaces-kvm-config
     - network-config
     - time-zone-config

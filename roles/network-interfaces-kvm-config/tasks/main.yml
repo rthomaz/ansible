@@ -11,6 +11,6 @@
     backup: yes
   register: criar_network_interfaces
 
-- name: reiniciar o servidor
+- name: reiniciar servidor
   reboot:
   when: criar_network_interfaces.changed
