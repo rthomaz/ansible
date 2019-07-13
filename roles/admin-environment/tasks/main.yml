@@ -1,0 +1,17 @@
+---
+
+- name: criar diretório {{directory_scripts}} se ele não existir
+  file:
+    path: '{{directory_scripts}}'
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx
+
+- name: criar diretório {{directory_downloads}} se ele não existir
+  file:
+    path: '{{directory_downloads}}'
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx    

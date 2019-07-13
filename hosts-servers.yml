@@ -8,6 +8,7 @@
   - group_vars/all
   - group_vars/hosts-servers
   roles:
+    - admin-environment
     - apt-config
     - default-packages
     - network-interfaces-kvm-config
@@ -18,3 +19,4 @@
     - sudo-config
     - ufw
     - kvm
+    - vagrant

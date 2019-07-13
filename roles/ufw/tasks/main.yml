@@ -4,13 +4,6 @@
 - name: reiniciar sistema se requerido
   command: shutdown -r now 'Rebooting to complete system upgrade'
             removes=/var/run/reboot-required    
-- name: criar diretório {{directory_scripts}} se ele não existir
-  file:
-    path: '{{directory_scripts}}'
-    state: directory
-    owner: root
-    group: root
-    mode: +rwx
 - name: criar ficheiro {{directory_scripts}}/ufw-rules.sh
   template:
     src: "ufw-rules.sh.j2"
