@@ -24,6 +24,6 @@
     -e "NEXTCLOUD_ADMIN_USER={{docker_nextcloud_admin_user}}"
     -e "NEXTCLOUD_ADMIN_PASSWORD={{docker_nextcloud_admin_pass}}"
     -e "NEXTCLOUD_DATA_DIR={{docker_nextcloud_admin_data_dir}}"
-    -e "EXTERNAL_URL=192.168.1.185:8088"
-    -e "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud-1 localhost mariadb-1 192.168.1.185:8088 rthomaz.local 127.0.0.1"
+    -e "EXTERNAL_URL=192.168.1.112:8088"
+    -e "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud-1 localhost mariadb-1 192.168.1.112:8088 rthomaz.local 127.0.0.1"
     {{docker_nextcloud_image_name}}
