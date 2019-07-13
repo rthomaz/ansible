@@ -56,7 +56,7 @@
     enabled: yes
 
 - name: criar arquivo {{directory_scripts}}/bridged.xml
-  file:
+  copy:
     src: "bridged.xml"
     dest: '{{directory_scripts}}/bridged.xml'
     backup: yes
