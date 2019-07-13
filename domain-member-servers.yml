@@ -9,13 +9,15 @@
   - group_vars/domain-member-servers
   roles:
     - admin-environment
-    - apt-config
+#    - apt-config
     - default-packages
-    - time-zone-config
+#    - time-zone-config
     - vagrant-admin-environment
     - ssh-config
-    - sudo-config
-    - ufw 
+#    - sudo-config
+#    - ufw 
+
+
 #    - samba-domain-member
 #   - nfs-client    
 #   - clamav
