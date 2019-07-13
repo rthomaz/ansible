@@ -1,6 +1,12 @@
 # este usuário é necessário, pois ele precisa ser um usuário local para quando sair do domínio continuar existindo
 # futuramente ele pode conter um if para usar o usuário logado e distinguir quando for rodrigo (ansible) ou vagrant
 # o mesmo acontece para chave, que de vagrant pega de ~/.vagrant.d/vagrant.ppk
+
+- name: criando o grupo local rodrigo
+  group:
+    name: rodrigo
+    state: present
+
 - name: criando o usuário local rodrigo 
   user: 
     name=rodrigo
