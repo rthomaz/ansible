@@ -10,7 +10,7 @@
       ufw default allow FORWARD
   register: regras_firewall_kvm
 
-  - name: rodando o script {{directory_scripts}}/ufw-rules.sh
+  - name: rodando o script '{{directory_scripts}}/ufw-rules.sh'
   expect:
     command: /bin/bash -c '{{directory_scripts}}/ufw-rules.sh'
     responses:
