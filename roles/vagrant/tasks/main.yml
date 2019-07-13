@@ -1,8 +1,17 @@
 ---
 
-- name: verificar se o arquivo {{vagrant_file_name}} existe
-  stat: path={{directory_downloads}}/{{vagrant_file_name}}
+- name: verificar arquivo {{vagrant_file_name}} 
+  stat: 
+    path: '{{directory_downloads}}/{{vagrant_file_name}}'
+    get_checksum: yes
+    checksum_algorithm: sha256
   register: vagrant_file
+
+- name: se existir e checksum não conferir, excluir arquivo
+  file:
+    path: '{{directory_downloads}}/{{vagrant_file_name}}'
+    state: absent
+  when: vagrant_file.stat.exists == True and vagrant_file.stat.checksum != {{vagrant_checksum}}
 
 - name: download vagrant {{vagrant_version}}
   get_url:
@@ -12,4 +21,4 @@
     owner: root
     group: root
     mode: +rwx
-  when: vagrant_file.stat.exists == False
+  when: vagrant_file.stat.exists == False or ( vagrant_file.stat.exists == True and vagrant_file.stat.checksum != {{vagrant_checksum}} )
