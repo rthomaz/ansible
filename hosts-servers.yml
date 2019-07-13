@@ -10,8 +10,8 @@
   roles:
     - apt-config
     - default-packages
-    - network-interfaces-kvm
-    - network-hostname
+    - network-interfaces-kvm-config
+    - network-config
     - ssh-config
     - sudo-config
     - ufw
