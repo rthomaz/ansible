@@ -7,4 +7,9 @@
   template:
     src: "hosts.j2"
     dest: "/etc/hosts"
-    backup: yes  
+    backup: yes
+- name: criar ficheiro /etc/resolv.conf
+  template:
+    src: "resolv.conf.j2"
+    dest: "/etc/resolv.conf"
+    backup: yes    
