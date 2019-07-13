@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 #   ansible.verbose = "vvvv"
     ansible.playbook = "domain-member-servers.yml"
     ansible.inventory_path = "production"
-    ansible.limit = "192.168.1.185"
+    ansible.limit = "192.168.1.112"
   end
   
 end

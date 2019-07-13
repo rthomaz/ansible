@@ -10,7 +10,7 @@ apt_mirror_security_url: http://deb.debian.org/debian-security/
 apt_mirror_update_url: http://deb.debian.org/debian
 apt_mirror_backports_url: http://deb.debian.org/debian
 
-interface_address: 192.168.1.111
+interface_address: 192.168.1.112
 interface_netmask: 255.255.255.0
 interface_network: 192.168.1.0
 interface_broadcast: 192.168.1.255
