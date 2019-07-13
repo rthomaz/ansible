@@ -24,4 +24,4 @@
 
 - name: reiniciar servidor
   reboot:
-  when: criar_ficheiro_interfaces.changed || criar_ficheiro_grub.changed
+  when: criar_ficheiro_interfaces.changed or criar_ficheiro_grub.changed
