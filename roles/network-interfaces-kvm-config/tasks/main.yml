@@ -4,13 +4,24 @@
   apt:
     name: "bridge-utils"   
 
+- name: criar ficheiro /etc/default/grub
+  copy:
+    src: grub
+    dest: /etc/default/grub
+    backup: yes
+  register: criar_ficheiro_grub
+  
+- name: criar novo arquivo grub.cfg
+  command: grub-mkconfig -o /boot/grub/grub.cfg
+  when: criar_ficheiro_grub.changed
+
 - name: criar ficheiro /etc/network/interfaces
   template:
     src: "interfaces.j2"
     dest: "/etc/network/interfaces"
     backup: yes
-  register: criar_network_interfaces
+  register: criar_ficheiro_interfaces
 
 - name: reiniciar servidor
   reboot:
-  when: criar_network_interfaces.changed
+  when: criar_ficheiro_interfaces.changed || criar_ficheiro_grub.changed
