@@ -43,3 +43,8 @@
     name: '{{sudo_user}}'
     groups: libvirt
     append: yes
+
+- name: adicionar módulo kvm_intel
+  modprobe:
+    name: kvm_intel
+    state: present    
