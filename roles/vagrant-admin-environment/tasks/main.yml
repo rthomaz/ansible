@@ -16,11 +16,11 @@
     groups="sudo"    
     comment=""
     
-- name: copiar chave do usuário vagrant para o usuário rodrigo
-  command: cp -pr /home/vagrant/.ssh /home/rodrigo/ 
+# - name: copiar chave do usuário vagrant para o usuário rodrigo
+#   command: cp -pr /home/vagrant/.ssh /home/rodrigo/ 
 
-- name: copiar chave do usuário vagrant para o usuário rodrigo
-  command: chown -R rodrigo:rodrigo /home/rodrigo
+# - name: copiar chave do usuário vagrant para o usuário rodrigo
+#   command: chown -R rodrigo:rodrigo /home/rodrigo
 
 - name: adicionando a chave pública do ssh para o usuário rodrigo
   authorized_key:

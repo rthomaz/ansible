@@ -24,6 +24,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
 #   apt-get update
+    
+    ## add rodrigo
+    useradd -m -s /bin/bash -U rodrigo -u 666 --groups wheel
+    cp -pr /home/vagrant/.ssh /home/rodrigo/
+    chown -R rodrigo:rodrigo /home/rodrigo
+    echo "%rodrigo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/rodrigo
+
   SHELL
 
   config.vm.provision "ansible" do |ansible|
