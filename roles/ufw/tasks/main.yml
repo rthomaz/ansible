@@ -3,8 +3,8 @@
     name: 'ufw'
 #  register: instalar_ufw
 - name: aguardar o reboot
-    wait_for_connection:
-      timeout: 900
+  wait_for_connection:
+    timeout: 900
 #- name: reiniciar sistema se requerido
 #  reboot:
 #  when: instalar_ufw.changed
