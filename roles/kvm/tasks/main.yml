@@ -1,7 +1,7 @@
 - name: adicionar regras em {{directory_scripts}}/ufw-rules.sh
   lineinfile:
     dest: '{{directory_scripts}}/ufw-rules.sh'
-    insertbefore: .*ufw logging on 
+    insertafter: .*ufw logging on 
     line: |
 
       # allow FORWARD
