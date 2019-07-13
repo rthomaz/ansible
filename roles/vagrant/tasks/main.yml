@@ -18,3 +18,6 @@
 - name: instalar pacote {{vagrant_file_name}}
   apt:
     deb: '{{directory_downloads}}/{{vagrant_file_name}}'
+
+- name: instalar plugin vagrant-libvirt
+  command: vagrant plugin install vagrant-libvirt
