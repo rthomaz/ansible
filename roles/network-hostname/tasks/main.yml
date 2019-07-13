@@ -1,0 +1,5 @@
+- name: criar ficheiro /etc/hostname
+  template:
+    src: "hostname.j2"
+    dest: "/etc/hostname"
+    backup: yes

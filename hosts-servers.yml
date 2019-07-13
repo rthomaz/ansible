@@ -11,6 +11,7 @@
     - apt-config
     - default-packages
     - network-interfaces-kvm
+    - network-hostname
     - ssh-config
     - sudo-config
     - ufw
