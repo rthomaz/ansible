@@ -2,25 +2,25 @@
 # futuramente ele pode conter um if para usar o usuário logado e distinguir quando for rodrigo (ansible) ou vagrant
 # o mesmo acontece para chave, que de vagrant pega de ~/.vagrant.d/vagrant.ppk
 
-# - name: criando o grupo local rodrigo
-#   group:
-#     name: rodrigo
-#     state: present
+- name: criando o grupo local rodrigo
+  group:
+    name: rodrigo
+    state: present
 
-# - name: criando o usuário local rodrigo 
-#   user: 
-#     name=rodrigo
-#     state=present
-#     shell=/bin/bash
-#     group="rodrigo"
-#     groups="sudo"    
-#     comment=""
+- name: criando o usuário local rodrigo 
+  user: 
+    name=rodrigo
+    state=present
+    shell=/bin/bash
+    group="rodrigo"
+    groups="sudo"    
+    comment=""
 
-# - name: adicionando a chave pública do ssh para o usuário rodrigo
-#   authorized_key:
-#     user: rodrigo
-#     state: present
-#     key: "{{ lookup('file', '/home/rodrigo/.ssh/id_rsa.pub') }}"
+- name: adicionando a chave pública do ssh para o usuário rodrigo
+  authorized_key:
+    user: rodrigo
+    state: present
+    key: "{{ lookup('file', '/home/rodrigo/.ssh/id_rsa.pub') }}"
 
 - name: atualizando a senha do usuário root !!!!!!!!!!
   user: 

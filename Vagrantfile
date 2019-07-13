@@ -8,12 +8,10 @@ Vagrant.configure("2") do |config|
     config.vm.network :public_network, :dev => "br0", :mode => "bridge", :type => "bridge", ip: "192.168.1.112", :netmask => "255.255.255.0"
   config.vm.synced_folder '.', '/vagrant', disabled: true
   
-  VAGRANT_COMMAND = ARGV[0]
-  if VAGRANT_COMMAND == "ssh"
-    config.ssh.username = 'rodrigo'
-  end
-
-  config.ssh.username = 'rodrigo'
+#  VAGRANT_COMMAND = ARGV[0]
+#  if VAGRANT_COMMAND == "ssh"
+#    config.ssh.username = 'rodrigo'
+#  end
 
   config.ssh.insert_key = false
     
@@ -22,13 +20,14 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-   apt-get update
+
+#   apt-get update
     
-    ## add rodrigo
-    useradd -m -s /bin/bash -U rodrigo -u 666 --groups sudo
-    cp -pr /home/vagrant/.ssh /home/rodrigo/
-    chown -R rodrigo:rodrigo /home/rodrigo
-    echo "%rodrigo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/rodrigo
+#    ## add rodrigo
+#    useradd -m -s /bin/bash -U rodrigo -u 666 --groups sudo
+#    cp -pr /home/vagrant/.ssh /home/rodrigo/
+#    chown -R rodrigo:rodrigo /home/rodrigo
+#    echo "%rodrigo ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/rodrigo
 
   SHELL
 
