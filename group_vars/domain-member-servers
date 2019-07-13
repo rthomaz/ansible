@@ -10,6 +10,8 @@ ntp_servers:
   - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 # - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
 
+ssh_listen_address: '{{interface_address}}'
+
 #apt_mirror_default_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch/
 #apt_mirror_security_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch-security/ 
 #apt_mirror_update_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch-updates/
