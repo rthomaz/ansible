@@ -5,7 +5,7 @@
     path: '{{directory_downloads}}/{{vagrant_file_name}}'
   register: vagrant_file
 
-- name: download vagrant {{vagrant_version}}
+- name: download {{vagrant_version}}
   get_url:
     url: https://releases.hashicorp.com/vagrant/{{vagrant_version}}/{{vagrant_file_name}}
     dest: '{{directory_downloads}}'
@@ -14,3 +14,7 @@
     group: root
     mode: +rwx
   when: vagrant_file.stat.exists == False
+
+- name: instalar pacote {{vagrant_file_name}}
+  apt:
+    deb: '{{directory_downloads}}/{{vagrant_file_name}}'
