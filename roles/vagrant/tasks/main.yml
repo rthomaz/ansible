@@ -1,6 +1,6 @@
 ---
 
-- name: verificar {{vagrant_file_name}}
+- name: verificar se arquivo {{vagrant_file_name}} existe
   stat: 
     path: '{{directory_downloads}}/{{vagrant_file_name}}'
   register: vagrant_file
