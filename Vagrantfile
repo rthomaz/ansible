@@ -10,8 +10,10 @@ Vagrant.configure("2") do |config|
   
   VAGRANT_COMMAND = ARGV[0]
   if VAGRANT_COMMAND == "ssh"
-    config.ssh.username = 'rodrigo'
+#    config.ssh.username = 'rodrigo'
   end
+
+  config.ssh.username = 'rodrigo'
 
   config.ssh.insert_key = false
     
