@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.ssh.username = 'rodrigo'
+  config.ssh.private_key_path = '/home/rodrigo/.ssh/id_rsa'
 
   config.ssh.insert_key = false
     
