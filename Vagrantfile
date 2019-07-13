@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
     config.vm.network :public_network, :dev => "br0", :mode => "bridge", :type => "bridge", ip: "192.168.1.112", :netmask => "255.255.255.0"
   config.vm.synced_folder '.', '/vagrant', disabled: true
   
+  config.ssh.private_key_path = "~/.ssh/id_rsa"
+
   config.ssh.insert_key = false
     
   config.vm.provider :libvirt do |provider|
