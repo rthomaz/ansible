@@ -1,3 +1,5 @@
+---
+
 - name: adicionar regras em {{directory_scripts}}/ufw-rules.sh
   lineinfile:
     dest: '{{directory_scripts}}/ufw-rules.sh'
@@ -7,9 +9,25 @@
       # allow FORWARD
       ufw default allow FORWARD
   register: regras_firewall_kvm
-- name: rodando o script {{directory_scripts}}/ufw-rules.sh
+
+  - name: rodando o script {{directory_scripts}}/ufw-rules.sh
   expect:
     command: /bin/bash -c '{{directory_scripts}}/ufw-rules.sh'
     responses:
       (?i)Proceed with operation (y|n)?: "y"
   when: regras_firewall_kvm.changed
+
+- name: instalar pacotes
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - qemu-kvm
+    - virtinst
+    - virt-manager
+    - libguestfs-tools
+  register: kvm_instalar_pacotes
+
+- name: reiniciar servidor
+  reboot:
+  when: kvm_instalar_pacotes.changed
