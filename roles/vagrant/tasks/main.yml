@@ -1,5 +1,8 @@
 ---
 
+- stat: path={{directory_downloads}}/{{vagrant_file_name}}
+  register: vagrant_file
+
 - name: download vagrant {{vagrant_version}}
   get_url:
     url: https://releases.hashicorp.com/vagrant/{{vagrant_version}}/{{vagrant_file_name}}
@@ -7,4 +10,5 @@
     checksum: '{{vagrant_checksum}}'
     owner: root
     group: root
-    mode: +rwx  
+    mode: +rwx
+  when: vagrant_file.stat.exists == False
