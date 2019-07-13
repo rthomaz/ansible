@@ -19,3 +19,5 @@ interface_network_prefix: 192.168.1.0/24
 ssh_listen_address: '{{interface_address}}'
 
 host_name: host01
+
+ntp_update_server: pool.ntp.org

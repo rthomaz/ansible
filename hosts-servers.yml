@@ -13,6 +13,7 @@
     - network-interfaces-kvm-config
     - network-config
     - time-zone-config
+    - ntp-update
     - ssh-config
     - sudo-config
     - ufw
