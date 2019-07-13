@@ -1,0 +1,17 @@
+---
+
+- name: instalar ruby build
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - build-essential
+    - patch
+    - ruby-dev
+    - zlib1g-dev
+    - liblzma-dev
+
+- name: instalar nokogiri
+  gem:
+    name: nokogiri
+    state: present
