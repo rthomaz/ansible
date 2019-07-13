@@ -2,9 +2,9 @@
 
 - name: download vagrant {{vagrant_version}}
   get_url:
-    url: https://releases.hashicorp.com/vagrant/{{vagrant_version}}/vagrant_{{vagrant_version}}_x86_64.deb
+    url: https://releases.hashicorp.com/vagrant/{{vagrant_version}}/{{vagrant_file_name}}
     dest: '{{directory_downloads}}'
-    checksum: sha256:415f50b93235e761db284c761f6a8240a6ef6762ee3ec7ff869d2bccb1a1cdf7
+    checksum: '{{vagrant_checksum}}'
     owner: root
     group: root
     mode: +rwx  
