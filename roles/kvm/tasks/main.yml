@@ -1,6 +1,6 @@
 - name: adicionar regras em {{directory_scripts}}/ufw-rules.sh
   lineinfile:
-    dest: {{directory_scripts}}/ufw-rules.sh
+    dest: '{{directory_scripts}}/ufw-rules.sh'
     insertbefore: .*EndMyRules 
     line: ufw default allow FORWARD
   register: regras_firewall_kvm
