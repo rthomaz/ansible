@@ -26,6 +26,7 @@
     - virtinst
     - virt-manager
     - libguestfs-tools
+    - libvirt-dev
   register: kvm_instalar_pacotes
 
 - name: reiniciar servidor

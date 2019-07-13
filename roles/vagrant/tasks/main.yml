@@ -19,11 +19,5 @@
   apt:
     deb: '{{directory_downloads}}/{{vagrant_file_name}}'
 
-# - name: destruir imgem 'images'
-#   command: virsh pool-destroy images
-
-# - name: indefinir imgem 'images'
-#   command: virsh pool-undefine images
-
 - name: instalar plugin vagrant-libvirt
   command: vagrant plugin install vagrant-libvirt  
