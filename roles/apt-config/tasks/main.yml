@@ -11,6 +11,7 @@
   apt:
     update_cache: yes
     upgrade: full
+    force_apt_get: yes
   when: atualiza_sources_list.changed
 
 - name: instala gestor de pacotes aptitude
