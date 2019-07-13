@@ -1,16 +1,4 @@
-# here we assign variables to particular groups
-
 debian_codename: 'stretch'
-dns_domain_name: '{{domain_name | upper}}'
-domain_admin_user : 'rodrigo'
-domain_admin_password : 'b3b3xu!@#'
-workgroup_name: 'RTHOMAZ'
-docker_work_path: 'docker-projects'
-ntp_servers: 
-  - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
-# - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
-
-ssh_listen_address: '{{interface_address}}'
 
 #apt_mirror_default_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch/
 #apt_mirror_security_url: http://192.168.1.108:8081/repository/apt-proxy-debian-stretch-security/ 
@@ -21,3 +9,35 @@ apt_mirror_default_url: http://deb.debian.org/debian
 apt_mirror_security_url: http://deb.debian.org/debian-security/
 apt_mirror_update_url: http://deb.debian.org/debian
 apt_mirror_backports_url: http://deb.debian.org/debian
+
+interface_address: 192.168.1.111
+interface_netmask: 255.255.255.0
+interface_network: 192.168.1.0
+interface_broadcast: 192.168.1.255
+interface_gateway: 192.168.1.1
+interface_dns_search: '{{domain_name | lower}}'
+interface_dns_nameservers: 
+  - 8.8.8.8
+  - 8.8.4.4
+interface_bridge_ports: eth0
+interface_network_prefix: 192.168.1.0/24
+ssh_listen_address: '{{interface_address}}'
+
+dns_domain_name: '{{domain_name | upper}}'
+domain_admin_user : 'rodrigo'
+domain_admin_password : 'b3b3xu!@#'
+workgroup_name: 'RTHOMAZ'
+
+ntp_servers: 
+  - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
+# - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
+
+docker_work_path: 'docker-projects'
+
+
+
+
+
+
+
+
