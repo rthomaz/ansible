@@ -44,7 +44,13 @@
     groups: libvirt
     append: yes
 
-- name: adicionar módulo kvm_intel
+- name: adicionar módulo kvm_amd
   modprobe:
     name: kvm_amd
-    state: present    
+    state: present
+
+- name: ativar e iniciar o daemon libvirtd
+  systemd:
+    name: libvirtd
+    state: started
+    enabled: yes
