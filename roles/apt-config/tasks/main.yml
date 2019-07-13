@@ -10,8 +10,10 @@
 - name: atualiza todos os pacotes para a última versão
   apt:
     update_cache: yes
+    upgrade: full
   when: atualiza_sources_list.changed
 
 - name: instala gestor de pacotes aptitude
   apt:
     name: "aptitude"
+    force_apt_get: yes
