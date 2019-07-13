@@ -17,3 +17,4 @@
     - ssh-config
     - sudo-config
     - ufw
+    - kvm

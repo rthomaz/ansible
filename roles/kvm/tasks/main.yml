@@ -1,0 +1,13 @@
+- name: adicionar regras em {{directory_scripts}}/ufw-rules.sh
+  lineinfile:
+    dest: {{directory_scripts}}/ufw-rules.sh
+    insertbefore: .*EndMyRules 
+    line: |
+      # open ports for Kerberos
+      ufw allow from 192.168.1.0/24 to any port 88
+      ufw allow from 192.168.1.0/24 to any port 464
+- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
+  expect:
+    command: /bin/bash -c '{{directory_scripts}}/ufw-rules.sh'
+    responses:
+      (?i)Proceed with operation (y|n)?: "y"
