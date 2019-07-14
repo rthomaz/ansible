@@ -11,7 +11,7 @@
     - admin-environment
     - apt-config
     - default-packages
-    - network-interfaces-default
+    - network-interfaces-default-config
     - resolv-config
     - time-zone-config
     - vagrant-admin-environment
