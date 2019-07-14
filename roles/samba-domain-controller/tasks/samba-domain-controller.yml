@@ -34,7 +34,7 @@
 
 # removendo os arquivos de bando de dados se existirem
 
-# instalando dependências de pacote necessárias 
+# instalar
 
 - name: instalar dependências de pacote necessárias 
   apt:
@@ -91,7 +91,23 @@
     - liblmdb-dev
     - lmdb-utils
 
-# instalando o samba
+- name: instalar samba
+  apt:
+    name: "samba"
+
+- name: instalar restantes dos pacotes 
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - winbind
+    - libpam-winbind
+    - libnss-winbind
+    - libpam-krb5
+    - krb5-config
+    - krb5-user
+    - smbclient
+    - ldap-utils
 
 # provisionando o samba dc
 
