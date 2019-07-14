@@ -1,2 +1,4 @@
-- name: ajustar timezone para {{ time_zone }}
-  timezone: name={{time_zone}}
+---
+
+- name: ajustar timezone para {{ time_zone_current }}
+  timezone: name={{ time_zone_current }}
