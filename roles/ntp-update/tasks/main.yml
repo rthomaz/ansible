@@ -17,8 +17,7 @@
     name: ntp
     state: stopped
   when: service_ntp_status.stat.exists
-  register: service_ntp_stopped
-
+  
 - name: atualizar relógio com servidor {{ntp_update_server_current}}
   command: ntpdate {{ntp_update_server_current}}
 
@@ -26,4 +25,4 @@
   service:
     name: ntp
     state: started
-  when: service_ntp_stopped.exists
+  when: service_ntp_status.stat.exists
