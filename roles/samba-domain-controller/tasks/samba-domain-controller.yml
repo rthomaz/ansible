@@ -48,7 +48,7 @@
   stat: path=/etc/samba/smb.conf
   register: smb_conf_status
 
-- name: criar backup do arquivo smb.conf
+- name: criar backup de smb.conf
   copy:
     src: "/etc/samba/smb.conf"
     dest: "/etc/samba/smb.conf.original"
@@ -56,7 +56,7 @@
     backup: yes
   when: smb_conf_status.stat.exists    
 
-- name: remover o arquivo smb.conf
+- name: remover arquivo smb.conf
   file:
     path: "/etc/samba/smb.conf"
     state: absent
