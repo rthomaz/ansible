@@ -4,7 +4,7 @@
   apt:
     name: "bind9"
 
-- name: para o serviço
+- name: parar o serviço
   service:
     name: bind9
     state: stopped
@@ -49,3 +49,7 @@
     dest: "/etc/apparmor.d/usr.sbin.named"
     backup: yes
     
+- name: iniciar o serviço
+  service:
+    name: bind9
+    state: started    
