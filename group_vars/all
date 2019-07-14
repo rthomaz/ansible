@@ -1,7 +1,16 @@
 ansible_python_interpreter: /usr/bin/python3
+
 sudo_user: rodrigo
+
 domain_name: rthomaz.local
+
 directory_scripts: /rthomaz/scripts
 directory_downloads: /rthomaz/downloads
+
 time_zone: 'America/Sao_Paulo'
+
 network_interfaces_prefix: 192.168.1.0/24
+
+ntp_servers: 
+  - {cname: 'pdc-server.rthomaz.local', mask: 255.255.255.0, prefer: 'prefer' }
+# - {cname: 'bdc-server.rthomaz.local', mask: 255.255.255.0, prefer: '' }  
