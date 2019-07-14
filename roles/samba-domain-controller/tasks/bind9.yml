@@ -9,8 +9,14 @@
     name: bind9
     state: stopped
 
-- name: criar ficheiro named.conf
+- name: criar ficheiro /etc/bind/named.conf
   copy:
-    src: "named.conf"
+    src: "bind.named.conf"
     dest: "/etc/bind/named.conf"
     backup: yes
+
+- name: criar ficheiro /var/lib/samba/private/named.conf
+  copy:
+    src: "private.named.conf"
+    dest: "/var/lib/samba/private/named.conf"
+    backup: yes    
