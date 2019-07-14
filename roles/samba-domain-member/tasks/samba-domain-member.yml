@@ -1,4 +1,5 @@
 ---
+
 - name: instalando o samba
   apt:
     name: "{{ packages }}"
