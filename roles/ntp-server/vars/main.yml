@@ -1,2 +1,3 @@
 ---
-# vars file for ansible-codes
+
+ntp_server_port_current: '{{ ntp_server_port | default(ntp_server_port_default) }}'
