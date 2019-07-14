@@ -37,11 +37,11 @@
 # remover o arquivo smb.conf existente
 
 - name: criar backup do arquivo smb.conf
-  file:
-    path: "/etc/samba/smb.conf"
+  copy:
+    src: "/etc/samba/smb.conf"
     dest: "/etc/samba/smb.conf.original"
-    state: file
-    backup: yes
+    remote_src: yes
+    backup: yes         
 
 - name: remover o arquivo smb.conf
   file:
