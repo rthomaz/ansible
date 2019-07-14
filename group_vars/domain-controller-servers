@@ -16,6 +16,10 @@ interface_bridge_ports: eth0
 interface_network_prefix: 192.168.1.0/24
 ssh_listen_address: '{{interface_address}}'
 
+resolv_conf_nameservers:
+  - 8.8.8.8
+  - 8.8.4.4
+  
 dns_domain_name: '{{domain_name | upper}}'
 domain_admin_user : 'rodrigo'
 domain_admin_password : 'b3b3xu!@#'
@@ -24,3 +28,7 @@ workgroup_name: 'RTHOMAZ'
 samba_domain_controller_realm: '{{dns_domain_name}}'
 samba_domain_controller_domain: 'RTHOMAZ'
 samba_domain_controller_admin_pass: 'Passw0rd'
+samba_domain_controller_dns_forwarders:
+  - 8.8.8.8
+  - 8.8.4.4
+
