@@ -19,4 +19,10 @@
   copy:
     src: "private.named.conf"
     dest: "/var/lib/samba/private/named.conf"
-    backup: yes    
+    backup: yes
+
+- name: criar ficheiro /etc/bind/named.conf.options
+  template:
+    src: "named.conf.options.j2"
+    dest: "/etc/bind/named.conf.options"
+    backup: yes        
