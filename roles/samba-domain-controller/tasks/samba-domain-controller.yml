@@ -44,7 +44,7 @@
 
 # remover o arquivo smb.conf existente
 
-- name: verificar se serviço de smb.conf existe
+- name: verificar existência de smb.conf
   stat: path=/etc/samba/smb.conf
   register: smb_conf_status
 
