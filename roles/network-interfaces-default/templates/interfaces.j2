@@ -7,12 +7,12 @@ auto lo
 iface lo inet loopback
 
 # Static IP address
-{% if network_interfaces_mode_bridge != no %}
-auto {{network_interfaces_name}}
-iface {{network_interfaces_name}} inet static
+{% if network_interfaces_mode_bridge_current != no %}
+auto {{network_interfaces_name_current}}
+iface {{network_interfaces_name_current}} inet static
 {% else %}
-auto {{network_interfaces_bridge_name}}
-iface {{network_interfaces_bridge_name}} inet static
+auto {{network_interfaces_bridge_name_current}}
+iface {{network_interfaces_bridge_name_current}} inet static
 {% endif %}   
         address {{network_interfaces_address}}
         netmask {{network_interfaces_netmask}}
@@ -20,9 +20,9 @@ iface {{network_interfaces_bridge_name}} inet static
         broadcast {{network_interfaces_broadcast}}
         gateway {{network_interfaces_gateway}}
         dns-search {{network_interfaces_dns_search}}
-        dns-nameservers {% for dns in network_interfaces_dns_nameservers %}{{dns}} {% endfor %}
-        {% if network_interfaces_mode_bridge != no %}
-        bridge_ports {{network_interfaces_name}}  # replace {{network_interfaces_name}} with your actual interface name
+        dns-nameservers {% for dns in network_interfaces_dns_nameservers_current %}{{dns}} {% endfor %}
+        {% if network_interfaces_mode_bridge_current != no %}
+        bridge_ports {{network_interfaces_name_current}}  # replace {{network_interfaces_name_current}} with your actual interface name
         bridge_stp off       # disable Spanning Tree Protocol
         bridge_waitport 0    # no delay before a port becomes available
         bridge_fd 0          # no forwarding delay
