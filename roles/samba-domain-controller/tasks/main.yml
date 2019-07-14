@@ -2,3 +2,6 @@
   
 - include_role: 
     name: ntp-update
+
+- include_role:
+    name: ntp-server

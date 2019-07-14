@@ -9,6 +9,9 @@
   vars:
     ntp_update_server: pdc-server.rthomaz.local
 
+- include_role:
+    name: ntp-client
+
 - name: ntp 
   include_tasks: ntp.yml
 

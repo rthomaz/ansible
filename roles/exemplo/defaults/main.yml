@@ -1,2 +1,3 @@
 ---
-# defaults file for ansible-codes
+
+#exemplo_var_default: 'valor'
