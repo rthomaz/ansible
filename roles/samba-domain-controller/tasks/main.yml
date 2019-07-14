@@ -3,5 +3,3 @@
 - name: atualizar a hora com servidor {{ntp_update_server}}
   include_role: 
     name: ntp-update
-  vars:
-    ntp_update_server: '{{ntp_update_server}}'

@@ -1,3 +1,5 @@
+---
+
 - name: instalar ntp update
   apt:
     name: "{{ packages }}"
@@ -5,5 +7,6 @@
     packages:
     - ntpdate
     - ntp-doc
+
 - name: atualizar relógio com servidor {{ntp_update_server}}
   command: ntpdate {{ntp_update_server}}
