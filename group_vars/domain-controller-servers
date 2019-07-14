@@ -23,6 +23,8 @@ domain_admin_user : 'rodrigo'
 domain_admin_password : 'b3b3xu!@#'
 workgroup_name: 'RTHOMAZ'
 
+ntp_update_server: pool.ntp.org
+
 ntp_servers: 
   - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 # - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
