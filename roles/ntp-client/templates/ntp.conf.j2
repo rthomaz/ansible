@@ -19,5 +19,5 @@ restrict 127.0.0.1
 
 # Enable the time sources only to only provide time to this host
 {% for i in ntp_servers%}
-restrict   {{ i.cname }}   mask 255.255.255.255    nomodify notrap nopeer noquery
+restrict {{ i.cname }}  {{ i.mask }}    nomodify notrap nopeer noquery
 {% endfor %}

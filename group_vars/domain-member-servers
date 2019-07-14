@@ -29,7 +29,7 @@ domain_admin_password : 'b3b3xu!@#'
 workgroup_name: 'RTHOMAZ'
 
 ntp_servers: 
-  - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
-# - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
+  - {cname: 'pdc-server.rthomaz.local', mask: 255.255.255.0, prefer: 'prefer' }
+# - {cname: 'bdc-server.rthomaz.local', mask: 255.255.255.0, prefer: '' }  
 
 docker_work_path: 'docker-projects'
