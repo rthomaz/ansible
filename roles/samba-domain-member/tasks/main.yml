@@ -8,6 +8,7 @@
     name: ntp-update
   vars:
     ntp_update_server: pdc-server.rthomaz.local
+  ignore_errors: yes
 
 - name: ntp 
   include_tasks: ntp.yml
