@@ -7,10 +7,10 @@ auto lo
 iface lo inet loopback
 
 # Static IP address
-{% if network_interfaces_mode_bridge_current != 'no' %}
+{% if network_interfaces_mode_bridge_current == 'no' %}
 auto {{network_interfaces_name_current}}
 iface {{network_interfaces_name_current}} inet static
-{% else %}
+{% elif network_interfaces_mode_bridge_current == 'yes' %}
 auto {{network_interfaces_bridge_name_current}}
 iface {{network_interfaces_bridge_name_current}} inet static
 {% endif %}   
@@ -21,7 +21,7 @@ iface {{network_interfaces_bridge_name_current}} inet static
         gateway {{network_interfaces_gateway}}
         dns-search {{network_interfaces_dns_search_current}}
         dns-nameservers {% for dns in network_interfaces_dns_nameservers_current %}{{dns}} {% endfor %}
-        {% if network_interfaces_mode_bridge_current != 'no' %}
+        {% if network_interfaces_mode_bridge_current == 'yes' %}
         bridge_ports {{network_interfaces_name_current}}  # replace {{network_interfaces_name_current}} with your actual interface name
         bridge_stp off       # disable Spanning Tree Protocol
         bridge_waitport 0    # no delay before a port becomes available

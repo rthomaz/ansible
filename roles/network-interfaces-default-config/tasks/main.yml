@@ -2,7 +2,8 @@
 
 - name: instalar bridge-utils
   apt:
-    name: "bridge-utils"   
+    name: "bridge-utils" 
+  when: network_interfaces_mode_bridge_current == 'yes'  
 
 - name: criar ficheiro /etc/default/grub
   copy:
@@ -10,10 +11,11 @@
     dest: /etc/default/grub
     backup: yes
   register: criar_ficheiro_grub
+  when: network_interfaces_mode_bridge_current == 'yes'  
   
 - name: criar novo arquivo grub.cfg
   command: grub-mkconfig -o /boot/grub/grub.cfg
-  when: criar_ficheiro_grub.changed
+  when: network_interfaces_mode_bridge_current == 'yes' and criar_ficheiro_grub.changed
 
 - name: criar ficheiro /etc/network/interfaces
   template:
@@ -24,4 +26,4 @@
 
 - name: reiniciar servidor
   reboot:
-  when: criar_ficheiro_interfaces.changed or criar_ficheiro_grub.changed
+  when: network_interfaces_mode_bridge_current == 'yes' and ( criar_ficheiro_interfaces.changed or criar_ficheiro_grub.changed )
