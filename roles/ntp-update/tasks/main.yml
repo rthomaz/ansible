@@ -26,4 +26,4 @@
   service:
     name: ntp
     state: started
-  when: service_ntp_stopped.stat.exists
+  when: service_ntp_stopped.exists
