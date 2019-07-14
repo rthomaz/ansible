@@ -13,6 +13,8 @@ cd /rthomaz/ansible-codes/
 
 vagrant up
 
+vagrant up dc01
+
 ansible-playbook -i production site.yml 
 
 ansible-playbook -i production domain-member-servers.yml 
