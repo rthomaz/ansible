@@ -18,7 +18,7 @@
 
 - name: parar os serviços
   debug:
-    msg: "{{ item }}"
+    msg: "{{ item.item }}"
   loop: '{{ service_status.results }}'
 
 
