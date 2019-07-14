@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   
   config.vm.box = "debian/stretch64"
   config.vm.hostname = "deb-01"  
-    config.vm.network :public_network, :dev => "br0", :mode => "bridge", :type => "bridge", ip: "192.168.1.100", :netmask => "255.255.255.0"
+    config.vm.network :public_network, :dev => "br0", :mode => "bridge", :type => "bridge", ip: "192.168.1.110", :netmask => "255.255.255.0"
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
   config.ssh.insert_key = false
@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
     ansible.compatibility_mode  = "2.0"
     ansible.playbook = "domain-controller-servers.yml"
     ansible.inventory_path = "production"
-    ansible.limit = "192.168.1.100"
+    ansible.limit = "192.168.1.110"
   end
   
 end
