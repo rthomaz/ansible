@@ -19,45 +19,6 @@
   loop_control:
     label: "{{ item.item }}"
 
-- name: parar os serviços
-  debug:
-    msg: "{{ item.item }}"
-  when: item.stat.exists
-  loop: '{{ service_status.results }}'
-  loop_control:
-    label: "{{ item.item }}"
-
-
-- name: verificar se os serviços smbd existe
-  stat: path=/etc/init.d/smbd
-  register: service_smbd_status
-
-- name: parar serviço smbd
-  service:
-    name: smbd
-    state: stopped
-  when: service_smbd_status.stat.exists
-
-- name: verificar se o serviço nmbd existe
-  stat: path=/etc/init.d/nmbd
-  register: service_nmbd_status
-
-- name: parar serviço nmbd
-  service:
-    name: nmbd
-    state: stopped
-  when: service_nmbd_status.stat.exists
-
-- name: verificar se o serviço winbind existe
-  stat: path=/etc/init.d/winbind
-  register: service_winbind_status    
-
-- name: parar serviço winbind
-  service:
-    name: winbind
-    state: stopped
-  when: service_winbind_status.stat.exists
-
 # removendo os arquivos de bando de dados se existirem
 
 # remover o arquivo smb.conf existente
