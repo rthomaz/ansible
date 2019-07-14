@@ -1,0 +1,22 @@
+---
+
+- name: instalar ntp
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - ntp
+    - ntp-doc
+
+- name: criar ficheiro ntp.conf
+  template:
+    src: "ntp.conf.j2"
+    dest: "/etc/ntp.conf"
+    backup: yes
+  register: criar_ficheiro_ntp
+
+- name: reiniciar ntp
+  service:
+    name: ntp
+    state: restarted
+  when: criar_ficheiro_ntp.changed

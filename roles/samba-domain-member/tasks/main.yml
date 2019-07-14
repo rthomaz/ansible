@@ -12,9 +12,6 @@
 - include_role:
     name: ntp-client
 
-- name: ntp 
-  include_tasks: ntp.yml
-
 - name: krb5-user
   include_tasks: krb5-user.yml
 
