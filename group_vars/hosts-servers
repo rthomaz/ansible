@@ -23,3 +23,7 @@ host_name: host01
 vagrant_version: 2.2.5
 vagrant_file_name: 'vagrant_{{vagrant_version}}_x86_64.deb'
 vagrant_checksum: sha256:415f50b93235e761db284c761f6a8240a6ef6762ee3ec7ff869d2bccb1a1cdf7
+
+resolv_config_domain: '{{interface_dns_search}}'
+resolv_config_search: '{{interface_dns_search}}'
+resolv_config_nameservers: '{{interface_dns_nameservers}}'

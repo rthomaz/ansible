@@ -13,6 +13,7 @@
     - default-packages
     - network-interfaces-kvm-config
     - network-config
+    - resolv-config
     - time-zone-config
     - ntp-update
     - ssh-config
