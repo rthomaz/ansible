@@ -9,8 +9,8 @@
     name: bind9
     state: stopped
 
-# - name: criar ficheiro named.conf
-#   template:
-#     src: named.conf.j2"
-#     dest: "/etc/bind/named.conf"
-#     backup: yes    
+- name: criar ficheiro named.conf
+  file:
+    src: named.conf"
+    dest: "/etc/bind/named.conf"
+    backup: yes
