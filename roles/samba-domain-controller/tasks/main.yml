@@ -1,7 +1,17 @@
 ---
   
+- name: atualizar pacotes apt
+  apt:
+    update_cache: yes  
+
 - include_role: 
     name: ntp-update
 
 - include_role:
     name: ntp-server
+
+- name: krb5-user
+  include_tasks: krb5-user.yml
+
+- name: samba-domain-controller
+  include_tasks: samba-domain-controller.yml  

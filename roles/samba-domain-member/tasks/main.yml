@@ -1,8 +1,8 @@
-- name: Update apt packages
+---
+
+- name: atualizar pacotes apt
   apt:
     update_cache: yes
-  tags:
-    - system
   
 - include_role: 
     name: ntp-update
