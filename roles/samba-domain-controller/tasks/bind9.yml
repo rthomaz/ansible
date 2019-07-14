@@ -10,7 +10,7 @@
     state: stopped
 
 - name: criar ficheiro named.conf
-  file:
+  copy:
     src: named.conf"
     dest: "/etc/bind/named.conf"
     backup: yes
