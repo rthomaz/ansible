@@ -14,7 +14,7 @@
   service:
     name: '{{ item }}'
     state: stopped 
-  when: item.stat.exists
+  when: stat.exists
   loop: '{{ service_status.results }}'
 
 
