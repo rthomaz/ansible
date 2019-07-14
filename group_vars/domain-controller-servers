@@ -12,14 +12,14 @@ network_interfaces_broadcast: 192.168.1.255
 network_interfaces_gateway: 192.168.1.1
 network_interfaces_dns_search: '{{domain_name | lower}}'
 
-interface_network_prefix: 192.168.1.0/24
-
 ssh_listen_address: '{{network_interfaces_address}}'
   
 dns_domain_name: '{{domain_name | upper}}'
 domain_admin_user : 'rodrigo'
 domain_admin_password : 'b3b3xu!@#'
 workgroup_name: 'RTHOMAZ'
+
+ntp_broadcast_address: '{{network_interfaces_address}}'
 
 samba_domain_controller_realm: '{{dns_domain_name}}'
 samba_domain_controller_domain: 'RTHOMAZ'

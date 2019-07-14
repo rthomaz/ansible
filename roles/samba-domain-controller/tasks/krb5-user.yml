@@ -10,8 +10,8 @@
     insertbefore: .*EndMyRules 
     line: |
       # open ports for Kerberos
-      ufw allow from {{interface_network_prefix}} to any port 88
-      ufw allow from {{interface_network_prefix}} to any port 464
+      ufw allow from {{network_interfaces_prefix}} to any port 88
+      ufw allow from {{network_interfaces_prefix}} to any port 464
 
 - name: rodar script {{directory_scripts}}/ufw-rules.sh
   expect:

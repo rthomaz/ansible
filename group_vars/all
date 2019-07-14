@@ -4,3 +4,4 @@ domain_name: rthomaz.local
 directory_scripts: /rthomaz/scripts
 directory_downloads: /rthomaz/downloads
 time_zone: 'America/Sao_Paulo'
+network_interfaces_prefix: 192.168.1.0/24
