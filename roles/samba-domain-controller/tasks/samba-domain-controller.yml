@@ -12,7 +12,7 @@
 
 - name: parar os serviços
   service:
-    name: '{{ item }}'
+    name: '{{ item.item }}'
     state: stopped 
   loop: '{{ service_status.results }}'
 
