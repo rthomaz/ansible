@@ -17,8 +17,7 @@ network_interfaces_broadcast: 192.168.1.255
 network_interfaces_gateway: 192.168.1.1
 network_interfaces_dns_search: '{{domain_name | lower}}'
 network_interfaces_dns_nameservers: 
-  - 8.8.8.8
-  - 8.8.4.4
+  - 192.168.1.110
 
 ssh_listen_address: '{{network_interfaces_address}}'
 
