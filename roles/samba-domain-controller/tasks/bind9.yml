@@ -1,0 +1,16 @@
+---
+
+- name: instalar bind9
+  apt:
+    name: "bind9"
+
+- name: para o serviço
+  service:
+    name: bind9
+    state: stopped
+
+# - name: criar ficheiro named.conf
+#   template:
+#     src: named.conf.j2"
+#     dest: "/etc/bind/named.conf"
+#     backup: yes    
