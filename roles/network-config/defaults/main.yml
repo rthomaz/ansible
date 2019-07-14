@@ -1,2 +1,5 @@
 ---
-# defaults file for ansible-codes
+  
+resolv_conf_nameservers_default: 
+  - 8.8.8.8
+  - 8.8.4.4  

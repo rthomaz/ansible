@@ -1,2 +1,3 @@
 ---
-# vars file for ansible-codes
+
+resolv_conf_nameservers_current: '{{ resolv_conf_nameservers | default(resolv_conf_nameservers_default) }}'
