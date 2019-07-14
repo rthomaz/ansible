@@ -10,6 +10,21 @@
      - winbind
   register: service_status
 
+- name: parar os serviços
+  service:
+    name: {{ item }}
+    state: stopped
+  loop:
+     - smbd
+     - nmbd
+     - winbind
+  when: service_status.{{ item }}.stat.exists
+
+
+
+
+
+
 
 
 - name: verificar se os serviços smbd existe
