@@ -1,11 +1,10 @@
 # inventory file for production servers
 
 [domain_controller_servers]
-192.168.1.200
+192.168.1.100
 
 [domain_member_servers]
 192.168.1.112 
-#192.168.1.109
 
 [hosts_servers]
 192.168.1.120
