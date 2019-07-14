@@ -44,17 +44,23 @@
 
 # remover o arquivo smb.conf existente
 
+- name: verificar se serviço de smb.conf existe
+  stat: path=/etc/samba/smb.conf
+  register: smb_conf_status
+
 - name: criar backup do arquivo smb.conf
   copy:
     src: "/etc/samba/smb.conf"
     dest: "/etc/samba/smb.conf.original"
     remote_src: yes
-    backup: yes         
+    backup: yes
+  when: smb_conf_status.stat.exists    
 
 - name: remover o arquivo smb.conf
   file:
     path: "/etc/samba/smb.conf"
     state: absent
+  when: smb_conf_status.stat.exists    
 
 # instalar
 
