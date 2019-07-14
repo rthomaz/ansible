@@ -21,15 +21,15 @@
 
 # removendo os arquivos de bando de dados se existirem
 
-- name: verificar arquivos existentes
-  find:
-    paths: 
-      - /usr/local/samba/var/lock
-      - /usr/local/samba/var/locks
-      - /usr/local/samba/var/cache
-      - /usr/local/samba/private
-    patterns: "*.tdb,*.ldb"
-  register: arquivos_para_deletar
+# - name: verificar arquivos existentes
+#   find:
+#     paths: 
+#       - /usr/local/samba/var/lock
+#       - /usr/local/samba/var/locks
+#       - /usr/local/samba/var/cache
+#       - /usr/local/samba/private
+#     patterns: "*.tdb,*.ldb"
+#   register: arquivos_para_deletar
 
 # - name: remover arquivos existentes
 #   file:
@@ -37,10 +37,10 @@
 #     state: absent
 #   with_items: "{{ arquivos_para_deletar.files }}"
 
-- name: remover arquivos existentes
-  debug:
-    msg: "{{ item }}"
-  with_items: "{{ arquivos_para_deletar.files }}"  
+# - name: remover arquivos existentes
+#   debug:
+#     msg: "{{ item }}"
+#   with_items: "{{ arquivos_para_deletar.files }}"  
 
 # remover o arquivo smb.conf existente
 
@@ -143,6 +143,13 @@
     --adminpass='{{samba_domain_controller_admin_pass}}'
 
 # configurando kerberos
+
+- name: configurando kerberos
+  copy:
+    src: "/var/lib/samba/private/krb5.conf"
+    dest: "/etc/krb5.conf"
+    remote_src: yes
+    backup: no
 
 # configurando back-end do dns do dc
 
