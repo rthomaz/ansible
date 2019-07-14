@@ -8,18 +8,15 @@
     - ntp
     - ntp-doc
 
-- name: parar ntp
+- name: criar ficheiro ntp.conf
+  template:
+    src: "ntp.conf.j2"
+    dest: "/etc/ntp.conf"
+    backup: yes
+  register: criar_ficheiro_ntp
+
+- name: reiniciar ntp
   service:
     name: ntp
-    state: stopped
-
-#- name: criar ficheiro ntp.conf
-#  template:
-#    src: "ntp.conf.j2"
-#    dest: "/etc/ntp.conf"
-#    backup: yes
-
-- name: iniciar ntp
-  service:
-    name: ntp
-    state: started
+    state: restarted
+  when: criar_ficheiro_ntp.changed
