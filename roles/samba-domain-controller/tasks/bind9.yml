@@ -11,6 +11,6 @@
 
 - name: criar ficheiro named.conf
   copy:
-    src: named.conf"
+    src: "named.conf"
     dest: "/etc/bind/named.conf"
     backup: yes
