@@ -34,6 +34,20 @@
 
 # removendo os arquivos de bando de dados se existirem
 
+# remover o arquivo smb.conf existente
+
+- name: criar backup do arquivo smb.conf
+  file:
+    src: "/etc/samba/smb.conf"
+    dest: "/etc/samba/smb.conf.original"
+    state: file
+    backup: yes
+
+- name: remover o arquivo smb.conf
+  file:
+    path: "/etc/samba/smb.conf"
+    state: absent
+
 # instalar
 
 - name: instalar dependências de pacote necessárias 
@@ -109,7 +123,16 @@
     - smbclient
     - ldap-utils
 
-# provisionando o samba dc
+# provisionar samba dc
+
+#- name: provisionar samba dc
+#  command: samba-tool domain provision 
+#    --server-role=dc 
+#    --use-rfc2307 
+#    --dns-backend=BIND9_DLZ 
+#    --realm=RTHOMAZ.LOCAL 
+#    --domain=RTHOMAZ 
+#    --adminpass=Passw0rd
 
 # configurando kerberos
 
