@@ -167,7 +167,7 @@
 # configurando rede
 
 - include_role:
-  name: resolv-config
+    name: resolv-config
   vars:
     - resolv_config_domain: '{{domain_name}}'
     - resolv_config_search_current: '{{domain_name}}'
