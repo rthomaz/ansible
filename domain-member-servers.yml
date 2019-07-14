@@ -16,9 +16,8 @@
     - ssh-config
     - sudo-config
     - ufw 
-
-
-#    - samba-domain-member
+    - samba-domain-member
+    
 #   - nfs-client    
 #   - clamav
 #   - consul
