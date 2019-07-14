@@ -5,6 +5,8 @@ options {
         notify no;
         empty-zones-enable no;
 
+        tkey-gssapi-keytab "/var/lib/samba/private/dns.keytab";
+        
         # IP addresses and network ranges allowed to query the DNS server:
         allow-query {
             127.0.0.1;
