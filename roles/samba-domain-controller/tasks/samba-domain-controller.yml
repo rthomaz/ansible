@@ -175,10 +175,11 @@
 - include_role:
     name: resolv-config
   vars:
-    - resolv_config_domain: '{{domain_name}}'
-    - resolv_config_search_current: '{{domain_name}}'
+    - resolv_config_domain: '{{samba_domain_controller_realm | lower}}'
+    - resolv_config_search_current: '{{samba_domain_controller_realm | lower}}'
     - resolv_config_nameservers_current:
-      - '{{interface_address}}'
+      - '{{network_interfaces_address}}'
 
 # configurando zona reversa
+
 
