@@ -1,0 +1,5 @@
+---
+
+network_interfaces_mode_bridge_current: '{{ network_interfaces_mode_bridge | default(network_interfaces_mode_bridge_default) }}'
+network_interfaces_name_current: '{{ network_interfaces_name | default(network_interfaces_name_default) }}'
+network_interfaces_bridge_name_current: '{{ network_interfaces_bridge_name | default(network_interfaces_bridge_name_default) }}'
