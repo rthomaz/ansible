@@ -6,7 +6,7 @@
 
 - name: adicionando regras em {{directory_scripts}}/ufw-rules.sh para krb5
   lineinfile:
-    dest: {{directory_scripts}}/ufw-rules.sh
+    dest: '{{directory_scripts}}/ufw-rules.sh'
     insertbefore: .*EndMyRules 
     line: |
       # open ports for Kerberos
