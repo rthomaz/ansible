@@ -29,7 +29,7 @@
       - /usr/local/samba/var/cache/  
       - /usr/local/samba/private/
     patterns: "*.tdb *.ldb"
-    use:regex: true
+    use_regex: true
   register: wildcard_files_to_delete
 
 - name: removendo os arquivos existentes
