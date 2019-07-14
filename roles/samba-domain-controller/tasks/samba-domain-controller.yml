@@ -18,8 +18,10 @@
 
 - name: parar os serviços
   debug:
-    msg: "{{ item.item.item }}"
+    msg: "{{ item.item }}"
   loop: '{{ service_status.results }}'
+  loop_control:
+    label: "{{ item.item }}"
 
 
 - name: verificar se os serviços smbd existe
