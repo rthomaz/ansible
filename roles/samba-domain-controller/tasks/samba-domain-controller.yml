@@ -38,7 +38,7 @@
 
 - name: criar backup do arquivo smb.conf
   file:
-    src: "/etc/samba/smb.conf"
+    path: "/etc/samba/smb.conf"
     dest: "/etc/samba/smb.conf.original"
     state: file
     backup: yes
