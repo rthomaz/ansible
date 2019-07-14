@@ -4,7 +4,7 @@
 
 - name: verificar se o serviço smbd existe
   stat: path=/etc/init.d/{{ item }}
-  register: 'service_' + {{ item }} + '_status'
+  register: '{{ item }}'
   loop:
      - smbd
      - nmbd
