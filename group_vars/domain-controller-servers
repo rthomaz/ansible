@@ -22,3 +22,7 @@ dns_domain_name: '{{domain_name | upper}}'
 domain_admin_user : 'rodrigo'
 domain_admin_password : 'b3b3xu!@#'
 workgroup_name: 'RTHOMAZ'
+
+samba_domain_controller_realm: '{{dns_domain_name}}'
+samba_domain_controller_domain: 'RTHOMAZ'
+samba_domain_controller_admin_pass: 'Passw0rd'

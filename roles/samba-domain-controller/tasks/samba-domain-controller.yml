@@ -130,9 +130,9 @@
     --server-role=dc 
     --use-rfc2307 
     --dns-backend=BIND9_DLZ 
-    --realm=RTHOMAZ.LOCAL 
-    --domain=RTHOMAZ 
-    --adminpass=Passw0rd
+    --realm='{{samba_domain_controller_realm}}'
+    --domain='{{samba_domain_controller_domain}}' 
+    --adminpass='{{samba_domain_controller_admin_pass}}'
 
 # configurando kerberos
 
