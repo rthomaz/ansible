@@ -15,10 +15,7 @@
     name: '{{ item }}'
     state: stopped 
   when: item.stat.exists
-  loop:
-     - smbd
-     - nmbd
-     - winbind
+  loop: '{{ service_status.results }}'
 
 
 
