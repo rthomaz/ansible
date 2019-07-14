@@ -176,7 +176,8 @@
     name: network-interfaces-default-config
   vars:
     - network_interfaces_dns_search: '{{samba_domain_controller_realm | lower}}'
-    - network_interfaces_dns_nameservers: '{{network_interfaces_address}}'
+    - network_interfaces_dns_nameservers: 
+      - '{{network_interfaces_address}}'
 
 - include_role:
     name: resolv-config
