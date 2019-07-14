@@ -3,6 +3,7 @@
 network_interfaces_mode_bridge_default: no
 network_interfaces_name_default: eth0
 network_interfaces_bridge_name_default: br0
+network_interfaces_dns_search_default: dns.google
 network_interfaces_dns_nameservers_default:
   - 8.8.8.8
   - 8.8.4.4
