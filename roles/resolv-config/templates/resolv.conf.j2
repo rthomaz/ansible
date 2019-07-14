@@ -1,0 +1,5 @@
+domain {{resolv_config_domain_current | lower}}
+search {{resolv_config_search_current | lower}}
+{% for nameservers in resolv_config_nameservers_current %} 
+nameserver {{nameservers}}
+{% endfor %}

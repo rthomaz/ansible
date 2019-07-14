@@ -11,6 +11,7 @@
     - admin-environment
     - apt-config
     - default-packages
+    - resolv-config
     - time-zone-config
     - vagrant-admin-environment
     - ssh-config

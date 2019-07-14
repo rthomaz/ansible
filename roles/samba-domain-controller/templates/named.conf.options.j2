@@ -23,7 +23,7 @@ options {
         # Forward queries that can not be answered from own zones
         # to these DNS servers:
         forwarders {            
-            {% for dns in samba_dns_forwarders %}
+            {% for dns in samba_domain_controller_dns_forwarders_current %}
             {{dns}};
             {% endfor %}
         };

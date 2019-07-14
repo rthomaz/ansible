@@ -1,2 +1,5 @@
 ---
-# defaults file for ansible-codes
+
+samba_domain_controller_dns_forwarders_default:
+  - 8.8.8.8
+  - 8.8.4.4

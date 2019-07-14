@@ -1,0 +1,5 @@
+---
+
+resolv_config_domain_current: '{{ resolv_config_domain | default(resolv_config_domain_default) }}'
+resolv_config_search_current: '{{ resolv_config_search | default(resolv_config_search_default) }}'
+resolv_config_nameservers_current: '{{ resolv_config_nameservers | default(resolv_config_nameservers_default) }}'

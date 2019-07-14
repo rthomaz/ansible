@@ -1,2 +1,3 @@
 ---
-# vars file for ansible-codes
+
+samba_domain_controller_dns_forwarders_current: '{{ samba_domain_controller_dns_forwarders | default(samba_domain_controller_dns_forwarders_default) }}'

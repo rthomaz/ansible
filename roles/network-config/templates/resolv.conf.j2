@@ -1,5 +1,0 @@
-domain {{domain_name | lower}}
-search {{domain_name | lower}}
-{% for dns in resolv_conf_nameservers_current %} 
-nameserver {{dns}}
-{% endfor %}

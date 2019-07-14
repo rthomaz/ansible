@@ -1,0 +1,7 @@
+---
+
+resolv_config_domain_default: dns.google
+resolv_config_search_default: dns.google
+resolv_config_nameservers_default: 
+  - 8.8.8.8
+  - 8.8.4.4
