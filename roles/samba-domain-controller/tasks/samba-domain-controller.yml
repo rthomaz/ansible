@@ -10,13 +10,16 @@
      - winbind
   register: service_status
 
+# - name: parar os serviços
+#   service:
+#     name: '{{ item.item.stdout }}'
+#     state: stopped 
+#   loop: '{{ service_status.results }}'
+
 - name: parar os serviços
-  service:
-    name: '{{ item.item.stdout }}'
-    state: stopped 
+  debug:
+    msg: "{{ item }}"
   loop: '{{ service_status.results }}'
-
-
 
 
 - name: verificar se os serviços smbd existe
