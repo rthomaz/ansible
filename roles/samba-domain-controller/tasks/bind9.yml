@@ -34,3 +34,11 @@
     owner: root
     group: bind
     mode: 0640
+
+- name: aplicar permissões no arquivo /etc/krb5.conf
+  file:
+    path: "/etc/krb5.conf"
+    state: file
+    owner: root
+    group: bind
+    mode: 0644 
