@@ -42,3 +42,10 @@
     owner: root
     group: bind
     mode: 0644 
+
+- name: criar ficheiro /etc/apparmor.d/usr.sbin.named
+  copy:
+    src: "apparmor.usr.sbin.named"
+    dest: "/etc/apparmor.d/usr.sbin.named"
+    backup: yes
+    
