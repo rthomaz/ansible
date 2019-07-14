@@ -32,11 +32,16 @@
     use_regex: true
   register: arquivos_para_deletar
 
+# - name: remover arquivos existentes
+#   file:
+#     path: "{{ item.path }}"
+#     state: absent
+#   with_items: "{{ arquivos_para_deletar.files }}"
+
 - name: remover arquivos existentes
-  file:
-    path: "{{ item.path }}"
-    state: absent
-  with_items: "{{ arquivos_para_deletar.files }}"
+  debug:
+    msg: "{{ item.path }}"
+  with_items: "{{ arquivos_para_deletar.files }}"  
 
 # remover o arquivo smb.conf existente
 
