@@ -21,6 +21,23 @@
 
 # removendo os arquivos de bando de dados se existirem
 
+- name: verificar os arquivos existentes
+  find:
+    paths: 
+      - /usr/local/samba/var/lock/
+      - /usr/local/samba/var/locks/
+      - /usr/local/samba/var/cache/  
+      - /usr/local/samba/private/
+    patterns: "*.tdb *.ldb"
+    use:regex: true
+  register: wildcard_files_to_delete
+
+- name: removendo os arquivos existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ wildcard_files_to_delete.files }}"
+
 # remover o arquivo smb.conf existente
 
 - name: criar backup do arquivo smb.conf
