@@ -4,7 +4,12 @@
   tags:
     - system
   
-- name: ntp
+- include_role: 
+    name: ntp-update
+    vars:
+      ntp_update_server: pdc-server.rthomaz.local
+
+- name: ntp 
   include_tasks: ntp.yml
 
 - name: krb5-user
