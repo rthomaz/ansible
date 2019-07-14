@@ -33,11 +33,3 @@ ntp_servers:
 # - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
 
 docker_work_path: 'docker-projects'
-
-
-
-
-
-
-
-

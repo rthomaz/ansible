@@ -27,7 +27,7 @@ ntp_servers:
   - {cname: 'pdc-server.rthomaz.local', prefer: 'prefer' }
 # - {cname: 'bdc-server.rthomaz.local', prefer: '' }  
 
-
+ntp_update_server: a.ntp.br
 
 
 

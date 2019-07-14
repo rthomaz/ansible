@@ -8,5 +8,5 @@
     - ntpdate
     - ntp-doc
 
-- name: atualizar relógio com servidor {{ ntp_update_server | default(default_ntp_update_server) }}
-  command: ntpdate {{ ntp_update_server | default(default_ntp_update_server) }}
+- name: atualizar relógio com servidor {{ntp_update_server_current}}
+  command: ntpdate {{ntp_update_server_current}}
