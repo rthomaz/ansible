@@ -13,16 +13,12 @@
 - name: parar os serviços
   service:
     name: {{ item }}
-    state: stopped
+    state: stopped 
+  when: item.stat.exists
   loop:
      - smbd
      - nmbd
      - winbind
-  when: service_status.{{ item }}.stat.exists
-
-
-
-
 
 
 
