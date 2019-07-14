@@ -10,18 +10,18 @@ apt_mirror_security_url: http://deb.debian.org/debian-security/
 apt_mirror_update_url: http://deb.debian.org/debian
 apt_mirror_backports_url: http://deb.debian.org/debian
 
-interface_address: 192.168.1.112
-interface_netmask: 255.255.255.0
-interface_network: 192.168.1.0
-interface_broadcast: 192.168.1.255
-interface_gateway: 192.168.1.1
-interface_dns_search: '{{domain_name | lower}}'
-interface_dns_nameservers: 
+network_interfaces_address: 192.168.1.112
+network_interfaces_netmask: 255.255.255.0
+network_interfaces_network: 192.168.1.0
+network_interfaces_broadcast: 192.168.1.255
+network_interfaces_gateway: 192.168.1.1
+network_interfaces_dns_search: '{{domain_name | lower}}'
+network_interfaces_dns_nameservers: 
   - 8.8.8.8
   - 8.8.4.4
-interface_bridge_ports: eth0
+
 interface_network_prefix: 192.168.1.0/24
-ssh_listen_address: '{{interface_address}}'
+ssh_listen_address: '{{network_interfaces_address}}'
 
 dns_domain_name: '{{domain_name | upper}}'
 domain_admin_user : 'rodrigo'

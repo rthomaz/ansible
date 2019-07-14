@@ -13,7 +13,7 @@ network_interfaces_gateway: 192.168.1.1
 network_interfaces_mode_bridge: yes
 
 interface_network_prefix: 192.168.1.0/24
-ssh_listen_address: '{{interface_address}}'
+ssh_listen_address: '{{network_interfaces_address}}'
 
 host_name: host01
 

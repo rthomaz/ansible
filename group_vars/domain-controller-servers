@@ -14,7 +14,7 @@ network_interfaces_dns_search: '{{domain_name | lower}}'
 
 interface_network_prefix: 192.168.1.0/24
 
-ssh_listen_address: '{{interface_address}}'
+ssh_listen_address: '{{network_interfaces_address}}'
   
 dns_domain_name: '{{domain_name | upper}}'
 domain_admin_user : 'rodrigo'
