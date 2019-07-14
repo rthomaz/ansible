@@ -3,6 +3,16 @@
 # parando serviços se existirem
 
 - name: verificar se o serviço smbd existe
+  stat: path=/etc/init.d/{{ item }}
+  register: service_{{ item }}_status
+  loop:
+     - smbd
+     - nmbd
+     - winbind
+
+
+
+- name: verificar se o serviço smbd existe
   stat: path=/etc/init.d/smbd
   register: service_smbd_status
 
