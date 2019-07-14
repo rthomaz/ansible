@@ -7,16 +7,16 @@
     src: "krb5.conf.j2"
     dest: "/etc/krb5.conf"
     backup: yes
-- name: adicionando regras em /{{ workgroup_name }}/ufw-rules.sh para krb5
+- name: adicionando regras em {{directory_scripts}}/ufw-rules.sh para krb5
   lineinfile:
-    dest: /{{ workgroup_name }}/ufw-rules.sh
+    dest: {{directory_scripts}}/ufw-rules.sh
     insertbefore: .*EndMyRules 
     line: |
       # open ports for Kerberos
       ufw allow from 192.168.1.0/24 to any port 88
       ufw allow from 192.168.1.0/24 to any port 464
-- name: rodando o script /{{ workgroup_name }}/ufw-rules.sh
+- name: rodando o script {{directory_scripts}}/ufw-rules.sh
   expect:
-    command: /bin/bash -c '/{{ workgroup_name }}/ufw-rules.sh'
+    command: /bin/bash -c '{{directory_scripts}}/ufw-rules.sh'
     responses:
       (?i)Proceed with operation (y|n)?: "y"      
