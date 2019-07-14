@@ -153,7 +153,7 @@
 
 # configurando back-end do dns do dc
 
-- name: krb5-user
+- name: bind9
   include_tasks: bind9.yml
 
 # configurando rotas
