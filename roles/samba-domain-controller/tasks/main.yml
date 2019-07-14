@@ -10,10 +10,12 @@
 - include_role:
     name: ntp-server
 
+- name: ntp-server
+  include_role:
+    name: ntp-server
+
 - name: krb5-user
   include_tasks: krb5-user.yml
-
-- include_tasks: krb5-user.yml  
 
 - name: samba-domain-controller
   include_tasks: samba-domain-controller.yml  
