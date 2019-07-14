@@ -2,7 +2,7 @@
 
 # parando serviços se existirem
 
-- name: verificar se os serviços existem
+- name: verificar serviços existentes
   stat: path=/etc/init.d/{{ item }}  
   loop:
      - smbd
@@ -10,7 +10,7 @@
      - winbind
   register: service_status
 
-- name: parar os serviços
+- name: parar os serviços existentes
   service:
     name: '{{ item.item }}'
     state: stopped 
@@ -21,7 +21,7 @@
 
 # removendo os arquivos de bando de dados se existirem
 
-- name: verificar os arquivos existentes
+- name: verificar arquivos existentes
   find:
     paths: 
       - /usr/local/samba/var/lock/
@@ -30,13 +30,13 @@
       - /usr/local/samba/private/
     patterns: "*.tdb *.ldb"
     use_regex: true
-  register: wildcard_files_to_delete
+  register: arquivos_para_deletar
 
-- name: removendo os arquivos existentes
+- name: remover arquivos existentes
   file:
     path: "{{ item.path }}"
     state: absent
-  with_items: "{{ wildcard_files_to_delete.files }}"
+  with_items: "{{ arquivos_para_deletar.files }}"
 
 # remover o arquivo smb.conf existente
 
