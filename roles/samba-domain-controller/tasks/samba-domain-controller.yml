@@ -170,14 +170,20 @@
     dest: "/etc/nsswitch.conf"
     backup: yes
 
-# configurando rede
+# reconfigurando rede
+
+- include_role:
+    name: network-interfaces-default-config
+  vars:
+    - network_interfaces_dns_search: '{{samba_domain_controller_realm | lower}}'
+    - network_interfaces_dns_nameservers: '{{network_interfaces_address}}'
 
 - include_role:
     name: resolv-config
   vars:
     - resolv_config_domain: '{{samba_domain_controller_realm | lower}}'
-    - resolv_config_search_current: '{{samba_domain_controller_realm | lower}}'
-    - resolv_config_nameservers_current:
+    - resolv_config_search: '{{samba_domain_controller_realm | lower}}'
+    - resolv_config_nameservers:
       - '{{network_interfaces_address}}'
 
 # configurando zona reversa
