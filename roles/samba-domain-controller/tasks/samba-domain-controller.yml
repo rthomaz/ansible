@@ -19,6 +19,7 @@
 - name: parar os serviços
   debug:
     msg: "{{ item.item }}"
+  when: item.stat.exists
   loop: '{{ service_status.results }}'
   loop_control:
     label: "{{ item.item }}"
