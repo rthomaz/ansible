@@ -39,8 +39,8 @@
 
 - name: remover arquivos existentes
   debug:
-    msg: "{{ item.path }}"
-  with_items: "{{ arquivos_para_deletar.files }}"  
+    msg: "{{ item }}"
+  with_items: "{{ arquivos_para_deletar }}"  
 
 # remover o arquivo smb.conf existente
 
