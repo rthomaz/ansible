@@ -158,6 +158,12 @@
 
 # configurando rotas
 
+- name: criar ficheiro /etc/nsswitch.conf
+  copy:
+    src: "nsswitch.conf"
+    dest: "/etc/nsswitch.conf"
+    backup: yes
+
 # configurando rede
 
 # configurando zona reversa
