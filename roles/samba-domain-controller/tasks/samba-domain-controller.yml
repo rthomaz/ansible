@@ -24,12 +24,11 @@
 - name: verificar arquivos existentes
   find:
     paths: 
-      - /usr/local/samba/var/lock/
-      - /usr/local/samba/var/locks/
-      - /usr/local/samba/var/cache/  
-      - /usr/local/samba/private/
-    patterns: "*.tdb *.ldb"
-    use_regex: true
+      - /usr/local/samba/var/lock
+      - /usr/local/samba/var/locks
+      - /usr/local/samba/var/cache
+      - /usr/local/samba/private
+    patterns: "*.tdb,*.ldb"
   register: arquivos_para_deletar
 
 # - name: remover arquivos existentes
