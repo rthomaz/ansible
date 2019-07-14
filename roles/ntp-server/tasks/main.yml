@@ -27,7 +27,7 @@
     insertbefore: .*EndMyRules 
     line: |
       # open ports for NTP
-      ufw allow from {{interface_network_prefix}} to any port {{ntp_server_port}} proto udp
+      ufw allow from {{interface_network_prefix}} to any port {{ntp_server_port_current}} proto udp
 
 - name: executar script {{directory_scripts}}/ufw-rules.sh
   expect:
