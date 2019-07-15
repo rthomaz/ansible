@@ -227,5 +227,5 @@
   expect:
     command: samba-tool dns zonecreate {{network_interfaces_address}} {{reverse_zone}} -U Administrator
     responses:
-      'Password for \[RTHOMAZ\\Administrator\]:': '{{ samba_domain_controller_admin_pass }}'
+      'Password for \[{{samba_domain_controller_domain}}\\Administrator\]:': '{{ samba_domain_controller_admin_pass }}'
     echo: yes

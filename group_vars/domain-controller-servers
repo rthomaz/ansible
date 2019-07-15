@@ -24,5 +24,5 @@ workgroup_name: 'RTHOMAZ'
 ntp_broadcast_address: '{{network_interfaces_address}}'
 
 samba_domain_controller_realm: '{{dns_domain_name}}'
-samba_domain_controller_domain: 'RTHOMAZ'
+samba_domain_controller_domain: RTHOMAZ
 samba_domain_controller_admin_pass: 'Passw0rd'
