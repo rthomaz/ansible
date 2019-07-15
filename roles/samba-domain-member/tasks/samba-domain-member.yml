@@ -33,7 +33,8 @@
   copy:
     src: "nsswitch.conf"
     dest: "/etc/nsswitch.conf"
-    backup: yes     
+    backup: yes   
+      
 - name: ingressando no domínio
   expect:
     command: net ads join -U {{ domain_admin_user }}
@@ -41,6 +42,7 @@
       (?i)password: '{{ domain_admin_password }}'
   # you don't want to show passwords in your logs
   no_log: true
+
 - name: adicionando regras em {{directory_scripts}}/ufw-rules.sh para o samba
   lineinfile:
     dest: {{directory_scripts}}/ufw-rules.sh
