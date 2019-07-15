@@ -228,4 +228,3 @@
     command: samba-tool dns zonecreate {{network_interfaces_address}} {{reverse_zone}} -U Administrator
     responses:
       (?i)Password for \[RTHOMAZ\\Administrator\]: '{{ samba_domain_controller_admin_pass }}'
-    echo: yes
