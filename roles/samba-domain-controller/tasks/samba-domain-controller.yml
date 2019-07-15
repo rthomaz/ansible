@@ -225,6 +225,6 @@
 
 - name: configurar zona reversa {{reverse_zone}}
   expect:
-    command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}} 
+    command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}} -U Administrator
     responses:
-      (?i)Password for [RTHOMAZ\administrator]: '{{ samba_domain_controller_admin_pass }}'
+      (?i)Password for [{{ samba_domain_controller_domain | upper }}\Administrator]: '{{ samba_domain_controller_admin_pass }}'
