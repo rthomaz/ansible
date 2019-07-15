@@ -190,6 +190,7 @@
 # configurando zona reversa
 
 - debug: msg="{{ ('192.168.10'.split('.'))[::-1]|join('.') }}"
-- debug: msg="{{ ('192.168.10'.split('.'))[0] }}"
+- debug: msg="{{ ('192.168.10'.split('.'))[3] }}"
+- debug: msg="{{ network_interfaces_address.split('.')[2] }}"
 #- name: configurar zona reversa
 #  command: samba-tool dns zonecreate {{network_hostname}} 1.168.192.in-addr.arpa
