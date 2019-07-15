@@ -223,7 +223,7 @@
 
 # configurando zona reversa
 
-- name: configurar zona reversa {{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}
+- name: configurar zona reversa {{reverse_zone}}
   expect:
     command: samba-tool dns zonecreate {{network_hostname}} "{{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}"
     responses:
