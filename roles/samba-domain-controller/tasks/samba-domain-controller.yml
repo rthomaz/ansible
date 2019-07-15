@@ -173,7 +173,7 @@
 # reconfigurando rede
 
 - include_role:
-    name: network-interfaces-default-config
+    name: network-interfaces-config
   vars:
     - network_interfaces_dns_search: '{{samba_domain_controller_realm | lower}}'
     - network_interfaces_dns_nameservers: 
