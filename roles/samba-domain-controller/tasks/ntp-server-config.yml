@@ -21,7 +21,7 @@
 
 - name: reiniciar os serviços
   service:
-    name: {{item}}
+    name: '{{item}}'
     state: restarted
   loop:
     - ntp
