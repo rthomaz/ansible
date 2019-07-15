@@ -1,0 +1,38 @@
+---
+
+- name: instalar isc-dhcp-server
+  apt:
+    name: "isc-dhcp-server"
+
+- name: criar usuário dhcpduser no ad para realizar as atualizações
+  command: samba-tool user create dhcpduser 
+    --description="Unprivileged user for TSIG-GSSAPI DNS updates via ISC DHCP server" 
+    --random-password
+
+- name: defir a senha do usuário dhcpduser para nunca expirar
+  command: samba-tool user setexpiry dhcpduser --noexpiry
+
+- name: incluir usuário dhcpduser no grupo DnsAdmins
+  command: samba-tool group addmembers DnsAdmins dhcpduser
+
+- name: exportar keytab necessário
+  command: samba-tool domain exportkeytab 
+    --principal=dhcpduser@{{ domain_name | upper }} /etc/dhcpduser.keytab
+
+- name: aplicar permissões no arquivo dhcpduser.keytab
+  file:
+    path: "/etc/dhcpduser.keytab"
+    state: file
+    owner: root
+    group: root
+    mode: 0400
+
+- name: criar script para as atualizações /usr/local/bin/dhcp-dyndns.sh
+  copy:
+    src: "dhcp-dyndns.sh"
+    dest: "/usr/local/bin/dhcp-dyndns.sh"
+    backup: yes
+    mode: 0775
+
+    
+
