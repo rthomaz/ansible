@@ -17,4 +17,4 @@
   include_tasks: samba.yml
 
 - name: ntp-server-config
-  include_tasks: ntp-server-config.yml  
+  include_tasks: ntp-server-config.yml
