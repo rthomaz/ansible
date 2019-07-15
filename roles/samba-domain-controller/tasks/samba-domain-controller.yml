@@ -187,6 +187,31 @@
     - resolv_config_nameservers:
       - '{{network_interfaces_address}}'
 
+# configurando firewall
+
+- name: adicionar regras no firewall
+  lineinfile:
+    dest: '{{directory_scripts}}/ufw-rules.sh'
+    insertbefore: .*EndMyRules 
+    line: |
+      # open ports for Samba
+      ufw allow from {{network_interfaces_prefix}} to any port 135 proto tcp
+      ufw allow from {{network_interfaces_prefix}} to any port 137 proto udp
+      ufw allow from {{network_interfaces_prefix}} to any port 138 proto udp
+      ufw allow from {{network_interfaces_prefix}} to any port 139 proto tcp
+      ufw allow from {{network_interfaces_prefix}} to any port 389
+      ufw allow from {{network_interfaces_prefix}} to any port 445 proto tcp
+      ufw allow from {{network_interfaces_prefix}} to any port 636 proto tcp
+      ufw allow from {{network_interfaces_prefix}} to any port 3268 proto tcp
+      ufw allow from {{network_interfaces_prefix}} to any port 3269 proto tcp
+      ufw allow from {{network_interfaces_prefix}} to any port 49152-65535 proto tcp
+
+- name: rodar script {{directory_scripts}}/ufw-rules.sh
+  expect:
+    command: /bin/bash -c '{{directory_scripts}}/ufw-rules.sh'
+    responses:
+      (?i)Proceed with operation (y|n)?: "y"
+
 # configurando zona reversa
 
 - name: configurar zona reversa {{reverse_zone}}
