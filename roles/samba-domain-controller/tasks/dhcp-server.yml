@@ -34,5 +34,25 @@
     backup: yes
     mode: 0775
 
-    
+- name: criar ficheiro isc-dhcp-server
+  copy:
+    src: "isc-dhcp-server"
+    dest: "/etc/default/isc-dhcp-server"
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
 
+- name: criar ficheiro dhcpd.conf
+  template:
+    src: "dhcpd.conf.j2"
+    dest: "/etc/dhcp/dhcpd.conf"
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+
+- name: reiniciar serviço dhcp
+  service:
+    name: isc-dhcp-server
+    state: restarted
