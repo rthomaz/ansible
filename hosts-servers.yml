@@ -20,5 +20,4 @@
     - sudo-config
     - ufw
     - kvm
-    - vagrant
-    - ansible-environment
+    - vagrant   

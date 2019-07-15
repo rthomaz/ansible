@@ -19,4 +19,5 @@
     - ssh-config
     - sudo-config
     - ufw 
+    - ansible-environment
     - samba-domain-controller
