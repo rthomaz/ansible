@@ -225,12 +225,6 @@
 
 - name: configurar zona reversa {{reverse_zone}}
   expect:
-    command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}} -U {{domain_admin_user}}
+    command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}} 
     responses:
-      (?i)Password for [RTHOMAZ\rodrigo]: '{{ domain_admin_password }}'
-  
-
-#- name: configurar zona reversa {{reverse_zone}}
-#  command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}}
-#  vars:
-#    - reverse_zone: "{{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}"
+      (?i)Password for [administrator@RTHOMAZ.LOCAL]: '{{ samba_domain_controller_admin_pass }}'
