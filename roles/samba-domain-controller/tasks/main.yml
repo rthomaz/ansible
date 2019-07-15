@@ -13,5 +13,8 @@
 - name: krb5-user
   include_tasks: krb5-user.yml
 
-- name: samba-domain-controller
-  include_tasks: samba-domain-controller.yml  
+- name: samba
+  include_tasks: samba.yml
+
+- name: ntp-server-config
+  include_tasks: ntp-server-config.yml  

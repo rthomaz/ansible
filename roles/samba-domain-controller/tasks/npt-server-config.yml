@@ -1,0 +1,28 @@
+---
+
+- name: configurar ntp.conf com samba
+  lineinfile:
+    dest: /etc/ntp.conf
+    insertafter: EOF
+    state: present
+    line: |
+      # Configurações adicionais para o Samba
+      ntpsigndsocket /var/lib/samba/ntp_signd/
+      restrict default mssntp
+      disable monitor
+
+- name: aplicar permissões para o servidor ntp acessar o socket do samba 
+  file:
+    path: "/var/lib/samba/ntp_signd/"
+    state: directory
+    owner: root
+    group: ntp
+    mode: 0750
+
+- name: reiniciar os serviços
+  service:
+    name: {{item}}
+    state: restarted
+  loop:
+    - ntp
+    - samba-ad-dc.service
