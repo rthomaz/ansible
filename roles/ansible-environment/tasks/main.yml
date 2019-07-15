@@ -1,0 +1,8 @@
+---
+
+- name: instalando o pacote python3-pip
+  apt:
+    name: "python3-pip"
+
+- name: rodando o comando pip3 install netaddr
+  shell: pip3 install netaddr    

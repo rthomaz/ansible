@@ -21,3 +21,4 @@
     - ufw
     - kvm
     - vagrant
+    - ansible-environment
