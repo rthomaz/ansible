@@ -212,6 +212,15 @@
     responses:
       (?i)Proceed with operation (y|n)?: "y"
 
+# iniciando o samba
+
+- name: iniciar samba-ad-dc.service
+  service:
+    name: samba-ad-dc.service
+    state: started
+    enabled: yes
+    masked: no
+
 # configurando zona reversa
 
 - name: configurar zona reversa {{reverse_zone}}
