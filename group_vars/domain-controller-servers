@@ -12,6 +12,8 @@ network_interfaces_broadcast: 192.168.1.255
 network_interfaces_gateway: 192.168.1.1
 network_interfaces_dns_search: '{{domain_name | lower}}'
 
+network_hostname: dc01
+
 ssh_listen_address: '{{network_interfaces_address}}'
   
 dns_domain_name: '{{domain_name | upper}}'

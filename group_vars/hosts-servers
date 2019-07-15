@@ -12,9 +12,9 @@ network_interfaces_broadcast: 192.168.1.255
 network_interfaces_gateway: 192.168.1.1
 network_interfaces_mode_bridge: yes
 
-ssh_listen_address: '{{network_interfaces_address}}'
+network_hostname: host01
 
-host_name: host01
+ssh_listen_address: '{{network_interfaces_address}}'
 
 vagrant_version: 2.2.5
 vagrant_file_name: 'vagrant_{{vagrant_version}}_x86_64.deb'

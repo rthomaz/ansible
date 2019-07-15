@@ -12,6 +12,7 @@
     - apt-config
     - default-packages
     - network-interfaces-config
+    - network-hostname-config
     - resolv-config
     - time-zone-config
     - vagrant-admin-environment
