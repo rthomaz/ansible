@@ -226,10 +226,11 @@
 - name: configurar zona reversa {{reverse_zone}}
   expect:
     command: samba-tool dns zonecreate {{network_hostname}} "{{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}"
+    vars:
+      - reverse_zone: "{{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}"
     responses:
-      (?i)]: '{{ domain_admin_password }}'
-  vars:
-    - reverse_zone: "{{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}"
+      (?i)Password for [RTHOMAZ\rodrigo]: '{{ domain_admin_password }}'
+  
 
 #- name: configurar zona reversa {{reverse_zone}}
 #  command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}}
