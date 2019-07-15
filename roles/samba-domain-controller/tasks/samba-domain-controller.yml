@@ -227,7 +227,7 @@
   expect:
     command: samba-tool dns zonecreate {{network_hostname}} "{{ network_interfaces_address.split('.') [2] + '.' + network_interfaces_address.split('.') [1] + '.' + network_interfaces_address.split('.') [0] + '.in-addr.arpa' }}"
     responses:
-      (?i)Password*]: '{{ domain_admin_password }}'
+      (?i)]: '{{ domain_admin_password }}'
 
 #- name: configurar zona reversa {{reverse_zone}}
 #  command: samba-tool dns zonecreate {{network_hostname}} {{reverse_zone}}
