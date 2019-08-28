@@ -2,25 +2,20 @@
 
 # services
 
-- name: verificar arquivos de serviços existentes
+- name: verificar arquivos services existentes
   find:
     paths: 
       - /etc/openhab2/services
     patterns: "*.cfg"
   register: services_arquivos_para_deletar
 
-- name: remover arquivos de serviços existentes
+- name: remover arquivos services existentes
   file:
     path: "{{ item.path }}"
     state: absent
   with_items: "{{ services_arquivos_para_deletar.files }}"
 
-- name: arquivos de serviços removidos
-  debug:
-    msg: "{{ item }}"
-  with_items: "{{ services_arquivos_para_deletar.files }}"  
-
-- name: criar arquivos de serviços
+- name: criar arquivos services
   copy:
     src: "services/{{item}}.cfg"
     dest: "/etc/openhab2/services/{{item}}.cfg"
@@ -36,7 +31,20 @@
 
 # things
 
-- name: criar things
+- name: verificar arquivos things existentes
+  find:
+    paths: 
+      - /etc/openhab2/things
+    patterns: "*.things"
+  register: things_arquivos_para_deletar
+
+- name: remover arquivos things existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ things_arquivos_para_deletar.files }}"
+
+- name: criar arquivos things
   copy:
     src: "things/{{item}}.things"
     dest: "/etc/openhab2/things/{{item}}.things"
@@ -51,7 +59,20 @@
 
 # items    
 
-- name: criar items
+- name: verificar arquivos items existentes
+  find:
+    paths: 
+      - /etc/openhab2/items
+    patterns: "*.items"
+  register: items_arquivos_para_deletar
+
+- name: remover arquivos items existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ items_arquivos_para_deletar.files }}"
+
+- name: criar arquivos items
   copy:
     src: "items/{{item}}.items"
     dest: "/etc/openhab2/items/{{item}}.items"
@@ -75,7 +96,20 @@
 
 # sitemaps
 
-- name: criar sitemaps
+- name: verificar arquivos sitemap existentes
+  find:
+    paths: 
+      - /etc/openhab2/sitemaps
+    patterns: "*.sitemap"
+  register: sitemap_arquivos_para_deletar
+
+- name: remover arquivos sitemap existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ sitemap_arquivos_para_deletar.files }}"
+
+- name: criar arquivos sitemaps
   copy:
     src: "sitemaps/{{item}}.sitemap"
     dest: "/etc/openhab2/sitemaps/{{item}}.sitemap"
