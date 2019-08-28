@@ -2,7 +2,25 @@
 
 # services
 
-- name: criar services
+- name: verificar arquivos de serviços existentes
+  find:
+    paths: 
+      - /etc/openhab2/services
+    patterns: "*.cfg"
+  register: services_arquivos_para_deletar
+
+- name: remover arquivos de serviços existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ services_arquivos_para_deletar.files }}"
+
+- name: arquivos de serviços removidos
+  debug:
+    msg: "{{ item }}"
+  with_items: "{{ services_arquivos_para_deletar.files }}"  
+
+- name: criar arquivos de serviços
   copy:
     src: "services/{{item}}.cfg"
     dest: "/etc/openhab2/services/{{item}}.cfg"
