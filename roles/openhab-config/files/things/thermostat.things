@@ -8,25 +8,25 @@ Bridge mqtt:broker:thermostat_connection [ host="192.168.1.22", secure=false, us
 
   Thing topic sala_thermostat_topic "Thermostat (Sala)" @ "Thermostat" {
     Channels:
-      Type string : sala_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/sala", commandTopic="set_heatingCoolingMode/sala", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      // Type string : sala_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/sala", commandTopic="set_heatingCoolingMode/sala", allowedStates="OFF,AUTO,HEAT,COOL" ]
       Type number : sala_thermostat_temperature_target_channel        [ stateTopic="get_targetTemperature/sala", commandTopic="set_targetTemperature/sala" ]
   }
 
   Thing topic banheiro_thermostat_topic "Thermostat (Banheiro)" @ "Thermostat" {
     Channels:
-      Type string : banheiro_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/banheiro", commandTopic="set_heatingCoolingMode/banheiro", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      // Type string : banheiro_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/banheiro", commandTopic="set_heatingCoolingMode/banheiro", allowedStates="OFF,AUTO,HEAT,COOL" ]
       Type number : banheiro_thermostat_temperature_target_channel        [ stateTopic="get_targetTemperature/banheiro", commandTopic="set_targetTemperature/banheiro" ]
   }
 
   Thing topic cozinha_thermostat_topic "Thermostat (Cozinha)" @ "Thermostat" {
     Channels:
-      Type string : cozinha_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/cozinha", commandTopic="set_heatingCoolingMode/cozinha", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      // Type string : cozinha_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/cozinha", commandTopic="set_heatingCoolingMode/cozinha", allowedStates="OFF,AUTO,HEAT,COOL" ]
       Type number : cozinha_thermostat_temperature_target_channel        [ stateTopic="get_targetTemperature/cozinha", commandTopic="set_targetTemperature/cozinha" ]
   }
 
   Thing topic escritorio_thermostat_topic "Thermostat (Escritório)" @ "Thermostat" {
     Channels:
-      Type string : escritorio_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/escritorio", commandTopic="set_heatingCoolingMode/escritorio", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      // Type string : escritorio_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/escritorio", commandTopic="set_heatingCoolingMode/escritorio", allowedStates="OFF,AUTO,HEAT,COOL" ]
       Type number : escritorio_thermostat_temperature_target_channel        [ stateTopic="get_targetTemperature/escritorio", commandTopic="set_targetTemperature/escritorio" ]
   }
 
