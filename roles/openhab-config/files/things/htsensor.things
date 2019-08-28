@@ -1,0 +1,33 @@
+Bridge mqtt:broker:htsensor_connection [ host="192.168.1.22", secure=false, username="openhabian", password=""] {
+
+  Thing topic quarto_htsensor_topic "HTSensor - Humidity and Temperature Sensor (Quarto)" @ "HTSensor" {
+    Channels:
+      Type number : quarto_htsensor_humidity_current_channel          [ stateTopic="get_currentHumidity/quarto" ]
+      Type number : quarto_htsensor_temperature_current_channel       [ stateTopic="get_currentTemperature/quarto" ]
+  }
+
+  Thing topic sala_htsensor_topic "HTSensor - Humidity and Temperature Sensor (Sala)" @ "HTSensor" {
+    Channels:
+      Type number : sala_htsensor_humidity_current_channel            [ stateTopic="get_currentHumidity/sala" ]
+      Type number : sala_htsensor_temperature_current_channel         [ stateTopic="get_currentTemperature/sala" ]
+  }
+
+  Thing topic banheiro_htsensor_topic "HTSensor - Humidity and Temperature Sensor (Banheiro)" @ "HTSensor" {
+    Channels:
+      Type number : banheiro_htsensor_humidity_current_channel        [ stateTopic="get_currentHumidity/banheiro" ]
+      Type number : banheiro_htsensor_temperature_current_channel     [ stateTopic="get_currentTemperature/banheiro" ]
+  }
+
+  Thing topic cozinha_htsensor_topic "HTSensor - Humidity and Temperature Sensor (Cozinha)" @ "HTSensor" {
+    Channels:
+      Type number : cozinha_htsensor_humidity_current_channel         [ stateTopic="get_currentHumidity/cozinha" ]
+      Type number : cozinha_htsensor_temperature_current_channel      [ stateTopic="get_currentTemperature/cozinha" ]
+  }
+
+  Thing topic escritorio_htsensor_topic "HTSensor - Humidity and Temperature Sensor (Escritório)" @ "HTSensor" {
+    Channels:
+      Type number : escritorio_htsensor_humidity_current_channel      [ stateTopic="get_currentHumidity/escritorio" ]
+      Type number : escritorio_htsensor_temperature_current_channel   [ stateTopic="get_currentTemperature/escritorio" ]
+  }
+  
+}

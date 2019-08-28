@@ -54,8 +54,9 @@
     mode: 0664
   loop:
     - chromecast
-    - dht22
+    - htsensor
     - motion
+    - thermostat
 
 # items    
 
@@ -82,8 +83,9 @@
     mode: 0664
   loop:
     - comodos
-    - dht22
+    - htsensor
     - motion
+    - thermostat    
     - chromecast_assistant_cozinha
     - chromecast_audio_banheiro
     - chromecast_audiogroup_casa

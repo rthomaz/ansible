@@ -1,0 +1,11 @@
+Bridge mqtt:broker:thermostat_connection [ host="192.168.1.22", secure=false, username="openhabian", password=""] {
+ 
+  Thing topic quarto_thermostat_topic "Thermostat (Quarto)" @ "Thermostat" {
+    Channels:
+      Type string : quarto_thermostat_heatingCoolingMode_channel        [ stateTopic="get_heatingCoolingMode/quarto", commandTopic="set_heatingCoolingMode/quarto", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : quarto_thermostat_humidity_current_channel          [ stateTopic="get_currentHumidity/quarto" ]
+      Type number : quarto_thermostat_temperature_current_channel       [ stateTopic="get_currentTemperature/quarto" ]
+      Type number : quarto_thermostat_temperature_target_channel        [ stateTopic="get_targetTemperature/quarto", commandTopic="set_targetTemperature/quarto" ]
+  }
+
+}
