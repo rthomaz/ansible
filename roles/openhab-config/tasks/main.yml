@@ -2,8 +2,8 @@
 
 - name: criar things
   copy:
-    src: "things/**"
-    dest: "/etc/openhab2/things2/"
+    src: "things/chromecast.things"
+    dest: "/etc/openhab2/things/chromecast.things1"
     backup: no
     owner: root
     group: root
