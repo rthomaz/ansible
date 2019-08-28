@@ -1,8 +1,24 @@
 ---
 
+# services
+
+- name: criar services
+  copy:
+    src: "services/{{item}}.cfg"
+    dest: "/etc/openhab2/services/{{item}}.cfg"
+    backup: no
+    owner: root
+    group: root
+    mode: 0664
+  loop:
+    - runtime
+    - services
+    - addons
+    - dashboard
+
 # things
 
-- name: criar {{item}}.things
+- name: criar things
   copy:
     src: "things/{{item}}.things"
     dest: "/etc/openhab2/things/{{item}}.things"
@@ -16,3 +32,38 @@
     - motion
 
 # items    
+
+- name: criar items
+  copy:
+    src: "items/{{item}}.items"
+    dest: "/etc/openhab2/items/{{item}}.items"
+    backup: no
+    owner: root
+    group: root
+    mode: 0664
+  loop:
+    - comodos
+    - dht22
+    - motion
+    - chromecast_assistant_cozinha
+    - chromecast_audio_banheiro
+    - chromecast_audiogroup_casa
+    - chromecast_audiogroup_grupoNorte
+    - chromecast_audiogroup_grupoSul
+    - chromecast_chromecast_cozinha
+    - chromecast_chromecast_escritorio
+    - chromecast_chromecast_quarto
+    - chromecast_chromecast_sala
+
+# sitemaps
+
+- name: criar sitemaps
+  copy:
+    src: "sitemaps/{{item}}.sitemap"
+    dest: "/etc/openhab2/sitemaps/{{item}}.sitemap"
+    backup: no
+    owner: root
+    group: root
+    mode: 0664
+  loop:
+    - default
