@@ -1,0 +1,22 @@
+Group    thermostat_quarto_group          "Termostato do quarto"       [ "Thermostat", "Celsius" ]
+//  String   heatingCoolingMode_quarto_item          "Modo"                                           (thermostat_quarto_group, quarto_group)                              [ "homekit:HeatingCoolingMode" ]   { channel="mqtt:topic:dht22_connection:quarto_topic:heatingCoolingMode_quarto_channel"}
+  Number   currentTemperature_quarto_item          "Temperatura [%.2f °C]"       <temperature>      (thermostat_quarto_group, quarto_group, temperature_group)           [ "CurrentTemperature" ]           { channel="mqtt:topic:dht22_connection:quarto_topic:currentTemperature_quarto_channel"}
+  Dimmer   targetTemperature_quarto_item           "Aquecimento [%.2f °C]"       <temperature>      (thermostat_quarto_group, quarto_group)                              [ "TargetTemperature" ]            { channel="mqtt:topic:dht22_connection:quarto_topic:targetTemperature_quarto_channel"}
+  Number   currentHumidity_quarto_item             "Humidade [%.0f %%]"          <humidity>         (thermostat_quarto_group, quarto_group, humidity_group)              [ "CurrentHumidity" ]              { channel="mqtt:topic:dht22_connection:quarto_topic:currentHumidity_quarto_channel"}
+
+Group    thermostat_sala_group            "Termostato da sala"         [ "Thermostat", "Celsius" ]
+  Number   currentTemperature_sala_item            "Temperatura [%.2f °C]"       <temperature>      (thermostat_sala_group, sala_group, temperature_group)               [ "CurrentTemperature" ]           { channel="mqtt:topic:dht22_connection:sala_topic:currentTemperature_sala_channel"}
+  Number   currentHumidity_sala_item               "Humidade [%.0f %%]"          <humidity>         (thermostat_sala_group, sala_group, humidity_group)                  [ "CurrentHumidity" ]              { channel="mqtt:topic:dht22_connection:sala_topic:currentHumidity_sala_channel"}
+									  	   						  
+Group    thermostat_banheiro_group        "Termostato do banheiro"     [ "Thermostat", "Celsius" ]
+  Number   currentTemperature_banheiro_item        "Temperatura [%.2f °C]"       <temperature>      (thermostat_banheiro_group, banheiro_group, temperature_group)       [ "CurrentTemperature" ]           { channel="mqtt:topic:dht22_connection:banheiro_topic:currentTemperature_banheiro_channel"}
+  Number   currentHumidity_banheiro_item           "Humidade [%.0f %%]"          <humidity>         (thermostat_banheiro_group, banheiro_group, humidity_group)          [ "CurrentHumidity" ]              { channel="mqtt:topic:dht22_connection:banheiro_topic:currentHumidity_banheiro_channel"}
+									  	   																																			         
+Group    thermostat_cozinha_group         "Termostato da cozinha"      [ "Thermostat", "Celsius" ]                                                                                                
+  Number   currentTemperature_cozinha_item         "Temperatura [%.2f °C]"       <temperature>      (thermostat_cozinha_group, cozinha_group, temperature_group)         [ "CurrentTemperature" ]           { channel="mqtt:topic:dht22_connection:cozinha_topic:currentTemperature_cozinha_channel"}
+  Number   currentHumidity_cozinha_item            "Humidade [%.0f %%]"          <humidity>         (thermostat_cozinha_group, cozinha_group, humidity_group)            [ "CurrentHumidity" ]              { channel="mqtt:topic:dht22_connection:cozinha_topic:currentHumidity_cozinha_channel"}
+									  	   																																			         
+Group    thermostat_escritorio_group      "Termostato do escritorio"   [ "Thermostat", "Celsius" ]                                                                                                
+ Number   currentTemperature_escritorio_item       "Temperatura [%.2f °C]"       <temperature>      (thermostat_escritorio_group, escritorio_group, temperature_group)   [ "CurrentTemperature" ]           { channel="mqtt:topic:dht22_connection:escritorio_topic:currentTemperature_escritorio_channel"}
+ Number   currentHumidity_escritorio_item          "Humidade [%.0f %%]"          <humidity>         (thermostat_escritorio_group, escritorio_group, humidity_group)      [ "CurrentHumidity" ]              { channel="mqtt:topic:dht22_connection:escritorio_topic:currentHumidity_escritorio_channel"}
+

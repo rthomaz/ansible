@@ -1,0 +1,30 @@
+Bridge mqtt:broker:dht22_connection [ host="192.168.1.22", secure=false, username="openhabian", password=""] {
+ 
+  Thing topic quarto_topic "DHT22 (quarto)" @ "DHT22" {
+    Channels:
+      Type string : heatingCoolingMode_quarto_channel       [ stateTopic="get_heatingCoolingMode/quarto", commandTopic="set_heatingCoolingMode/quarto", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : currentHumidity_quarto_channel          [ stateTopic="get_currentHumidity/quarto" ]
+      Type number : currentTemperature_quarto_channel       [ stateTopic="get_currentTemperature/quarto" ]
+      Type number : targetTemperature_quarto_channel        [ stateTopic="get_targetTemperature/quarto", commandTopic="set_targetTemperature/quarto" ]
+  }
+  Thing topic sala_topic "DHT22 (sala)" @ "DHT22" {
+    Channels:
+      Type number : currentHumidity_sala_channel            [ stateTopic="get_currentHumidity/sala" ]
+      Type number : currentTemperature_sala_channel         [ stateTopic="get_currentTemperature/sala" ]
+  }
+  Thing topic banheiro_topic "DHT22 (banheiro)" @ "DHT22" {
+    Channels:
+      Type number : currentHumidity_banheiro_channel        [ stateTopic="get_currentHumidity/banheiro" ]
+      Type number : currentTemperature_banheiro_channel     [ stateTopic="get_currentTemperature/banheiro" ]
+  }
+  Thing topic cozinha_topic "DHT22 (cozinha)" @ "DHT22" {
+    Channels:
+      Type number : currentHumidity_cozinha_channel         [ stateTopic="get_currentHumidity/cozinha" ]
+      Type number : currentTemperature_cozinha_channel      [ stateTopic="get_currentTemperature/cozinha" ]
+  }
+  Thing topic escritorio_topic "DHT22 (escritório)" @ "DHT22" {
+    Channels:
+      Type number : currentHumidity_escritorio_channel      [ stateTopic="get_currentHumidity/escritorio" ]
+      Type number : currentTemperature_escritorio_channel   [ stateTopic="get_currentTemperature/escritorio" ]
+  }
+}

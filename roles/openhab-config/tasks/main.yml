@@ -1,1 +1,10 @@
 ---
+
+- name: criar things
+  copy:
+    src: "things/**"
+    dest: "/etc/openhab2/things2/"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644

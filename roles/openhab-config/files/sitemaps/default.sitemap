@@ -1,0 +1,84 @@
+sitemap casa label="Casa" {
+
+    Frame {
+        Default item=Music
+        Slider item=chromecast_audiogroup_volume_casa_item icon=soundvolume label="Casa"
+    }
+	
+    Frame {
+        Default item=Music
+        Slider item=chromecast_audiogroup_volume_grupoNorte_item icon=soundvolume label="Grupo Norte"
+    }
+	
+    Frame {
+        Default item=Music
+        Slider item=chromecast_audiogroup_volume_grupoSul_item icon=soundvolume label="Grupo Sul"
+    }
+	
+    Frame label="Piso térreo" icon="groundfloor" {
+        Group item=quarto_group
+        Group item=sala_group
+        Group item=corredor_group
+        Group item=banheiro_group
+        Group item=cozinha_group
+        Group item=escritorio_group
+    }
+
+    Frame label="Lado de fora" icon="garden" {
+        Group item=quintal_group
+        Group item=lavanderia_group
+        Group item=garagem_group
+    }    
+	
+    Frame label="Controles" {
+	
+        Text label="Temperatura" icon="temperature" {
+            Default item=currentTemperature_quarto_item label="Quarto"
+            Default item=currentTemperature_sala_item label="Sala"
+            Default item=currentTemperature_banheiro_item label="Banheiro"
+            Default item=currentTemperature_cozinha_item label="Cozinha"
+            Default item=currentTemperature_escritorio_item label="Escritório"
+        }
+
+        Text label="Umidade" icon="humidity" {
+            Default item=currentHumidity_quarto_item label="Quarto"
+            Default item=currentHumidity_sala_item label="Sala"
+            Default item=currentHumidity_banheiro_item label="Banheiro"
+            Default item=currentHumidity_cozinha_item label="Cozinha"
+            Default item=currentHumidity_escritorio_item label="Escritório"
+        }
+
+        Text label="Movimento" icon="motion" {
+            Default item=motion_quarto_item label="Quarto"
+            Default item=motion_sala_item label="Sala"
+            Default item=motion_banheiro_item label="Banheiro"
+            Default item=motion_corredor_item label="Corredor"
+            Default item=motion_cozinha_item label="Cozinha"
+            Default item=motion_escritorio_item label="Escritório"
+        }
+		
+        Text label="Volume" icon="soundvolume" {
+            Default item=chromecast_audiogroup_volume_casa_item label="Casa"
+            Default item=chromecast_audiogroup_volume_grupoNorte_item label="Grupo Norte"
+            Default item=chromecast_audiogroup_volume_grupoSul_item label="Grupo Sul"
+            Default item=chromecast_chromecast_volume_quarto_item label="Quarto"
+            Default item=chromecast_chromecast_volume_sala_item label="Sala"
+            Default item=chromecast_audio_volume_banheiro_item label="Banheiro"
+            Default item=chromecast_chromecast_volume_cozinha_item label="Cozinha Som"
+            Default item=chromecast_assistant_volume_cozinha_item label="Cozinha Assistente"
+            Default item=chromecast_chromecast_volume_escritorio_item label="Escritório"			
+        }
+		
+        Text label="Players" icon="player" {
+            Group item=chromecast_audiogroup_casa_group label="Casa"
+            Group item=chromecast_audiogroup_grupoNorte_group label="Grupo Norte"
+            Group item=chromecast_audiogroup_grupoSul_group label="Grupo Sul"
+            Group item=chromecast_chromecast_quarto_group label="Quarto"
+            Group item=chromecast_chromecast_sala_group label="Sala"
+            Group item=chromecast_audio_banheiro_group label="Banheiro"
+            Group item=chromecast_chromecast_cozinha_group label="Cozinha Som"
+            Group item=chromecast_assistant_cozinha_group label="Cozinha Assistente"
+            Group item=chromecast_chromecast_escritorio_group label="Escritório"			
+        }
+    }
+}

@@ -1,0 +1,12 @@
+Number   motion_quarto_item     "Movimento [%.0f]"      <motion>      (quarto_group, motion_group)       ["Switchable"]   {channel="mqtt:topic:motion_connection:quarto_topic:motion_quarto_channel"}
+
+Number   motion_sala_item       "Movimento [%.0f]"      <motion>      (sala_group, motion_group)         ["Switchable"]   {channel="mqtt:topic:motion_connection:sala_topic:motion_sala_channel"}
+
+Number   motion_banheiro_item   "Movimento [%.0f]"      <motion>      (banheiro_group, motion_group)     ["Switchable"]   {channel="mqtt:topic:motion_connection:banheiro_topic:motion_banheiro_channel"}
+
+Number   motion_corredor_item   "Movimento [%.0f]"      <motion>      (corredor_group, motion_group)     ["Switchable"]   {channel="mqtt:topic:motion_connection:corredor_topic:motion_corredor_channel"}
+
+Number   motion_cozinha_item    "Movimento [%.0f]"      <motion>      (cozinha_group, motion_group)      ["Switchable"]   {channel="mqtt:topic:motion_connection:cozinha_topic:motion_cozinha_channel"}
+
+Number   motion_escritorio_item "Movimento [%.0f]"      <motion>      (escritorio_group, motion_group)   ["Switchable"]   {channel="mqtt:topic:motion_connection:escritorio_topic:motion_escritorio_channel"}
+

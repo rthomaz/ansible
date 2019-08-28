@@ -1,0 +1,27 @@
+Bridge mqtt:broker:motion_connection [ host="192.168.1.22", secure=false, username="openhabian", password=""] {
+  
+  Thing topic quarto_topic "Motion (quarto)" @ "Motion" {
+    Channels:
+      Type number : motion_quarto_channel  [ stateTopic="motion/quarto" ]
+  }  
+  Thing topic sala_topic "Motion (sala)" @ "Motion" {
+    Channels:
+      Type number : motion_sala_channel  [ stateTopic="motion/sala" ]
+  }  
+  Thing topic banheiro_topic "Motion (banheiro)" @ "Motion" {
+    Channels:
+      Type number : motion_banheiro_channel  [ stateTopic="motion/banheiro" ]
+  }  
+  Thing topic corredor_topic "Motion (corredor)" @ "Motion" {
+    Channels:
+      Type number : motion_corredor_channel  [ stateTopic="motion/corredor" ]
+  }  
+  Thing topic cozinha_topic "Motion (cozinha)" @ "Motion" {
+    Channels:
+      Type number : motion_cozinha_channel  [ stateTopic="motion/cozinha" ]
+  }  
+  Thing topic escritorio_topic "Motion (escritório)" @ "Motion" {
+    Channels:
+      Type number : motion_escritorio_channel  [ stateTopic="motion/escritorio" ]
+  }
+}
