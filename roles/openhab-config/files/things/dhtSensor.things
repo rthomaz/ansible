@@ -2,32 +2,32 @@ Bridge mqtt:broker:dhtSensor_connection [ host="192.168.1.22", secure=false, use
 
   Thing topic quarto_dhtSensor_topic "DHT Sensor Quarto" @ "DHT Sensor" {
     Channels:
-      Type number : quarto_dhtSensor_humidity_channel          [ stateTopic="quarto/dhtSensor", transformationPattern="JSONPATH:$.device.status.humidity" ]
-      Type number : quarto_dhtSensor_temperature_channel       [ stateTopic="quarto/dhtSensor", transformationPattern="JSONPATH:$.device.status.temperature" ]
+      Type number : quarto_dhtSensor_humidity_channel          [ stateTopic="quarto/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : quarto_dhtSensor_temperature_channel       [ stateTopic="quarto/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic sala_dhtSensor_topic "DHT Sensor Sala" @ "DHT Sensor" {
     Channels:
-      Type number : sala_dhtSensor_humidity_channel            [ stateTopic="sala/dhtSensor", transformationPattern="JSONPATH:$.device.status.humidity" ]
-      Type number : sala_dhtSensor_temperature_channel         [ stateTopic="sala/dhtSensor", transformationPattern="JSONPATH:$.device.status.temperature" ]
+      Type number : sala_dhtSensor_humidity_channel            [ stateTopic="sala/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : sala_dhtSensor_temperature_channel         [ stateTopic="sala/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic banheiro_dhtSensor_topic "DHT Sensor Banheiro" @ "DHT Sensor" {
     Channels:
-      Type number : banheiro_dhtSensor_humidity_channel        [ stateTopic="banheiro/dhtSensor", transformationPattern="JSONPATH:$.device.status.humidity" ]
-      Type number : banheiro_dhtSensor_temperature_channel     [ stateTopic="banheiro/dhtSensor", transformationPattern="JSONPATH:$.device.status.temperature" ]
+      Type number : banheiro_dhtSensor_humidity_channel        [ stateTopic="banheiro/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : banheiro_dhtSensor_temperature_channel     [ stateTopic="banheiro/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic cozinha_dhtSensor_topic "DHT Sensor Cozinha" @ "DHT Sensor" {
     Channels:
-      Type number : cozinha_dhtSensor_humidity_channel         [ stateTopic="cozinha/dhtSensor", transformationPattern="JSONPATH:$.device.status.humidity" ]
-      Type number : cozinha_dhtSensor_temperature_channel      [ stateTopic="cozinha/dhtSensor", transformationPattern="JSONPATH:$.device.status.temperature" ]
+      Type number : cozinha_dhtSensor_humidity_channel         [ stateTopic="cozinha/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : cozinha_dhtSensor_temperature_channel      [ stateTopic="cozinha/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic escritorio_dhtSensor_topic "DHT Sensor Escritório" @ "DHT Sensor" {
     Channels:
-      Type number : escritorio_dhtSensor_humidity_channel      [ stateTopic="escritorio/dhtSensor", transformationPattern="JSONPATH:$.device.status.humidity" ]
-      Type number : escritorio_dhtSensor_temperature_channel   [ stateTopic="escritorio/dhtSensor", transformationPattern="JSONPATH:$.device.status.temperature" ]
+      Type number : escritorio_dhtSensor_humidity_channel      [ stateTopic="escritorio/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : escritorio_dhtSensor_temperature_channel   [ stateTopic="escritorio/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
   
 }

@@ -1,12 +1,12 @@
-Number   quarto_motion_item     "Movimento [%.0f]"      <motion>      (quarto_group, motion_group)       ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:quarto_pirSensor_topic:quarto_pirSensor_channel"}
+Number   quarto_motion_item     "Movimento [%.0f]"      <motion>      (quarto_group, motion_group)       ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:quarto_pirSensor_topic:quarto_pirSensor_occupancy_channel"}
 
-Number   sala_motion_item       "Movimento [%.0f]"      <motion>      (sala_group, motion_group)         ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:sala_pirSensor_topic:sala_pirSensor_channel"}
+Number   sala_motion_item       "Movimento [%.0f]"      <motion>      (sala_group, motion_group)         ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:sala_pirSensor_topic:sala_pirSensor_occupancy_channel"}
 
-Number   banheiro_motion_item   "Movimento [%.0f]"      <motion>      (banheiro_group, motion_group)     ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:banheiro_pirSensor_topic:banheiro_pirSensor_channel"}
+Number   banheiro_motion_item   "Movimento [%.0f]"      <motion>      (banheiro_group, motion_group)     ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:banheiro_pirSensor_topic:banheiro_pirSensor_occupancy_channel"}
 
-Number   corredor_motion_item   "Movimento [%.0f]"      <motion>      (corredor_group, motion_group)     ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:corredor_pirSensor_topic:corredor_pirSensor_channel"}
+Number   corredor_motion_item   "Movimento [%.0f]"      <motion>      (corredor_group, motion_group)     ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:corredor_pirSensor_topic:corredor_pirSensor_occupancy_channel"}
 
-Number   cozinha_motion_item    "Movimento [%.0f]"      <motion>      (cozinha_group, motion_group)      ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:cozinha_pirSensor_topic:cozinha_pirSensor_channel"}
+Number   cozinha_motion_item    "Movimento [%.0f]"      <motion>      (cozinha_group, motion_group)      ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:cozinha_pirSensor_topic:cozinha_pirSensor_occupancy_channel"}
 
-Number   escritorio_motion_item "Movimento [%.0f]"      <motion>      (escritorio_group, motion_group)   ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:escritorio_pirSensor_topic:escritorio_pirSensor_channel"}
+Number   escritorio_motion_item "Movimento [%.0f]"      <motion>      (escritorio_group, motion_group)   ["Switchable"]   {channel="mqtt:topic:pirSensor_connection:escritorio_pirSensor_topic:escritorio_pirSensor_occupancy_channel"}
 

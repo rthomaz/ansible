@@ -2,32 +2,32 @@ Bridge mqtt:broker:pirSensor_connection [ host="192.168.1.22", secure=false, use
   
   Thing topic quarto_pirSensor_topic "PIR Sensor Quarto" @ "PIR Sensor" {
     Channels:
-      Type number : quarto_pirSensor_channel  [ stateTopic="quarto/pirSensor", transformationPattern="JSONPATH:$.device.status.motion" ]
+      Type number : quarto_pirSensor_occupancy_channel  [ stateTopic="quarto/pirSensor", transformationPattern="JSONPATH:$.occupancy" ]
   }  
 
   Thing topic sala_pirSensor_topic "PIR Sensor Sala" @ "PIR Sensor" {
     Channels:
-      Type number : sala_pirSensor_channel  [ stateTopic="sala/pirSensor", transformationPattern="JSONPATH:$.device.status.motion" ]
+      Type number : sala_pirSensor_occupancy_channel  [ stateTopic="sala/pirSensor", transformationPattern="JSONPATH:$.occupancy" ]
   }  
 
   Thing topic banheiro_pirSensor_topic "PIR Sensor Banheiro" @ "PIR Sensor" {
     Channels:
-      Type number : banheiro_pirSensor_channel  [ stateTopic="banheiro/pirSensor", transformationPattern="JSONPATH:$.device.status.motion" ]
+      Type number : banheiro_pirSensor_occupancy_channel  [ stateTopic="banheiro/pirSensor", transformationPattern="JSONPATH:$.occupancy" ]
   }  
 
   Thing topic corredor_pirSensor_topic "PIR Sensor Corredor" @ "PIR Sensor" {
     Channels:
-      Type number : corredor_pirSensor_channel  [ stateTopic="corredor/pirSensor", transformationPattern="JSONPATH:$.device.status.motion" ]
+      Type number : corredor_pirSensor_occupancy_channel  [ stateTopic="corredor/pirSensor", transformationPattern="JSONPATH:$.occupancy" ]
   }  
 
   Thing topic cozinha_pirSensor_topic "PIR Sensor Cozinha" @ "PIR Sensor" {
     Channels:
-      Type number : cozinha_pirSensor_channel  [ stateTopic="cozinha/pirSensor", transformationPattern="JSONPATH:$.device.status.motion" ]
+      Type number : cozinha_pirSensor_occupancy_channel  [ stateTopic="cozinha/pirSensor", transformationPattern="JSONPATH:$.occupancy" ]
   }  
 
   Thing topic escritorio_pirSensor_topic "PIR Sensor Escritório" @ "PIR Sensor" {
     Channels:
-      Type number : escritorio_pirSensor_channel  [ stateTopic="escritorio/pirSensor", transformationPattern="JSONPATH:$.device.status.motion" ]
+      Type number : escritorio_pirSensor_occupancy_channel  [ stateTopic="escritorio/pirSensor", transformationPattern="JSONPATH:$.occupancy" ]
   }
   
 }
