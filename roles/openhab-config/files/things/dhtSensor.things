@@ -2,32 +2,32 @@ Bridge mqtt:broker:dhtSensor_connection [ host="192.168.1.22", secure=false, use
 
   Thing topic quarto_dhtSensor_topic "DHT - Digital Humidity and Temperature Sensor (Quarto)" @ "DHT Sensor" {
     Channels:
-      Type number : quarto_dhtSensor_humidity_current_channel          [ stateTopic="quarto/dhtSensor/currentHumidity" ]
-      Type number : quarto_dhtSensor_temperature_current_channel       [ stateTopic="quarto/dhtSensor/currentTemperature" ]
+      Type number : quarto_dhtSensor_humidity_current_channel          [ stateTopic="quarto/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : quarto_dhtSensor_temperature_current_channel       [ stateTopic="quarto/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic sala_dhtSensor_topic "DHT - Digital Humidity and Temperature Sensor (Sala)" @ "DHT Sensor" {
     Channels:
-      Type number : sala_dhtSensor_humidity_current_channel            [ stateTopic="sala/dhtSensor/currentHumidity" ]
-      Type number : sala_dhtSensor_temperature_current_channel         [ stateTopic="sala/dhtSensor/currentTemperature" ]
+      Type number : sala_dhtSensor_humidity_current_channel            [ stateTopic="sala/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : sala_dhtSensor_temperature_current_channel         [ stateTopic="sala/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic banheiro_dhtSensor_topic "DHT - Digital Humidity and Temperature Sensor (Banheiro)" @ "DHT Sensor" {
     Channels:
-      Type number : banheiro_dhtSensor_humidity_current_channel        [ stateTopic="banheiro/dhtSensor/currentHumidity" ]
-      Type number : banheiro_dhtSensor_temperature_current_channel     [ stateTopic="banheiro/dhtSensor/currentTemperature" ]
+      Type number : banheiro_dhtSensor_humidity_current_channel        [ stateTopic="banheiro/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : banheiro_dhtSensor_temperature_current_channel     [ stateTopic="banheiro/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic cozinha_dhtSensor_topic "DHT - Digital Humidity and Temperature Sensor (Cozinha)" @ "DHT Sensor" {
     Channels:
-      Type number : cozinha_dhtSensor_humidity_current_channel         [ stateTopic="cozinha/dhtSensor/currentHumidity" ]
-      Type number : cozinha_dhtSensor_temperature_current_channel      [ stateTopic="cozinha/dhtSensor/currentTemperature" ]
+      Type number : cozinha_dhtSensor_humidity_current_channel         [ stateTopic="cozinha/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : cozinha_dhtSensor_temperature_current_channel      [ stateTopic="cozinha/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
 
   Thing topic escritorio_dhtSensor_topic "DHT - Digital Humidity and Temperature Sensor (Escritório)" @ "DHT Sensor" {
     Channels:
-      Type number : escritorio_dhtSensor_humidity_current_channel      [ stateTopic="escritorio/dhtSensor/currentHumidity" ]
-      Type number : escritorio_dhtSensor_temperature_current_channel   [ stateTopic="escritorio/dhtSensor/currentTemperature" ]
+      Type number : escritorio_dhtSensor_humidity_current_channel      [ stateTopic="escritorio/dhtSensor", transformationPattern="JSONPATH:$.humidity" ]
+      Type number : escritorio_dhtSensor_temperature_current_channel   [ stateTopic="escritorio/dhtSensor", transformationPattern="JSONPATH:$.temperature" ]
   }
   
 }
