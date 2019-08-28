@@ -6,6 +6,6 @@
   gather_facts: no  
   vars_files:
   - group_vars/all
-  - group_vars/openhabian_server
+  - group_vars/openhabian-server
   roles:
     - openhab-config
