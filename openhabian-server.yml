@@ -1,0 +1,11 @@
+---
+
+- hosts: openhabian_server
+  become: true
+  become_user: root
+  gather_facts: no  
+  vars_files:
+  - group_vars/all
+  - group_vars/openhabian_server
+  roles:
+    - openhab-config
