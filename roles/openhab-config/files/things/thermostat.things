@@ -2,32 +2,32 @@ Bridge mqtt:broker:thermostat_connection [ host="192.168.1.22", secure=false, us
  
   Thing topic quarto_thermostat_topic "Thermostat (Quarto)" @ "Thermostat" {
     Channels:
-      Type string : quarto_thermostat_heatingCoolingMode_channel            [ stateTopic="quarto/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="quarto/thermostat/heatingCoolingMode/set", allowedStates="OFF,AUTO,HEAT,COOL" ]
-      Type number : quarto_thermostat_targetTemperature_channel             [ stateTopic="quarto/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="quarto/thermostat/targetTemperature/set" ]
+      Type string : quarto_thermostat_heatingCoolingMode_channel            [ stateTopic="quarto/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="quarto/thermostat/setHeatingCoolingMode", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : quarto_thermostat_targetTemperature_channel             [ stateTopic="quarto/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="quarto/thermostat/setTargetTemperature" ]
   }
 
   Thing topic sala_thermostat_topic "Thermostat (Sala)" @ "Thermostat" {
     Channels:
-      Type string : sala_thermostat_heatingCoolingMode_channel              [ stateTopic="sala/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="sala/thermostat/heatingCoolingMode/set", allowedStates="OFF,AUTO,HEAT,COOL" ]
-      Type number : sala_thermostat_targetTemperature_channel               [ stateTopic="sala/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="sala/thermostat/targetTemperature/set" ]
+      Type string : sala_thermostat_heatingCoolingMode_channel              [ stateTopic="sala/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="sala/thermostat/setHeatingCoolingMode", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : sala_thermostat_targetTemperature_channel               [ stateTopic="sala/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="sala/thermostat/setTargetTemperature" ]
   }
 
   Thing topic banheiro_thermostat_topic "Thermostat (Banheiro)" @ "Thermostat" {
     Channels:
-      Type string : banheiro_thermostat_heatingCoolingMode_channel          [ stateTopic="banheiro/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="banheiro/thermostat/heatingCoolingMode/set", allowedStates="OFF,AUTO,HEAT,COOL" ]
-      Type number : banheiro_thermostat_targetTemperature_channel           [ stateTopic="banheiro/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="banheiro/thermostat/targetTemperature/set" ]
+      Type string : banheiro_thermostat_heatingCoolingMode_channel          [ stateTopic="banheiro/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="banheiro/thermostat/setHeatingCoolingMode", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : banheiro_thermostat_targetTemperature_channel           [ stateTopic="banheiro/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="banheiro/thermostat/setTargetTemperature" ]
   }
 
   Thing topic cozinha_thermostat_topic "Thermostat (Cozinha)" @ "Thermostat" {
     Channels:
-      Type string : cozinha_thermostat_heatingCoolingMode_channel           [ stateTopic="cozinha/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="cozinha/thermostat/heatingCoolingMode/set", allowedStates="OFF,AUTO,HEAT,COOL" ]
-      Type number : cozinha_thermostat_targetTemperature_channel            [ stateTopic="cozinha/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="cozinha/thermostat/targetTemperature/set" ]
+      Type string : cozinha_thermostat_heatingCoolingMode_channel           [ stateTopic="cozinha/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="cozinha/thermostat/setHeatingCoolingMode", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : cozinha_thermostat_targetTemperature_channel            [ stateTopic="cozinha/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="cozinha/thermostat/setTargetTemperature" ]
   }
 
   Thing topic escritorio_thermostat_topic "Thermostat (Escritório)" @ "Thermostat" {
     Channels:
-      Type string : escritorio_thermostat_heatingCoolingMode_channel        [ stateTopic="escritorio/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="escritorio/thermostat/heatingCoolingMode/set", allowedStates="OFF,AUTO,HEAT,COOL" ]
-      Type number : escritorio_thermostat_targetTemperature_channel         [ stateTopic="escritorio/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="escritorio/thermostat/targetTemperature/set" ]
+      Type string : escritorio_thermostat_heatingCoolingMode_channel        [ stateTopic="escritorio/thermostat/state", transformationPattern="JSONPATH:$.device.status.heatingCoolingMode", commandTopic="escritorio/thermostat/setHeatingCoolingMode", allowedStates="OFF,AUTO,HEAT,COOL" ]
+      Type number : escritorio_thermostat_targetTemperature_channel         [ stateTopic="escritorio/thermostat/state", transformationPattern="JSONPATH:$.device.status.targetTemperature", commandTopic="escritorio/thermostat/setTargetTemperature" ]
   }
 
 }
