@@ -49,12 +49,12 @@ sitemap casa label="Casa" {
         }
 
         Text label="Movimento" icon="motion" {
-            Default item=motion_quarto_item label="Quarto"
-            Default item=motion_sala_item label="Sala"
-            Default item=motion_banheiro_item label="Banheiro"
-            Default item=motion_corredor_item label="Corredor"
-            Default item=motion_cozinha_item label="Cozinha"
-            Default item=motion_escritorio_item label="Escritório"
+            Default item=quarto_motion_item label="Quarto"
+            Default item=sala_motion_item label="Sala"
+            Default item=banheiro_motion_item label="Banheiro"
+            Default item=corredor_motion_item label="Corredor"
+            Default item=cozinha_motion_item label="Cozinha"
+            Default item=escritorio_motion_item label="Escritório"
         }
 		
         Text label="Volume" icon="soundvolume" {

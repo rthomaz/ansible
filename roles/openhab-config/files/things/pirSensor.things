@@ -1,0 +1,33 @@
+Bridge mqtt:broker:pirSensor_connection [ host="192.168.1.22", secure=false, username="openhabian", password=""] {
+  
+  Thing topic quarto_pirSensor_topic "PIR - Passive Infrared Sensor (Quarto)" @ "PIR Sensor" {
+    Channels:
+      Type number : quarto_pirSensor_channel  [ stateTopic="quarto/pirSensor" ]
+  }  
+
+  Thing topic sala_pirSensor_topic "PIR - Passive Infrared Sensor (Sala)" @ "PIR Sensor" {
+    Channels:
+      Type number : sala_pirSensor_channel  [ stateTopic="sala/pirSensor" ]
+  }  
+
+  Thing topic banheiro_pirSensor_topic "PIR - Passive Infrared Sensor (Banheiro)" @ "PIR Sensor" {
+    Channels:
+      Type number : banheiro_pirSensor_channel  [ stateTopic="banheiro/pirSensor" ]
+  }  
+
+  Thing topic corredor_pirSensor_topic "PIR - Passive Infrared Sensor (Corredor)" @ "PIR Sensor" {
+    Channels:
+      Type number : corredor_pirSensor_channel  [ stateTopic="corredor/pirSensor" ]
+  }  
+
+  Thing topic cozinha_pirSensor_topic "PIR - Passive Infrared Sensor (Cozinha)" @ "PIR Sensor" {
+    Channels:
+      Type number : cozinha_pirSensor_channel  [ stateTopic="cozinha/pirSensor" ]
+  }  
+
+  Thing topic escritorio_pirSensor_topic "PIR - Passive Infrared Sensor (Escritório)" @ "PIR Sensor" {
+    Channels:
+      Type number : escritorio_pirSensor_channel  [ stateTopic="escritorio/pirSensor" ]
+  }
+  
+}
