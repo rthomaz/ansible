@@ -83,9 +83,8 @@
     mode: 0664
   loop:
     - comodos
-    - htsensor
+    - climatizer
     - motion
-    - thermostat    
     - chromecast_assistant_cozinha
     - chromecast_audio_banheiro
     - chromecast_audiogroup_casa

@@ -33,19 +33,19 @@ sitemap casa label="Casa" {
     Frame label="Controles" {
 	
         Text label="Temperatura" icon="temperature" {
-            Default item=currentTemperature_quarto_item label="Quarto"
-            Default item=currentTemperature_sala_item label="Sala"
-            Default item=currentTemperature_banheiro_item label="Banheiro"
-            Default item=currentTemperature_cozinha_item label="Cozinha"
-            Default item=currentTemperature_escritorio_item label="Escritório"
+            Default item=quarto_climatizer_temperature_current_item label="Quarto"
+            Default item=sala_climatizer_temperature_current_item label="Sala"
+            Default item=banheiro_climatizer_temperature_current_item label="Banheiro"
+            Default item=cozinha_climatizer_temperature_current_item label="Cozinha"
+            Default item=escritorio_climatizer_temperature_current_item label="Escritório"
         }
 
         Text label="Umidade" icon="humidity" {
-            Default item=currentHumidity_quarto_item label="Quarto"
-            Default item=currentHumidity_sala_item label="Sala"
-            Default item=currentHumidity_banheiro_item label="Banheiro"
-            Default item=currentHumidity_cozinha_item label="Cozinha"
-            Default item=currentHumidity_escritorio_item label="Escritório"
+            Default item=quarto_climatizer_humidity_current_item label="Quarto"
+            Default item=sala_climatizer_humidity_current_item label="Sala"
+            Default item=banheiro_climatizer_humidity_current_item label="Banheiro"
+            Default item=cozinha_climatizer_humidity_current_item label="Cozinha"
+            Default item=escritorio_climatizer_humidity_current_item label="Escritório"
         }
 
         Text label="Movimento" icon="motion" {
