@@ -1,10 +1,18 @@
 ---
 
-- name: criar things
+# things
+
+- name: criar {{item}}.things
   copy:
-    src: "things/chromecast.things"
-    dest: "/etc/openhab2/things/chromecast.things1"
+    src: "things/{{item}}.things"
+    dest: "/etc/openhab2/things/{{item}}.things"
     backup: no
     owner: root
     group: root
     mode: 0664
+  loop:
+    - chromecast
+    - dht22
+    - motion
+
+# items    
