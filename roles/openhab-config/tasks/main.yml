@@ -54,7 +54,7 @@
     mode: 0664
   loop:
     - chromecast
-    - htsensor
+    - dhtSensor
     - pirSensor
     - thermostat
 
