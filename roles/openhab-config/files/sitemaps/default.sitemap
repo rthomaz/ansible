@@ -112,15 +112,15 @@ sitemap casa label="Casa" {
         }
 		
         Text label="Players" icon="player" {
-            Group item=chromecast_audiogroup_casa_group label="Casa"
-            Group item=chromecast_audiogroup_grupoNorte_group label="Grupo Norte"
-            Group item=chromecast_audiogroup_grupoSul_group label="Grupo Sul"
-            Group item=chromecast_chromecast_quarto_group label="Quarto"
-            Group item=chromecast_chromecast_sala_group label="Sala"
-            Group item=chromecast_audio_banheiro_group label="Banheiro"
-            Group item=chromecast_chromecast_cozinha_group label="Cozinha Som"
-            Group item=chromecast_assistant_cozinha_group label="Cozinha Assistente"
-            Group item=chromecast_chromecast_escritorio_group label="Escritório"			
+            Group item=casa_chromecast_audiogroup_group label="Casa"
+            Group item=grupoNorte_chromecast_audiogroup_group label="Grupo Norte"
+            Group item=grupoSul_chromecast_audiogroup_group label="Grupo Sul"
+            Group item=quarto_chromecast_chromecast_group label="Quarto"
+            Group item=sala_chromecast_chromecast_group label="Sala"
+            Group item=banheiro_chromecast_audio_group label="Banheiro"
+            Group item=cozinha_chromecast_chromecast_group label="Cozinha Som"
+            Group item=cozinha_chromecast_assistant_group label="Cozinha Assistente"
+            Group item=escritorio_chromecast_chromecast_group label="Escritório"			
         }
     }
 }
