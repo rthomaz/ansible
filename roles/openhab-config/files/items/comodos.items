@@ -16,4 +16,5 @@ Group    garagem_group            "Garagem"         <garage>           (casa_gro
 Group    temperature_group        "Sensores de temperatura"  <temperature>      (casa_group)
 Group    humidity_group           "Sensores de umidade"      <humidity>         (casa_group)
 Group    motion_group             "Sensores de movimento"    <motion>           (casa_group)
+Group    batteryLevel_group       "Bateria de dispositivos"  <battery>          (casa_group)
 

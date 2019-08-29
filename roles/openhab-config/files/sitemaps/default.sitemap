@@ -33,19 +33,36 @@ sitemap casa label="Casa" {
     Frame label="Controles" {
 	
         Text label="Temperatura" icon="temperature" {
-            Default item=quarto_climatizer_temperature_current_item label="Quarto"
-            Default item=sala_climatizer_temperature_current_item label="Sala"
-            Default item=banheiro_climatizer_temperature_current_item label="Banheiro"
-            Default item=cozinha_climatizer_temperature_current_item label="Cozinha"
-            Default item=escritorio_climatizer_temperature_current_item label="Escritório"
+            Default item=quarto_dhtSensor_temperature_item label="Quarto"
+            Default item=sala_dhtSensor_temperature_item label="Sala"
+            Default item=banheiro_dhtSensor_temperature_item label="Banheiro"
+            Default item=cozinha_dhtSensor_temperature_item label="Cozinha"
+            Default item=escritorio_dhtSensor_temperature_item label="Escritório"
         }
 
         Text label="Umidade" icon="humidity" {
-            Default item=quarto_climatizer_humidity_current_item label="Quarto"
-            Default item=sala_climatizer_humidity_current_item label="Sala"
-            Default item=banheiro_climatizer_humidity_current_item label="Banheiro"
-            Default item=cozinha_climatizer_humidity_current_item label="Cozinha"
-            Default item=escritorio_climatizer_humidity_current_item label="Escritório"
+            Default item=quarto_dhtSensor_humidity_item label="Quarto"
+            Default item=sala_dhtSensor_humidity_item label="Sala"
+            Default item=banheiro_dhtSensor_humidity_item label="Banheiro"
+            Default item=cozinha_dhtSensor_humidity_item label="Cozinha"
+            Default item=escritorio_dhtSensor_humidity_item label="Escritório"
+        }
+
+        Text label="Bateria" icon="battery" {
+            Default item=quarto_dhtSensor_batteryLevel_item label="Quarto"
+            Default item=quarto_dhtSensor_lowBattery_item label="Quarto"
+
+            Default item=sala_dhtSensor_batteryLevel_item label="Sala"
+            Default item=sala_dhtSensor_lowBattery_item label="Sala"
+
+            Default item=banheiro_dhtSensor_batteryLevel_item label="Banheiro"
+            Default item=banheiro_dhtSensor_lowBattery_item label="Banheiro"
+
+            Default item=cozinha_dhtSensor_batteryLevel_item label="Cozinha"
+            Default item=cozinha_dhtSensor_lowBattery_item label="Cozinha"
+
+            Default item=escritorio_dhtSensor_batteryLevel_item label="Escritório"
+            Default item=escritorio_dhtSensor_lowBattery_item label="Escritório"
         }
 
         Text label="Movimento" icon="motion" {

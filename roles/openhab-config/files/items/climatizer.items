@@ -1,32 +1,57 @@
-Group    quarto_climatizer_group          "Termostato do quarto"       [ "Thermostat", "Celsius" ]
-//  String   quarto_climatizer_heatingCoolingMode_item          "Modo"                                           (quarto_climatizer_group, quarto_group)                              [ "homekit:HeatingCoolingMode" ]   { channel="mqtt:topic:thermostat_connection:quarto_thermostat_topic:quarto_thermostat_heatingCoolingMode_channel"}
-  Dimmer   quarto_climatizer_temperature_target_item           "Aquecimento [%.2f °C]"       <temperature>      (quarto_climatizer_group, quarto_group, temperature_group)           [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:quarto_thermostat_topic:quarto_thermostat_targetTemperature_channel"}
-  Number   quarto_climatizer_temperature_current_item          "Temperatura [%.2f °C]"       <temperature>      (quarto_climatizer_group, quarto_group, temperature_group)           [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_temperature_channel"}
-  Number   quarto_climatizer_humidity_current_item             "Humidade [%.2f %%]"          <humidity>         (quarto_climatizer_group, quarto_group, humidity_group)              [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
 
-Group    sala_climatizer_group            "Termostato da sala"         [ "Thermostat", "Celsius" ]
-  Dimmer   sala_climatizer_temperature_target_item             "Aquecimento [%.2f °C]"       <temperature>      (sala_climatizer_group, sala_group, temperature_group)               [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:sala_thermostat_topic:sala_thermostat_targetTemperature_channel"}
-  Number   sala_climatizer_temperature_current_item            "Temperatura [%.2f °C]"       <temperature>      (sala_climatizer_group, sala_group, temperature_group)               [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:sala_dhtSensor_topic:sala_dhtSensor_temperature_channel"}
-  Number   sala_climatizer_humidity_current_item               "Humidade [%.2f %%]"          <humidity>         (sala_climatizer_group, sala_group, humidity_group)                  [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:sala_dhtSensor_topic:sala_dhtSensor_humidity_channel"}
-									  	   						  
-Group    banheiro_climatizer_group        "Termostato do banheiro"     [ "Thermostat", "Celsius" ]
-  Dimmer   banheiro_climatizer_temperature_target_item         "Aquecimento [%.2f °C]"       <temperature>      (banheiro_climatizer_group, temperature_group)                       [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:banheiro_thermostat_topic:banheiro_thermostat_targetTemperature_channel"}
-  Number   banheiro_climatizer_temperature_current_item        "Temperatura [%.2f °C]"       <temperature>      (banheiro_climatizer_group, banheiro_group, temperature_group)       [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:banheiro_dhtSensor_topic:banheiro_dhtSensor_temperature_channel"}
-  Number   banheiro_climatizer_humidity_current_item           "Humidade [%.2f %%]"          <humidity>         (banheiro_climatizer_group, banheiro_group, humidity_group)          [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:banheiro_dhtSensor_topic:banheiro_dhtSensor_humidity_channel"}
-									  	   																																			         
-Group    cozinha_climatizer_group         "Termostato da cozinha"      [ "Thermostat", "Celsius" ]                                                                                                
-  Dimmer   cozinha_climatizer_temperature_target_item          "Aquecimento [%.2f °C]"       <temperature>      (cozinha_climatizer_group, temperature_group)                        [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:cozinha_thermostat_topic:cozinha_thermostat_targetTemperature_channel"}
-  Number   cozinha_climatizer_temperature_current_item         "Temperatura [%.2f °C]"       <temperature>      (cozinha_climatizer_group, cozinha_group, temperature_group)         [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:cozinha_dhtSensor_topic:cozinha_dhtSensor_temperature_channel"}
-  Number   cozinha_climatizer_humidity_current_item            "Humidade [%.2f %%]"          <humidity>         (cozinha_climatizer_group, cozinha_group, humidity_group)            [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:cozinha_dhtSensor_topic:cozinha_dhtSensor_humidity_channel"}
-									  	   																																			         
-Group    escritorio_climatizer_group      "Termostato do escritorio"   [ "Thermostat", "Celsius" ]                                                                                                
-  Dimmer   escritorio_climatizer_temperature_target_item       "Aquecimento [%.2f °C]"       <temperature>      (escritorio_climatizer_group, escritorio_group, temperature_group)   [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:escritorio_thermostat_topic:escritorio_thermostat_targetTemperature_channel"}
-  Number   escritorio_climatizer_temperature_current_item      "Temperatura [%.2f °C]"       <temperature>      (escritorio_climatizer_group, escritorio_group, temperature_group)   [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_temperature_channel"}
-  Number   escritorio_climatizer_humidity_current_item         "Humidade [%.2f %%]"          <humidity>         (escritorio_climatizer_group, escritorio_group, humidity_group)      [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_humidity_channel"}
+Group    quarto_dhtSensor_group               "Sensor DHT do quarto"   
+Group    sala_dhtSensor_group                 "Sensor DHT da sala"   
+Group    banheiro_dhtSensor_group             "Sensor DHT do banheiro"   
+Group    cozinha_dhtSensor_group              "Sensor DHT da cozinha"   
+Group    escritorio_dhtSensor_group           "Sensor DHT do escritório"
 
- 
-// Temperature and Humidity Sensor
-Number:Temperature      HT_Temperature    "Temperatura1 [%.2f °C]"  <temperature> { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_temperature_channel"}
-Number:Dimensionless    HT_Humidity       "Humidade1 [%.2f %%]"     <humidity>    { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
-Number                  HT_Battery        "Bateria1 [%.2f %%]"      <battery>     { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_batteryLevel_channel"}
-Switch                  HT_BatteryLow     "Energia1"                <energy>      { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_lowBattery_channel"}
+Group    google_quarto_thermostat_group       "Termostato do quarto"       [ "Thermostat", "Celsius" ]
+Group    google_sala_thermostat_group         "Termostato da sala"         [ "Thermostat", "Celsius" ]
+Group    google_banheiro_thermostat_group     "Termostato do banheiro"     [ "Thermostat", "Celsius" ]
+Group    google_cozinha_thermostat_group      "Termostato da cozinha"      [ "Thermostat", "Celsius" ]                                                                                                
+Group    google_escritorio_thermostat_group   "Termostato do escritorio"   [ "Thermostat", "Celsius" ]                                                                                                
+
+
+///////////////////////////////////////////
+// DHTSensor
+
+Number:Temperature     quarto_dhtSensor_temperature_item          "Temperatura [%.2f °C]"       <temperature>      (quarto_group, quarto_dhtSensor_group, temperature_group, google_quarto_thermostat_group)              [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_temperature_channel"}
+Number:Dimensionless   quarto_dhtSensor_humidity_item             "Humidade [%.2f %%]"          <humidity>         (quarto_group, quarto_dhtSensor_group, humidity_group, google_quarto_thermostat_group)                 [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
+Number                 quarto_dhtSensor_batteryLevel_item         "Bateria [%.2f %%]"           <battery>          (quarto_group, quarto_dhtSensor_group, batteryLevel_group)                                                                                { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_batteryLevel_channel"}
+Switch                 quarto_dhtSensor_lowBattery_item           "Bateria baixa"               <energy>           (quarto_group, quarto_dhtSensor_group, batteryLevel_group)                                                                                { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_lowBattery_channel"}
+
+Number:Temperature     sala_dhtSensor_temperature_item            "Temperatura [%.2f °C]"       <temperature>      (sala_group, sala_dhtSensor_group, temperature_group, google_sala_dhtSensor_group)                     [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:sala_dhtSensor_topic:sala_dhtSensor_temperature_channel"}
+Number:Dimensionless   sala_dhtSensor_humidity_item               "Humidade [%.2f %%]"          <humidity>         (sala_group, sala_dhtSensor_group, humidity_group, google_sala_dhtSensor_group)                        [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:sala_dhtSensor_topic:sala_dhtSensor_humidity_channel"}
+Number                 sala_dhtSensor_batteryLevel_item           "Bateria [%.2f %%]"           <battery>          (sala_group, sala_dhtSensor_group, batteryLevel_group)                                                                                    { channel="mqtt:topic:dhtSensor_connection:sala_dhtSensor_topic:sala_dhtSensor_batteryLevel_channel"}
+Switch                 sala_dhtSensor_lowBattery_item             "Bateria baixa"               <energy>           (sala_group, sala_dhtSensor_group, batteryLevel_group)                                                                                    { channel="mqtt:topic:dhtSensor_connection:sala_dhtSensor_topic:sala_dhtSensor_lowBattery_channel"}
+
+Number:Temperature     banheiro_dhtSensor_temperature_item        "Temperatura [%.2f °C]"       <temperature>      (banheiro_group, banheiro_dhtSensor_group, temperature_group, google_banheiro_dhtSensor_group)         [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:banheiro_dhtSensor_topic:banheiro_dhtSensor_temperature_channel"}
+Number:Dimensionless   banheiro_dhtSensor_humidity_item           "Humidade [%.2f %%]"          <humidity>         (banheiro_group, banheiro_dhtSensor_group, humidity_group, google_banheiro_dhtSensor_group)            [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:banheiro_dhtSensor_topic:banheiro_dhtSensor_humidity_channel"}
+Number                 banheiro_dhtSensor_batteryLevel_item       "Bateria [%.2f %%]"           <battery>          (banheiro_group, banheiro_dhtSensor_group, batteryLevel_group)                                                                            { channel="mqtt:topic:dhtSensor_connection:banheiro_dhtSensor_topic:banheiro_dhtSensor_batteryLevel_channel"}
+Switch                 banheiro_dhtSensor_lowBattery_item         "Bateria baixa"               <energy>           (banheiro_group, banheiro_dhtSensor_group, batteryLevel_group)                                                                            { channel="mqtt:topic:dhtSensor_connection:banheiro_dhtSensor_topic:banheiro_dhtSensor_lowBattery_channel"}
+
+Number:Temperature     cozinha_dhtSensor_temperature_item         "Temperatura [%.2f °C]"       <temperature>      (cozinha_group, cozinha_dhtSensor_group, temperature_group, google_cozinha_dhtSensor_group)            [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:cozinha_dhtSensor_topic:cozinha_dhtSensor_temperature_channel"}
+Number:Dimensionless   cozinha_dhtSensor_humidity_item            "Humidade [%.2f %%]"          <humidity>         (cozinha_group, cozinha_dhtSensor_group, humidity_group, google_cozinha_dhtSensor_group)               [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:cozinha_dhtSensor_topic:cozinha_dhtSensor_humidity_channel"}
+Number                 cozinha_dhtSensor_batteryLevel_item        "Bateria [%.2f %%]"           <battery>          (cozinha_group, cozinha_dhtSensor_group, batteryLevel_group)                                                                              { channel="mqtt:topic:dhtSensor_connection:cozinha_dhtSensor_topic:cozinha_dhtSensor_batteryLevel_channel"}
+Switch                 cozinha_dhtSensor_lowBattery_item          "Bateria baixa"               <energy>           (cozinha_group, cozinha_dhtSensor_group, batteryLevel_group)                                                                              { channel="mqtt:topic:dhtSensor_connection:cozinha_dhtSensor_topic:cozinha_dhtSensor_lowBattery_channel"}
+
+Number:Temperature     escritorio_dhtSensor_temperature_item      "Temperatura [%.2f °C]"       <temperature>      (escritorio_group, escritorio_dhtSensor_group, temperature_group, google_escritorio_dhtSensor_group)   [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_temperature_channel"}
+Number:Dimensionless   escritorio_dhtSensor_humidity_item         "Humidade [%.2f %%]"          <humidity>         (escritorio_group, escritorio_dhtSensor_group, humidity_group, google_escritorio_dhtSensor_group)      [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_humidity_channel"}
+Number                 escritorio_dhtSensor_batteryLevel_item     "Bateria [%.2f %%]"           <battery>          (escritorio_group, escritorio_dhtSensor_group, batteryLevel_group)                                                                        { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_batteryLevel_channel"}
+Switch                 escritorio_dhtSensor_lowBattery_item       "Bateria baixa"               <energy>           (escritorio_group, escritorio_dhtSensor_group, batteryLevel_group)                                                                        { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_lowBattery_channel"}
+
+
+///////////////////////////////////////////
+// Thermostat
+
+//  String             quarto_thermostat_heatingCoolingMode_item          "Modo"                                           (quarto_group, google_quarto_thermostat_group)                              [ "homekit:HeatingCoolingMode" ]   { channel="mqtt:topic:thermostat_connection:quarto_thermostat_topic:quarto_thermostat_heatingCoolingMode_channel"}
+Dimmer                 quarto_thermostat_targetTemperature_item           "Aquecimento [%.2f °C]"       <temperature>      (quarto_group, temperature_group, google_quarto_thermostat_group)           [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:quarto_thermostat_topic:quarto_thermostat_targetTemperature_channel"}
+
+Dimmer                 sala_thermostat_targetTemperature_item             "Aquecimento [%.2f °C]"       <temperature>      (sala_group, temperature_group, google_sala_thermostat_group)               [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:sala_thermostat_topic:sala_thermostat_targetTemperature_channel"}
+
+Dimmer                 banheiro_thermostat_targetTemperature_item         "Aquecimento [%.2f °C]"       <temperature>      (google_banheiro_thermostat_group)                                          [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:banheiro_thermostat_topic:banheiro_thermostat_targetTemperature_channel"}
+  
+Dimmer                 cozinha_thermostat_targetTemperature_item          "Aquecimento [%.2f °C]"       <temperature>      (google_cozinha_thermostat_group)                                           [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:cozinha_thermostat_topic:cozinha_thermostat_targetTemperature_channel"}
+
+Dimmer                 escritorio_thermostat_targetTemperature_item       "Aquecimento [%.2f °C]"       <temperature>      (escritorio_group, temperature_group, google_escritorio_thermostat_group)   [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:escritorio_thermostat_topic:escritorio_thermostat_targetTemperature_channel"}
+
