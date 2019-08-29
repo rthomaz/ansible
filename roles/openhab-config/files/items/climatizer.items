@@ -28,5 +28,5 @@ Group    escritorio_climatizer_group      "Termostato do escritorio"   [ "Thermo
 // Temperature and Humidity Sensor
 Number:Temperature      HT_Temperature    "Temperatura1 [%.2f °C]"  <temperature> { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_temperature_channel"}
 Number:Dimensionless    HT_Humidity       "Humidade1 [%.2f %%]"     <humidity>    { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
-Number                  HT_Battery        "Bateria1 [%.2f %%]"      <battery>     { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
-Switch                  HT_BatteryLow     "Energia1"                <energy>      { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
+Number                  HT_Battery        "Bateria1 [%.2f %%]"      <battery>     { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_batteryLevel_channel"}
+Switch                  HT_BatteryLow     "Energia1"                <energy>      { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_lowBattery_channel"}
