@@ -52,36 +52,34 @@ sitemap casa label="Casa" {
             
             Default item=quarto_dhtSensor_batteryLevel_item label="Quarto Sensor DHT"
             Default item=quarto_dhtSensor_lowBattery_item label="Quarto Sensor DHT"
-
-            Default item=sala_dhtSensor_batteryLevel_item label="Sala Sensor DHT"
-            Default item=sala_dhtSensor_lowBattery_item label="Sala Sensor DHT"
-
-            Default item=banheiro_dhtSensor_batteryLevel_item label="Banheiro Sensor DHT"
-            Default item=banheiro_dhtSensor_lowBattery_item label="Banheiro Sensor DHT"
-
-            Default item=cozinha_dhtSensor_batteryLevel_item label="Cozinha Sensor DHT"
-            Default item=cozinha_dhtSensor_lowBattery_item label="Cozinha Sensor DHT"
-
-            Default item=escritorio_dhtSensor_batteryLevel_item label="Escritório Sensor DHT"
-            Default item=escritorio_dhtSensor_lowBattery_item label="Escritório Sensor DHT"
-
-
-
             Default item=quarto_pirSensor_batteryLevel_item label="Quarto Sensor PIR"
             Default item=quarto_pirSensor_lowBattery_item label="Quarto Sensor PIR"
 
+
+            Default item=sala_dhtSensor_batteryLevel_item label="Sala Sensor DHT"
+            Default item=sala_dhtSensor_lowBattery_item label="Sala Sensor DHT"
             Default item=sala_pirSensor_batteryLevel_item label="Sala Sensor PIR"
             Default item=sala_pirSensor_lowBattery_item label="Sala Sensor PIR"
 
+
+            Default item=banheiro_dhtSensor_batteryLevel_item label="Banheiro Sensor DHT"
+            Default item=banheiro_dhtSensor_lowBattery_item label="Banheiro Sensor DHT"
             Default item=banheiro_pirSensor_batteryLevel_item label="Banheiro Sensor PIR"
             Default item=banheiro_pirSensor_lowBattery_item label="Banheiro Sensor PIR"
+
 
             Default item=corredor_pirSensor_batteryLevel_item label="Corredor Sensor PIR"
             Default item=corredor_pirSensor_lowBattery_item label="Corredor Sensor PIR"
 
+
+            Default item=cozinha_dhtSensor_batteryLevel_item label="Cozinha Sensor DHT"
+            Default item=cozinha_dhtSensor_lowBattery_item label="Cozinha Sensor DHT"
             Default item=cozinha_pirSensor_batteryLevel_item label="Cozinha Sensor PIR"
             Default item=cozinha_pirSensor_lowBattery_item label="Cozinha Sensor PIR"
 
+
+            Default item=escritorio_dhtSensor_batteryLevel_item label="Escritório Sensor DHT"
+            Default item=escritorio_dhtSensor_lowBattery_item label="Escritório Sensor DHT"            
             Default item=escritorio_pirSensor_batteryLevel_item label="Escritório Sensor PIR"
             Default item=escritorio_pirSensor_lowBattery_item label="Escritório Sensor PIR"
         }
