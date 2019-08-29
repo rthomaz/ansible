@@ -31,3 +31,4 @@ Bridge mqtt:broker:dhtSensor_connection [ host="192.168.1.22", secure=false, use
   }
   
 }
+ 
