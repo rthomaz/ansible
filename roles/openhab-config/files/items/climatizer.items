@@ -23,3 +23,10 @@ Group    escritorio_climatizer_group      "Termostato do escritorio"   [ "Thermo
   Dimmer   escritorio_climatizer_temperature_target_item       "Aquecimento [%.2f °C]"       <temperature>      (escritorio_climatizer_group, escritorio_group, temperature_group)   [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:escritorio_thermostat_topic:escritorio_thermostat_targetTemperature_channel"}
   Number   escritorio_climatizer_temperature_current_item      "Temperatura [%.2f °C]"       <temperature>      (escritorio_climatizer_group, escritorio_group, temperature_group)   [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_temperature_channel"}
   Number   escritorio_climatizer_humidity_current_item         "Humidade [%.2f %%]"          <humidity>         (escritorio_climatizer_group, escritorio_group, humidity_group)      [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_humidity_channel"}
+
+
+// Temperature and Humidity Sensor
+Number:Temperature HT_Temperature <temperature> { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_temperature_channel"}
+Number:Dimensionless HT_Humidity <humidity> { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
+Number HT_Battery <battery> { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
+Switch HT_BatteryLow <energy> { channel="mqtt:topic:dhtSensor_connection:quarto_dhtSensor_topic:quarto_dhtSensor_humidity_channel"}
