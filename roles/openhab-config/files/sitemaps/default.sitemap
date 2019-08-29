@@ -49,20 +49,20 @@ sitemap casa label="Casa" {
         }
 
         Text label="Bateria" icon="battery" {
-            Default item=quarto_dhtSensor_batteryLevel_item label="Quarto"
-            Default item=quarto_dhtSensor_lowBattery_item label="Quarto"
+            Default item=quarto_dhtSensor_batteryLevel_item label="Sensor DHT Quarto"
+            Default item=quarto_dhtSensor_lowBattery_item label="Sensor DHT Quarto"
 
-            Default item=sala_dhtSensor_batteryLevel_item label="Sala"
-            Default item=sala_dhtSensor_lowBattery_item label="Sala"
+            Default item=sala_dhtSensor_batteryLevel_item label="Sensor DHT Sala"
+            Default item=sala_dhtSensor_lowBattery_item label="Sensor DHT Sala"
 
-            Default item=banheiro_dhtSensor_batteryLevel_item label="Banheiro"
-            Default item=banheiro_dhtSensor_lowBattery_item label="Banheiro"
+            Default item=banheiro_dhtSensor_batteryLevel_item label="Sensor DHT Banheiro"
+            Default item=banheiro_dhtSensor_lowBattery_item label="Sensor DHT Banheiro"
 
-            Default item=cozinha_dhtSensor_batteryLevel_item label="Cozinha"
-            Default item=cozinha_dhtSensor_lowBattery_item label="Cozinha"
+            Default item=cozinha_dhtSensor_batteryLevel_item label="Sensor DHT Cozinha"
+            Default item=cozinha_dhtSensor_lowBattery_item label="Sensor DHT Cozinha"
 
-            Default item=escritorio_dhtSensor_batteryLevel_item label="Escritório"
-            Default item=escritorio_dhtSensor_lowBattery_item label="Escritório"
+            Default item=escritorio_dhtSensor_batteryLevel_item label="Sensor DHT Escritório"
+            Default item=escritorio_dhtSensor_lowBattery_item label="Sensor DHT Escritório"
         }
 
         Text label="Movimento" icon="motion" {
