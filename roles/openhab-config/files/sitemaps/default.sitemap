@@ -2,17 +2,17 @@ sitemap casa label="Casa" {
 
     Frame {
         Default item=Music
-        Slider item=chromecast_audiogroup_volume_casa_item icon=soundvolume label="Casa"
+        Slider item=casa_chromecast_audiogroup_volume_item icon=soundvolume label="Casa"
     }
 	
     Frame {
         Default item=Music
-        Slider item=chromecast_audiogroup_volume_grupoNorte_item icon=soundvolume label="Grupo Norte"
+        Slider item=grupoNorte_chromecast_audiogroup_volume_item icon=soundvolume label="Grupo Norte"
     }
 	
     Frame {
         Default item=Music
-        Slider item=chromecast_audiogroup_volume_grupoSul_item icon=soundvolume label="Grupo Sul"
+        Slider item=grupoSul_chromecast_audiogroup_volume_item icon=soundvolume label="Grupo Sul"
     }
 	
     Frame label="Piso térreo" icon="groundfloor" {
@@ -100,15 +100,15 @@ sitemap casa label="Casa" {
         }
 		
         Text label="Volume" icon="soundvolume" {
-            Default item=chromecast_audiogroup_volume_casa_item label="Casa"
-            Default item=chromecast_audiogroup_volume_grupoNorte_item label="Grupo Norte"
-            Default item=chromecast_audiogroup_volume_grupoSul_item label="Grupo Sul"
-            Default item=chromecast_chromecast_volume_quarto_item label="Quarto"
-            Default item=chromecast_chromecast_volume_sala_item label="Sala"
-            Default item=chromecast_audio_volume_banheiro_item label="Banheiro"
-            Default item=chromecast_chromecast_volume_cozinha_item label="Cozinha Som"
-            Default item=chromecast_assistant_volume_cozinha_item label="Cozinha Assistente"
-            Default item=chromecast_chromecast_volume_escritorio_item label="Escritório"			
+            Default item=casa_chromecast_audiogroup_volume_item label="Casa"
+            Default item=grupoNorte_chromecast_audiogroup_volume_item label="Grupo Norte"
+            Default item=grupoSul_chromecast_audiogroup_volume_item label="Grupo Sul"
+            Default item=quarto_chromecast_chromecast_volume_item label="Quarto"
+            Default item=sala_chromecast_chromecast_volume_item label="Sala"
+            Default item=banheiro_chromecast_audio_volume_item label="Banheiro"
+            Default item=cozinha_chromecast_chromecast_volume_item label="Cozinha Som"
+            Default item=cozinha_chromecast_assistant_volume_item label="Cozinha Assistente"
+            Default item=escritorio_chromecast_chromecast_volume_item label="Escritório"			
         }
 		
         Text label="Players" icon="player" {
