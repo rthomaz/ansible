@@ -26,6 +26,7 @@
   loop:
     - runtime
     - services
+    - jdbc
     - addons
     - dashboard
 
@@ -53,7 +54,7 @@
     group: root
     mode: 0664
   loop:
-    - mysql
+    - jdbc
 
 # things
 
