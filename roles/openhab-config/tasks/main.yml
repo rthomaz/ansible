@@ -14,7 +14,7 @@
     path: "{{ item.path }}"
     state: absent
   with_items: "{{ services_arquivos_para_deletar.files }}"
-
+ 
 - name: criar arquivos services
   copy:
     src: "services/{{item}}.cfg"
@@ -25,10 +25,16 @@
     mode: 0664
   loop:
     - runtime
-    - services
+#    - services
     - jdbc
     - addons
     - dashboard
+
+- name: criar arquivos services (v2)
+  template:
+    src: "services/services.cfg"
+    dest: "/etc/openhab2/services/services.cfg"
+    backup: no
 
 # persistence
 
