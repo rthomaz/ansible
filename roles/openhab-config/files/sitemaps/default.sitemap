@@ -284,7 +284,6 @@ sitemap casa label="Casa" {
                 Chart   item=escritorio_dhtSensor_batteryLevel_item  period=W refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_batteryLevel_item==2]
                 Chart   item=escritorio_dhtSensor_batteryLevel_item  period=M refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_batteryLevel_item==3]
                 Chart   item=escritorio_dhtSensor_batteryLevel_item  period=Y refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_batteryLevel_item==4]
-
             }
         }
     }
