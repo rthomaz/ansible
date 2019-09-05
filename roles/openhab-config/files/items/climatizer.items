@@ -40,6 +40,33 @@ Number:Dimensionless   escritorio_dhtSensor_humidity_item         "Humidade [%.2
 Number                 escritorio_dhtSensor_batteryLevel_item     "Bateria [%.2f %%]"           <battery>          (escritorio_dhtSensor_group, batteryLevel_group)                                                                                           { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_batteryLevel_channel" }
 Switch                 escritorio_dhtSensor_lowBattery_item       "Bateria baixa"               <energy>           (escritorio_dhtSensor_group, batteryLevel_group)                                                                                           { channel="mqtt:topic:dhtSensor_connection:escritorio_dhtSensor_topic:escritorio_dhtSensor_lowBattery_channel" }
 
+///////////////////////////////////////////
+// DHTSensor Chart
+
+Number                 quarto_dhtSensor_chartPeriod_temperature_item   "Período"
+Number                 quarto_dhtSensor_chartPeriod_humidity_item      "Período"
+Number                 quarto_dhtSensor_chartPeriod_bateryLevel_item   "Período"
+Number                 quarto_dhtSensor_chartPeriod_lowBattery_item    "Período"
+
+Number                 sala_dhtSensor_chartPeriod_temperature_item        "Período"
+Number                 sala_dhtSensor_chartPeriod_humidity_item           "Período"
+Number                 sala_dhtSensor_chartPeriod_bateryLevel_item        "Período"
+Number                 sala_dhtSensor_chartPeriod_lowBattery_item         "Período"
+
+Number                 banheiro_dhtSensor_chartPeriod_temperature_item     "Período"
+Number                 banheiro_dhtSensor_chartPeriod_humidity_item        "Período"
+Number                 banheiro_dhtSensor_chartPeriod_bateryLevel_item     "Período"
+Number                 banheiro_dhtSensor_chartPeriod_lowBattery_item      "Período"
+
+Number                 cozinha_dhtSensor_chartPeriod_temperature_item      "Período"
+Number                 cozinha_dhtSensor_chartPeriod_humidity_item         "Período"
+Number                 cozinha_dhtSensor_chartPeriod_bateryLevel_item      "Período"
+Number                 cozinha_dhtSensor_chartPeriod_lowBattery_item       "Período"
+
+Number                 escritorio_dhtSensor_chartPeriod_temperature_item   "Período"
+Number                 escritorio_dhtSensor_chartPeriod_humidity_item      "Período"
+Number                 escritorio_dhtSensor_chartPeriod_bateryLevel_item   "Período"
+Number                 escritorio_dhtSensor_chartPeriod_lowBattery_item    "Período"
 
 ///////////////////////////////////////////
 // Thermostat
