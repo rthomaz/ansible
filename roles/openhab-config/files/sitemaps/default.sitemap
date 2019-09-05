@@ -38,6 +38,8 @@ sitemap casa label="Casa" {
             Default item=banheiro_dhtSensor_temperature_item label="Banheiro"
             Default item=cozinha_dhtSensor_temperature_item label="Cozinha"
             Default item=escritorio_dhtSensor_temperature_item label="Escritório"
+
+            Chart item=quarto_dhtSensor_temperature_item period=h refresh=60
         }
 
         Text label="Umidade" icon="humidity" {
