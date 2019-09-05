@@ -29,6 +29,32 @@
     - addons
     - dashboard
 
+# persistence
+
+- name: verificar arquivos persistence existentes
+  find:
+    paths: 
+      - /etc/openhab2/persistence
+    patterns: "*.persist"
+  register: persistence_arquivos_para_deletar
+
+- name: remover arquivos persistence existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ persistence_arquivos_para_deletar.files }}"
+
+- name: criar arquivos persistence
+  copy:
+    src: "persistence/{{item}}.persist"
+    dest: "/etc/openhab2/persistence/{{item}}.persist"
+    backup: no
+    owner: root
+    group: root
+    mode: 0664
+  loop:
+    - mysql
+
 # things
 
 - name: verificar arquivos things existentes
@@ -120,3 +146,10 @@
     mode: 0664
   loop:
     - default
+
+# reiniciar openhab
+
+- name: reiniciar openhab
+  service:
+    name: 'openhab2'
+    state: restarted
