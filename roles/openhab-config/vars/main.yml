@@ -33,12 +33,12 @@ pirSensor:
     username: 'openhabian'
     password: ''
   devices:  
-    - { order: 0, room: 'quarto', title: 'Quarto' }
-    - { order: 1, room: 'sala', title: 'Sala' }  
-    - { order: 2, room: 'banheiro', title: 'Banheiro' }
-    - { order: 3, room: 'corredor', title: 'Corredor' }
-    - { order: 4, room: 'cozinha', title: 'Cozinha' }
-    - { order: 5, room: 'escritorio', title: 'Escritório' }    
+    - { order: 0, room: 'quarto', title: 'Quarto', prefix: 'do' }
+    - { order: 1, room: 'sala', title: 'Sala', prefix: 'da' }  
+    - { order: 2, room: 'banheiro', title: 'Banheiro', prefix: 'do' }
+    - { order: 3, room: 'corredor', title: 'Corredor', prefix: 'do' }
+    - { order: 4, room: 'cozinha', title: 'Cozinha', prefix: 'da' }
+    - { order: 5, room: 'escritorio', title: 'Escritório', prefix: 'do' }    
 
 thermostat:
   mqqtBroker: 
@@ -47,8 +47,8 @@ thermostat:
     username: 'openhabian'
     password: ''
   devices:  
-    - { order: 0, room: 'quarto', title: 'Quarto', inGroup: true }
-    - { order: 1, room: 'sala', title: 'Sala', inGroup: true }  
-    - { order: 2, room: 'banheiro', title: 'Banheiro', inGroup: false }
-    - { order: 3, room: 'cozinha', title: 'Cozinha', inGroup: false }
-    - { order: 4, room: 'escritorio', title: 'Escritório', inGroup: true }    
+    - { order: 0, room: 'quarto', title: 'Quarto', prefix: 'do', inGroup: true }
+    - { order: 1, room: 'sala', title: 'Sala', prefix: 'da', inGroup: true }  
+    - { order: 2, room: 'banheiro', title: 'Banheiro', prefix: 'do', inGroup: false }
+    - { order: 3, room: 'cozinha', title: 'Cozinha', prefix: 'da', inGroup: false }
+    - { order: 4, room: 'escritorio', title: 'Escritório', prefix: 'do', inGroup: true }    
