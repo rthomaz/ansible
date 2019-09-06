@@ -1,7 +1,7 @@
 {% for i in chromecast.devices|sort(attribute='order') %}
     {% if i.type == 'audiogroup' %}
 
-Group       {{i.room}}_chromecast_audiogroup_group                        "Audio {{i.title}}"  <computer>
+Group       {{i.room}}_chromecast_audiogroup_group                        "AudioGroup {{i.prefix|lower}} {{i.title|lower}}"  <computer>
 
 Player      {{i.room}}_chromecast_audiogroup_control_item                 "Controle"           <remote>            ({{i.room}}_chromecast_audiogroup_group, casa_group)         { channel="chromecast:audiogroup:{{i.room}}_chromecast_audiogroup_channel:control" }
 Switch      {{i.room}}_chromecast_audiogroup_stop_item                    "Stop"               <remote>            ({{i.room}}_chromecast_audiogroup_group)                     { channel="chromecast:audiogroup:{{i.room}}_chromecast_audiogroup_channel:stop" }
