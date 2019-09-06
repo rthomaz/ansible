@@ -38,5 +38,24 @@ sitemap casa label="Casa" {
             {% endfor %}
         }
         
+        Text label="Umidade" icon="humidity" {
+            {% for i in dhtSensor.devices | sort(attribute='order') %}
+            Default item={{i.room}}_dhtSensor_humidity_item label="{{i.title}}"
+            {% endfor %}
+        }
+
+        Text label="Bateria" icon="battery" {
+            
+            {% for i in dhtSensor.devices | sort(attribute='order') %}
+            Default item={{i.room}}_dhtSensor_batteryLevel_item label="{{i.title}} Sensor DHT"
+            Default item={{i.room}}_dhtSensor_lowBattery_item   label="{{i.title}} Sensor DHT"
+            {% endfor %}
+
+            {% for i in pirSensor.devices | sort(attribute='order') %}
+            Default item={{i.room}}_pirSensor_batteryLevel_item label="{{i.title}} Sensor PIR"
+            Default item={{i.room}}_pirSensor_lowBattery_item   label="{{i.title}} Sensor PIR"
+            {% endfor %}
+
+        }
     }
 }
