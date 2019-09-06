@@ -1,4 +1,4 @@
-{% for i in chromecast_devices %}
+{% for i in chromecast_devices|sort(attribute='order') %}
     {% if i.type == 'chromecast' %}
 
 Group       {{i.room}}_chromecast_chromecast_group                        "Chromecast"         <computer>          ({{i.room}}_group)
