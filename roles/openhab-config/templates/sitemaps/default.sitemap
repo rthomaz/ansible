@@ -155,7 +155,7 @@ sitemap casa label="Casa" {
 
         Text label="Bateria DHT Sensor" icon="battery" {
             {% for i in dhtSensor.devices | sort(attribute='order') %}
-            Text label="{{i.title}} DHT Sensor" icon="battery" {
+            Text label="{{i.title}}" icon="battery" {
                 Default item={{i.room}}_dhtSensor_batteryLevel_item label="Bateria"
                 Switch  item={{i.room}}_dhtSensor_chartPeriod_batteryLevel_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
                 Chart   item={{i.room}}_dhtSensor_batteryLevel_item  period=h refresh=600  visibility=[{{i.room}}_dhtSensor_chartPeriod_batteryLevel_item==0]
@@ -169,7 +169,7 @@ sitemap casa label="Casa" {
 
         Text label="Bateria PIR Sensor" icon="battery" {
             {% for i in pirSensor.devices | sort(attribute='order') %}
-            Text label="{{i.title}} DHT Sensor" icon="battery" {
+            Text label="{{i.title}}" icon="battery" {
                 Default item={{i.room}}_pirSensor_batteryLevel_item label="Bateria"
                 Switch  item={{i.room}}_pirSensor_chartPeriod_batteryLevel_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
                 Chart   item={{i.room}}_pirSensor_batteryLevel_item  period=h refresh=600  visibility=[{{i.room}}_pirSensor_chartPeriod_batteryLevel_item==0]
