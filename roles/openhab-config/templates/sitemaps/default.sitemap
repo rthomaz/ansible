@@ -67,11 +67,11 @@ sitemap casa label="Casa" {
             Default item=escritorio_thermostat_targetTemperature_item label="Escritório"
         }
 
-        Text label="Movimento" icon="motion" {
-            {% for i in pirSensor.devices | sort(attribute='order') %}
-            Default item={{i.room}}_pirSensor_motion_item label="{{i.title}}"
-            {% endfor %}
-        }
+        // Text label="Movimento" icon="motion" {
+        //     {% for i in pirSensor.devices | sort(attribute='order') %}
+        //     Default item={{i.room}}_pirSensor_motion_item label="{{i.title}}"
+        //     {% endfor %}
+        // }
 		
         Text label="Volume" icon="soundvolume" {
             {% for i in chromecast.devices | sort(attribute='order') %}
