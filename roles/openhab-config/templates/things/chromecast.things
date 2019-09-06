@@ -1,24 +1,13 @@
-// Thing chromecast:chromecast:quarto_chromecast_chromecast_channel       "Chromecast Quarto"               @ "Chromecast"     [ ipAddress="192.168.1.15", port=8009 ]
-// Thing chromecast:chromecast:sala_chromecast_chromecast_channel         "Chromecast Sala"                 @ "Chromecast"     [ ipAddress="192.168.1.12", port=8009 ]
-// Thing chromecast:audio:banheiro_chromecast_audio_channel               "Chromecast Audio Banheiro"       @ "Chromecast"     [ ipAddress="192.168.1.21", port=8009 ]
-// Thing chromecast:chromecast:cozinha_chromecast_chromecast_channel      "Chromecast Cozinha"              @ "Chromecast"     [ ipAddress="192.168.1.11", port=8009 ]
-// Thing chromecast:chromecast:cozinha_chromecast_assistant_channel       "Assistente Cozinha"              @ "Chromecast"     [ ipAddress="192.168.1.25", port=8009 ]
-// Thing chromecast:chromecast:escritorio_chromecast_chromecast_channel   "Chromecast Escritório"           @ "Chromecast"     [ ipAddress="192.168.1.19", port=8009 ]
-// Thing chromecast:audiogroup:casa_chromecast_audiogroup_channel         "Chromecast Audio Grupo Casa"     @ "Chromecast"     [ ipAddress="192.168.1.21", port=42006 ]
-// Thing chromecast:audiogroup:grupoNorte_chromecast_audiogroup_channel   "Chromecast Audio Grupo Norte"    @ "Chromecast"     [ ipAddress="192.168.1.12", port=57896 ]
-// Thing chromecast:audiogroup:grupoSul_chromecast_audiogroup_channel     "Chromecast Audio Grupo Sul"      @ "Chromecast"     [ ipAddress="192.168.1.21", port=42532 ]
-
-
 {% for i in chromecast_assistant%}
-Thing chromecast:chromecast:{{i.name}}_chromecast_assistant_channel        "Assistente {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
+Thing chromecast:chromecast:{{i.room}}_chromecast_assistant_channel        "Assistente {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
 {% endfor %}
 
 {% for i in chromecast_chromecast%}
-Thing chromecast:chromecast:{{i.name}}_chromecast_chromecast_channel       "Chromecast {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
+Thing chromecast:chromecast:{{i.room}}_chromecast_chromecast_channel       "Chromecast {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
 {% endfor %}
 
 {% for i in chromecast_audio%}
-Thing chromecast:audio:{{i.name}}_chromecast_audio_channel                 "Chromecast Audio {{i.title}}"        @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
+Thing chromecast:audio:{{i.room}}_chromecast_audio_channel                 "Chromecast Audio {{i.title}}"        @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
 {% endfor %}
 
 {% for i in chromecast_audiogroup%}

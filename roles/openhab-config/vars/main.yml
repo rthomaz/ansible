@@ -3,16 +3,16 @@
 chromecast_callbackUrl: 'http://192.168.1.25:8080'
 
 chromecast_assistant:
-  - { ipAddress: '192.168.1.25', port: 8009, name: 'cozinha', title: 'Cozinha' }
+  - { ipAddress: '192.168.1.25', port: 8009, room: 'cozinha', title: 'Cozinha' }
 
 chromecast_chromecast:
-  - { ipAddress: '192.168.1.15', port: 8009, name: 'quarto', title: 'Quarto' }
-  - { ipAddress: '192.168.1.12', port: 8009, name: 'sala', title: 'Sala' }
-  - { ipAddress: '192.168.1.11', port: 8009, name: 'cozinha', title: 'Cozinha' }
-  - { ipAddress: '192.168.1.19', port: 8009, name: 'escritorio', title: 'Escritório' }
+  - { ipAddress: '192.168.1.15', port: 8009, room: 'quarto', title: 'Quarto' }
+  - { ipAddress: '192.168.1.12', port: 8009, room: 'sala', title: 'Sala' }
+  - { ipAddress: '192.168.1.11', port: 8009, room: 'cozinha', title: 'Cozinha' }
+  - { ipAddress: '192.168.1.19', port: 8009, room: 'escritorio', title: 'Escritório' }
 
 chromecast_audio:
-  - { ipAddress: '192.168.1.21', port: 8009, name: 'banheiro', title: 'Banheiro' }
+  - { ipAddress: '192.168.1.21', port: 8009, room: 'banheiro', title: 'Banheiro' }
 
 chromecast_audiogroup:
   - { ipAddress: '192.168.1.21', port: 42006, name: 'casa', title: 'Grupo Casa' }
