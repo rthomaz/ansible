@@ -34,10 +34,10 @@ dhtSensor:
 
 pirSensor:
   mqqtBroker: 
-    host: '192.168.1.22'
-    secure: 'false'
-    username: 'openhabian'
-    password: ''
+    host: '{{ mqqtBroker.host }}'
+    secure: '{{ mqqtBroker.secure }}'
+    username: '{{ mqqtBroker.username }}'
+    password: '{{ mqqtBroker.password }}'
   devices:  
     - { order: 0, room: 'quarto', title: 'Quarto', prefix: 'do' }
     - { order: 1, room: 'sala', title: 'Sala', prefix: 'da' }  
@@ -48,10 +48,10 @@ pirSensor:
 
 thermostat:
   mqqtBroker: 
-    host: '192.168.1.22'
-    secure: 'false'
-    username: 'openhabian'
-    password: ''
+    host: '{{ mqqtBroker.host }}'
+    secure: '{{ mqqtBroker.secure }}'
+    username: '{{ mqqtBroker.username }}'
+    password: '{{ mqqtBroker.password }}'
   devices:  
     - { order: 0, room: 'quarto', title: 'Quarto', prefix: 'do', inGroup: true }
     - { order: 1, room: 'sala', title: 'Sala', prefix: 'da', inGroup: true }  

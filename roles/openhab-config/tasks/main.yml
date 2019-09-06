@@ -109,7 +109,7 @@
     group: root
     mode: 0664
   loop:
-    - comodos
+    - rooms
     - climatizer    
     - motion
     - chromecast_assistant
