@@ -16,7 +16,7 @@
   with_items: "{{ services_arquivos_para_deletar.files }}"
  
 - name: criar arquivos services
-  copy:
+  template:
     src: "services/{{item}}.cfg"
     dest: "/etc/openhab2/services/{{item}}.cfg"
     backup: no
@@ -25,16 +25,10 @@
     mode: 0664
   loop:
     - runtime
-#    - services
+    - services
     - jdbc
     - addons
     - dashboard
-
-- name: criar arquivos services (v2)
-  template:
-    src: "services/services.cfg"
-    dest: "/etc/openhab2/services/services.cfg"
-    backup: no
 
 # persistence
 
@@ -52,7 +46,7 @@
   with_items: "{{ persistence_arquivos_para_deletar.files }}"
 
 - name: criar arquivos persistence
-  copy:
+  template:
     src: "persistence/{{item}}.persist"
     dest: "/etc/openhab2/persistence/{{item}}.persist"
     backup: no
@@ -78,7 +72,7 @@
   with_items: "{{ things_arquivos_para_deletar.files }}"
 
 - name: criar arquivos things
-  copy:
+  template:
     src: "things/{{item}}.things"
     dest: "/etc/openhab2/things/{{item}}.things"
     backup: no
@@ -107,7 +101,7 @@
   with_items: "{{ items_arquivos_para_deletar.files }}"
 
 - name: criar arquivos items
-  copy:
+  template:
     src: "items/{{item}}.items"
     dest: "/etc/openhab2/items/{{item}}.items"
     backup: no
@@ -144,7 +138,7 @@
   with_items: "{{ sitemap_arquivos_para_deletar.files }}"
 
 - name: criar arquivos sitemaps
-  copy:
+  template:
     src: "sitemaps/{{item}}.sitemap"
     dest: "/etc/openhab2/sitemaps/{{item}}.sitemap"
     backup: no
@@ -156,7 +150,7 @@
 
 # reiniciar openhab
 
-- name: reiniciar openhab
-  service:
-    name: 'openhab2'
-    state: restarted
+#- name: reiniciar openhab
+#  service:
+#    name: 'openhab2'
+#    state: restarted
