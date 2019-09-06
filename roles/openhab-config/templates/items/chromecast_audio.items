@@ -1,7 +1,7 @@
 {% for i in chromecast_devices%}
     {% if i.type == 'audio' %}
 
-Group {{i.room}}_chromecast_audio_group "Chromecast" <computer> ({{i.room}}_group)
+Group       {{i.room}}_chromecast_audio_group                        "Chromecast"         <computer>          ({{i.room}}_group)
 
 Player      {{i.room}}_chromecast_audio_control_item                 "Controle"           <remote>            ({{i.room}}_chromecast_audio_group, {{i.room}}_group)   { channel="chromecast:audio:{{i.room}}_chromecast_audio_channel:control" }
 Switch      {{i.room}}_chromecast_audio_stop_item                    "Stop"               <remote>            ({{i.room}}_chromecast_audio_group)                     { channel="chromecast:audio:{{i.room}}_chromecast_audio_channel:stop" }
