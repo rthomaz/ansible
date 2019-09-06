@@ -57,5 +57,45 @@ sitemap casa label="Casa" {
             {% endfor %}
 
         }
+
+         Text label="Termostato" icon="temperature" {
+            Default item=quarto_thermostat_targetTemperature_item label="Quarto"
+            Default item=sala_thermostat_targetTemperature_item label="Sala"
+            Default item=escritorio_thermostat_targetTemperature_item label="Escritório"
+        }
+
+        Text label="Movimento" icon="motion" {
+            {% for i in pirSensor.devices | sort(attribute='order') %}
+            Default item={{i.room}}_pirSensor_motion_item label="{{i.title}}"
+            {% endfor %}
+        }
+		
+        Text label="Volume" icon="soundvolume" {
+            {% for i in chromecast.devices | sort(attribute='order') %}
+                {% if i.type == 'assistant' %}
+            Default item={{i.room}}_chromecast_assistant_volume_item label="{{i.title}} Assistente"
+                {% elif i.type == 'chromecast' %}
+            Default item={{i.room}}_chromecast_chromecast_volume_item label="{{i.title}}"	
+                {% elif i.type == 'audio' %}
+            Default item={{i.room}}_chromecast_audio_volume_item label="{{i.title}}"
+                {% elif i.type == 'audiogroup' %}
+            Default item={{i.room}}_chromecast_audiogroup_volume_item label="{{i.title}}"
+                {% endif %}
+            {% endfor %}		
+        }
+		
+        Text label="Players" icon="player" {
+            {% for i in chromecast.devices | sort(attribute='order') %}
+                {% if i.type == 'assistant' %}
+            Group item={{i.room}}_chromecast_assistant_group label="{{i.title}} Assistente"
+                {% elif i.type == 'chromecast' %}
+            Group item={{i.room}}_chromecast_chromecast_group label="{{i.title}}"			
+                {% elif i.type == 'audio' %}
+            Group item={{i.room}}_chromecast_audio_group label="{{i.title}}"
+                {% elif i.type == 'audiogroup' %}
+            Group item={{i.room}}_chromecast_audiogroup_group label="{{i.title}}"
+                {% endif %}
+            {% endfor %}			
+        }
     }
 }
