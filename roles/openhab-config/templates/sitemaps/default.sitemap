@@ -1,19 +1,13 @@
 sitemap casa label="Casa" {
 
+    {% for i in chromecast.devices | sort(attribute='order') %}
+        {% if i.type == 'audiogroup' %}
     Frame {
         Default item=Music
-        Slider item=casa_chromecast_audiogroup_volume_item icon=soundvolume label="Casa"
+        Slider item={{i.room}}_chromecast_audiogroup_volume_item icon=soundvolume label="{{i.title}}"
     }
-	
-    Frame {
-        Default item=Music
-        Slider item=grupoNorte_chromecast_audiogroup_volume_item icon=soundvolume label="Grupo Norte"
-    }
-	
-    Frame {
-        Default item=Music
-        Slider item=grupoSul_chromecast_audiogroup_volume_item icon=soundvolume label="Grupo Sul"
-    }
+        {% endif %}
+    {% endfor %}
 	
     Frame label="Piso térreo" icon="groundfloor" {
         Group item=quarto_group
