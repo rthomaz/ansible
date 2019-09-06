@@ -1,5 +1,6 @@
-{% for i in chromecast_assistant%}
-
+{% for i in chromecast_devices%}
+    {% if i.type == 'assistant' %}
+    
 Group       {{i.room}}_chromecast_assistant_group                        "Assistente"         <computer>          ({{i.room}}_group)
 
 Player      {{i.room}}_chromecast_assistant_control_item                 "Controle"           <remote>            ({{i.room}}_chromecast_assistant_group, {{i.room}}_group)   { channel="chromecast:chromecast:{{i.room}}_chromecast_assistant_channel:control" }
@@ -38,4 +39,5 @@ Number      {{i.room}}_chromecast_assistant_TvShow_seasonNumber_item     "Númer
 String      {{i.room}}_chromecast_assistant_TvShow_seriesTitle_item      "Título da série"                        ({{i.room}}_chromecast_assistant_group)                     { channel="chromecast:chromecast:{{i.room}}_chromecast_assistant_channel:seriesTitle" }
 String      {{i.room}}_chromecast_assistant_TvShow_studio_item           "Studio"                                 ({{i.room}}_chromecast_assistant_group)                     { channel="chromecast:chromecast:{{i.room}}_chromecast_assistant_channel:studio" }
 
+    {% endif %}
 {% endfor %}

@@ -2,19 +2,13 @@
 
 chromecast_callbackUrl: 'http://192.168.1.25:8080'
 
-chromecast_assistant:
-  - { ipAddress: '192.168.1.25', port: 8009, room: 'cozinha', title: 'Cozinha' }
-
-chromecast_chromecast:
-  - { ipAddress: '192.168.1.15', port: 8009, room: 'quarto', title: 'Quarto' }
-  - { ipAddress: '192.168.1.12', port: 8009, room: 'sala', title: 'Sala' }
-  - { ipAddress: '192.168.1.11', port: 8009, room: 'cozinha', title: 'Cozinha' }
-  - { ipAddress: '192.168.1.19', port: 8009, room: 'escritorio', title: 'Escritório' }
-
-chromecast_audio:
-  - { ipAddress: '192.168.1.21', port: 8009, room: 'banheiro', title: 'Banheiro' }
-
-chromecast_audiogroup:
-  - { ipAddress: '192.168.1.21', port: 42006, name: 'casa', title: 'Grupo Casa' }
-  - { ipAddress: '192.168.1.12', port: 57896, name: 'grupoNorte', title: 'Grupo Norte' }
-  - { ipAddress: '192.168.1.21', port: 42532, name: 'grupoSul', title: 'Grupo Sul' }
+chromecast_devices:
+  - { type: 'assistant',  ipAddress: '192.168.1.25', port: 8009,  room: 'cozinha', title: 'Cozinha' }
+  - { type: 'chromecast', ipAddress: '192.168.1.15', port: 8009,  room: 'quarto', title: 'Quarto' }
+  - { type: 'chromecast', ipAddress: '192.168.1.12', port: 8009,  room: 'sala', title: 'Sala' }
+  - { type: 'chromecast', ipAddress: '192.168.1.11', port: 8009,  room: 'cozinha', title: 'Cozinha' }
+  - { type: 'chromecast', ipAddress: '192.168.1.19', port: 8009,  room: 'escritorio', title: 'Escritório' }
+  - { type: 'audio',      ipAddress: '192.168.1.21', port: 8009,  room: 'banheiro', title: 'Banheiro' }
+  - { type: 'audiogroup', ipAddress: '192.168.1.21', port: 42006, room: 'casa', title: 'Grupo Casa' }
+  - { type: 'audiogroup', ipAddress: '192.168.1.12', port: 57896, room: 'grupoNorte', title: 'Grupo Norte' }
+  - { type: 'audiogroup', ipAddress: '192.168.1.21', port: 42532, room: 'grupoSul', title: 'Grupo Sul' }

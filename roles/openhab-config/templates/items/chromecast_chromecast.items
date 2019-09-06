@@ -1,4 +1,5 @@
-{% for i in chromecast_chromecast%}
+{% for i in chromecast_devices%}
+    {% if i.type == 'chromecast' %}
 
 Group {{i.room}}_chromecast_chromecast_group "Chromecast" <computer> ({{i.room}}_group)
 
@@ -38,4 +39,5 @@ Number      {{i.room}}_chromecast_chromecast_TvShow_seasonNumber_item     "Núme
 String      {{i.room}}_chromecast_chromecast_TvShow_seriesTitle_item      "Título da série"                        ({{i.room}}_chromecast_chromecast_group)                     { channel="chromecast:chromecast:{{i.room}}_chromecast_chromecast_channel:seriesTitle" }
 String      {{i.room}}_chromecast_chromecast_TvShow_studio_item           "Studio"                                 ({{i.room}}_chromecast_chromecast_group)                     { channel="chromecast:chromecast:{{i.room}}_chromecast_chromecast_channel:studio" }
 
+    {% endif %}
 {% endfor %}

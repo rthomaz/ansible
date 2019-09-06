@@ -1,15 +1,11 @@
-{% for i in chromecast_assistant%}
+{% for i in chromecast_devices%}
+    {% if i.type == 'assistant' %}
 Thing chromecast:chromecast:{{i.room}}_chromecast_assistant_channel        "Assistente {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
-{% endfor %}
-
-{% for i in chromecast_chromecast%}
+    {% else if i.type == 'chromecast' %}
 Thing chromecast:chromecast:{{i.room}}_chromecast_chromecast_channel       "Chromecast {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
-{% endfor %}
-
-{% for i in chromecast_audio%}
+    {% else if i.type == 'audio' %}
 Thing chromecast:audio:{{i.room}}_chromecast_audio_channel                 "Chromecast Audio {{i.title}}"        @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
-{% endfor %}
-
-{% for i in chromecast_audiogroup%}
-Thing chromecast:audiogroup:{{i.name}}_chromecast_audiogroup_channel       "Chromecast Audio {{i.title}}"        @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
+    {% else if i.type == 'audiogroup' %}
+Thing chromecast:audiogroup:{{i.room}}_chromecast_audiogroup_channel       "Chromecast Audio {{i.title}}"        @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
+    {% endif %}
 {% endfor %}
