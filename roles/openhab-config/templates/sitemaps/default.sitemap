@@ -11,12 +11,15 @@ sitemap {{ home.name }} label="{{ home.title }}" {
 	
 
     {% for floor in home.floors | sort(attribute='order') %}
+    
     Frame label="{{ floor.title }}" icon="{{ floor.icon }}" {
     {% for room in floor.rooms | sort(attribute='order') %}
         Group item={{ room.name }}_group
     {% endfor %}
-    {% endfor %}
     }
+
+    {% endfor %}
+    
 
 
     Frame label="Controles" {
