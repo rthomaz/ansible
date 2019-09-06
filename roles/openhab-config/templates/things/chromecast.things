@@ -1,4 +1,4 @@
-{% for i in chromecast_devices%}
+{% for i in chromecast_devices %}
     {% if i.type == 'assistant' %}
 Thing chromecast:chromecast:{{i.room}}_chromecast_assistant_channel        "Assistente {{i.title}}"              @ "Chromecast"     [ ipAddress="{{i.ipAddress}}", port={{i.port}} ]
     {% elif i.type == 'chromecast' %}

@@ -100,27 +100,31 @@ sitemap casa label="Casa" {
         }
 		
         Text label="Volume" icon="soundvolume" {
-            Default item=casa_chromecast_audiogroup_volume_item label="Casa"
-            Default item=grupoNorte_chromecast_audiogroup_volume_item label="Grupo Norte"
-            Default item=grupoSul_chromecast_audiogroup_volume_item label="Grupo Sul"
-            Default item=quarto_chromecast_chromecast_volume_item label="Quarto"
-            Default item=sala_chromecast_chromecast_volume_item label="Sala"
-            Default item=banheiro_chromecast_audio_volume_item label="Banheiro"
-            Default item=cozinha_chromecast_chromecast_volume_item label="Cozinha Som"
-            Default item=cozinha_chromecast_assistant_volume_item label="Cozinha Assistente"
-            Default item=escritorio_chromecast_chromecast_volume_item label="Escritório"			
+            {% for i in chromecast_devices|sort(attribute='order') %}
+                {% if i.type == 'assistant' %}
+            Default item={{i.room}}_chromecast_assistant_volume_item label="{{i.title}} Assistente"
+                {% elif i.type == 'chromecast' %}
+            Default item={{i.room}}_chromecast_chromecast_volume_item label="{{i.title}}"	
+                {% elif i.type == 'audio' %}
+            Default item={{i.room}}_chromecast_audio_volume_item label="{{i.title}}"
+                {% elif i.type == 'audiogroup' %}
+            Default item={{i.room}}_chromecast_audiogroup_volume_item label="{{i.title}}"
+                {% endif %}
+            {% endfor %}		
         }
 		
         Text label="Players" icon="player" {
-            Group item=casa_chromecast_audiogroup_group label="Casa"
-            Group item=grupoNorte_chromecast_audiogroup_group label="Grupo Norte"
-            Group item=grupoSul_chromecast_audiogroup_group label="Grupo Sul"
-            Group item=quarto_chromecast_chromecast_group label="Quarto"
-            Group item=sala_chromecast_chromecast_group label="Sala"
-            Group item=banheiro_chromecast_audio_group label="Banheiro"
-            Group item=cozinha_chromecast_chromecast_group label="Cozinha Som"
-            Group item=cozinha_chromecast_assistant_group label="Cozinha Assistente"
-            Group item=escritorio_chromecast_chromecast_group label="Escritório"			
+            {% for i in chromecast_devices|sort(attribute='order') %}
+                {% if i.type == 'assistant' %}
+            Group item={{i.room}}_chromecast_assistant_group label="{{i.title}} Assistente"
+                {% elif i.type == 'chromecast' %}
+            Group item={{i.room}}_chromecast_chromecast_group label="{{i.title}}"			
+                {% elif i.type == 'audio' %}
+            Group item={{i.room}}_chromecast_audio_group label="{{i.title}}"
+                {% elif i.type == 'audiogroup' %}
+            Group item={{i.room}}_chromecast_audiogroup_group label="{{i.title}}"
+                {% endif %}
+            {% endfor %}			
         }
     }
 

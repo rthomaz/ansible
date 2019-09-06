@@ -1,4 +1,4 @@
-{% for i in chromecast_devices%}
+{% for i in chromecast_devices %}
     {% if i.type == 'audiogroup' %}
 
 Group       {{i.room}}_chromecast_audiogroup_group                        "Audio {{i.title}}"  <computer>
