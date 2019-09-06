@@ -25,3 +25,17 @@ dhtSensor:
     - { order: 2, room: 'banheiro', title: 'Banheiro' }
     - { order: 3, room: 'cozinha', title: 'Cozinha' }
     - { order: 4, room: 'escritorio', title: 'Escritório' }
+
+pirSensor:
+  mqqtBroker: 
+    host: '192.168.1.22'
+    secure: 'false'
+    username: 'openhabian'
+    password: ''
+  devices:  
+    - { order: 0, room: 'quarto', title: 'Quarto' }
+    - { order: 1, room: 'sala', title: 'Sala' }  
+    - { order: 2, room: 'banheiro', title: 'Banheiro' }
+    - { order: 3, room: 'corredor', title: 'Corredor' }
+    - { order: 4, room: 'cozinha', title: 'Cozinha' }
+    - { order: 5, room: 'escritorio', title: 'Escritório' }    

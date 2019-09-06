@@ -1,45 +1,14 @@
-Bridge mqtt:broker:pirSensor_connection [ host="192.168.1.22", secure=false, username="openhabian", password=""] {
-  
-  Thing topic quarto_pirSensor_topic "PIR Sensor Quarto" @ "PIR Sensor" {
+Bridge mqtt:broker:pirSensor_connection [ host="{{pirSensor.mqqtBroker.host}}", secure={{pirSensor.mqqtBroker.secure}}, username="{{pirSensor.mqqtBroker.username}}", password="{{pirSensor.mqqtBroker.password}}"] {
+
+{% for i in pirSensor.devices|sort(attribute='order') %}
+
+  Thing topic {{i.room}}_pirSensor_topic "PIR Sensor {{i.title}}" @ "PIR Sensor" {
     Channels:
-      Type number : quarto_pirSensor_motion_channel            [ stateTopic="quarto/pirSensor", transformationPattern="JSONPATH:$.motion" ]
-      Type number : quarto_pirSensor_batteryLevel_channel      [ stateTopic="quarto/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
-      Type number : quarto_pirSensor_lowBattery_channel        [ stateTopic="quarto/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
+      Type number : {{i.room}}_pirSensor_motion_channel            [ stateTopic="{{i.room}}/pirSensor", transformationPattern="JSONPATH:$.motion" ]
+      Type number : {{i.room}}_pirSensor_batteryLevel_channel      [ stateTopic="{{i.room}}/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
+      Type number : {{i.room}}_pirSensor_lowBattery_channel        [ stateTopic="{{i.room}}/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
   }  
 
-  Thing topic sala_pirSensor_topic "PIR Sensor Sala" @ "PIR Sensor" {
-    Channels:
-      Type number : sala_pirSensor_motion_channel              [ stateTopic="sala/pirSensor", transformationPattern="JSONPATH:$.motion" ]
-      Type number : sala_pirSensor_batteryLevel_channel        [ stateTopic="sala/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
-      Type number : sala_pirSensor_lowBattery_channel          [ stateTopic="sala/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
-  }  
-
-  Thing topic banheiro_pirSensor_topic "PIR Sensor Banheiro" @ "PIR Sensor" {
-    Channels:
-      Type number : banheiro_pirSensor_motion_channel          [ stateTopic="banheiro/pirSensor", transformationPattern="JSONPATH:$.motion" ]
-      Type number : banheiro_pirSensor_batteryLevel_channel    [ stateTopic="banheiro/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
-      Type number : banheiro_pirSensor_lowBattery_channel      [ stateTopic="banheiro/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
-  }  
-
-  Thing topic corredor_pirSensor_topic "PIR Sensor Corredor" @ "PIR Sensor" {
-    Channels:
-      Type number : corredor_pirSensor_motion_channel          [ stateTopic="corredor/pirSensor", transformationPattern="JSONPATH:$.motion" ]
-      Type number : corredor_pirSensor_batteryLevel_channel    [ stateTopic="corredor/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
-      Type number : corredor_pirSensor_lowBattery_channel      [ stateTopic="corredor/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
-  }  
-
-  Thing topic cozinha_pirSensor_topic "PIR Sensor Cozinha" @ "PIR Sensor" {
-    Channels:
-      Type number : cozinha_pirSensor_motion_channel           [ stateTopic="cozinha/pirSensor", transformationPattern="JSONPATH:$.motion" ]
-      Type number : cozinha_pirSensor_batteryLevel_channel     [ stateTopic="cozinha/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
-      Type number : cozinha_pirSensor_lowBattery_channel       [ stateTopic="cozinha/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
-  }  
-
-  Thing topic escritorio_pirSensor_topic "PIR Sensor Escritório" @ "PIR Sensor" {
-    Channels:
-      Type number : escritorio_pirSensor_motion_channel        [ stateTopic="escritorio/pirSensor", transformationPattern="JSONPATH:$.motion" ]
-      Type number : escritorio_pirSensor_batteryLevel_channel  [ stateTopic="escritorio/pirSensor", transformationPattern="JSONPATH:$.batteryLevel" ]
-      Type number : escritorio_pirSensor_lowBattery_channel    [ stateTopic="escritorio/pirSensor", transformationPattern="JSONPATH:$.lowBattery" ]
-  }
+{% endfor %}  
   
 }
