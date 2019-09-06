@@ -59,7 +59,7 @@ sitemap casa label="Casa" {
         }
 
          Text label="Termostato" icon="temperature" {
-            {% for i in thermostat.devices  %}
+            {% for i in thermostat | json_query('devices[?inGroup==true].{room: room, title: title}')  %}
             Default item={{i.room}}_thermostat_targetTemperature_item label="{{i.title}}"
             {% endfor %}
             // Default item=quarto_thermostat_targetTemperature_item label="Quarto"
