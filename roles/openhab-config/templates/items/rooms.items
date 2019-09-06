@@ -1,20 +1,17 @@
-Group    casa_group               "Casa"            <house>                                               ["Building"]
+Group    {{ home.name }}_group    "{{ home.title }}"         <{{ home.icon }}>                                                         ["{{ home.tag }}"]
 
-Group    piso_terreo_group        "Piso térreo"     <groundfloor>      (casa_group)                       ["GroundFloor"]
-Group    lado_de_fora_group       "Lado de fora"    <garden>           (casa_group)                       ["Outdoor"]
+{% for floor in home.floors | sort(attribute='order') %}
 
-Group    quarto_group             "Quarto"          <bedroom>          (casa_group, piso_terreo_group)    ["Bedroom"]
-Group    sala_group               "Sala"            <sofa>             (casa_group, piso_terreo_group)    ["LivingRoom"]
-Group    corredor_group           "Corredor"        <corridor>         (casa_group, piso_terreo_group)    ["Corridor"]
-Group    banheiro_group           "Banheiro"        <bath>             (casa_group, piso_terreo_group)    ["Bathroom"]
-Group    cozinha_group            "Cozinha"         <kitchen>          (casa_group, piso_terreo_group)    ["Kitchen"]
-Group    escritorio_group         "Escritório"      <office>           (casa_group, piso_terreo_group)    ["Room"]
-Group    quintal_group            "Quintal"         <lawnmower>        (casa_group, lado_de_fora_group)   ["Garden"]
-Group    lavanderia_group         "Lavanderia"      <washingmachine>   (casa_group, lado_de_fora_group)   ["Room"]
-Group    garagem_group            "Garagem"         <garage>           (casa_group, lado_de_fora_group)   ["Garage"]
+Group    {{ floor.name }}_group   "{{ floor.title }}"        <{{  floor.icon }}>    ({{ home.name }}_group)                            ["{{ floor.tag }}"]
 
-Group    temperature_group        "Sensores de temperatura"  <temperature>      (casa_group)
-Group    humidity_group           "Sensores de umidade"      <humidity>         (casa_group)
-Group    motion_group             "Sensores de movimento"    <motion>           (casa_group)
-Group    batteryLevel_group       "Bateria de dispositivos"  <battery>          (casa_group)
+{% for room in floor.rooms | sort(attribute='order') %}
+Group    {{ room.name }}_group    "{{ room.title }}"         <{{ room.icon }}>      ({{ home.name }}_group, {{ floor.name }}_group)    ["{{ room.tag }}"]
+{% endfor %}
+
+{% endfor %}
+
+Group    temperature_group        "Sensores de temperatura"  <temperature>      ({{ home.name }}_group)
+Group    humidity_group           "Sensores de umidade"      <humidity>         ({{ home.name }}_group)
+Group    motion_group             "Sensores de movimento"    <motion>           ({{ home.name }}_group)
+Group    batteryLevel_group       "Bateria de dispositivos"  <battery>          ({{ home.name }}_group)
 

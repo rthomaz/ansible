@@ -1,31 +1,30 @@
 ---
 
-home: [
-  { 
-    name: 'casa', title: 'Casa', icon: 'house', tag: 'Building',
-    floors: [
-      {
-        name: 'piso_terreo', title: 'Piso térreo', icon: 'groundfloor', tag: 'GroundFloor',
-        rooms: [
-          { name: 'quarto', title: 'Quarto', icon: 'bedroom', tag: 'Bedroom' },
-          { name: 'sala', title: 'Sala', icon: 'sofa', tag: 'LivingRoom' },
-          { name: 'corredor', title: 'Corredor', icon: 'corridor', tag: 'Corridor' },
-          { name: 'banheiro', title: 'Banheiro', icon: 'bath', tag: 'Bathroom' },
-          { name: 'cozinha', title: 'Cozinha', icon: 'kitchen', tag: 'Kitchen' },
-          { name: 'escritorio', title: 'Escritório', icon: 'office', tag: 'Room' }          
-        ]
-      },
-      {
-        name: 'lado_de_fora', title: 'Lado de fora', icon: 'garden', tag: 'Outdoor',
-        rooms: [
-          { name: 'quintal', title: 'Quintal', icon: 'lawnmower', tag: 'Garden' },
-          { name: 'lavanderia', title: 'Lavanderia', icon: 'washingmachine', tag: 'Room' },
-          { name: 'garagem', title: 'Garagem', icon: 'garage', tag: 'Garage' }
-        ]
-      }
-    ] 
+home: { 
+  name: 'casa', title: 'Casa', icon: 'house', tag: 'Building',
+  floors: [
+    {
+      name: 'piso_terreo', title: 'Piso térreo', icon: 'groundfloor', tag: 'GroundFloor', order: 0,
+      rooms: [
+        { name: 'quarto', title: 'Quarto', icon: 'bedroom', tag: 'Bedroom', order: 0 },
+        { name: 'sala', title: 'Sala', icon: 'sofa', tag: 'LivingRoom', order: 1 },
+        { name: 'corredor', title: 'Corredor', icon: 'corridor', tag: 'Corridor', order: 2 },
+        { name: 'banheiro', title: 'Banheiro', icon: 'bath', tag: 'Bathroom', order: 3 },
+        { name: 'cozinha', title: 'Cozinha', icon: 'kitchen', tag: 'Kitchen', order: 4 },
+        { name: 'escritorio', title: 'Escritório', icon: 'office', tag: 'Room', order: 5 }          
+      ]
+    },
+    {
+      name: 'lado_de_fora', title: 'Lado de fora', icon: 'garden', tag: 'Outdoor', order: 1,
+      rooms: [
+        { name: 'quintal', title: 'Quintal', icon: 'lawnmower', tag: 'Garden', order: 0 },
+        { name: 'lavanderia', title: 'Lavanderia', icon: 'washingmachine', tag: 'Room', order: 1 },
+        { name: 'garagem', title: 'Garagem', icon: 'garage', tag: 'Garage', order: 2 }
+      ]
+    }
+  ] 
   }
-]  
+  
 
 chromecast:
   callbackUrl: 'http://192.168.1.25:8080'
