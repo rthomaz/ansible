@@ -1,41 +1,17 @@
-Group    quarto_pirSensor_group               "Sensor de movimento do quarto"   
-Group    sala_pirSensor_group                 "Sensor de movimento da sala"   
-Group    banheiro_pirSensor_group             "Sensor de movimento do banheiro"   
-Group    corredor_pirSensor_group             "Sensor de movimento do corredor"   
-Group    cozinha_pirSensor_group              "Sensor de movimento da cozinha"   
-Group    escritorio_pirSensor_group           "Sensor de movimento do escritório"
+{% for i in pirSensor.devices|sort(attribute='order') %}
+Group    {{i.room}}_pirSensor_group                     "Sensor de movimento {{i.prefix|lower}} {{i.title|lower}}"   
+{% endfor %}
 
-Switch   quarto_pirSensor_motion_item               "Movimento"            <motion>       (quarto_pirSensor_group, quarto_group, motion_group)               { channel="mqtt:topic:pirSensor_connection:quarto_pirSensor_topic:quarto_pirSensor_motion_channel" }
-Number   quarto_pirSensor_batteryLevel_item         "Bateria [%.2f %%]"    <battery>      (quarto_pirSensor_group, batteryLevel_group)                       { channel="mqtt:topic:pirSensor_connection:quarto_pirSensor_topic:quarto_pirSensor_batteryLevel_channel" }
-Switch   quarto_pirSensor_lowBattery_item           "Bateria baixa"        <energy>       (quarto_pirSensor_group, batteryLevel_group)                       { channel="mqtt:topic:pirSensor_connection:quarto_pirSensor_topic:quarto_pirSensor_lowBattery_channel" }
-
-Switch   sala_pirSensor_motion_item                 "Movimento"            <motion>       (sala_pirSensor_group, sala_group, motion_group)                   { channel="mqtt:topic:pirSensor_connection:sala_pirSensor_topic:sala_pirSensor_motion_channel" }
-Number   sala_pirSensor_batteryLevel_item           "Bateria [%.2f %%]"    <battery>      (sala_pirSensor_group, batteryLevel_group)                         { channel="mqtt:topic:pirSensor_connection:sala_pirSensor_topic:sala_pirSensor_batteryLevel_channel" }
-Switch   sala_pirSensor_lowBattery_item             "Bateria baixa"        <energy>       (sala_pirSensor_group, batteryLevel_group)                         { channel="mqtt:topic:pirSensor_connection:sala_pirSensor_topic:sala_pirSensor_lowBattery_channel" }
-
-Switch   banheiro_pirSensor_motion_item             "Movimento"            <motion>       (banheiro_pirSensor_group, banheiro_group, motion_group)           { channel="mqtt:topic:pirSensor_connection:banheiro_pirSensor_topic:banheiro_pirSensor_motion_channel" }
-Number   banheiro_pirSensor_batteryLevel_item       "Bateria [%.2f %%]"    <battery>      (banheiro_pirSensor_group, batteryLevel_group)                     { channel="mqtt:topic:pirSensor_connection:banheiro_pirSensor_topic:banheiro_pirSensor_batteryLevel_channel" }
-Switch   banheiro_pirSensor_lowBattery_item         "Bateria baixa"        <energy>       (banheiro_pirSensor_group, batteryLevel_group)                     { channel="mqtt:topic:pirSensor_connection:banheiro_pirSensor_topic:banheiro_pirSensor_lowBattery_channel" }
-
-Switch   corredor_pirSensor_motion_item             "Movimento"            <motion>       (corredor_pirSensor_group, corredor_group, motion_group)           { channel="mqtt:topic:pirSensor_connection:corredor_pirSensor_topic:corredor_pirSensor_motion_channel" }
-Number   corredor_pirSensor_batteryLevel_item       "Bateria [%.2f %%]"    <battery>      (corredor_pirSensor_group, batteryLevel_group)                     { channel="mqtt:topic:pirSensor_connection:corredor_pirSensor_topic:corredor_pirSensor_batteryLevel_channel" }
-Switch   corredor_pirSensor_lowBattery_item         "Bateria baixa"        <energy>       (corredor_pirSensor_group, batteryLevel_group)                     { channel="mqtt:topic:pirSensor_connection:corredor_pirSensor_topic:corredor_pirSensor_lowBattery_channel" }
-
-Switch   cozinha_pirSensor_motion_item              "Movimento"            <motion>       (cozinha_pirSensor_group, cozinha_group, motion_group)             { channel="mqtt:topic:pirSensor_connection:cozinha_pirSensor_topic:cozinha_pirSensor_motion_channel" }
-Number   cozinha_pirSensor_batteryLevel_item        "Bateria [%.2f %%]"    <battery>      (cozinha_pirSensor_group, batteryLevel_group)                      { channel="mqtt:topic:pirSensor_connection:cozinha_pirSensor_topic:cozinha_pirSensor_batteryLevel_channel" }
-Switch   cozinha_pirSensor_lowBattery_item          "Bateria baixa"        <energy>       (cozinha_pirSensor_group, batteryLevel_group)                      { channel="mqtt:topic:pirSensor_connection:cozinha_pirSensor_topic:cozinha_pirSensor_lowBattery_channel" }
-
-Switch   escritorio_pirSensor_motion_item           "Movimento"            <motion>       (escritorio_pirSensor_group, escritorio_group, motion_group)       { channel="mqtt:topic:pirSensor_connection:escritorio_pirSensor_topic:escritorio_pirSensor_motion_channel" }
-Number   escritorio_pirSensor_batteryLevel_item     "Bateria [%.2f %%]"    <battery>      (escritorio_pirSensor_group, batteryLevel_group)                   { channel="mqtt:topic:pirSensor_connection:escritorio_pirSensor_topic:escritorio_pirSensor_batteryLevel_channel" }
-Switch   escritorio_pirSensor_lowBattery_item       "Bateria baixa"        <energy>       (escritorio_pirSensor_group, batteryLevel_group)                   { channel="mqtt:topic:pirSensor_connection:escritorio_pirSensor_topic:escritorio_pirSensor_lowBattery_channel" }
+{% for i in pirSensor.devices|sort(attribute='order') %}
+Switch   {{i.room}}_pirSensor_motion_item               "Movimento"            <motion>       ({{i.room}}_pirSensor_group, {{i.room}}_group, motion_group)           { channel="mqtt:topic:pirSensor_connection:{{i.room}}_pirSensor_topic:{{i.room}}_pirSensor_motion_channel" }
+Number   {{i.room}}_pirSensor_batteryLevel_item         "Bateria [%.2f %%]"    <battery>      ({{i.room}}_pirSensor_group, batteryLevel_group)                       { channel="mqtt:topic:pirSensor_connection:{{i.room}}_pirSensor_topic:{{i.room}}_pirSensor_batteryLevel_channel" }
+Switch   {{i.room}}_pirSensor_lowBattery_item           "Bateria baixa"        <energy>       ({{i.room}}_pirSensor_group, batteryLevel_group)                       { channel="mqtt:topic:pirSensor_connection:{{i.room}}_pirSensor_topic:{{i.room}}_pirSensor_lowBattery_channel" }
+{% endfor %}
 
 // Google Home
 
-Group    google_pirSensor_group               "Sensores de movimento Google Home"
+Group    google_pirSensor_group                          "Sensores de movimento Google Home"
 
-Switch   google_quarto_pirSensor_motion_item             "Sensor de movimento do quarto"         <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:quarto_pirSensor_topic:quarto_pirSensor_motion_channel" }
-Switch   google_sala_pirSensor_motion_item               "Sensor de movimento da sala"           <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:sala_pirSensor_topic:sala_pirSensor_motion_channel" }
-Switch   google_banheiro_pirSensor_motion_item           "Sensor de movimento do banheiro"       <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:banheiro_pirSensor_topic:banheiro_pirSensor_motion_channel" }
-Switch   google_corredor_pirSensor_motion_item           "Sensor de movimento do corredor"       <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:corredor_pirSensor_topic:corredor_pirSensor_motion_channel" }
-Switch   google_cozinha_pirSensor_motion_item            "Sensor de movimento da cozinha"        <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:cozinha_pirSensor_topic:cozinha_pirSensor_motion_channel" }
-Switch   google_escritorio_pirSensor_motion_item         "Sensor de movimento do escritório"     <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:escritorio_pirSensor_topic:escritorio_pirSensor_motion_channel" }
+{% for i in pirSensor.devices|sort(attribute='order') %}
+Switch   google_{{i.room}}_pirSensor_motion_item         "Sensor de movimento {{i.prefix|lower}} {{i.title|lower}}"         <motion>       (google_pirSensor_group)    ["Switchable"]   { channel="mqtt:topic:pirSensor_connection:{{i.room}}_pirSensor_topic:{{i.room}}_pirSensor_motion_channel" }
+{% endfor %}
