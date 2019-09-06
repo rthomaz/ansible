@@ -87,18 +87,18 @@
 
 # items    
 
-- name: verificar arquivos items existentes
-  find:
-    paths: 
-      - /etc/openhab2/items
-    patterns: "*.items"
-  register: items_arquivos_para_deletar
+# - name: verificar arquivos items existentes
+#   find:
+#     paths: 
+#       - /etc/openhab2/items
+#     patterns: "*.items"
+#   register: items_arquivos_para_deletar
 
-- name: remover arquivos items existentes
-  file:
-    path: "{{ item.path }}"
-    state: absent
-  with_items: "{{ items_arquivos_para_deletar.files }}"
+# - name: remover arquivos items existentes
+#   file:
+#     path: "{{ item.path }}"
+#     state: absent
+#   with_items: "{{ items_arquivos_para_deletar.files }}"
 
 - name: criar arquivos items
   template:
