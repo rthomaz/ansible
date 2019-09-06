@@ -59,12 +59,11 @@ sitemap casa label="Casa" {
         }
 
          Text label="Termostato" icon="temperature" {
-            {% for i in thermostat | json_query('devices[?inGroup==true].{room: room, title: title}')  %}
+            {% for i in thermostat.devices | sort(attribute='order')  %}
+                {% if i.inGroup == true %}
             Default item={{i.room}}_thermostat_targetTemperature_item label="{{i.title}}"
+                {% endif %}
             {% endfor %}
-            // Default item=quarto_thermostat_targetTemperature_item label="Quarto"
-            // Default item=sala_thermostat_targetTemperature_item label="Sala"
-            // Default item=escritorio_thermostat_targetTemperature_item label="Escritório"
         }
 
         Text label="Movimento" icon="motion" {
