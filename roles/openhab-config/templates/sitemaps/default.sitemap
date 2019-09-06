@@ -81,13 +81,13 @@ sitemap {{ home.name }} label="{{ home.title }}" {
         Text label="Players" icon="player" {
             {% for i in chromecast.devices | sort(attribute='order') %}
                 {% if i.type == 'assistant' %}
-            Group item={{i.room}}_chromecast_assistant_group label="{{i.title}} Assistente"
+            Group item={{i.room}}_chromecast_assistant_group label="{{i.title}} Assistente" icon="player"
                 {% elif i.type == 'chromecast' %}
-            Group item={{i.room}}_chromecast_chromecast_group label="{{i.title}}"			
+            Group item={{i.room}}_chromecast_chromecast_group label="{{i.title}}" icon="player"			
                 {% elif i.type == 'audio' %}
-            Group item={{i.room}}_chromecast_audio_group label="{{i.title}}"
+            Group item={{i.room}}_chromecast_audio_group label="{{i.title}}" icon="player"
                 {% elif i.type == 'audiogroup' %}
-            Group item={{i.room}}_chromecast_audiogroup_group label="{{i.title}}"
+            Group item={{i.room}}_chromecast_audiogroup_group label="{{i.title}}" icon="player"
                 {% endif %}
             {% endfor %}			
         }
