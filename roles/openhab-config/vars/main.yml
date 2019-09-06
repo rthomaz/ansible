@@ -2,24 +2,30 @@
 
 home: [
   { 
-    name: 'casa', 
-    title: 'Casa', 
-    icon: 'house',
+    name: 'casa', title: 'Casa', icon: 'house', tag: 'Building',
     floors: [
       {
-        name: 'piso_terreo', 
-        title: 'Piso térreo', 
-        icon: 'groundfloor'
+        name: 'piso_terreo', title: 'Piso térreo', icon: 'groundfloor', tag: 'GroundFloor',
+        rooms: [
+          { name: 'quarto', title: 'Quarto', icon: 'bedroom', tag: 'Bedroom' },
+          { name: 'sala', title: 'Sala', icon: 'sofa', tag: 'LivingRoom' },
+          { name: 'corredor', title: 'Corredor', icon: 'corridor', tag: 'Corridor' },
+          { name: 'banheiro', title: 'Banheiro', icon: 'bath', tag: 'Bathroom' },
+          { name: 'cozinha', title: 'Cozinha', icon: 'kitchen', tag: 'Kitchen' },
+          { name: 'escritorio', title: 'Escritório', icon: 'office', tag: 'Room' }          
+        ]
       },
       {
-        name: 'lado_de_fora', 
-        title: 'Lado de fora', 
-        icon: 'garden'
+        name: 'lado_de_fora', title: 'Lado de fora', icon: 'garden', tag: 'Outdoor',
+        rooms: [
+          { name: 'quintal', title: 'Quintal', icon: 'lawnmower', tag: 'Garden' },
+          { name: 'lavanderia', title: 'Lavanderia', icon: 'washingmachine', tag: 'Room' },
+          { name: 'garagem', title: 'Garagem', icon: 'garage', tag: 'Garage' }
+        ]
       }
     ] 
   }
-]
-  
+]  
 
 chromecast:
   callbackUrl: 'http://192.168.1.25:8080'
