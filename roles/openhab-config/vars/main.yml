@@ -13,7 +13,7 @@ chromecast_devices:
   - { type: 'chromecast', ipAddress: '192.168.1.11', port: 8009,  order: 7, room: 'cozinha', title: 'Cozinha' }
   - { type: 'chromecast', ipAddress: '192.168.1.19', port: 8009,  order: 8, room: 'escritorio', title: 'Escritório' }
 
-  dhtSensor:
+dhtSensor:
   - mqqtBroker:
     - host: '192.168.1.22'
     - secure: 'false'
