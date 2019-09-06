@@ -2,18 +2,18 @@
 
 # services
 
-# - name: verificar arquivos services existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/services
-#     patterns: "*.cfg"
-#   register: services_arquivos_para_deletar
+- name: verificar arquivos services existentes
+  find:
+    paths: 
+      - /etc/openhab2/services
+    patterns: "*.cfg"
+  register: services_arquivos_para_deletar
 
-# - name: remover arquivos services existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ services_arquivos_para_deletar.files }}"
+- name: remover arquivos services existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ services_arquivos_para_deletar.files }}"
  
 - name: criar arquivos services
   template:
@@ -32,18 +32,18 @@
 
 # persistence
 
-# - name: verificar arquivos persistence existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/persistence
-#     patterns: "*.persist"
-#   register: persistence_arquivos_para_deletar
+- name: verificar arquivos persistence existentes
+  find:
+    paths: 
+      - /etc/openhab2/persistence
+    patterns: "*.persist"
+  register: persistence_arquivos_para_deletar
 
-# - name: remover arquivos persistence existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ persistence_arquivos_para_deletar.files }}"
+- name: remover arquivos persistence existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ persistence_arquivos_para_deletar.files }}"
 
 - name: criar arquivos persistence
   template:
@@ -58,18 +58,18 @@
 
 # things
 
-# - name: verificar arquivos things existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/things
-#     patterns: "*.things"
-#   register: things_arquivos_para_deletar
+- name: verificar arquivos things existentes
+  find:
+    paths: 
+      - /etc/openhab2/things
+    patterns: "*.things"
+  register: things_arquivos_para_deletar
 
-# - name: remover arquivos things existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ things_arquivos_para_deletar.files }}"
+- name: remover arquivos things existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ things_arquivos_para_deletar.files }}"
 
 - name: criar arquivos things
   template:
@@ -87,18 +87,18 @@
 
 # items    
 
-# - name: verificar arquivos items existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/items
-#     patterns: "*.items"
-#   register: items_arquivos_para_deletar
+- name: verificar arquivos items existentes
+  find:
+    paths: 
+      - /etc/openhab2/items
+    patterns: "*.items"
+  register: items_arquivos_para_deletar
 
-# - name: remover arquivos items existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ items_arquivos_para_deletar.files }}"
+- name: remover arquivos items existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ items_arquivos_para_deletar.files }}"
 
 - name: criar arquivos items
   template:
@@ -119,18 +119,18 @@
 
 # sitemaps
 
-# - name: verificar arquivos sitemap existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/sitemaps
-#     patterns: "*.sitemap"
-#   register: sitemap_arquivos_para_deletar
+- name: verificar arquivos sitemap existentes
+  find:
+    paths: 
+      - /etc/openhab2/sitemaps
+    patterns: "*.sitemap"
+  register: sitemap_arquivos_para_deletar
 
-# - name: remover arquivos sitemap existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ sitemap_arquivos_para_deletar.files }}"
+- name: remover arquivos sitemap existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ sitemap_arquivos_para_deletar.files }}"
 
 - name: criar arquivos sitemaps
   template:
