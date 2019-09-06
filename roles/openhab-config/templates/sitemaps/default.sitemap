@@ -59,12 +59,12 @@ sitemap casa label="Casa" {
         }
 
         Text label="Termostato" icon="temperature" {
-            {% for i in thermostat.devices | ?inGroup==true  %}
-            Default item={{i.room}}_thermostat_targetTemperature_item label="{{i.title}}"
-            {% endfor %}
-            // Default item=quarto_thermostat_targetTemperature_item label="Quarto"
-            // Default item=sala_thermostat_targetTemperature_item label="Sala"
-            // Default item=escritorio_thermostat_targetTemperature_item label="Escritório"
+            // {% for i in thermostat.devices | ?inGroup==true  %}
+            // Default item={{i.room}}_thermostat_targetTemperature_item label="{{i.title}}"
+            // {% endfor %}
+            Default item=quarto_thermostat_targetTemperature_item label="Quarto"
+            Default item=sala_thermostat_targetTemperature_item label="Sala"
+            Default item=escritorio_thermostat_targetTemperature_item label="Escritório"
         }
 
         Text label="Movimento" icon="motion" {
