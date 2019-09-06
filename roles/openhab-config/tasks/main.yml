@@ -113,15 +113,9 @@
     - climatizer    
     - motion
     - chromecast_assistant
-    - chromecast_assistant_cozinha
-    - chromecast_audio_banheiro
-    - chromecast_audiogroup_casa
-    - chromecast_audiogroup_grupoNorte
-    - chromecast_audiogroup_grupoSul
-    - chromecast_chromecast_cozinha
-    - chromecast_chromecast_escritorio
-    - chromecast_chromecast_quarto
-    - chromecast_chromecast_sala
+    - chromecast_chromecast
+    - chromecast_audio
+    - chromecast_audiogroup
 
 # sitemaps
 
