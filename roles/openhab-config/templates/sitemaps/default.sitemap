@@ -1,4 +1,4 @@
-sitemap casa label="Casa" {
+sitemap {{ home.name }} label="{{ home.title }}" {
 
     {% for i in chromecast.devices | sort(attribute='order') %}
         {% if i.type == 'audiogroup' %}
@@ -9,20 +9,15 @@ sitemap casa label="Casa" {
         {% endif %}
     {% endfor %}
 	
-    Frame label="Piso térreo" icon="groundfloor" {
-        Group item=quarto_group
-        Group item=sala_group
-        Group item=corredor_group
-        Group item=banheiro_group
-        Group item=cozinha_group
-        Group item=escritorio_group
+
+    {% for floor in home.floors | sort(attribute='order') %}
+    Frame label="{{ floor.title }}" icon="{{ floor.icon }}" {
+    {% for room in floor.rooms | sort(attribute='order') %}
+        Group item={{ room.name }}_group
+    {% endfor %}
+    {% endfor %}
     }
 
-    Frame label="Lado de fora" icon="garden" {
-        Group item=quintal_group
-        Group item=lavanderia_group
-        Group item=garagem_group
-    } 
 
     Frame label="Controles" {
 	
