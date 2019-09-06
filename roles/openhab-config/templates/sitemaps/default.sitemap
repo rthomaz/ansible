@@ -98,112 +98,32 @@ sitemap casa label="Casa" {
     Frame label="Históricos" {
 
         Text label="Temperatura" icon="temperature" {
-
-            Text label="Quarto" icon="temperature" {
-                Default item=quarto_dhtSensor_temperature_item label="Temperatura"
-                Switch  item=quarto_dhtSensor_chartPeriod_temperature_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=quarto_dhtSensor_temperature_item  period=h refresh=600  visibility=[quarto_dhtSensor_chartPeriod_temperature_item==0]
-                Chart   item=quarto_dhtSensor_temperature_item  period=D refresh=900  visibility=[quarto_dhtSensor_chartPeriod_temperature_item==1, quarto_dhtSensor_chartPeriod_temperature_item=="NULL"]
-                Chart   item=quarto_dhtSensor_temperature_item  period=W refresh=3600 visibility=[quarto_dhtSensor_chartPeriod_temperature_item==2]
-                Chart   item=quarto_dhtSensor_temperature_item  period=M refresh=3600 visibility=[quarto_dhtSensor_chartPeriod_temperature_item==3]
-                Chart   item=quarto_dhtSensor_temperature_item  period=Y refresh=3600 visibility=[quarto_dhtSensor_chartPeriod_temperature_item==4]
+            {% for i in dhtSensor.devices | sort(attribute='order') %}
+            Text label="{{i.title}}" icon="temperature" {
+                Default item={{i.room}}_dhtSensor_temperature_item label="Temperatura"
+                Switch  item={{i.room}}_dhtSensor_chartPeriod_temperature_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
+                Chart   item={{i.room}}_dhtSensor_temperature_item  period=h refresh=600  visibility=[{{i.room}}_dhtSensor_chartPeriod_temperature_item==0]
+                Chart   item={{i.room}}_dhtSensor_temperature_item  period=D refresh=900  visibility=[{{i.room}}_dhtSensor_chartPeriod_temperature_item==1, {{i.room}}_dhtSensor_chartPeriod_temperature_item=="NULL"]
+                Chart   item={{i.room}}_dhtSensor_temperature_item  period=W refresh=3600 visibility=[{{i.room}}_dhtSensor_chartPeriod_temperature_item==2]
+                Chart   item={{i.room}}_dhtSensor_temperature_item  period=M refresh=3600 visibility=[{{i.room}}_dhtSensor_chartPeriod_temperature_item==3]
+                Chart   item={{i.room}}_dhtSensor_temperature_item  period=Y refresh=3600 visibility=[{{i.room}}_dhtSensor_chartPeriod_temperature_item==4]
             }
-
-            Text label="Sala" icon="temperature" {
-                Default item=sala_dhtSensor_temperature_item label="Temperatura"
-                Switch  item=sala_dhtSensor_chartPeriod_temperature_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=sala_dhtSensor_temperature_item  period=h refresh=600  visibility=[sala_dhtSensor_chartPeriod_temperature_item==0]
-                Chart   item=sala_dhtSensor_temperature_item  period=D refresh=900  visibility=[sala_dhtSensor_chartPeriod_temperature_item==1, sala_dhtSensor_chartPeriod_temperature_item=="NULL"]
-                Chart   item=sala_dhtSensor_temperature_item  period=W refresh=3600 visibility=[sala_dhtSensor_chartPeriod_temperature_item==2]
-                Chart   item=sala_dhtSensor_temperature_item  period=M refresh=3600 visibility=[sala_dhtSensor_chartPeriod_temperature_item==3]
-                Chart   item=sala_dhtSensor_temperature_item  period=Y refresh=3600 visibility=[sala_dhtSensor_chartPeriod_temperature_item==4]
-            }
-            
-            Text label="Banheiro" icon="temperature" {
-                Default item=banheiro_dhtSensor_temperature_item label="Temperatura"
-                Switch  item=banheiro_dhtSensor_chartPeriod_temperature_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=banheiro_dhtSensor_temperature_item  period=h refresh=600  visibility=[banheiro_dhtSensor_chartPeriod_temperature_item==0]
-                Chart   item=banheiro_dhtSensor_temperature_item  period=D refresh=900  visibility=[banheiro_dhtSensor_chartPeriod_temperature_item==1, banheiro_dhtSensor_chartPeriod_temperature_item=="NULL"]
-                Chart   item=banheiro_dhtSensor_temperature_item  period=W refresh=3600 visibility=[banheiro_dhtSensor_chartPeriod_temperature_item==2]
-                Chart   item=banheiro_dhtSensor_temperature_item  period=M refresh=3600 visibility=[banheiro_dhtSensor_chartPeriod_temperature_item==3]
-                Chart   item=banheiro_dhtSensor_temperature_item  period=Y refresh=3600 visibility=[banheiro_dhtSensor_chartPeriod_temperature_item==4]
-            }
-            
-            Text label="Cozinha" icon="temperature" {            
-                Default item=cozinha_dhtSensor_temperature_item label="Temperatura"
-                Switch  item=cozinha_dhtSensor_chartPeriod_temperature_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=cozinha_dhtSensor_temperature_item  period=h refresh=600  visibility=[cozinha_dhtSensor_chartPeriod_temperature_item==0]
-                Chart   item=cozinha_dhtSensor_temperature_item  period=D refresh=900  visibility=[cozinha_dhtSensor_chartPeriod_temperature_item==1, cozinha_dhtSensor_chartPeriod_temperature_item=="NULL"]
-                Chart   item=cozinha_dhtSensor_temperature_item  period=W refresh=3600 visibility=[cozinha_dhtSensor_chartPeriod_temperature_item==2]
-                Chart   item=cozinha_dhtSensor_temperature_item  period=M refresh=3600 visibility=[cozinha_dhtSensor_chartPeriod_temperature_item==3]
-                Chart   item=cozinha_dhtSensor_temperature_item  period=Y refresh=3600 visibility=[cozinha_dhtSensor_chartPeriod_temperature_item==4]
-            }
-            
-            Text label="Escritório" icon="temperature" {
-                Default item=escritorio_dhtSensor_temperature_item label="Temperatura"
-                Switch  item=escritorio_dhtSensor_chartPeriod_temperature_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=escritorio_dhtSensor_temperature_item  period=h refresh=600  visibility=[escritorio_dhtSensor_chartPeriod_temperature_item==0]
-                Chart   item=escritorio_dhtSensor_temperature_item  period=D refresh=900  visibility=[escritorio_dhtSensor_chartPeriod_temperature_item==1, escritorio_dhtSensor_chartPeriod_temperature_item=="NULL"]
-                Chart   item=escritorio_dhtSensor_temperature_item  period=W refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_temperature_item==2]
-                Chart   item=escritorio_dhtSensor_temperature_item  period=M refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_temperature_item==3]
-                Chart   item=escritorio_dhtSensor_temperature_item  period=Y refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_temperature_item==4]
-
-            }
+            {% endfor %}            
         }
 
         Text label="Humidade" icon="humidity" {
-
-            Text label="Quarto" icon="humidity" {
-                Default item=quarto_dhtSensor_humidity_item label="Humidade"
-                Switch  item=quarto_dhtSensor_chartPeriod_humidity_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=quarto_dhtSensor_humidity_item  period=h refresh=600  visibility=[quarto_dhtSensor_chartPeriod_humidity_item==0]
-                Chart   item=quarto_dhtSensor_humidity_item  period=D refresh=900  visibility=[quarto_dhtSensor_chartPeriod_humidity_item==1, quarto_dhtSensor_chartPeriod_humidity_item=="NULL"]
-                Chart   item=quarto_dhtSensor_humidity_item  period=W refresh=3600 visibility=[quarto_dhtSensor_chartPeriod_humidity_item==2]
-                Chart   item=quarto_dhtSensor_humidity_item  period=M refresh=3600 visibility=[quarto_dhtSensor_chartPeriod_humidity_item==3]
-                Chart   item=quarto_dhtSensor_humidity_item  period=Y refresh=3600 visibility=[quarto_dhtSensor_chartPeriod_humidity_item==4]
+            {% for i in dhtSensor.devices | sort(attribute='order') %}
+            Text label="{{i.title}}" icon="humidity" {
+                Default item={{i.room}}_dhtSensor_humidity_item label="Humidade"
+                Switch  item={{i.room}}_dhtSensor_chartPeriod_humidity_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
+                Chart   item={{i.room}}_dhtSensor_humidity_item  period=h refresh=600  visibility=[{{i.room}}_dhtSensor_chartPeriod_humidity_item==0]
+                Chart   item={{i.room}}_dhtSensor_humidity_item  period=D refresh=900  visibility=[{{i.room}}_dhtSensor_chartPeriod_humidity_item==1, {{i.room}}_dhtSensor_chartPeriod_humidity_item=="NULL"]
+                Chart   item={{i.room}}_dhtSensor_humidity_item  period=W refresh=3600 visibility=[{{i.room}}_dhtSensor_chartPeriod_humidity_item==2]
+                Chart   item={{i.room}}_dhtSensor_humidity_item  period=M refresh=3600 visibility=[{{i.room}}_dhtSensor_chartPeriod_humidity_item==3]
+                Chart   item={{i.room}}_dhtSensor_humidity_item  period=Y refresh=3600 visibility=[{{i.room}}_dhtSensor_chartPeriod_humidity_item==4]
             }
-
-            Text label="Sala" icon="humidity" {
-                Default item=sala_dhtSensor_humidity_item label="Humidade"
-                Switch  item=sala_dhtSensor_chartPeriod_humidity_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=sala_dhtSensor_humidity_item  period=h refresh=600  visibility=[sala_dhtSensor_chartPeriod_humidity_item==0]
-                Chart   item=sala_dhtSensor_humidity_item  period=D refresh=900  visibility=[sala_dhtSensor_chartPeriod_humidity_item==1, sala_dhtSensor_chartPeriod_humidity_item=="NULL"]
-                Chart   item=sala_dhtSensor_humidity_item  period=W refresh=3600 visibility=[sala_dhtSensor_chartPeriod_humidity_item==2]
-                Chart   item=sala_dhtSensor_humidity_item  period=M refresh=3600 visibility=[sala_dhtSensor_chartPeriod_humidity_item==3]
-                Chart   item=sala_dhtSensor_humidity_item  period=Y refresh=3600 visibility=[sala_dhtSensor_chartPeriod_humidity_item==4]
-            }
-            
-            Text label="Banheiro" icon="humidity" {
-                Default item=banheiro_dhtSensor_humidity_item label="Humidade"
-                Switch  item=banheiro_dhtSensor_chartPeriod_humidity_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=banheiro_dhtSensor_humidity_item  period=h refresh=600  visibility=[banheiro_dhtSensor_chartPeriod_humidity_item==0]
-                Chart   item=banheiro_dhtSensor_humidity_item  period=D refresh=900  visibility=[banheiro_dhtSensor_chartPeriod_humidity_item==1, banheiro_dhtSensor_chartPeriod_humidity_item=="NULL"]
-                Chart   item=banheiro_dhtSensor_humidity_item  period=W refresh=3600 visibility=[banheiro_dhtSensor_chartPeriod_humidity_item==2]
-                Chart   item=banheiro_dhtSensor_humidity_item  period=M refresh=3600 visibility=[banheiro_dhtSensor_chartPeriod_humidity_item==3]
-                Chart   item=banheiro_dhtSensor_humidity_item  period=Y refresh=3600 visibility=[banheiro_dhtSensor_chartPeriod_humidity_item==4]
-            }
-            
-            Text label="Cozinha" icon="humidity" {            
-                Default item=cozinha_dhtSensor_humidity_item label="Humidade"
-                Switch  item=cozinha_dhtSensor_chartPeriod_humidity_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=cozinha_dhtSensor_humidity_item  period=h refresh=600  visibility=[cozinha_dhtSensor_chartPeriod_humidity_item==0]
-                Chart   item=cozinha_dhtSensor_humidity_item  period=D refresh=900  visibility=[cozinha_dhtSensor_chartPeriod_humidity_item==1, cozinha_dhtSensor_chartPeriod_humidity_item=="NULL"]
-                Chart   item=cozinha_dhtSensor_humidity_item  period=W refresh=3600 visibility=[cozinha_dhtSensor_chartPeriod_humidity_item==2]
-                Chart   item=cozinha_dhtSensor_humidity_item  period=M refresh=3600 visibility=[cozinha_dhtSensor_chartPeriod_humidity_item==3]
-                Chart   item=cozinha_dhtSensor_humidity_item  period=Y refresh=3600 visibility=[cozinha_dhtSensor_chartPeriod_humidity_item==4]
-            }
-            
-            Text label="Escritório" icon="humidity" {
-                Default item=escritorio_dhtSensor_humidity_item label="Humidade"
-                Switch  item=escritorio_dhtSensor_chartPeriod_humidity_item label="Período" mappings=[0="Hora", 1="Dia", 2="Semana", 3="Mês", 4="Ano"]
-                Chart   item=escritorio_dhtSensor_humidity_item  period=h refresh=600  visibility=[escritorio_dhtSensor_chartPeriod_humidity_item==0]
-                Chart   item=escritorio_dhtSensor_humidity_item  period=D refresh=900  visibility=[escritorio_dhtSensor_chartPeriod_humidity_item==1, escritorio_dhtSensor_chartPeriod_humidity_item=="NULL"]
-                Chart   item=escritorio_dhtSensor_humidity_item  period=W refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_humidity_item==2]
-                Chart   item=escritorio_dhtSensor_humidity_item  period=M refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_humidity_item==3]
-                Chart   item=escritorio_dhtSensor_humidity_item  period=Y refresh=3600 visibility=[escritorio_dhtSensor_chartPeriod_humidity_item==4]
-
-            }
-        }
+            {% endfor %}            
+        }       
 
         Text label="Bateria" icon="battery" {
 
