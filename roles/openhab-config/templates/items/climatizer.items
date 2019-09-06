@@ -1,16 +1,16 @@
 
-{% for i in dhtSensor.devices|sort(attribute='order') %}
+{% for i in dhtSensor.devices | sort(attribute='order') %}
 Group    {{i.room}}_dhtSensor_group               "Sensor DHT {{i.prefix|lower}} {{i.title|lower}}"   
 {% endfor %}
 
-{% for i in thermostat.devices|sort(attribute='order') %}
+{% for i in thermostat.devices | sort(attribute='order') %}
 Group    google_{{i.room}}_thermostat_group       "Termostato {{i.prefix|lower}} {{i.title|lower}}"       [ "Thermostat", "Celsius" ]
 {% endfor %}
 
 ///////////////////////////////////////////
 // DHTSensor
 
-{% for i in dhtSensor.devices|sort(attribute='order') %}
+{% for i in dhtSensor.devices | sort(attribute='order') %}
 Number:Temperature     {{i.room}}_dhtSensor_temperature_item          "Temperatura [%.2f °C]"       <temperature>      ({{i.room}}_dhtSensor_group, temperature_group, {{i.room}}_group, google_{{i.room}}_thermostat_group)              [ "CurrentTemperature" ]           { channel="mqtt:topic:dhtSensor_connection:{{i.room}}_dhtSensor_topic:{{i.room}}_dhtSensor_temperature_channel" }
 Number:Dimensionless   {{i.room}}_dhtSensor_humidity_item             "Humidade [%.2f %%]"          <humidity>         ({{i.room}}_dhtSensor_group, humidity_group, {{i.room}}_group, google_{{i.room}}_thermostat_group)                 [ "CurrentHumidity" ]              { channel="mqtt:topic:dhtSensor_connection:{{i.room}}_dhtSensor_topic:{{i.room}}_dhtSensor_humidity_channel" }
 Number                 {{i.room}}_dhtSensor_batteryLevel_item         "Bateria [%.2f %%]"           <battery>          ({{i.room}}_dhtSensor_group, batteryLevel_group)                                                                                                      { channel="mqtt:topic:dhtSensor_connection:{{i.room}}_dhtSensor_topic:{{i.room}}_dhtSensor_batteryLevel_channel" }
@@ -20,7 +20,7 @@ Switch                 {{i.room}}_dhtSensor_lowBattery_item           "Bateria b
 ///////////////////////////////////////////
 // DHTSensor Chart
 
-{% for i in dhtSensor.devices|sort(attribute='order') %}
+{% for i in dhtSensor.devices | sort(attribute='order') %}
 Number                 {{i.room}}_dhtSensor_chartPeriod_temperature_item       "Período"
 Number                 {{i.room}}_dhtSensor_chartPeriod_humidity_item          "Período"
 Number                 {{i.room}}_dhtSensor_chartPeriod_batteryLevel_item      "Período"
@@ -29,7 +29,7 @@ Number                 {{i.room}}_dhtSensor_chartPeriod_batteryLevel_item      "
 ///////////////////////////////////////////
 // Thermostat
 
-{% for i in thermostat.devices|sort(attribute='order') %}
+{% for i in thermostat.devices | sort(attribute='order') %}
     {% if i.inGroup == true %}
 //  String             {{i.room}}_thermostat_heatingCoolingMode_item          "Modo"                                           ({{i.room}}_group, google_{{i.room}}_thermostat_group)                              [ "homekit:HeatingCoolingMode" ]   { channel="mqtt:topic:thermostat_connection:{{i.room}}_thermostat_topic:{{i.room}}_thermostat_heatingCoolingMode_channel" }
 Dimmer                 {{i.room}}_thermostat_targetTemperature_item           "Aquecimento [%.2f °C]"       <temperature>      (temperature_group, {{i.room}}_group, google_{{i.room}}_thermostat_group)           [ "TargetTemperature" ]            { channel="mqtt:topic:thermostat_connection:{{i.room}}_thermostat_topic:{{i.room}}_thermostat_targetTemperature_channel" }
