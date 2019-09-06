@@ -1,5 +1,26 @@
 ---
 
+home: [
+  { 
+    name: 'casa', 
+    title: 'Casa', 
+    icon: 'house',
+    floors: [
+      {
+        name: 'piso_terreo', 
+        title: 'Piso térreo', 
+        icon: 'groundfloor'
+      },
+      {
+        name: 'lado_de_fora', 
+        title: 'Lado de fora', 
+        icon: 'garden'
+      }
+    ] 
+  }
+]
+  
+
 chromecast:
   callbackUrl: 'http://192.168.1.25:8080'
   devices:
