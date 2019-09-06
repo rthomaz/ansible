@@ -1,4 +1,4 @@
-{% for i in chromecast_devices|sort(attribute='order') %}
+{% for i in chromecast.devices|sort(attribute='order') %}
     {% if i.type == 'audiogroup' %}
 
 Group       {{i.room}}_chromecast_audiogroup_group                        "Audio {{i.title}}"  <computer>

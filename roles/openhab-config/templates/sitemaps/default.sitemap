@@ -100,7 +100,7 @@ sitemap casa label="Casa" {
         }
 		
         Text label="Volume" icon="soundvolume" {
-            {% for i in chromecast_devices|sort(attribute='order') %}
+            {% for i in chromecast.devices|sort(attribute='order') %}
                 {% if i.type == 'assistant' %}
             Default item={{i.room}}_chromecast_assistant_volume_item label="{{i.title}} Assistente"
                 {% elif i.type == 'chromecast' %}
@@ -114,7 +114,7 @@ sitemap casa label="Casa" {
         }
 		
         Text label="Players" icon="player" {
-            {% for i in chromecast_devices|sort(attribute='order') %}
+            {% for i in chromecast.devices|sort(attribute='order') %}
                 {% if i.type == 'assistant' %}
             Group item={{i.room}}_chromecast_assistant_group label="{{i.title}} Assistente"
                 {% elif i.type == 'chromecast' %}
