@@ -40,10 +40,10 @@ chromecast:
     - { type: 'chromecast', ipAddress: '192.168.1.19', port: 8009,  order: 8, room: 'escritorio', title: 'Escritório', prefix: 'do' }
 
 mqqtBroker: 
-  host: '192.168.1.22'
+  host: '192.168.1.5'
   secure: 'false'
-  username: 'openhabian'
-  password: ''
+  username: 'rodrigo'
+  password: '12345'
 
 dhtSensor:
   mqqtBroker: 
