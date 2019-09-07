@@ -7,6 +7,8 @@
   vars_files:
     - host_vars/docker01.yml
   roles:
+    - apt-config
+    - default-packages
     - docker-ce
     - docker-environment
     - docker-elasticsearch-fluentd-kibana

@@ -1,5 +1,16 @@
 ---
 
+# apt
+
+debian_codename: 'stretch'
+
+apt_mirror_default_url: http://deb.debian.org/debian
+apt_mirror_security_url: http://deb.debian.org/debian-security/
+apt_mirror_update_url: http://deb.debian.org/debian
+apt_mirror_backports_url: http://deb.debian.org/debian  
+
+# docker
+
 docker_work_path: '/rthomaz/docker-projects'
 docker_folder_images_path: '{{docker_work_path}}/images'
 
