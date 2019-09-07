@@ -1,0 +1,27 @@
+---
+
+- name: cria a network rthomaz-network-influxdb
+  docker_network:
+    name: rthomaz-network-influxdb
+    driver: bridge
+
+- name: cria o volume influxdbconfig
+  docker_volume:
+    name: influxdbconfig
+    driver: local    
+
+- name: exclui o container do influxdb
+  command: docker rm -f -v influxdb-1
+  ignore_errors: yes
+
+- name: cria o container do influxdb
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name influxdb-1
+    --mount source=influxdbconfig,target=/var/lib/influxdb
+    --network rthomaz-network-influxdb    
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=efk.kibana
+    -p 8086:8086 
+    influxdb:latest
