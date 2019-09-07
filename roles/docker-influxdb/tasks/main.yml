@@ -28,7 +28,7 @@
     -e INFLUXDB_DB=openhab -e INFLUXDB_ADMIN_ENABLED=true
     -e INFLUXDB_ADMIN_USER={{ docker_apps_default_user }} -e INFLUXDB_ADMIN_PASSWORD={{ docker_apps_default_pass }}
     -e INFLUXDB_USER=openhab -e INFLUXDB_USER_PASSWORD=openhab
-    influxdb /init-influxdb.sh
+    influxdb
 
 
 - name: cria o volume grafanaconfig
