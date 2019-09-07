@@ -8,3 +8,4 @@
     - host_vars/docker01.yml
   roles:
     - docker-ce
+    - docker-environment

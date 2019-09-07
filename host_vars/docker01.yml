@@ -1,1 +1,16 @@
-# here we assign variables to particular systems
+---
+
+docker_work_path: '/rthomaz/docker-projects'
+docker_folder_images_path: '{{docker_work_path}}/images'
+
+docker_network: rthomaz-network
+
+docker_log_driver: fluentd
+docker_log_address: localhost:24224
+
+docker_apps_default_user: rodrigo
+docker_apps_default_pass: 12345
+
+docker_files_owner: root
+docker_files_group: root
+docker_files_mode: a+x
