@@ -14,3 +14,6 @@
 
 [openhabian_server]
 192.168.1.22
+
+[docker01_server]
+192.168.1.5
