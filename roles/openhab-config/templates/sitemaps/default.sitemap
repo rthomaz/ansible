@@ -95,6 +95,8 @@ sitemap {{ home.name }} label="{{ home.title }}" {
 
     Frame label="Históricos" {
 
+        Webview url="http://192.168.1.5:3000/d/m8vuND5Wk/temperaturas?orgId=1&from=1567881154936&to=1567882954941&panelId=2&fullscreen"
+
         Text label="Temperatura" icon="temperature" {
             {% for i in dhtSensor.devices | sort(attribute='order') %}
             Text label="{{i.title}}" icon="temperature" {
