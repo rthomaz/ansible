@@ -14,7 +14,7 @@
     --restart=unless-stopped -d 
     --name influxdb-1
     --mount source=influxdbconfig,target=/var/lib/influxdb
-    --network {{ rthomaz-network }} 
+    --network {{ docker_network }} 
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=influxdb

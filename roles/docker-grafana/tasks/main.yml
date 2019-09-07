@@ -14,7 +14,7 @@
     --restart=unless-stopped -d 
     --name grafana-1
     --mount source=grafanaconfig,target=/var/lib/grafana 
-    --network {{ rthomaz-network }} 
+    --network {{ docker_network }} 
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=grafana
