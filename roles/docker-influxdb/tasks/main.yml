@@ -24,6 +24,7 @@
     --log-opt fluentd-address=localhost:24224
     --log-opt tag=influxdb
     -p 8086:8086 
+    -p 8083:8083 
     -e INFLUXDB_DB=openhab -e INFLUXDB_ADMIN_ENABLED=true
     -e INFLUXDB_ADMIN_USER={{ docker_apps_default_user }} -e INFLUXDB_ADMIN_PASSWORD={{ docker_apps_default_pass }}
     -e INFLUXDB_USER=openhab -e INFLUXDB_USER_PASSWORD=openhab
