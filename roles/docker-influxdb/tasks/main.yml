@@ -52,4 +52,4 @@
     --log-opt tag=grafana
     -p 3000:3000 
     -e "GF_SECURITY_ADMIN_PASSWORD={{ docker_apps_default_pass }}"
-    grafana/grafana:latest
+    grafana/grafana
