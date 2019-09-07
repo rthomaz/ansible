@@ -1,3 +1,5 @@
 ---
 
-#exemplo_var_current: '{{ exemplo_var | default(exemplo_var_default) }}'
+influxdb_db: 'openhab'
+influxdb_user: 'openhab'
+influxdb_pwd: 'openhab'

@@ -1,0 +1,3 @@
+---
+
+#exemplo_var_current: '{{ exemplo_var | default(exemplo_var_default) }}'

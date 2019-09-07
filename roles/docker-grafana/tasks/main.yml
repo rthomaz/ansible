@@ -1,0 +1,23 @@
+---
+
+- name: cria o volume grafanaconfig
+  docker_volume:
+    name: grafanaconfig
+    driver: local    
+
+- name: exclui o container do grafana
+  command: docker rm -f -v grafana-1
+  ignore_errors: yes
+
+- name: cria o container do grafana
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name grafana-1
+    --mount source=grafanaconfig,target=/var/lib/grafana 
+    --network {{ rthomaz-network }} 
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=grafana
+    -p 3000:3000 
+    -e "GF_SECURITY_ADMIN_PASSWORD={{ docker_apps_default_pass }}"
+    grafana/grafana
