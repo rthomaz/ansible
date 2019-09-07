@@ -2,18 +2,18 @@
 
 # services
 
-# - name: verificar arquivos services existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/services
-#     patterns: "*.cfg"
-#   register: services_arquivos_para_deletar
+- name: verificar arquivos services existentes
+  find:
+    paths: 
+      - /etc/openhab2/services
+    patterns: "*.cfg"
+  register: services_arquivos_para_deletar
 
-# - name: remover arquivos services existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ services_arquivos_para_deletar.files }}"
+- name: remover arquivos services existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ services_arquivos_para_deletar.files }}"
  
 - name: criar arquivos services
   template:
@@ -26,24 +26,24 @@
   loop:
     - runtime
     - services
-    - jdbc
+    - influxdb
     - addons
     - dashboard
 
 # persistence
 
-# - name: verificar arquivos persistence existentes
-#   find:
-#     paths: 
-#       - /etc/openhab2/persistence
-#     patterns: "*.persist"
-#   register: persistence_arquivos_para_deletar
+- name: verificar arquivos persistence existentes
+  find:
+    paths: 
+      - /etc/openhab2/persistence
+    patterns: "*.persist"
+  register: persistence_arquivos_para_deletar
 
-# - name: remover arquivos persistence existentes
-#   file:
-#     path: "{{ item.path }}"
-#     state: absent
-#   with_items: "{{ persistence_arquivos_para_deletar.files }}"
+- name: remover arquivos persistence existentes
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ persistence_arquivos_para_deletar.files }}"
 
 - name: criar arquivos persistence
   template:
@@ -54,7 +54,7 @@
     group: root
     mode: 0664
   loop:
-    - jdbc
+    - influxdb
 
 # things
 
