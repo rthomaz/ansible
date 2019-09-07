@@ -22,9 +22,24 @@
     --network rthomaz-network-influxdb    
     --log-driver="fluentd"
     --log-opt fluentd-address=localhost:24224
-    --log-opt tag=efk.kibana
+    --log-opt tag=influxdb
     -p 8086:8086 
     -e INFLUXDB_DB=openhab -e INFLUXDB_ADMIN_ENABLED=true
     -e INFLUXDB_ADMIN_USER={{ docker_apps_default_user }} -e INFLUXDB_ADMIN_PASSWORD={{ docker_apps_default_pass }}
     -e INFLUXDB_USER=openhab -e INFLUXDB_USER_PASSWORD=openhab
     influxdb:latest
+
+
+- name: exclui o container do grafana
+  command: docker rm -f -v grafana-1
+  ignore_errors: yes
+
+- name: cria o container do grafana
+  command: docker run 
+    --restart=unless-stopped -d 
+    --name grafana-1
+    --log-driver="fluentd"
+    --log-opt fluentd-address=localhost:24224
+    --log-opt tag=grafana
+    -p 3000:3000 
+    grafana/grafana:latest
