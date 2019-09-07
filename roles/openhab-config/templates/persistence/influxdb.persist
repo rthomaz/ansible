@@ -21,3 +21,4 @@ Items {
 	// additionally, persist all temperature and weather values every hour
 	temperature_group* : strategy = every5Minutes, restoreOnStartup
 }	   
+ 

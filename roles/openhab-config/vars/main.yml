@@ -1,5 +1,10 @@
 ---
 
+influxdb_url: 'http://192.168.1.5:8086'
+influxdb_user: 'openhab'
+influxdb_password: 'openhab'
+influxdb_db: 'openhab'
+
 home: { 
   name: 'casa', title: 'Casa', icon: 'house', tag: 'Building',
   floors: [
