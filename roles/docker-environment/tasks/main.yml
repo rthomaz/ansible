@@ -24,7 +24,7 @@
     group: root
     mode: +rwx
 
-- name: cria o diretório do container {{ item }} se ele não existir
+- name: cria os diretórios dos containers se eles não existirem
   file:
     path: '{{ item }}'
     state: directory
