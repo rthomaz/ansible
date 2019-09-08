@@ -11,7 +11,13 @@ resource "docker_container" "influxdb" {
   image = "influxdb"
   restart = "always"
 
-  env = ["INFLUXDB_DB=openhab", "INFLUXDB_ADMIN_USER=openhab", "INFLUXDB_ADMIN_PASSWORD=openhab", "INFLUXDB_USER=openhab", "INFLUXDB_USER_PASSWORD=openhab"]
+  env = [
+    "INFLUXDB_DB=openhab", 
+    "INFLUXDB_ADMIN_USER=openhab", 
+    "INFLUXDB_ADMIN_PASSWORD=openhab", 
+    "INFLUXDB_USER=openhab", 
+    "INFLUXDB_USER_PASSWORD=openhab"
+  ]
 
   mounts {
     target = "/var/lib/influxdb"
