@@ -11,7 +11,7 @@ resource "docker_container" "influxdb" {
   image = "influxdb"
   restart = "always"
   count = 1
-  
+
   env = [
     "INFLUXDB_DB=openhab", 
     "INFLUXDB_ADMIN_USER=openhab", 
@@ -22,7 +22,7 @@ resource "docker_container" "influxdb" {
 
   mounts {
     target = "/var/lib/influxdb"
-    source = "influxdbconfig"
+    source = "/rthomaz/docker-projects/volumes/influxdb"
     type = "volume"
   }
 
