@@ -55,7 +55,7 @@
 # configurando o docker
 
 - name: definir acesso ao daemom do docker via tcp
-  file:
+  copy:
     src: "override.conf"
     dest: "/etc/systemd/system/docker.service.d/override1.conf"
     backup: no
