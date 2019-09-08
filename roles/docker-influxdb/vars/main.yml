@@ -1,5 +1,1 @@
 ---
-
-influxdb_db: 'openhab'
-influxdb_user: 'openhab'
-influxdb_pwd: 'openhab' 

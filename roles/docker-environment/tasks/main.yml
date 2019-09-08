@@ -16,6 +16,23 @@
     group: root
     mode: +rwx
 
+- name: cria o diretório {{docker_folder_volumes_path}} se ele não existir
+  file:
+    path: '{{docker_folder_volumes_path}}'
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx
+
+- name: cria o diretório do container {{docker_folder_volumes_containers_path}} se ele não existir
+  file:
+    path: '{{docker_folder_volumes_containers_path}}'
+    state: directory
+    owner: root
+    group: root
+    mode: +rwx   
+  loop: '{{ docker_folder_volumes_containers_path }}' 
+
 - name: cria a network rthomaz-network
   docker_network:
     name: rthomaz-network

@@ -14,5 +14,3 @@
     - docker-environment
     - docker-elasticsearch-fluentd-kibana
     - docker-rabbitmq
-    # - docker-influxdb
-    # - docker-grafana
