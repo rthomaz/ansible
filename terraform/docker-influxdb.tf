@@ -16,7 +16,7 @@ resource "docker_container" "influxdb" {
 
   mounts {
     target = "/var/lib/influxdb"
-    source = "/rthomaz/docker-projects/volumes/influxdb"
+    source = "/rthomaz/dockerprojects/volumes/influxdb"
     type = "volume"
   }
 
