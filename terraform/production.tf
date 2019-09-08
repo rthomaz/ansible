@@ -3,11 +3,16 @@ provider "docker" {
   host = "tcp://127.0.0.1:2375/"
 }
 
-# create db container
-resource "docker_container" "db" {
-  name  = "db"
-  image = "mysql:5.7"
+# create influxdb container
+resource "docker_container" "influxdb" {
+  name  = "influxdb-2"
+  image = "influxdb"
   restart = "always"
+  mounts = {
+    target = "/var/lib/influxdb"
+    source = "influxdbconfig"
+    type = "bind"
+  }
 }
 
 # create wordpress container
