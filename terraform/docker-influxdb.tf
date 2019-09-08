@@ -1,9 +1,3 @@
-# Creates a docker volume "influxdbconfig".
-
-resource "docker_volume" "influxdbconfig" {
-  name = "influxdbconfig"
-}
-
 # create influxdb container
 
 resource "docker_container" "influxdb" {
