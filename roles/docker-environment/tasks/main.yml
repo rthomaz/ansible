@@ -24,9 +24,9 @@
     group: root
     mode: +rwx
 
-- name: cria o diretório do container {{docker_folder_volumes_containers_path}} se ele não existir
+- name: cria o diretório do container {{ item }} se ele não existir
   file:
-    path: '{{docker_folder_volumes_containers_path}}'
+    path: '{{ item }}'
     state: directory
     owner: root
     group: root
