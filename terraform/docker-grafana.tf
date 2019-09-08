@@ -1,7 +1,5 @@
 # Configure the Docker provider
-provider "docker" {
-  host = "tcp://127.0.0.1:2375/"
-}
+
 
 # Creates a docker volume "grafanaconfig".
 resource "docker_volume" "grafanaconfig" {
