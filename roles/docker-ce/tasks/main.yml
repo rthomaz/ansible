@@ -51,3 +51,16 @@
         
 - name: rodando o comando pip3 install docker
   shell: pip3 install docker
+
+# configurando o docker
+
+- name: definir acesso ao daemom do docker via tcp
+  file:
+    src: "override.conf"
+    dest: "/etc/systemd/system/docker.service.d/override.conf1"
+    backup: no
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - default
