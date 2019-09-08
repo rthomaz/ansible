@@ -7,11 +7,13 @@ resource "docker_volume" "grafanaconfig" {
 # create grafana container
 
 resource "docker_container" "grafana" {
-  name  = "grafana-1"
+  name  = "grafana"
   image = "grafana/grafana"
   restart = "always"
 
-  env = ["GF_SECURITY_ADMIN_PASSWORD=12345"]
+  env = [
+    "GF_SECURITY_ADMIN_PASSWORD=12345"
+  ]
 
   mounts {
     target = "/var/lib/grafana"

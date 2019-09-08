@@ -7,7 +7,7 @@ resource "docker_volume" "influxdbconfig" {
 # create influxdb container
 
 resource "docker_container" "influxdb" {
-  name  = "influxdb-1"
+  name  = "influxdb"
   image = "influxdb"
   restart = "always"
 
