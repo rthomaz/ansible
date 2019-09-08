@@ -13,7 +13,7 @@ apt_mirror_backports_url: http://deb.debian.org/debian
 
 docker_work_path: '/rthomaz/docker-projects'
 docker_folder_images_path: '{{docker_work_path}}/images'
-docker_folder_volumes_path: '/rthomaz/dockerprojects/volumes'
+docker_folder_volumes_path: '{{docker_work_path}}/volumes'
 
 
 docker_folder_volumes_containers_path: 
