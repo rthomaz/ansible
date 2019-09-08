@@ -70,12 +70,11 @@
     owner: root
     group: root
     mode: 0644
+  register: docker_service    
 
-- name: recarregar o daemom
+- name: recarregar o daemom e reinicar o serviço docker
   systemd:
     daemon_reload: yes
-
-- name: reinicar o serviço docker
-  systemd:
     state: restarted
     name: docker    
+  when: docker_service.changed
