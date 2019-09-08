@@ -1,27 +1,27 @@
 ---
 
-- name: cria o volume influxdbconfig
-  docker_volume:
-    name: influxdbconfig
-    driver: local    
+# - name: cria o volume influxdbconfig
+#   docker_volume:
+#     name: influxdbconfig
+#     driver: local    
 
-- name: exclui o container do influxdb
-  command: docker rm -f -v influxdb-1
-  ignore_errors: yes
+# - name: exclui o container do influxdb
+#   command: docker rm -f -v influxdb-1
+#   ignore_errors: yes
 
-- name: cria o container do influxdb
-  command: docker run 
-    --restart=unless-stopped -d 
-    --name influxdb-1
-    --mount source=influxdbconfig,target=/var/lib/influxdb
-    --network {{ docker_network }} 
-    --log-driver="fluentd"
-    --log-opt fluentd-address=localhost:24224
-    --log-opt tag=influxdb
-    -p 8086:8086 
-    -e INFLUXDB_DB={{ influxdb_db }}
-    -e INFLUXDB_ADMIN_USER={{ docker_apps_default_user }} 
-    -e INFLUXDB_ADMIN_PASSWORD={{ docker_apps_default_pass }}
-    -e INFLUXDB_USER={{ influxdb_user }} 
-    -e INFLUXDB_USER_PASSWORD={{ influxdb_pwd }}
-    influxdb
+# - name: cria o container do influxdb
+#   command: docker run 
+#     --restart=unless-stopped -d 
+#     --name influxdb-1
+#     --mount source=influxdbconfig,target=/var/lib/influxdb
+#     --network {{ docker_network }} 
+#     --log-driver="fluentd"
+#     --log-opt fluentd-address=localhost:24224
+#     --log-opt tag=influxdb
+#     -p 8086:8086 
+#     -e INFLUXDB_DB={{ influxdb_db }}
+#     -e INFLUXDB_ADMIN_USER={{ docker_apps_default_user }} 
+#     -e INFLUXDB_ADMIN_PASSWORD={{ docker_apps_default_pass }}
+#     -e INFLUXDB_USER={{ influxdb_user }} 
+#     -e INFLUXDB_USER_PASSWORD={{ influxdb_pwd }}
+#     influxdb

@@ -1,14 +1,11 @@
-# Configure the Docker provider
-provider "docker" {
-  host = "tcp://127.0.0.1:2375/"
-}
-
 # Creates a docker volume "influxdbconfig".
+
 resource "docker_volume" "influxdbconfig" {
   name = "influxdbconfig"
 }
 
 # create influxdb container
+
 resource "docker_container" "influxdb" {
   name  = "influxdb-1"
   image = "influxdb"

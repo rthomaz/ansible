@@ -1,12 +1,11 @@
-# Configure the Docker provider
-
-
 # Creates a docker volume "grafanaconfig".
+
 resource "docker_volume" "grafanaconfig" {
   name = "grafanaconfig"
 }
 
 # create grafana container
+
 resource "docker_container" "grafana" {
   name  = "grafana-1"
   image = "grafana/grafana"
