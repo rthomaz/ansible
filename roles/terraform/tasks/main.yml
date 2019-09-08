@@ -6,13 +6,6 @@
     dest: /tmp/terraform_0.12.8_linux_amd64.zip
     mode: 0770
 
-# - name: copiando o arquivo terraform_0.12.8_linux_amd64.zip para /tmp
-#   copy:
-#     src: /rthomaz/terraform_0.12.8_linux_amd64.zip
-#     dest: /tmp/terraform_0.12.8_linux_amd64.zip
-#     remote_src: no
-#     backup: no
-
 - name: extraindo terraform_0.12.8_linux_amd64.zip
   unarchive:
     src: /tmp/terraform_0.12.8_linux_amd64.zip
