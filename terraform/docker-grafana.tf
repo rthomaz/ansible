@@ -1,9 +1,3 @@
-# Creates a docker volume "grafanaconfig".
-
-resource "docker_volume" "grafanaconfig" {
-  name = "grafanaconfig"
-}
-
 # create grafana container
 
 resource "docker_container" "grafana" {
@@ -18,8 +12,8 @@ resource "docker_container" "grafana" {
 
   mounts {
     target = "/var/lib/grafana"
-    source = "grafanaconfig"
-    type = "volume"
+    source = "/rthomaz/docker-projects/volumes/grafana"
+    type = "bind"
   }
 
   ports {
