@@ -10,6 +10,7 @@ resource "docker_container" "grafana" {
   name  = "grafana"
   image = "grafana/grafana"
   restart = "always"
+  count = 1
 
   env = [
     "GF_SECURITY_ADMIN_PASSWORD=12345"

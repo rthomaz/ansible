@@ -10,7 +10,8 @@ resource "docker_container" "influxdb" {
   name  = "influxdb"
   image = "influxdb"
   restart = "always"
-
+  count = 1
+  
   env = [
     "INFLUXDB_DB=openhab", 
     "INFLUXDB_ADMIN_USER=openhab", 
