@@ -9,6 +9,7 @@
   roles:
     - apt-config
     - default-packages
+    - terraform
     - docker-ce
     - docker-environment
     - docker-elasticsearch-fluentd-kibana
