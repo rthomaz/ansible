@@ -1,7 +1,7 @@
 # create grafana container
 
 locals {
-  address = "localhost:24224"
+  address = "localhost:24226"
   port    = 24224  
 }
 
