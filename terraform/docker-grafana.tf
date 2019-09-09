@@ -1,11 +1,9 @@
-# create grafana container
 
-variable "grafana_admin_password" {
-  type = string
-  default = "12345"
-}
-
-locals {
+locals {  
+  grafana_admin_password = "12345"
+  grafana_port_internal = 3000
+  grafana_port_external = 3000
+  grafana_volume_source = "${docker_volumes_folder_path}/grafana"  
   fluentd_tag = "grafana"
 }
 
@@ -18,22 +16,22 @@ resource "docker_container" "grafana" {
   user = "root"
 
   env = [
-    "GF_SECURITY_ADMIN_PASSWORD=${var.grafana_admin_password}"
+    "GF_SECURITY_ADMIN_PASSWORD=${local.grafana_admin_password}"
   ]
 
   mounts {
     target = "/var/lib/grafana"
-    source = "/rthomaz/docker-projects/volumes/grafana"
+    source = "${local.grafana_volume_source}"
     type = "bind"
   }
 
   ports {
-    internal = 3000
-    external = 3000
+    internal = "${local.grafana_port_internal}"
+    external = "${local.grafana_port_external}"
   }
 
   networks_advanced {
-    name = "rthomaz-network"
+    name = "${var.docker_network}"
   }
   
   log_driver = "fluentd"

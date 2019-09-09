@@ -1,4 +1,15 @@
-# create influxdb container
+
+locals {  
+  influxdb_db = "openhab"
+  influxdb_admin_user = "openhab"
+  influxdb_admin_password = "openhab"
+  influxdb_user = "openhab"
+  influxdb_user_password = "openhab"
+  influxdb_port_internal = 8086
+  influxdb_port_external = 8086
+  influxdb_volume_source = "${docker_volumes_folder_path}/influxdb"  
+  fluentd_tag = "influxdb"
+}
 
 resource "docker_container" "influxdb" {
   name  = "influxdb"
@@ -7,32 +18,32 @@ resource "docker_container" "influxdb" {
   count = 1
 
   env = [
-    "INFLUXDB_DB=openhab", 
-    "INFLUXDB_ADMIN_USER=openhab", 
-    "INFLUXDB_ADMIN_PASSWORD=openhab", 
-    "INFLUXDB_USER=openhab", 
-    "INFLUXDB_USER_PASSWORD=openhab"
+    "INFLUXDB_DB=${local.influxdb_db}", 
+    "INFLUXDB_ADMIN_USER=${local.influxdb_admin_user}", 
+    "INFLUXDB_ADMIN_PASSWORD=${local.influxdb_admin_password}", 
+    "INFLUXDB_USER=${local.influxdb_user}", 
+    "INFLUXDB_USER_PASSWORD=${local.influxdb_user_password}"
   ]
 
   mounts {
     target = "/var/lib/influxdb"
-    source = "/rthomaz/docker-projects/volumes/influxdb"
+    source = "${local.influxdb_volume_source}"
     type = "bind"
   }
 
   ports {
-    internal = 8086
-    external = 8086
+    internal = "${local.influxdb_port_internal}"
+    external = "${local.influxdb_port_external}"
   }
 
   networks_advanced {
-    name = "rthomaz-network"
+    name = "${var.docker_network}"
   }
 
   log_driver = "fluentd"
   log_opts = {
-    fluentd-address = "localhost:24224"
-    tag = "influxdb"
+    fluentd-address = "${var.fluentd_address}"
+    tag = "${local.fluentd_tag}"
   }
 
 }

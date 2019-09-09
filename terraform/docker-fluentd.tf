@@ -1,4 +1,4 @@
 variable "fluentd_address" {
   type = string
-  default = "localhost:24225"
+  default = "localhost:24224"
 }
