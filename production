@@ -1,22 +1,14 @@
 # inventory file for production servers
 
-[domain_controller_servers]
-192.168.1.110
-
-[domain_member_servers]
-192.168.1.112 
-
-[hosts_servers]
-192.168.1.120
-
-[docker_servers]
-192.168.1.112
-
-[openhabian_server]
-192.168.1.22
-
 [docker01_server]
 192.168.1.5
 
-[docker_container_1]
-192.168.1.5     ansible_become=true    ansible_become_user=root      ansible_connection=docker   ansible_host=grafana ansible_user=root
+[docker_influxdb]
+192.168.1.5     ansible_become=true    ansible_become_user=root      ansible_connection=docker   ansible_host=influxdb ansible_user=root
+
+
+
+
+
+[openhabian_server]
+192.168.1.22

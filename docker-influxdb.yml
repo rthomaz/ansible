@@ -1,21 +1,7 @@
 ---
 
-# - hosts: docker01_server
-#   gather_facts: False
-#   become: true
-#   become_user: root
-#   tasks:
-
-#     - name: adicionar conexão com o container grafana
-#       add_host:
-#         name: grafana
-#         groups: "docker_container"
-#         ansible_connection: docker
-#         ansible_user: root
-#       changed_when: false    
-
 # setup the new machine using ansible instead of docker
-- hosts: docker_container_1
+- hosts: docker_influxdb
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
