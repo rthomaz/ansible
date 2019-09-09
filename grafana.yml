@@ -10,7 +10,6 @@
         name: "grafana"
         groups: "docker_container"
         ansible_connection: docker
-        ansible_ssh_user: "root"
         ansible_become_user: "root"
         ansible_become: "yes"
         remote_addr: "grafana"
@@ -18,9 +17,7 @@
 
 
 # setup the new machine using ansible instead of docker
-- hosts: docker_container_1
-  become: true
-  become_user: root
+- hosts: docker_container
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
