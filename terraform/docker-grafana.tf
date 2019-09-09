@@ -1,9 +1,6 @@
 # create grafana container
 
-variable "grafana_admin_password1" {
-  type = string
-  default = "56789"
-}
+
 
 locals {
   fluentd_address = "localhost:24224"
