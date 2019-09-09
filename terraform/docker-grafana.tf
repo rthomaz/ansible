@@ -2,7 +2,7 @@
 
 variable "grafana_admin_password1" {
   type = string
-  default = ["56789"]
+  default = "56789"
 }
 
 locals {
