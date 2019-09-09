@@ -6,8 +6,7 @@ variable "grafana_admin_password" {
 }
 
 locals {
-  fluentd_address = "localhost:24224"
-  grafana_admin_password = "12345"
+  fluentd_tag = "grafana"
 }
 
 resource "docker_container" "grafana" {
@@ -39,8 +38,8 @@ resource "docker_container" "grafana" {
   
   log_driver = "fluentd"
   log_opts = {
-    fluentd-address = "${local.fluentd_address}"
-    tag = "grafana"
+    fluentd-address = "${var.fluentd_address}"
+    tag = "${local.fluentd_tag}"
   }
 
 }
