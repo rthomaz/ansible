@@ -10,7 +10,11 @@ resource "docker_container" "grafana" {
     "GF_SECURITY_ADMIN_PASSWORD=12345"
   ]
 
-
+  mounts {
+    target = "/var/lib/grafana"
+    source = "/rthomaz/docker-projects/volumes/grafana"
+    type = "bind"
+  }
 
   ports {
     internal = 3000
