@@ -15,6 +15,8 @@
         ansible_become: "yes"
         ansible_docker_host: "grafana"
         ansible_docker_user: "root"
+        remote_addr: "grafana"
+        remote_user: "root"
 
 
 # setup the new machine using ansible instead of docker
