@@ -1,3 +1,9 @@
+- name: adiciona o usuário root no grupo sudo
+  user:
+    name: 'root'
+    groups: sudo
+    append: yes
+
 - name: adiciona o usuário {{ sudo_user }} no grupo sudo
   user:
     name: '{{ sudo_user }}'

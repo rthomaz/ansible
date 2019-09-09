@@ -9,6 +9,7 @@
   roles:
     - apt-config
     - default-packages
+    - sudo-config
     - terraform
     - docker-ce
     - docker-environment
