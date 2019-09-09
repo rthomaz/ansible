@@ -16,7 +16,7 @@ resource "docker_container" "grafana" {
   user = "root"
 
   env = [
-    "GF_SECURITY_ADMIN_PASSWORD=${var.grafana_admin_password1}"
+    "GF_SECURITY_ADMIN_PASSWORD=${var.grafana_admin_password}"
   ]
 
   mounts {
