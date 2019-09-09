@@ -3,7 +3,7 @@ locals {
   grafana_admin_password = "12345"
   grafana_port_internal = 3000
   grafana_port_external = 3000
-  grafana_volume_source = "${docker_volumes_folder_path}/grafana"  
+  grafana_volume_source = "${var.docker_volumes_folder_path}/grafana"
   grafana_fluentd_tag = "grafana" 
 }
 
