@@ -8,7 +8,7 @@
     - name: add new docker connection
       add_host:
         name: "grafana"
-        groups: "docker-container"
+        groups: "docker_container"
         ansible_connection: docker
         ansible_ssh_user: "root"
         ansible_become_user: "root"
