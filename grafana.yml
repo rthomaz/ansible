@@ -10,6 +10,7 @@
         name: "grafana"
         groups: "docker_container"
         ansible_connection: docker
+        ansible_ssh_user: "root"
         ansible_become_user: "root"
         ansible_become: "yes"
         remote_addr: "grafana"
