@@ -6,10 +6,9 @@
   gather_facts: yes
   ansible_connection: docker
   ansible_docker_host: "grafana"
-  ansible_docker_user: "root"
   tasks:
     - ping:
-    
+
 # run an empty centos 7 container
 - hosts: docker01_server
 
