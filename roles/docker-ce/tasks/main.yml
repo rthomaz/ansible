@@ -67,8 +67,8 @@
 
 - name: definir acesso ao daemom do docker via tcp
   copy:
-    src: "override.conf"
-    dest: "/etc/systemd/system/docker.service.d/override.conf"
+    src: "startup_options.conf"
+    dest: "/etc/systemd/system/docker.service.d/startup_options.conf"
     backup: no
     owner: root
     group: root
