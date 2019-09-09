@@ -7,7 +7,7 @@ locals {
   influxdb_user_password = "openhab"
   influxdb_port_internal = 8086
   influxdb_port_external = 8086
-  influxdb_volume_source = "${docker_volumes_folder_path}/influxdb"  
+  influxdb_volume_source = "${var.docker_volumes_folder_path}/influxdb"  
   influxdb_fluentd_tag = "influxdb" 
 }
 
