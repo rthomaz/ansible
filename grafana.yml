@@ -1,7 +1,7 @@
 ---
 
 # run an empty centos 7 container
-- hosts: docker-host
+- hosts: docker01_server
 
   tasks:
 
