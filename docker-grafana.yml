@@ -1,6 +1,6 @@
 ---
 
-- hosts: docker_influxdb
+- hosts: docker_grafana
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible

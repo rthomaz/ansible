@@ -47,7 +47,7 @@ resource "docker_container" "influxdb" {
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/grafana.yml"
+    command = "ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/docker-influxdb.yml"
   }
 
 }

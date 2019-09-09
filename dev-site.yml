@@ -1,0 +1,6 @@
+# master playbook
+
+- import_playbook: dev-hosts-servers.yml
+- import_playbook: dev-domain-controller-servers.yml
+- import_playbook: dev-domain-member-servers.yml
+- import_playbook: dev-docker-servers.yml

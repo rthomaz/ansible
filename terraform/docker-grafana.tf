@@ -40,4 +40,8 @@ resource "docker_container" "grafana" {
     tag = "${local.grafana_fluentd_tag}"
   }
 
+  provisioner "local-exec" {
+    command = "ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/docker-grafana.yml"
+  }
+
 }
