@@ -12,7 +12,7 @@ provider "docker" {
 # }
 
 resource "docker_network" "private_network" {
-  name = "${var.docker_network}"
+  name = "rthomaz-network"
 }
 
 # Configure the Docker volume
