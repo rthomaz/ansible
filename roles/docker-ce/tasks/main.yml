@@ -55,7 +55,7 @@
 # configurando o docker
 
 - name: Incluir o usuário current no grupo docker
-  shell: sudo usermod -aG docker $USER
+  shell: usermod -aG docker $USER
 
 - name: criar diretório /etc/systemd/system/docker.service.d se ele não existir
   file:
