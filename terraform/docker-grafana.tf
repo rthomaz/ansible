@@ -4,7 +4,7 @@ locals {
   grafana_port_internal = 3000
   grafana_port_external = 3000
   grafana_volume_source = "${docker_volumes_folder_path}/grafana"  
-  fluentd_tag = "grafana"
+  grafana_fluentd_tag = "grafana"
 }
 
 resource "docker_container" "grafana" {
@@ -37,7 +37,7 @@ resource "docker_container" "grafana" {
   log_driver = "fluentd"
   log_opts = {
     fluentd-address = "${var.fluentd_address}"
-    tag = "${local.fluentd_tag}"
+    tag = "${local.grafana_fluentd_tag}"
   }
 
 }
