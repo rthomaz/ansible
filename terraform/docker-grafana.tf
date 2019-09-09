@@ -1,8 +1,8 @@
 # create grafana container
 
 locals {
-  address = "localhost:24226"
-  port    = 24224  
+  fluentd_address = "localhost:24224"
+  grafana_admin_password = "123456"
 }
 
 resource "docker_container" "grafana" {
@@ -14,7 +14,7 @@ resource "docker_container" "grafana" {
   user = "root"
 
   env = [
-    "GF_SECURITY_ADMIN_PASSWORD=12345"
+    "GF_SECURITY_ADMIN_PASSWORD=${local.grafana_admin_password}"
   ]
 
   mounts {
@@ -34,7 +34,7 @@ resource "docker_container" "grafana" {
   
   log_driver = "fluentd"
   log_opts = {
-    fluentd-address = local.address
+    fluentd-address = local.fluentd_address
     tag = "grafana"
   }
 
