@@ -6,7 +6,7 @@ resource "docker_container" "grafana" {
   restart = "always"
   count = 1
 
-  user = "$(id -u)"
+  user = "id -u"
 
   env = [
     "GF_SECURITY_ADMIN_PASSWORD=12345"
