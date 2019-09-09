@@ -47,7 +47,7 @@ resource "docker_container" "influxdb" {
   }
 
   provisioner "local-exec" {
-    command = "sleep 20; ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/grafana.yml"
+    command = "sleep 5; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/grafana.yml -u rodrigo"
   }
 
 }
