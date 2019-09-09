@@ -24,7 +24,13 @@
 - hosts: docker_container
   become: true
   become_user: root
-  gather_facts: no  
+  gather_facts: False
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      register: output
+      changed_when: output.stdout != ""
+  - setup: # aka gather_facts
   tasks:
     - name: atualiza todos os pacotes para a última versão
       apt:

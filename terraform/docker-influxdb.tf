@@ -49,5 +49,5 @@ resource "docker_container" "influxdb" {
 }
 
 resource "docker_image" "influxdb" {
-  name = "influxdb:latest"
+  name = "influxdb"
 }
