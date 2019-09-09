@@ -13,7 +13,7 @@ locals {
 
 resource "docker_container" "influxdb" {
   name  = "influxdb"
-  image = "influxdb"
+  image = "${docker_image.influxdb.latest}"
   restart = "always"
   count = 1
 
@@ -46,4 +46,8 @@ resource "docker_container" "influxdb" {
     tag = "${local.influxdb_fluentd_tag}"
   }
 
+}
+
+resource "docker_image" "influxdb" {
+  name = "influxdb:latest"
 }
