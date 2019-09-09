@@ -26,7 +26,11 @@ resource "docker_container" "grafana" {
   networks_advanced {
     name = "rthomaz-network"
   }
-
   
+  log_driver = "fluentd"
+  log_opts = {
+    fluentd-address = "localhost:24224"
+    tag = "grafana"
+  }
 
 }
