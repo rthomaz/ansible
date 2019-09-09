@@ -26,12 +26,8 @@
   become_user: root
   gather_facts: no  
   tasks:
-
-    - ping:
-
-    - name: install vi
-      yum:
-        name: vi
-        state: present
-
-
+    - name: atualiza todos os pacotes para a última versão
+      apt:
+        update_cache: yes
+        upgrade: full
+        force_apt_get: yes
