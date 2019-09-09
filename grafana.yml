@@ -14,8 +14,6 @@
         ansible_ssh_user: "root"
         ansible_become_user: "root"
         ansible_become: "yes"
-        ansible_docker_host: "grafana"
-        ansible_docker_user: "root"
         remote_addr: "grafana"
         remote_user: "root"
 
