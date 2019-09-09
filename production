@@ -18,5 +18,5 @@
 [docker01_server]
 192.168.1.5
 
-[docker_container_1]
-192.168.1.5     ansible_connection=docker   ansible_ssh_user=root   ansible_become_user=root    ansible_become=yes  remote_addr=grafana     remote_user=root
+#[docker_container_1]
+#192.168.1.5     ansible_connection=docker   ansible_ssh_user=root   ansible_become_user=root    ansible_become=yes  remote_addr=grafana     remote_user=root
