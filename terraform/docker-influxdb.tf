@@ -8,7 +8,7 @@ locals {
   influxdb_port_internal = 8086
   influxdb_port_external = 8086
   influxdb_volume_source = "${docker_volumes_folder_path}/influxdb"  
-  influxdb_fluentd_tag = "influxdb"
+  influxdb_fluentd_tag = "influxdb" 
 }
 
 resource "docker_container" "influxdb" {

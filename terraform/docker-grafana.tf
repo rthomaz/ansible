@@ -4,7 +4,7 @@ locals {
   grafana_port_internal = 3000
   grafana_port_external = 3000
   grafana_volume_source = "${docker_volumes_folder_path}/grafana"  
-  grafana_fluentd_tag = "grafana"
+  grafana_fluentd_tag = "grafana" 
 }
 
 resource "docker_container" "grafana" {
