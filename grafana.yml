@@ -16,18 +16,18 @@
         remote_addr: "grafana"
         remote_user: "root"
 
-  - name: adicionar conexão com o container grafana
+    - name: adicionar conexão com o container grafana
       add_host:
         name: grafana
         ansible_connection: docker
         ansible_user: root
       changed_when: false
 
-  - name: create directory for ssh keys
-    delegate_to: grafana
-    file:
-      path: "/teste"
-      state: directory
+    - name: create directory for ssh keys
+      delegate_to: grafana
+      file:
+        path: "/teste"
+        state: directory
 
 # setup the new machine using ansible instead of docker
 - hosts: docker_container
