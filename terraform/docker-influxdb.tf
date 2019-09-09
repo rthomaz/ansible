@@ -37,7 +37,7 @@ resource "docker_container" "influxdb" {
   }
 
   networks_advanced {
-    name = "${var.docker_network}"
+    name = "${docker_network.private_network.name}"
   }
 
   # log_driver = "fluentd"
