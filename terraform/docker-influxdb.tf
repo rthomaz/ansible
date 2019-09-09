@@ -13,7 +13,7 @@ locals {
 
 resource "docker_container" "influxdb" {
   name  = "influxdb"
-  image = "${docker_image.influxdb.latest}"
+  image = "influxdb"
   restart = "always"
   count = 1
 
@@ -40,18 +40,14 @@ resource "docker_container" "influxdb" {
     name = "${var.docker_network}"
   }
 
-  log_driver = "fluentd"
-  log_opts = {
-    fluentd-address = "${var.fluentd_address}"
-    tag = "${local.influxdb_fluentd_tag}"
-  }
+  # log_driver = "fluentd"
+  # log_opts = {
+  #   fluentd-address = "${var.fluentd_address}"
+  #   tag = "${local.influxdb_fluentd_tag}"
+  # }
 
-  provisioner "local-exec" {
-    command = "ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/docker-influxdb.yml"
-  }
+  # provisioner "local-exec" {
+  #   command = "ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/docker-influxdb.yml"
+  # }
 
-}
-
-resource "docker_image" "influxdb" {
-  name = "influxdb"
 }
