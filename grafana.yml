@@ -18,7 +18,7 @@
 
 
 # setup the new machine using ansible instead of docker
-- hosts: docker_container
+- hosts: docker_container_1
   gather_facts: False
   pre_tasks:
     - name: Install python for Ansible
