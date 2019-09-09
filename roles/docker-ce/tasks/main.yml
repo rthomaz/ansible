@@ -54,9 +54,9 @@
 
 # configurando o docker
 
-- name: Incluir o usuário $USER no grupo docker
+- name: Incluir o usuário root no grupo docker
   user:
-    name: $USER
+    name: root
     groups: docker
     append: yes
   register: docker_add_user_in_group    
