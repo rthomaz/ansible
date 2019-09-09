@@ -5,20 +5,21 @@
   become_user: root
   tasks:
 
-    - name: add new docker connection
-      add_host:
-        name: "grafana1"
-        groups: "docker_container"
-        ansible_connection: docker
-        ansible_ssh_user: "root"
-        ansible_become_user: "root"
-        ansible_become: "yes"
-        remote_addr: "grafana"
-        remote_user: "root"
+    # - name: add new docker connection
+    #   add_host:
+    #     name: "grafana1"
+    #     groups: "docker_container1"
+    #     ansible_connection: docker
+    #     ansible_ssh_user: "root"
+    #     ansible_become_user: "root"
+    #     ansible_become: "yes"
+    #     remote_addr: "grafana"
+    #     remote_user: "root"
 
     - name: adicionar conexão com o container grafana
       add_host:
         name: grafana
+        groups: "docker_container"
         ansible_connection: docker
         ansible_user: root
       changed_when: false    
