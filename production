@@ -19,4 +19,4 @@
 192.168.1.5
 
 [docker_container_1]
-192.168.1.5     ansible_become=true    ansible_become_user=root      ansible_connection=docker   ansible_user=root
+192.168.1.5     ansible_become=true    ansible_become_user=root      ansible_connection=docker   ansible_host=grafana ansible_user=root
