@@ -1,5 +1,10 @@
 # create grafana container
 
+locals {
+  address = "localhost:24224"
+  port    = 24224  
+}
+
 resource "docker_container" "grafana" {
   name  = "grafana"
   image = "grafana/grafana"
@@ -29,7 +34,7 @@ resource "docker_container" "grafana" {
   
   log_driver = "fluentd"
   log_opts = {
-    fluentd-address = "localhost:24224"
+    fluentd-address = local.address
     tag = "grafana"
   }
 
