@@ -54,8 +54,20 @@
 
 # configurando o docker
 
-- name: Incluir o usuário current no grupo docker
-  shell: usermod -aG docker $USER
+- name: Incluir o usuário $USER no grupo docker
+  user:
+    name: $USER
+    groups: docker
+    append: yes
+  register: docker_add_user_in_group    
+
+# - name: Incluir o usuário current no grupo docker
+#   shell: usermod -aG docker $USER
+#   register: docker_add_user_in_group    
+
+- name: reiniciar servidor
+  reboot:
+  when: docker_add_user_in_group.changed
 
 - name: criar diretório /etc/systemd/system/docker.service.d se ele não existir
   file:
