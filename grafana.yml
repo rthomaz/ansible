@@ -20,6 +20,8 @@
   gather_facts: no  
   tasks:
 
+    - ping:
+    
     - name: install vi
       yum:
         name: vi
