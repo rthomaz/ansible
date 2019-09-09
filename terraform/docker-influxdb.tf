@@ -1,6 +1,6 @@
 
 locals {  
-  influxdb_db = "${influxdb_db_teste}"
+  influxdb_db = "${var.influxdb_db_teste}"
   influxdb_admin_user = "openhab"
   influxdb_admin_password = "openhab"
   influxdb_user = "openhab"
