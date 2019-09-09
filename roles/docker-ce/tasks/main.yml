@@ -52,22 +52,7 @@
 - name: rodando o comando pip3 install docker
   shell: pip3 install docker
 
-# configurando o docker
-
-- name: Incluir o usuário root no grupo docker
-  user:
-    name: root
-    groups: docker
-    append: yes
-  register: docker_add_user_in_group    
-
-# - name: Incluir o usuário current no grupo docker
-#   shell: usermod -aG docker $USER
-#   register: docker_add_user_in_group    
-
-- name: reiniciar servidor
-  reboot:
-  when: docker_add_user_in_group.changed
+# configurando o daemon tcp do docker
 
 - name: criar diretório /etc/systemd/system/docker.service.d se ele não existir
   file:
@@ -93,3 +78,16 @@
     state: restarted
     name: docker    
   when: docker_service.changed
+
+# configurando o usuário root no docker
+
+- name: Incluir o usuário root no grupo docker
+  user:
+    name: root
+    groups: docker
+    append: yes
+  register: docker_add_user_in_group    
+
+- name: reiniciar servidor
+  reboot:
+  when: docker_add_user_in_group.changed  
