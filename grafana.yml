@@ -1,6 +1,5 @@
 ---
 
-# run an empty centos 7 container
 - hosts: docker01_server
   become: true
   become_user: root
