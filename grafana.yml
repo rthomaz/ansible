@@ -1,20 +1,10 @@
 ---
 
 - hosts: docker01_server
+  gather_facts: False
   become: true
   become_user: root
   tasks:
-
-    # - name: add new docker connection
-    #   add_host:
-    #     name: "grafana1"
-    #     groups: "docker_container1"
-    #     ansible_connection: docker
-    #     ansible_ssh_user: "root"
-    #     ansible_become_user: "root"
-    #     ansible_become: "yes"
-    #     remote_addr: "grafana"
-    #     remote_user: "root"
 
     - name: adicionar conexão com o container grafana
       add_host:
@@ -39,8 +29,3 @@
         update_cache: yes
         upgrade: full
         force_apt_get: yes
-    - name: create directory for ssh keys
-      delegate_to: grafana
-      file:
-        path: "/teste"
-        state: directory
