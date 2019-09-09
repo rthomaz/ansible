@@ -22,7 +22,7 @@
 
 # setup the new machine using ansible instead of docker
 - hosts: docker_container
-become: true
+  become: true
   become_user: root
   gather_facts: no  
   tasks:
