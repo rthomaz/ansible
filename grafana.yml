@@ -2,7 +2,8 @@
 
 # run an empty centos 7 container
 - hosts: docker01_server
-
+  become: true
+  become_user: root
   tasks:
 
     - name: add new docker connection
@@ -21,6 +22,8 @@
 
 # setup the new machine using ansible instead of docker
 - hosts: docker_container
+become: true
+  become_user: root
   gather_facts: no  
   tasks:
 
