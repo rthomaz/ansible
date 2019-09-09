@@ -46,6 +46,10 @@ resource "docker_container" "influxdb" {
     tag = "${local.influxdb_fluentd_tag}"
   }
 
+  provisioner "local-exec" {
+    command = "sleep 120; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i /rthomaz/ansible-codes/production /rthomaz/ansible-codes/grafana.yml"
+  }
+
 }
 
 resource "docker_image" "influxdb" {
