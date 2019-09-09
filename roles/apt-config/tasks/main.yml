@@ -14,7 +14,7 @@
     force_apt_get: yes
   when: atualiza_sources_list.changed
 
-- name: instala gestor de pacotes aptitude
-  apt:
-    name: "aptitude"
-    force_apt_get: yes
+# - name: instala gestor de pacotes aptitude
+#   apt:
+#     name: "aptitude"
+#     force_apt_get: yes
