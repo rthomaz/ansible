@@ -1,0 +1,25 @@
+---
+
+# run an empty centos 7 container
+- hosts: docker-host
+
+  tasks:
+
+    - name: add new docker connection
+      add_host:
+        name: "grafana"
+        groups: "docker-container"
+        ansible_connection: docker
+        ansible_ssh_user: "root"
+        ansible_become_user: "root"
+        ansible_become: "yes"
+
+
+# setup the new machine using ansible instead of docker
+- hosts: docker-container
+  tasks:
+
+    - name: install vi
+      yum:
+        name: vi
+        state: present
