@@ -1,14 +1,5 @@
 ---
 
-- hosts: docker01_server
-  become: true
-  become_user: root
-  gather_facts: yes
-  ansible_connection: docker
-  ansible_docker_host: "grafana"
-  tasks:
-    - ping:
-
 # run an empty centos 7 container
 - hosts: docker01_server
 
@@ -22,6 +13,8 @@
         ansible_ssh_user: "root"
         ansible_become_user: "root"
         ansible_become: "yes"
+        ansible_docker_host: "grafana"
+        ansible_docker_user: "root"
 
 
 # setup the new machine using ansible instead of docker
