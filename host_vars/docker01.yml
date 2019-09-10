@@ -19,6 +19,7 @@ docker_folder_volumes_path: '{{docker_work_path}}/volumes'
 docker_folder_volumes_containers_path: 
   - '{{docker_folder_volumes_path}}/influxdb'
   - '{{docker_folder_volumes_path}}/grafana'
+  - '{{docker_folder_volumes_path}}/jenkins'
 
 docker_network: rthomaz-network
 
