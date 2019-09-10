@@ -10,6 +10,10 @@ resource "docker_container" "jenkins" {
   restart = "always"
   count = 1
 
+  env = [
+    "PLUGINS_FORCE_UPGRADE=true", 
+    "TRY_UPGRADE_IF_NO_MARKER=true"
+  ]
 #    mounts {   
 #      target = "/var/jenkins_home"
 #      source = "${local.jenkins_volume_source}"
