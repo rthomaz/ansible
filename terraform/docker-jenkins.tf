@@ -10,12 +10,12 @@ resource "docker_container" "jenkins" {
   restart = "always"
   count = 1
 
-#    mounts {
+#    mounts {   
 #      target = "/var/jenkins_home"
 #      source = "${local.jenkins_volume_source}"
 #      type = "bind"
 #    }
-
+ 
     ports {
         internal = "8080"
         external = "8080"
