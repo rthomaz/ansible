@@ -24,7 +24,7 @@ resource "docker_container" "jenkins" {
         internal = "50000"
         external = "50000"
     }
-    
+     
 
   networks_advanced {
     name = "${docker_network.private_network.name}"
