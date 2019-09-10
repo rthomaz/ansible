@@ -9,7 +9,7 @@ resource "docker_container" "jenkins" {
   image = "rthomaz/jenkins:0.0.16"
   restart = "always"
   count = 1
-
+ 
   env = [
     "PLUGINS_FORCE_UPGRADE=true", 
     "TRY_UPGRADE_IF_NO_MARKER=true"
