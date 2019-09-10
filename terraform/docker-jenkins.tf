@@ -10,14 +10,6 @@ resource "docker_container" "jenkins" {
   restart = "always"
   count = 1
 
-#   env = [
-#     "INFLUXDB_DB=${local.influxdb_db}", 
-#     "INFLUXDB_ADMIN_USER=${local.influxdb_admin_user}", 
-#     "INFLUXDB_ADMIN_PASSWORD=${local.influxdb_admin_password}", 
-#     "INFLUXDB_USER=${local.influxdb_user}", 
-#     "INFLUXDB_USER_PASSWORD=${local.influxdb_user_password}"
-#   ]
-
    mounts {
      target = "/var/jenkins_home"
      source = "${local.jenkins_volume_source}"
