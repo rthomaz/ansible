@@ -1,2 +1,2 @@
 github:1.29.4
-pipeline
+pipeline:2.6.3
