@@ -6,7 +6,7 @@ locals {
 
 resource "docker_container" "jenkins" {
   name  = "jenkins"
-  image = "jenkins/jenkins:lts"
+  image = "rthomaz/jenkins:latest"
   restart = "always"
   count = 1
 
