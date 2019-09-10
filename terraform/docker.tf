@@ -6,11 +6,6 @@ provider "docker" {
 
 # Configure the Docker network
 
-# variable "docker_network" {
-#   type = string
-#   default = "rthomaz-network"
-# }
-
 resource "docker_network" "private_network" {
   name = "rthomaz-network"
 }
