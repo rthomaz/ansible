@@ -1,2 +1,2 @@
-github:1.29.4
+github-branch-source:2.5.6
 workflow-aggregator:2.6
