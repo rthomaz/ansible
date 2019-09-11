@@ -1,9 +1,9 @@
 
 locals {  
-  grafana_port_internal = 8081
-  grafana_port_external = 8081
-  grafana_volume_source = "${var.docker_volumes_folder_path}/nexus"
-  grafana_fluentd_tag = "nexus" 
+  nexus_port_internal = 8081
+  nexus_port_external = 8081
+  nexus_volume_source = "${var.docker_volumes_folder_path}/nexus"
+  nexus_fluentd_tag = "nexus" 
 }
 
 resource "docker_container" "nexus" {
