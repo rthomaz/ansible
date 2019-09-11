@@ -1,2 +1,4 @@
 workflow-aggregator:2.6
 tfs:5.157.0
+terraform:1.0.9
+ansible:1.0
