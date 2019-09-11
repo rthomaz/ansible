@@ -23,7 +23,7 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 # ansible
 
 RUN echo "===> Preparing Ansible installation..."                                           && \
-    apt update                                                                              && \
+    apt-get update                                                                              && \
     \                               
     \                               
     echo "Installing dependencies..."                                                       && \
