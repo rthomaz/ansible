@@ -1,8 +1,6 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <hudson>
-  <disabledAdministrativeMonitors>
-    <string>jenkins.security.csrf.CSRFAdministrativeMonitor</string>
-  </disabledAdministrativeMonitors>
+  <disabledAdministrativeMonitors/>
   <version>2.176.3</version>
   <installStateName>RESTART</installStateName>
   <numExecutors>5</numExecutors>
