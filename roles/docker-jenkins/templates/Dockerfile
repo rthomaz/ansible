@@ -4,6 +4,9 @@ LABEL maintainer="rodrigothomaz@msn.com"
 
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 
+COPY users/users.xml /usr/share/jenkins/ref/users/users.xml
+COPY users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
+
 COPY jobs/docker-image-influxdb-job-config.xml /usr/share/jenkins/ref/jobs/docker-image-influxdb-job/config.xml
 COPY jobs/docker-image-grafana-job-config.xml /usr/share/jenkins/ref/jobs/docker-image-grafana-job/config.xml
 
