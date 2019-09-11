@@ -1,6 +1,6 @@
 ---
 
-- name: cria o diretório {{docker_work_path}} se ele não existir
+- name: criar o diretório {{docker_work_path}} se ele não existir
   file:
     path: '{{docker_work_path}}'
     state: directory
@@ -8,7 +8,7 @@
     group: root
     mode: +rwx    
     
-- name: cria o diretório {{docker_folder_images_path}} se ele não existir
+- name: criar o diretório {{docker_folder_images_path}} se ele não existir
   file:
     path: '{{docker_folder_images_path}}'
     state: directory
@@ -16,7 +16,7 @@
     group: root
     mode: +rwx
 
-- name: cria o diretório {{docker_folder_volumes_path}} se ele não existir
+- name: criar o diretório {{docker_folder_volumes_path}} se ele não existir
   file:
     path: '{{docker_folder_volumes_path}}'
     state: directory
@@ -24,7 +24,7 @@
     group: root
     mode: +rwx
 
-- name: cria os diretórios dos containers se eles não existirem
+- name: criar os diretórios dos containers se eles não existirem
   file:
     path: '{{ item }}'
     state: directory
@@ -33,7 +33,7 @@
     mode: +rwx   
   loop: '{{ docker_folder_volumes_containers_path }}' 
 
-- name: cria a network rthomaz-network
+- name: criar a network rthomaz-network
   docker_network:
     name: rthomaz-network
     internal: false
