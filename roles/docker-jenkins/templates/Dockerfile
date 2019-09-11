@@ -22,12 +22,14 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 
 # ansible
 
+USER root
+
 RUN echo "===> Preparing Ansible installation..."                                           && \
-    apt-get update                                                                              && \
+    apt-get update                                                                          && \
     \                               
     \                               
     echo "Installing dependencies..."                                                       && \
-    apt install dirmngr                                                                     && \
+    apt-get install dirmngr                                                                 && \
     \                               
     \                               
     echo "Configuring apt source list..."                                                   && \
@@ -39,9 +41,11 @@ RUN echo "===> Preparing Ansible installation..."                               
     \           
     \           
     echo "Updating apt..."                                                                  && \
-    apt update                                                                              && \
-    apt upgrade                                                                             && \
+    apt-get update                                                                          && \
+    apt-get upgrade                                                                         && \
     \                               
     \                               
     echo "Installing Ansible..."                                                            && \
-    apt install ansible 
+    apt-get install ansible 
+
+USER jenkins    
