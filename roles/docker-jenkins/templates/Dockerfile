@@ -24,28 +24,23 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 
 USER root
 
-RUN echo "===> Preparing Ansible installation..."                                                   && \
-    apt-get update                                                                                  && \
-    \                                       
-    \                                       
-    echo "Installing dependencies..."                                                               && \
-    apt-get install -y dirmngr                                                                         && \
-    \                                       
-    \                                       
-    echo "Configuring apt source list..."                                                           && \
-    echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list && \
-    \                    
-    \                    
-    echo "Inserting key in apt for Ansible..."                                                      && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       && \
-    \                   
-    \                   
-    echo "Updating apt..."                                                                          && \
-    apt-get update                                                                                  && \
-    apt-get upgrade -y                                                                                && \
-    \                                       
-    \                                       
-    echo "Installing Ansible..."                                                                    && \
-    apt-get install -y ansible 
+RUN echo "===> Preparing Ansible installation..."                                                   
+RUN apt-get update                                                                                  
+
+RUN echo "Installing dependencies..."                                                               
+RUN apt-get install -y dirmngr                                                                      
+
+RUN echo "Configuring apt source list..."                                                           
+RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
+
+RUN echo "Inserting key in apt for Ansible..."                                                      
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
+
+RUN echo "Updating apt..."                                                                          
+RUN apt-get update                                                                                  
+RUN apt-get upgrade -y                                                                              
+
+RUN echo "Installing Ansible..."                                                                    
+RUN apt-get install -y ansible 
 
 USER jenkins    
