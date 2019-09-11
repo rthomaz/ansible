@@ -2,6 +2,8 @@ FROM jenkins/jenkins:lts
 
 LABEL maintainer="rodrigothomaz@msn.com"
 
+# jenkins
+
 COPY jenkins_home/config.xml /usr/share/jenkins/ref/config.xml
 COPY jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenkins/ref/jenkins.model.JenkinsLocationConfiguration.xml
 
@@ -17,3 +19,29 @@ COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
  RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
 
 RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
+
+# ansible
+
+RUN echo "===> Preparing Ansible installation..."                                           && \
+    apt update                                                                              && \
+    \                               
+    \                               
+    echo "Installing dependencies..."                                                       && \
+    apt install dirmngr                                                                     && \
+    \                               
+    \                               
+    echo "Configuring apt source list..."                                                   && \
+    add-apt-repository "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main"    && \
+    \                    
+    \                    
+    echo "Inserting key in apt for Ansible..."                                              && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367               && \
+    \           
+    \           
+    echo "Updating apt..."                                                                  && \
+    apt update                                                                              && \
+    apt upgrade                                                                             && \
+    \                               
+    \                               
+    echo "Installing Ansible..."                                                            && \
+    apt install ansible 
