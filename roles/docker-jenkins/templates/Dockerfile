@@ -3,6 +3,7 @@ FROM jenkins/jenkins:lts
 LABEL maintainer="rodrigothomaz@msn.com"
 
 COPY jenkins_home/config.xml /usr/share/jenkins/ref/config.xml
+COPY jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenkins/ref/jenkins.model.JenkinsLocationConfiguration.xml
 
 COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 
