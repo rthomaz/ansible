@@ -13,7 +13,7 @@ resource "docker_container" "nexus" {
   count = 1
 
   mounts {
-    target = "/nexus-data sonatype/nexus3"
+    target = "/nexus-data"
     source = "${local.nexus_volume_source}"
     type = "bind"
   }
