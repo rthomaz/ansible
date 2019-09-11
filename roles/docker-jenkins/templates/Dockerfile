@@ -28,7 +28,7 @@ RUN echo "===> Preparing Ansible installation..."
 RUN apt-get update && apt-get upgrade -y
 
 RUN echo "Installing dependencies..."  
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils                                                             
+# RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils                                                             
 RUN apt-get install -y dirmngr                                                                     
 
 RUN echo "Configuring apt source list..."                                                           
