@@ -28,7 +28,7 @@ RUN echo "===> Preparing Ansible installation..."
 RUN apt-get update                                                                                  
 
 RUN echo "Installing dependencies..."                                                               
-RUN apt-get install -y dirmngr                                                                      
+RUN apt-get install -y apt-utils dirmngr                                                                     
 
 RUN echo "Configuring apt source list..."                                                           
 RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
