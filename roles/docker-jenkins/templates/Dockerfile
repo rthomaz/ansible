@@ -25,7 +25,7 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 USER root
 
 RUN echo "===> Preparing Ansible installation..."                                                   
-RUN apt-get update                                                                                  
+RUN apt-get update && apt-get upgrade -y
 
 RUN echo "Installing dependencies..."  
 RUN apt-get install -y --no-install-recommends apt-utils                                                             
@@ -38,8 +38,7 @@ RUN echo "Inserting key in apt for Ansible..."
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
 
 RUN echo "Updating apt..."                                                                          
-RUN apt-get update                                                                                  
-RUN apt-get upgrade -y                                                                              
+RUN apt-get update && apt-get upgrade -y
 
 RUN echo "Installing Ansible..."                                                                    
 RUN apt-get install -y ansible 
