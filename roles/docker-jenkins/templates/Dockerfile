@@ -21,6 +21,8 @@ COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
 
 
+USER root
+
 # Install Dependencies
 RUN  echo "===> Installing Dependencies..." \
  && apt-get update \   
@@ -51,7 +53,7 @@ RUN  echo "===> Installing Ansible..." \
  && mkdir -p /etc/ansible                       \
  && echo 'localhost' > /etc/ansible/hosts
 
-
+USER jenkins    
 
 
 
