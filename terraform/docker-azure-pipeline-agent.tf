@@ -16,7 +16,7 @@ resource "docker_container" "azure_pipeline_agent" {
   count = 1
 
   env = [
-    "--sslskipcertvalidation",
+    "sslskipcertvalidation",
     "VSTS_ACCOUNT=${local.azure_pipeline_agent_account}", 
     "VSTS_TOKEN=${local.azure_pipeline_agent_token}", 
     "VSTS_AGENT=${local.azure_pipeline_agent_name}", 
