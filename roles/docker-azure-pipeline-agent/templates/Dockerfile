@@ -1,41 +1,47 @@
-FROM ubuntu:16.04
+#Este from é do site https://cloudblogs.microsoft.com/opensource/2018/05/22/how-to-create-vsts-agent-azure-aci-terraform/
+#FROM microsoft/vsts-agent:latest
 
-LABEL maintainer="rodrigothomaz@msn.com"
+#Este from é do site da microsoft
+FROM mcr.microsoft.com/azure-pipelines/vsts-agent:ubuntu-16.04
 
-# dockeragent
+# Build-time metadata as defined at http://label-schema.org
 
-# referência: 
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops
+LABEL org.label-schema.name="VSTS Agent with Infrastrucure Tools" \
+    org.label-schema.url="https://github.com/lenisha/" \
+    org.label-schema.vcs-url="https://github.com/lenisha/vsts-agent-infrastructure" \
+    org.label-schema.schema-version="1.0"
+                
+ENV TERRAFORM_VERSION 0.11.10
+ENV PACKER_VERSION 1.3.2
+ENV ANSIBLE_VERSION 2.0.0.2
 
+# Install Packer
+RUN echo "===> Installing Packer ${PACKER_VERSION} ..." \
+ && wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip \
+ && unzip packer_${PACKER_VERSION}_linux_amd64.zip  \
+ && mv packer /usr/local/bin/packer \
+ && rm packer_${PACKER_VERSION}_linux_amd64.zip 
 
-# To make it easier for build and release pipelines to run apt-get,
-# configure apt to not require confirmation (assume the -y argument by default)
-ENV DEBIAN_FRONTEND=noninteractive
-RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
+# Install Terraform
+RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
+ && wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ &&	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ && mv terraform /usr/local/bin/terraform \
+ && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
+	
+# Install Ansible
+RUN  echo "===> Installing Ansible..." \
+ && apt-get update \   
+ && apt-get install -y --no-install-recommends \
+    ansible \      
+ && rm -rf /var/lib/apt/lists/*      \ 
+ && echo "===> Adding hosts for convenience..." \
+ && mkdir -p /etc/ansible                       \
+ && echo 'localhost' > /etc/ansible/hosts
 
-RUN apt-get update \
-&& apt-get install -y --no-install-recommends \
-        ca-certificates \
-        curl \
-        jq \
-        git \
-        iputils-ping \
-        libcurl3 \
-        libicu55 \
-        libunwind8 \
-        netcat
-
-WORKDIR /azp
-
-COPY ./start.sh .
-RUN chmod +x start.sh
-
-# mono
+# Install Mono
 
 RUN apt-get update \
   && apt-get install -y binutils curl mono-devel ca-certificates-mono fsharp mono-vbnc nuget tzdata \
-  && rm -rf /var/lib/apt/lists/* /tmp/*
-
-CMD ["./start.sh"]
-
+  && rm -rf /var/lib/apt/lists/* /tmp/* 
 
