@@ -25,24 +25,24 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 
 # ansible
 
-USER root
+# USER root
 
-RUN echo "===> Preparing Ansible installation..."                                                   
-RUN apt-get update && apt-get upgrade -y
+# RUN echo "===> Preparing Ansible installation..."                                                   
+# RUN apt-get update && apt-get upgrade -y
 
-RUN echo "Installing dependencies..."  
-RUN apt-get install -y dirmngr                                                                     
+# RUN echo "Installing dependencies..."  
+# RUN apt-get install -y dirmngr                                                                     
 
-RUN echo "Configuring apt source list..."                                                           
-RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
+# RUN echo "Configuring apt source list..."                                                           
+# RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
 
-RUN echo "Inserting key in apt for Ansible..."                                                      
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
+# RUN echo "Inserting key in apt for Ansible..."                                                      
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
 
-RUN echo "Updating apt..."                                                                          
-RUN apt-get update && apt-get upgrade -y
+# RUN echo "Updating apt..."                                                                          
+# RUN apt-get update && apt-get upgrade -y
 
-RUN echo "Installing Ansible..."                                                                    
-RUN apt-get install -y ansible 
+# RUN echo "Installing Ansible..."                                                                    
+# RUN apt-get install -y ansible 
 
-USER jenkins    
+# USER jenkins    
