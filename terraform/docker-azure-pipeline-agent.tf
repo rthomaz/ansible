@@ -11,8 +11,8 @@ locals {
 
 resource "docker_container" "azure_pipeline_agent" {
   name  = "azure_pipeline_agent"
-  image = "rthomaz/docker-azure-pipeline-agent:0.1"
-# image = "rthomaz/docker-azure-pipeline-agent-custom:0.1"
+  image = "rthomaz/docker-azure-pipeline-agent:0.0.1"
+# image = "rthomaz/docker-azure-pipeline-agent-custom:0.0.1"
   restart = "always"
   count = 1
 
