@@ -13,7 +13,7 @@ COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
 
 COPY jenkins_home/jobs/docker-image-influxdb/docker-image-influxdb-job-config.xml /usr/share/jenkins/ref/jobs/docker-image-influxdb-job/config.xml
-COPY jenkins_home/jobs/docker-image-influxdb/Jenkinsfile /usr/share/jenkins/ref/jobs/docker-image-influxdb-job/workspace@script/Jenkinsfile
+#COPY jenkins_home/jobs/docker-image-influxdb/Jenkinsfile /usr/share/jenkins/ref/jobs/docker-image-influxdb-job/workspace@script/Jenkinsfile
 
 COPY jenkins_home/jobs/docker-image-grafana/docker-image-grafana-job-config.xml /usr/share/jenkins/ref/jobs/docker-image-grafana-job/config.xml
 COPY jenkins_home/jobs/docker-image-grafana/Jenkinsfile /usr/share/jenkins/ref/jobs/docker-image-grafana-job/workspace@script/Jenkinsfile
