@@ -1,6 +1,6 @@
 
 locals {  
-  azure_pipeline_agent_account = "rodrigothomaz@msn.com"
+  azure_pipeline_agent_account = "rthomaz"
   azure_pipeline_agent_token = "7yiyoxrttnmme5tccxm36xbzylleqagj7vef5xkvngh7vfhplo3q"
   azure_pipeline_agent_name = "$(hostname)-agent"
   azure_pipeline_agent_pool = "RThomaz"
@@ -16,7 +16,6 @@ resource "docker_container" "azure_pipeline_agent" {
   count = 1
 
   env = [
-    "VSTS_SSLSKIPCERTVALIDATION=true",
     "VSTS_ACCOUNT=${local.azure_pipeline_agent_account}", 
     "VSTS_TOKEN=${local.azure_pipeline_agent_token}", 
     "VSTS_AGENT=${local.azure_pipeline_agent_name}", 
