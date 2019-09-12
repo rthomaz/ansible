@@ -12,11 +12,11 @@ COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.gro
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
 
-COPY jenkins_home/jobs/docker-image-influxdb-job-build-config.xml /usr/share/jenkins/ref/jobs/docker-image-influxdb-job-build/config.xml
-COPY jenkins_home/jobs/docker-image-influxdb-job-release-config.xml /usr/share/jenkins/ref/jobs/docker-image-influxdb-job-release/config.xml
+COPY jenkins_home/jobs/docker-influxdb-job-ci-config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-job-ci/config.xml
+COPY jenkins_home/jobs/docker-influxdb-job-cd-config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-job-cd/config.xml
 
-COPY jenkins_home/jobs/docker-image-grafana-job-build-config.xml /usr/share/jenkins/ref/jobs/docker-image-grafana-job-build/config.xml
-COPY jenkins_home/jobs/docker-image-grafana-job-release-config.xml /usr/share/jenkins/ref/jobs/docker-image-grafana-job-release/config.xml
+COPY jenkins_home/jobs/docker-grafana-job-ci-config.xml /usr/share/jenkins/ref/jobs/docker-grafana-job-ci/config.xml
+COPY jenkins_home/jobs/docker-grafana-job-cd-config.xml /usr/share/jenkins/ref/jobs/docker-grafana-job-cd/config.xml
 
 COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
  RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
