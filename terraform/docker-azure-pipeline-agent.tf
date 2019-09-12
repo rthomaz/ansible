@@ -2,7 +2,7 @@
 locals {  
   azure_pipeline_agent_account = "rthomaz"
   azure_pipeline_agent_token = "7yiyoxrttnmme5tccxm36xbzylleqagj7vef5xkvngh7vfhplo3q"
-  azure_pipeline_agent_name = "$(hostname)-agent"
+  azure_pipeline_agent_name = "docker-azure-pipeline-agent"
   azure_pipeline_agent_pool = "RThomaz"
   azure_pipeline_agent_work = "/var/vsts/$VSTS_AGENT"
   azure_pipeline_agent_volume_source = "${var.docker_volumes_folder_path}/azure_pipeline_agent"  
