@@ -11,7 +11,7 @@ locals {
 
 resource "docker_container" "azure_pipeline_agent" {
   name  = "azure_pipeline_agent"
-  image = "rthomaz/docker-azure-pipeline-agent:0.0.1"
+  image = "mcr.microsoft.com/azure-pipelines/vsts-agent:ubuntu-16.04"
   restart = "always"
   count = 1
 
