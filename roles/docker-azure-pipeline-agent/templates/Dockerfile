@@ -15,6 +15,12 @@ ENV TERRAFORM_VERSION 0.11.10
 ENV PACKER_VERSION 1.3.2
 ENV ANSIBLE_VERSION 2.0.0.2
 
+# Install Dependencies
+RUN  echo "===> Installing Dependencies..." \
+ && apt-get update \   
+ && apt-get install -y \
+    wget
+
 # Install Packer
 RUN echo "===> Installing Packer ${PACKER_VERSION} ..." \
  && wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip \
