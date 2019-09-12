@@ -1,7 +1,0 @@
----
-
-
-# docker build -t rthomaz/docker-azure-pipeline-agent:0.0.1 .
-# docker build -t rthomaz/docker-azure-pipeline-agent:latest .
-
-# docker push rthomaz/docker-azure-pipeline-agent
