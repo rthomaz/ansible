@@ -20,8 +20,13 @@ COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
 
 RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
 
+# plugins
 
 USER root
+
+ENV TERRAFORM_VERSION 0.11.10
+ENV PACKER_VERSION 1.3.2
+ENV ANSIBLE_VERSION 2.0.0.2
 
 # Install Dependencies
 RUN  echo "===> Installing Dependencies..." \
