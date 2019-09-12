@@ -19,7 +19,7 @@ ENV ANSIBLE_VERSION 2.0.0.2
 RUN  echo "===> Installing Dependencies..." \
  && apt-get update \   
  && apt-get install -y \
-    wget
+    wget unzip
 
 # Install Packer
 RUN echo "===> Installing Packer ${PACKER_VERSION} ..." \
