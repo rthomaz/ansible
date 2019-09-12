@@ -1,7 +1,7 @@
 # Configure the Docker provider
 
 provider "docker" {
-  host = "tcp://127.0.0.1:2375/"
+  host = "tcp://192.168.1.5:2375/"
 }
 
 # Configure the Docker network
