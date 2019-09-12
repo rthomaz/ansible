@@ -9,8 +9,8 @@ locals {
   azure_pipeline_agent_fluentd_tag = "azure-pipeline-agent" 
 }
 
-resource "docker_container" "azure_pipeline_agent" {
-  name  = "azure_pipeline_agent"
+resource "docker_container" "azure_pipeline_agent_custom" {
+  name  = "azure_pipeline_agent_custom"
   image = "rthomaz/docker-azure-pipeline-agent-custom:0.0.1"
   restart = "always"
   count = 1
