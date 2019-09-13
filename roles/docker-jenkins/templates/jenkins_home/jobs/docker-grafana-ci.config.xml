@@ -17,7 +17,7 @@
       <configVersion>2</configVersion>
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
-          <url>https://dev.azure.com/rthomaz/infrastructure/_git/docker-grafana</url>
+          <url>https://rthomaz-infrastructure@dev.azure.com/rthomaz-infrastructure/docker-grafana/_git/docker-grafana</url>
           <credentialsId>627c2b7b-f63b-4b9c-8697-607240601a58</credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
