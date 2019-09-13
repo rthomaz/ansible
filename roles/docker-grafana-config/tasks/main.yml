@@ -1,8 +1,0 @@
----
-
-grafana_datasources:
-  - name: prometheus
-    type: prometheus
-    access: proxy
-    url: 'http://{{ prometheus_web_listen_address }}'
-    basicAuth: false
