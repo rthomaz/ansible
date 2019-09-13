@@ -30,7 +30,7 @@
       <submoduleCfg class="list"/>
       <extensions/>
     </scm>
-    <scriptPath>jenkins-pipeline-cd</scriptPath>
+    <scriptPath>.builds/jenkins-pipeline-cd</scriptPath>
     <lightweight>true</lightweight>
   </definition>
   <triggers/>

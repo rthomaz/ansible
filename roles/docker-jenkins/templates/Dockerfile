@@ -18,6 +18,12 @@ COPY jenkins_home/jobs/docker-influxdb-cd.config.xml /usr/share/jenkins/ref/jobs
 COPY jenkins_home/jobs/docker-grafana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-ci/config.xml
 COPY jenkins_home/jobs/docker-grafana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-cd/config.xml
 
+COPY jenkins_home/jobs/docker-nexus-ci.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-ci/config.xml
+COPY jenkins_home/jobs/docker-nexus-cd.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-cd/config.xml
+
+COPY jenkins_home/jobs/docker-rabbitmq-ci.config.xml /usr/share/jenkins/ref/jobs/docker-rabbitmq-ci/config.xml
+COPY jenkins_home/jobs/docker-rabbitmq-cd.config.xml /usr/share/jenkins/ref/jobs/docker-rabbitmq-cd/config.xml
+
 COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
  RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
 
