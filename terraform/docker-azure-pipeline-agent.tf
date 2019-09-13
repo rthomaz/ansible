@@ -1,7 +1,7 @@
 
 locals {  
   azure_pipeline_agent_account = "rthomaz-infrastructure"
-  azure_pipeline_agent_token = "on7jxjzibpoki24fxqav5ydvzjfljh7dn26kjuax6jix4mjvsmhq"
+  azure_pipeline_agent_token = "hcz7vm32sn4y4ufo7kbhaicd7etvsgsiuqr76e5b625mj2nahyqq"
   azure_pipeline_agent_name = "docker-azure-pipeline-agent"
   azure_pipeline_agent_pool = "RThomaz"
   azure_pipeline_agent_work = "/var/vsts/$VSTS_AGENT"
