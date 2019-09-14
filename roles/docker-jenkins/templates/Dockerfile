@@ -92,7 +92,7 @@ RUN echo "configurar o repositório estável..."
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 RUN echo "Atualizar apt..."  
 RUN apt-get update        
-RUN echo "Instalat Docker..."  
+RUN echo "Instalar Docker..."  
 RUN apt-get install -y docker-ce          
 
 USER jenkins    
