@@ -1,5 +1,7 @@
 # inventory file for production servers
 
+ansible_python_interpreter=/usr/bin/python3
+
 [docker01_server]
 192.168.1.5
 
