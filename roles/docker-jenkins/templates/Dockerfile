@@ -33,9 +33,8 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 
 USER root
 
-ENV TERRAFORM_VERSION 0.11.10
-ENV PACKER_VERSION 1.3.2
-ENV ANSIBLE_VERSION 2.0.0.2
+ENV TERRAFORM_VERSION 0.12.8
+ENV PACKER_VERSION 1.4.3
 
 # Install Dependencies
 RUN  echo "===> Installing Dependencies..." \
