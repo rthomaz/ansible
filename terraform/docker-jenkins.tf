@@ -15,11 +15,11 @@ resource "docker_container" "jenkins" {
     "TRY_UPGRADE_IF_NO_MARKER=true"
   ]
   
-  #  mounts {   
-  #    target = "/var/jenkins_home"
-  #    source = "${local.jenkins_volume_source}"
-  #    type = "bind"
-  #  }  
+  mounts {   
+    target = "/var/jenkins_home"
+    source = "${local.jenkins_volume_source}"
+    type = "bind"
+  }  
 
     ports {
         internal = "8080"
