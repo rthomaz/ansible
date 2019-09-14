@@ -85,7 +85,7 @@ RUN apt-get install -y ansible
 # docker ce
 
 RUN echo "===> Preparing Docker installation..."                                                   
-RUN apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 RUN echo "Adicionar chave GPG oficial do Docker..."  
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -           
 RUN echo "configurar o repositório estável..."  
@@ -93,6 +93,6 @@ RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debia
 RUN echo "Atualizar apt..."  
 RUN apt-get update        
 RUN echo "Instalat Docker..."  
-RUN apt-get install docker-ce          
+RUN apt-get install -y docker-ce          
 
 USER jenkins    
