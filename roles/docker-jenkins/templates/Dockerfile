@@ -57,42 +57,30 @@ RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
  && mv terraform /usr/local/bin/terraform \
  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
 	
-# Install Ansible
-RUN  echo "===> Installing Ansible..." \
- && apt-get update \   
- && apt-get install -y --no-install-recommends \
-    ansible \      
- && rm -rf /var/lib/apt/lists/*      \ 
- && echo "===> Adding hosts for convenience..." \
- && mkdir -p /etc/ansible                       \
- && echo 'localhost' > /etc/ansible/hosts
-
-USER jenkins    
-
-
-
+# # Install Ansible
+# RUN  echo "===> Installing Ansible..." \
+#  && apt-get update \   
+#  && apt-get install -y --no-install-recommends \
+#     ansible \      
+#  && rm -rf /var/lib/apt/lists/*      \ 
+#  && echo "===> Adding hosts for convenience..." \
+#  && mkdir -p /etc/ansible                       \
+#  && echo 'localhost' > /etc/ansible/hosts
 
  
 # ansible
 
-# USER root
+RUN echo "===> Preparing Ansible installation..."                                                   
+RUN apt-get update && apt-get upgrade -y
+RUN echo "Installing dependencies..."  
+RUN apt-get install -y dirmngr                                                                     
+RUN echo "Configuring apt source list..."                                                           
+RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
+RUN echo "Inserting key in apt for Ansible..."                                                      
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
+RUN echo "Updating apt..."                                                                          
+RUN apt-get update && apt-get upgrade -y
+RUN echo "Installing Ansible..."                                                                    
+RUN apt-get install -y ansible 
 
-# RUN echo "===> Preparing Ansible installation..."                                                   
-# RUN apt-get update && apt-get upgrade -y
-
-# RUN echo "Installing dependencies..."  
-# RUN apt-get install -y dirmngr                                                                     
-
-# RUN echo "Configuring apt source list..."                                                           
-# RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
-
-# RUN echo "Inserting key in apt for Ansible..."                                                      
-# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
-
-# RUN echo "Updating apt..."                                                                          
-# RUN apt-get update && apt-get upgrade -y
-
-# RUN echo "Installing Ansible..."                                                                    
-# RUN apt-get install -y ansible 
-
-# USER jenkins    
+USER jenkins    
