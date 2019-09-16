@@ -12,11 +12,23 @@ COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.gro
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
 
-COPY jenkins_home/jobs/docker-influxdb-ci.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-ci/config.xml
-COPY jenkins_home/jobs/docker-influxdb-cd.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-cd/config.xml
+COPY jenkins_home/jobs/docker-elasticsearch-ci.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-ci/config.xml
+COPY jenkins_home/jobs/docker-elasticsearch-cd.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-cd/config.xml
+
+COPY jenkins_home/jobs/docker-fluentd-ci.config.xml /usr/share/jenkins/ref/jobs/docker-fluentd-ci/config.xml
+COPY jenkins_home/jobs/docker-fluentd-cd.config.xml /usr/share/jenkins/ref/jobs/docker-fluentd-cd/config.xml
 
 COPY jenkins_home/jobs/docker-grafana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-ci/config.xml
 COPY jenkins_home/jobs/docker-grafana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-cd/config.xml
+
+COPY jenkins_home/jobs/docker-influxdb-ci.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-ci/config.xml
+COPY jenkins_home/jobs/docker-influxdb-cd.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-cd/config.xml
+
+COPY jenkins_home/jobs/docker-jenkins-ci.config.xml /usr/share/jenkins/ref/jobs/docker-jenkins-ci/config.xml
+COPY jenkins_home/jobs/docker-jenkins-cd.config.xml /usr/share/jenkins/ref/jobs/docker-jenkins-cd/config.xml
+
+COPY jenkins_home/jobs/docker-kibana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-kibana-ci/config.xml
+COPY jenkins_home/jobs/docker-kibana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-kibana-cd/config.xml
 
 COPY jenkins_home/jobs/docker-nexus-ci.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-ci/config.xml
 COPY jenkins_home/jobs/docker-nexus-cd.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-cd/config.xml
@@ -67,8 +79,7 @@ RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
 #  && echo 'localhost' > /etc/ansible/hosts
 
  
-# ansible
-
+# Install Ansible
 RUN echo "===> Preparing Ansible installation..."                                                   
 RUN apt-get update && apt-get upgrade -y
 RUN echo "Installing dependencies..."  
@@ -82,9 +93,9 @@ RUN apt-get update && apt-get upgrade -y
 RUN echo "Installing Ansible..."                                                                    
 RUN apt-get install -y ansible 
 
-# docker ce
+# Install Docker CE
 
-RUN echo "===> Preparing Docker installation..."                                                   
+RUN echo "===> Preparing Docker CE installation..."                                                   
 RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 RUN echo "Adicionar chave GPG oficial do Docker..."  
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -           
