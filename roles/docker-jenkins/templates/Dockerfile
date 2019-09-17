@@ -38,8 +38,8 @@ RUN ls jenkins_home/.ssh -la
 
 USER jenkins    
 
-RUN eval `ssh-agent -s`
-RUN ssh-add
+#RUN eval `ssh-agent -s`
+#RUN ssh-add
 
 # --------------------------------------------------------------------------------
 
@@ -144,3 +144,7 @@ RUN  echo "===> Installing Dependencies..." \
 
 USER jenkins    
 
+USER jenkins    
+
+RUN eval `ssh-agent -s`
+RUN ssh-add
