@@ -61,7 +61,7 @@ store.addCredentials(domain, dockerHubCredential)
 def jenkinsMasterKeyParameters = [
   description:  'Credencial SSH do Docker01',
   id:           'docker01CredentialId',
-  secret:       'definirumasenha',
+  secret:       null,
   userName:     'jenkins',
   key:          new BasicSSHUserPrivateKey.DirectEntryPrivateKeySource('''-----BEGIN RSA PRIVATE KEY-----
 Proc-Type: 4,ENCRYPTED
