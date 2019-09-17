@@ -12,29 +12,29 @@ COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.gro
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
 
-COPY jenkins_home/jobs/elasticsearch/docker-elasticsearch-ci.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-ci/config.xml
-COPY jenkins_home/jobs/elasticsearch/docker-elasticsearch-cd.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-cd/config.xml
+# COPY jenkins_home/jobs/elasticsearch/docker-elasticsearch-ci.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-ci/config.xml
+# COPY jenkins_home/jobs/elasticsearch/docker-elasticsearch-cd.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-cd/config.xml
 
-COPY jenkins_home/jobs/fluentd/docker-fluentd-ci.config.xml /usr/share/jenkins/ref/jobs/docker-fluentd-ci/config.xml
-COPY jenkins_home/jobs/fluentd/docker-fluentd-cd.config.xml /usr/share/jenkins/ref/jobs/docker-fluentd-cd/config.xml
+# COPY jenkins_home/jobs/fluentd/docker-fluentd-ci.config.xml /usr/share/jenkins/ref/jobs/docker-fluentd-ci/config.xml
+# COPY jenkins_home/jobs/fluentd/docker-fluentd-cd.config.xml /usr/share/jenkins/ref/jobs/docker-fluentd-cd/config.xml
 
-COPY jenkins_home/jobs/grafana/docker-grafana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-ci/config.xml
-COPY jenkins_home/jobs/grafana/docker-grafana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-cd/config.xml
+# COPY jenkins_home/jobs/grafana/docker-grafana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-ci/config.xml
+# COPY jenkins_home/jobs/grafana/docker-grafana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-grafana-cd/config.xml
 
-COPY jenkins_home/jobs/influxdb/docker-influxdb-ci.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-ci/config.xml
-COPY jenkins_home/jobs/influxdb/docker-influxdb-cd.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-cd/config.xml
+# COPY jenkins_home/jobs/influxdb/docker-influxdb-ci.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-ci/config.xml
+# COPY jenkins_home/jobs/influxdb/docker-influxdb-cd.config.xml /usr/share/jenkins/ref/jobs/docker-influxdb-cd/config.xml
 
-COPY jenkins_home/jobs/jenkins/docker-jenkins-ci.config.xml /usr/share/jenkins/ref/jobs/docker-jenkins-ci/config.xml
-COPY jenkins_home/jobs/jenkins/docker-jenkins-cd.config.xml /usr/share/jenkins/ref/jobs/docker-jenkins-cd/config.xml
+# COPY jenkins_home/jobs/jenkins/docker-jenkins-ci.config.xml /usr/share/jenkins/ref/jobs/docker-jenkins-ci/config.xml
+# COPY jenkins_home/jobs/jenkins/docker-jenkins-cd.config.xml /usr/share/jenkins/ref/jobs/docker-jenkins-cd/config.xml
 
-COPY jenkins_home/jobs/kibana/docker-kibana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-kibana-ci/config.xml
-COPY jenkins_home/jobs/kibana/docker-kibana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-kibana-cd/config.xml
+# COPY jenkins_home/jobs/kibana/docker-kibana-ci.config.xml /usr/share/jenkins/ref/jobs/docker-kibana-ci/config.xml
+# COPY jenkins_home/jobs/kibana/docker-kibana-cd.config.xml /usr/share/jenkins/ref/jobs/docker-kibana-cd/config.xml
 
-COPY jenkins_home/jobs/nexus/docker-nexus-ci.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-ci/config.xml
-COPY jenkins_home/jobs/nexus/docker-nexus-cd.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-cd/config.xml
+# COPY jenkins_home/jobs/nexus/docker-nexus-ci.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-ci/config.xml
+# COPY jenkins_home/jobs/nexus/docker-nexus-cd.config.xml /usr/share/jenkins/ref/jobs/docker-nexus-cd/config.xml
 
-COPY jenkins_home/jobs/rabbitmq/docker-rabbitmq-ci.config.xml /usr/share/jenkins/ref/jobs/docker-rabbitmq-ci/config.xml
-COPY jenkins_home/jobs/rabbitmq/docker-rabbitmq-cd.config.xml /usr/share/jenkins/ref/jobs/docker-rabbitmq-cd/config.xml
+# COPY jenkins_home/jobs/rabbitmq/docker-rabbitmq-ci.config.xml /usr/share/jenkins/ref/jobs/docker-rabbitmq-ci/config.xml
+# COPY jenkins_home/jobs/rabbitmq/docker-rabbitmq-cd.config.xml /usr/share/jenkins/ref/jobs/docker-rabbitmq-cd/config.xml
 
 COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
  RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
