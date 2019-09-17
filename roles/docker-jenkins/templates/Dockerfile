@@ -81,6 +81,8 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersio
 
 # plugins
 
+USER root    
+
 ENV TERRAFORM_VERSION 0.12.8
 ENV PACKER_VERSION 1.4.3
 
@@ -142,7 +144,6 @@ RUN  echo "===> Installing Dependencies..." \
 # RUN echo "Instalar Docker..."  
 # RUN apt-get install -y docker-ce          
 
-USER jenkins    
 
 USER jenkins    
 
