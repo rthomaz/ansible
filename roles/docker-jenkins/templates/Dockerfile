@@ -10,10 +10,9 @@ COPY jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenk
 COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.groovy.d/credentials.groovy
 
- RUN mkdir -p jenkins_home/.ssh
+ RUN mkdir -p /usr/share/jenkins/ref/.ssh
 COPY jenkins_home/.ssh/id_rsa /usr/share/jenkins/ref/.ssh/id_rsa
 COPY jenkins_home/.ssh/id_rsa.pub /usr/share/jenkins/ref/.ssh/id_rsa.pub
- RUN ssh-keygen -t rsa -P definirumasenha -f jenkins_home/.ssh/id_rsa
  RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
 
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
