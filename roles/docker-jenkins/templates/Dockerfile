@@ -21,18 +21,18 @@ USER root
 
 RUN mkdir -p ~/.ssh 
 
-COPY jenkins_home/.ssh/id_rsa jenkins_home/.ssh/id_rsa
-COPY jenkins_home/.ssh/id_rsa.pub jenkins_home/.ssh/id_rsa.pub
- RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
+COPY jenkins_home/.ssh/id_rsa /usr/share/jenkins/ref/.ssh/id_rsa
+COPY jenkins_home/.ssh/id_rsa.pub /usr/share/jenkins/ref/.ssh/id_rsa.pub
+ RUN cat /usr/share/jenkins/ref/.ssh/id_rsa.pub >> /usr/share/jenkins/ref/.ssh/authorized_keys
 
-RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa
-RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa.pub
-RUN chown jenkins:jenkins jenkins_home/.ssh/authorized_keys
+RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa
+RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa.pub
+RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/authorized_keys
 
-RUN chmod 700 jenkins_home/.ssh
-RUN chmod 400 jenkins_home/.ssh/id_rsa
-RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
-RUN chmod 644 jenkins_home/.ssh/authorized_keys
+RUN chmod 700 /usr/share/jenkins/ref/.ssh
+RUN chmod 400 /usr/share/jenkins/ref/.ssh/id_rsa
+RUN chmod 644 /usr/share/jenkins/ref/.ssh/id_rsa.pub
+RUN chmod 644 /usr/share/jenkins/ref/.ssh/authorized_keys
 
 #RUN eval `ssh-agent -s`
 #RUN ssh-add
