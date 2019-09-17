@@ -20,24 +20,24 @@ USER root
 
 RUN mkdir -p ~/.ssh 
 
-COPY jenkins_home/.ssh/id_rsa ~/.ssh/id_rsa
-COPY jenkins_home/.ssh/id_rsa.pub ~/.ssh/id_rsa.pub
- RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+COPY jenkins_home/.ssh/id_rsa jenkins_home/.ssh/id_rsa
+COPY jenkins_home/.ssh/id_rsa.pub jenkins_home/.ssh/id_rsa.pub
+ RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
 
-RUN chown jenkins:jenkins ~/.ssh/id_rsa
-RUN chown jenkins:jenkins ~/.ssh/id_rsa.pub
-RUN chown jenkins:jenkins ~/.ssh/authorized_keys
+RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa
+RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa.pub
+RUN chown jenkins:jenkins jenkins_home/.ssh/authorized_keys
 
-RUN chmod 700 ~/.ssh
-RUN chmod 400 ~/.ssh/id_rsa
-RUN chmod 644 ~/.ssh/id_rsa.pub
-RUN chmod 644 ~/.ssh/authorized_keys
+RUN chmod 700 jenkins_home/.ssh
+RUN chmod 400 jenkins_home/.ssh/id_rsa
+RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
+RUN chmod 644 jenkins_home/.ssh/authorized_keys
 
 USER jenkins    
 
 RUN eval `ssh-agent -s`
-RUN ls ~/
-RUN ls ~/.ssh
+RUN ls jenkins_home/
+RUN ls jenkins_home/.ssh
 RUN ssh-add
 
 # --------------------------------------------------------------------------------
