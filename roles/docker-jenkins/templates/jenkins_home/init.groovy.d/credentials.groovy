@@ -1,16 +1,49 @@
 #!groovy
 
 // imports
+
+import hudson.plugins.sshslaves.*
+  
 import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
+import com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey;
 import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.common.*
 import com.cloudbees.plugins.credentials.domains.Domain
+import com.cloudbees.plugins.credentials.domains.DomainRequirement;
 import com.cloudbees.plugins.credentials.impl.*
+import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl;
+
 import hudson.util.Secret
 import java.nio.file.Files
 import jenkins.model.Jenkins
 import net.sf.json.JSONObject
 import org.jenkinsci.plugins.plaincredentials.impl.*
+
+// get Jenkins instance
+Jenkins jenkins = Jenkins.getInstance()
+
+// get credentials domain
+def domain = Domain.global()
+
+// get credentials store
+def store = SystemCredentialsProvider.getInstance().getStore()
+
+
+// **********************************************************
+// Azure Credential
+// **********************************************************
+
+Credentials azureCredential = (Credentials) new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL,
+                                    "azureCredentialId", 
+                                    "Credencial do Token do Azure DevOps", 
+                                    "azure", 
+                                    "hcz7vm32sn4y4ufo7kbhaicd7etvsgsiuqr76e5b625mj2nahyqq")
+                                    
+store.addCredentials(domain, azureCredential)
+
+// **********************************************************
+// Docker01
+// **********************************************************
 
 // parameters
 def jenkinsMasterKeyParameters = [
@@ -50,14 +83,6 @@ OrLLZV2eYg+QrhBWtFhNLZKxF6MulE9bh6SPNr3QxPF45uAYwdEvf714q7klbg8N
 -----END RSA PRIVATE KEY-----''')
 ]
 
-// get Jenkins instance
-Jenkins jenkins = Jenkins.getInstance()
-
-// get credentials domain
-def domain = Domain.global()
-
-// get credentials store
-def store = SystemCredentialsProvider.getInstance().getStore()
 
 // define private key
 def privateKey = new BasicSSHUserPrivateKey(
@@ -72,5 +97,9 @@ def privateKey = new BasicSSHUserPrivateKey(
 // add credential to store
 store.addCredentials(domain, privateKey)
 
+
+// **********************************************************
 // save to disk
+// **********************************************************
+
 jenkins.save()

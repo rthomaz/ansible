@@ -9,8 +9,7 @@ COPY jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenk
 
 COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 
-COPY jenkins_home/init.groovy.d/azure.credential.groovy /usr/share/jenkins/ref/init.groovy.d/azure.credential.groovy
-COPY jenkins_home/init.groovy.d/docker01.credential.groovy /usr/share/jenkins/ref/init.groovy.d/docker01.credential.groovy
+COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.groovy.d/credentials.groovy
 
  RUN mkdir -p /usr/share/jenkins/ref/.ssh 
 COPY jenkins_home/.ssh/id_rsa /usr/share/jenkins/ref/.ssh/id_rsa
