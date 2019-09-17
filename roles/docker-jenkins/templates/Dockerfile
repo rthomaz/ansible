@@ -22,7 +22,7 @@ RUN mkdir -p ~/.ssh
 
 COPY jenkins_home/.ssh/id_rsa ~/.ssh/id_rsa
 COPY jenkins_home/.ssh/id_rsa.pub ~/.ssh/id_rsa.pub
- RUN cat /usr/share/jenkins/ref/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+ RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 RUN chown jenkins:jenkins ~/.ssh/id_rsa
 RUN chown jenkins:jenkins ~/.ssh/id_rsa.pub
