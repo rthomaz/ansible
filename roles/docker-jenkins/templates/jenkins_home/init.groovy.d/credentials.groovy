@@ -13,7 +13,7 @@ def store = SystemCredentialsProvider.getInstance().getStore()
 // Azure
 println "--> Create credentials for Token Azure"
 Credentials azureCredential = (Credentials) new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL,
-                                    "azureCredentialId2", 
+                                    "azureCredentialId", 
                                     "Credencial do Token do Azure DevOps", 
                                     "azure", 
                                     "hcz7vm32sn4y4ufo7kbhaicd7etvsgsiuqr76e5b625mj2nahyqq")
@@ -23,7 +23,7 @@ store.addCredentials(domain, azureCredential)
 
 println "--> Create ssh credentials for Docker01"
 Credentials docker01Credential = (Credentials) new BasicSSHUserPrivateKey(CredentialsScope.GLOBAL,
-                                    "docker01CredentialId2",
+                                    "docker01CredentialId",
                                     "jenkins",
                                     new BasicSSHUserPrivateKey.FileOnMasterPrivateKeySource("~/.ssh/id_rsa"),
                                     "definirumasenha",
