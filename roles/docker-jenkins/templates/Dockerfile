@@ -47,10 +47,12 @@ RUN echo jenkins_home/.ssh/id_rsa > jenkins_home/.ssh/id_rsa && \
 #RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
 #RUN chmod 644 jenkins_home/.ssh/authorized_keys
 
+RUN eval "$(ssh-agent)"
+
 USER jenkins 
 
 #RUN eval `ssh-agent -s`
-#RUN ssh-add
+RUN ssh-add
 
 # --------------------------------------------------------------------------------
 
