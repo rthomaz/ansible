@@ -10,10 +10,14 @@ COPY jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenk
 COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.groovy.d/credentials.groovy
 
- RUN mkdir -p /usr/share/jenkins/ref/.ssh/authorized_keys
+ RUN mkdir -p /usr/share/jenkins/ref/.ssh 
 COPY jenkins_home/.ssh/id_rsa /usr/share/jenkins/ref/.ssh/id_rsa
 COPY jenkins_home/.ssh/id_rsa.pub /usr/share/jenkins/ref/.ssh/id_rsa.pub
- RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
+ RUN cat jenkins_home/.ssh/id_rsa.pub >> /usr/share/jenkins/ref/.ssh/authorized_keys
+ RUN chmod 700 /usr/share/jenkins/ref/.ssh
+ RUN chmod 600 /usr/share/jenkins/ref/.ssh/id_rsa
+ RUN chmod 644 /usr/share/jenkins/ref/.ssh/id_rsa.pub
+ RUN chmod 644 /usr/share/jenkins/ref/.ssh/authorized_keys
 
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
