@@ -36,7 +36,6 @@
       <disabled>
         <disabledByChoice>false</disabledByChoice>
       </disabled>
-      <errorDuration>300</errorDuration>
     </com.nirima.jenkins.plugins.docker.DockerCloud>
   </clouds>
   <quietPeriod>5</quietPeriod>

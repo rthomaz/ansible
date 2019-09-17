@@ -18,6 +18,8 @@ COPY jenkins_home/.ssh/id_rsa.pub /usr/share/jenkins/ref/.ssh/id_rsa.pub
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
 
+COPY jenkins_home/nodes/docker01-node/config.xml /usr/share/jenkins/ref/nodes/docker01-node/config.xml
+
 COPY jenkins_home/jobs/elasticsearch/docker-elasticsearch-ci.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-ci/config.xml
 COPY jenkins_home/jobs/elasticsearch/docker-elasticsearch-cd.config.xml /usr/share/jenkins/ref/jobs/docker-elasticsearch-cd/config.xml
 
