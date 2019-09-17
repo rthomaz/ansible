@@ -25,7 +25,7 @@ println "--> Create ssh credentials for Docker01"
 Credentials docker01Credential = (Credentials) new BasicSSHUserPrivateKey(CredentialsScope.GLOBAL,
                                     "docker01CredentialId",
                                     "jenkins",
-                                    new BasicSSHUserPrivateKey.FileOnMasterPrivateKeySource("~/.ssh/id_rsa"),
+                                    new BasicSSHUserPrivateKey.FileOnMasterPrivateKeySource("/usr/share/jenkins/ref/.ssh/id_rsa"),
                                     "definirumasenha",
                                     "Credencial SSH do Docker01")
 store.addCredentials(domain, docker01Credential)
