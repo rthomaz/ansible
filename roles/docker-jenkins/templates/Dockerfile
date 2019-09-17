@@ -18,23 +18,33 @@ COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.g
 
 USER root
 
-RUN mkdir -p ~/.ssh 
+# Authorize SSH Host
+RUN mkdir -p jenkins_home/.ssh && \
+    chmod 0700 jenkins_home/.ssh && \
+    ssh-keyscan 192.168.1.5 > jenkins_home/.ssh/known_hosts
 
-COPY jenkins_home/.ssh/id_rsa jenkins_home/.ssh/id_rsa
-COPY jenkins_home/.ssh/id_rsa.pub jenkins_home/.ssh/id_rsa.pub
- RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
+# Add the keys and set permissions
+RUN echo jenkins_home/.ssh/id_rsa > jenkins_home/.ssh/id_rsa && \
+    echo jenkins_home/.ssh/id_rsa.pub > jenkins_home/.ssh/id_rsa.pub && \
+    chmod 600 jenkins_home/.ssh/id_rsa && \
+    chmod 600 jenkins_home/.ssh/id_rsa.pub
 
-RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa
-RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa.pub
-RUN chown jenkins:jenkins jenkins_home/.ssh/authorized_keys
+RUN ssh-add
 
-RUN chmod 700 jenkins_home/.ssh
-RUN chmod 400 jenkins_home/.ssh/id_rsa
-RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
-RUN chmod 644 jenkins_home/.ssh/authorized_keys
+#RUN mkdir -p ~/.ssh 
 
-RUN ls jenkins_home/ -la
-RUN ls jenkins_home/.ssh -la
+#COPY jenkins_home/.ssh/id_rsa jenkins_home/.ssh/id_rsa
+#COPY jenkins_home/.ssh/id_rsa.pub jenkins_home/.ssh/id_rsa.pub
+# RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
+
+#RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa
+#RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa.pub
+#RUN chown jenkins:jenkins jenkins_home/.ssh/authorized_keys
+
+#RUN chmod 700 jenkins_home/.ssh
+#RUN chmod 400 jenkins_home/.ssh/id_rsa
+#RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
+#RUN chmod 644 jenkins_home/.ssh/authorized_keys
 
 USER jenkins    
 
@@ -147,5 +157,5 @@ RUN  echo "===> Installing Dependencies..." \
 
 USER jenkins    
 
-RUN eval `ssh-agent -s`
-RUN ssh-add
+#RUN eval `ssh-agent -s`
+#RUN ssh-add
