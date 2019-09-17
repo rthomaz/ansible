@@ -83,11 +83,11 @@ RUN  echo "===> Installing Dependencies..." \
 #  && rm packer_${PACKER_VERSION}_linux_amd64.zip 
 
 # Install Terraform
-RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
- && wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
- &&	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
- && mv terraform /usr/local/bin/terraform \
- && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
+# RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
+#  && wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+#  &&	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+#  && mv terraform /usr/local/bin/terraform \
+#  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
 	
 # # Install Ansible
 # RUN  echo "===> Installing Ansible..." \
@@ -101,18 +101,18 @@ RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
 
  
 # Install Ansible
-RUN echo "===> Preparing Ansible installation..."                                                   
-RUN apt-get update && apt-get upgrade -y
-RUN echo "Installing dependencies..."  
-RUN apt-get install -y dirmngr                                                                     
-RUN echo "Configuring apt source list..."                                                           
-RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
-RUN echo "Inserting key in apt for Ansible..."                                                      
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
-RUN echo "Updating apt..."                                                                          
-RUN apt-get update && apt-get upgrade -y
-RUN echo "Installing Ansible..."                                                                    
-RUN apt-get install -y ansible 
+# RUN echo "===> Preparing Ansible installation..."                                                   
+# RUN apt-get update && apt-get upgrade -y
+# RUN echo "Installing dependencies..."  
+# RUN apt-get install -y dirmngr                                                                     
+# RUN echo "Configuring apt source list..."                                                           
+# RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
+# RUN echo "Inserting key in apt for Ansible..."                                                      
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
+# RUN echo "Updating apt..."                                                                          
+# RUN apt-get update && apt-get upgrade -y
+# RUN echo "Installing Ansible..."                                                                    
+# RUN apt-get install -y ansible 
 
 # Install Docker CE
 
@@ -131,4 +131,6 @@ USER jenkins
 
 
 RUN eval `ssh-agent -s`
+RUN ls ~/
+RUN ls ~/.ssh
 RUN ssh-add
