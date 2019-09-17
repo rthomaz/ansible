@@ -29,32 +29,10 @@ RUN echo jenkins_home/.ssh/id_rsa > jenkins_home/.ssh/id_rsa && \
     chmod 600 jenkins_home/.ssh/id_rsa && \
     chmod 600 jenkins_home/.ssh/id_rsa.pub
 
-#RUN ssh-agent /bin/sh
+#RUN eval `ssh-agent -s`
 #RUN ssh-add jenkins_home/.ssh/id_rsa
 
-#RUN mkdir -p ~/.ssh 
-
-#COPY jenkins_home/.ssh/id_rsa jenkins_home/.ssh/id_rsa
-#COPY jenkins_home/.ssh/id_rsa.pub jenkins_home/.ssh/id_rsa.pub
-# RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
-
-#RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa
-#RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa.pub
-#RUN chown jenkins:jenkins jenkins_home/.ssh/authorized_keys
-
-#RUN chmod 700 jenkins_home/.ssh
-#RUN chmod 400 jenkins_home/.ssh/id_rsa
-#RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
-#RUN chmod 644 jenkins_home/.ssh/authorized_keys
-
-#RUN eval "$(ssh-agent)"
-
 USER jenkins 
-
-
-
-#RUN eval `ssh-agent -s`
-#RUN ssh-add -k jenkins_home/.ssh/id_rsa
 
 # --------------------------------------------------------------------------------
 
@@ -115,11 +93,11 @@ RUN  echo "===> Installing Dependencies..." \
 #  && rm packer_${PACKER_VERSION}_linux_amd64.zip 
 
 # Install Terraform
-# RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
-#  && wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
-#  &&	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
-#  && mv terraform /usr/local/bin/terraform \
-#  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
+RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
+ && wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ &&	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+ && mv terraform /usr/local/bin/terraform \
+ && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
 	
 # # Install Ansible
 # RUN  echo "===> Installing Ansible..." \
@@ -133,34 +111,18 @@ RUN  echo "===> Installing Dependencies..." \
 
  
 # Install Ansible
-# RUN echo "===> Preparing Ansible installation..."                                                   
-# RUN apt-get update && apt-get upgrade -y
-# RUN echo "Installing dependencies..."  
-# RUN apt-get install -y dirmngr                                                                     
-# RUN echo "Configuring apt source list..."                                                           
-# RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
-# RUN echo "Inserting key in apt for Ansible..."                                                      
-# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
-# RUN echo "Updating apt..."                                                                          
-# RUN apt-get update && apt-get upgrade -y
-# RUN echo "Installing Ansible..."                                                                    
-# RUN apt-get install -y ansible 
-
-# Install Docker CE
-
-# RUN echo "===> Preparing Docker CE installation..."                                                   
-# RUN apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
-# RUN echo "Adicionar chave GPG oficial do Docker..."  
-# RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -           
-# RUN echo "configurar o repositório estável..."  
-# RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
-# RUN echo "Atualizar apt..."  
-# RUN apt-get update        
-# RUN echo "Instalar Docker..."  
-# RUN apt-get install -y docker-ce          
+RUN echo "===> Preparing Ansible installation..."                                                   
+RUN apt-get update && apt-get upgrade -y
+RUN echo "Installing dependencies..."  
+RUN apt-get install -y dirmngr                                                                     
+RUN echo "Configuring apt source list..."                                                           
+RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main' >> /etc/apt/sources.list 
+RUN echo "Inserting key in apt for Ansible..."                                                      
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367                       
+RUN echo "Updating apt..."                                                                          
+RUN apt-get update && apt-get upgrade -y
+RUN echo "Installing Ansible..."                                                                    
+RUN apt-get install -y ansible 
 
 
 USER jenkins    
-
-#RUN eval `ssh-agent -s`
-#RUN ssh-add
