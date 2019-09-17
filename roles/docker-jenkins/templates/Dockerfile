@@ -29,7 +29,8 @@ RUN echo jenkins_home/.ssh/id_rsa > jenkins_home/.ssh/id_rsa && \
     chmod 600 jenkins_home/.ssh/id_rsa && \
     chmod 600 jenkins_home/.ssh/id_rsa.pub
 
-RUN ssh-add
+RUN eval "$(ssh-agent)"
+RUN ssh-add jenkins_home/.ssh/id_rsa
 
 #RUN mkdir -p ~/.ssh 
 
