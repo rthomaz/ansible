@@ -12,27 +12,33 @@ COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.gro
 
 COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.groovy.d/credentials.groovy
 
+
 # --------------------------------------------------------------------------------
 
 # SSH
 
 USER root
 
-# Authorize SSH Host
-RUN mkdir -p jenkins_home/.ssh && \
-    chmod 0700 jenkins_home/.ssh && \
-    ssh-keyscan 192.168.1.5 > jenkins_home/.ssh/known_hosts
+RUN mkdir -p ~/.ssh 
 
-# Add the keys and set permissions
-RUN echo jenkins_home/.ssh/id_rsa > jenkins_home/.ssh/id_rsa && \
-    echo jenkins_home/.ssh/id_rsa.pub > jenkins_home/.ssh/id_rsa.pub && \
-    chmod 600 jenkins_home/.ssh/id_rsa && \
-    chmod 600 jenkins_home/.ssh/id_rsa.pub
+COPY jenkins_home/.ssh/id_rsa jenkins_home/.ssh/id_rsa
+COPY jenkins_home/.ssh/id_rsa.pub jenkins_home/.ssh/id_rsa.pub
+ RUN cat jenkins_home/.ssh/id_rsa.pub >> jenkins_home/.ssh/authorized_keys
+
+RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa
+RUN chown jenkins:jenkins jenkins_home/.ssh/id_rsa.pub
+RUN chown jenkins:jenkins jenkins_home/.ssh/authorized_keys
+
+RUN chmod 700 jenkins_home/.ssh
+RUN chmod 400 jenkins_home/.ssh/id_rsa
+RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
+RUN chmod 644 jenkins_home/.ssh/authorized_keys
 
 #RUN eval `ssh-agent -s`
-#RUN ssh-add jenkins_home/.ssh/id_rsa
+#RUN ssh-add
 
-USER jenkins 
+USER jenkins    
+
 
 # --------------------------------------------------------------------------------
 
@@ -98,18 +104,7 @@ RUN echo "===> Installing Terraform ${TERRAFORM_VERSION}..." \
  &&	unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
  && mv terraform /usr/local/bin/terraform \
  && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip 
-	
-# # Install Ansible
-# RUN  echo "===> Installing Ansible..." \
-#  && apt-get update \   
-#  && apt-get install -y --no-install-recommends \
-#     ansible \      
-#  && rm -rf /var/lib/apt/lists/*      \ 
-#  && echo "===> Adding hosts for convenience..." \
-#  && mkdir -p /etc/ansible                       \
-#  && echo 'localhost' > /etc/ansible/hosts
-
- 
+	 
 # Install Ansible
 RUN echo "===> Preparing Ansible installation..."                                                   
 RUN apt-get update && apt-get upgrade -y
