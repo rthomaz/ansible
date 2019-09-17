@@ -33,11 +33,12 @@ RUN chmod 400 jenkins_home/.ssh/id_rsa
 RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
 RUN chmod 644 jenkins_home/.ssh/authorized_keys
 
+RUN ls jenkins_home/ -la
+RUN ls jenkins_home/.ssh -la
+
 USER jenkins    
 
 RUN eval `ssh-agent -s`
-RUN ls jenkins_home/
-RUN ls jenkins_home/.ssh
 RUN ssh-add
 
 # --------------------------------------------------------------------------------
