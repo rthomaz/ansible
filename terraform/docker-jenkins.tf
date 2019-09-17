@@ -21,14 +21,14 @@ resource "docker_container" "jenkins" {
     type = "bind"
   }  
 
-    ports {
-        internal = "8080"
-        external = "8080"
-    }
-    ports {
-        internal = "50000"
-        external = "50000"
-    }
+  ports {
+      internal = "8080"
+      external = "8080"
+  }
+  ports {
+      internal = "50000"
+      external = "50000"
+  }
      
 
   networks_advanced {
