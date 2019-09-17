@@ -46,7 +46,7 @@ RUN ssh-add
 #RUN chmod 644 jenkins_home/.ssh/id_rsa.pub
 #RUN chmod 644 jenkins_home/.ssh/authorized_keys
 
-USER jenkins    
+USER jenkins 
 
 #RUN eval `ssh-agent -s`
 #RUN ssh-add
