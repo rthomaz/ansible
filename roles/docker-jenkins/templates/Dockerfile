@@ -51,8 +51,10 @@ RUN eval "$(ssh-agent)"
 
 USER jenkins 
 
-#RUN eval `ssh-agent -s`
-RUN ssh-add
+
+
+RUN eval `ssh-agent -s`
+RUN ssh-add -k jenkins_home/.ssh/id_rsa
 
 # --------------------------------------------------------------------------------
 
