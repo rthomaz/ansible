@@ -42,6 +42,18 @@ Credentials azureCredential = (Credentials) new UsernamePasswordCredentialsImpl(
 store.addCredentials(domain, azureCredential)
 
 // **********************************************************
+// Docker Hub Credential
+// **********************************************************
+
+Credentials dockerHubCredential = (Credentials) new UsernamePasswordCredentialsImpl(CredentialsScope.GLOBAL,
+                                    "dockerHubCredentialId", 
+                                    "Credencial do Docker Hub", 
+                                    "rthomaz", 
+                                    "b3b3xu!@#")
+                                    
+store.addCredentials(domain, dockerHubCredential)
+
+// **********************************************************
 // Docker01
 // **********************************************************
 
