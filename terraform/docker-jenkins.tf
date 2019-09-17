@@ -20,7 +20,7 @@ resource "docker_container" "jenkins" {
     source = "${local.jenkins_volume_source}"
     type = "bind"
   }  
-
+ 
   ports {
       internal = "8080"
       external = "8080"
