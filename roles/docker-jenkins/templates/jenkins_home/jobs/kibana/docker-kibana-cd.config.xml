@@ -18,7 +18,7 @@
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
           <url>https://rthomaz-infrastructure@dev.azure.com/rthomaz-infrastructure/docker-kibana/_git/docker-kibana</url>
-          <credentialsId>627c2b7b-f63b-4b9c-8697-607240601a58</credentialsId>
+          <credentialsId>azure</credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
       <branches>

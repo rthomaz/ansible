@@ -9,6 +9,8 @@ COPY jenkins_home/jenkins.model.JenkinsLocationConfiguration.xml /usr/share/jenk
 
 COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 
+COPY jenkins_home/credentials.xml /usr/share/jenkins/ref/credentials.xml
+
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
 
