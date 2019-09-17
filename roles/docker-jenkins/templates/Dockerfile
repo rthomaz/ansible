@@ -12,10 +12,36 @@ COPY jenkins_home/init.groovy.d/executors.groovy /usr/share/jenkins/ref/init.gro
 
 COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.groovy.d/credentials.groovy
 
- RUN mkdir -p /usr/share/jenkins/ref/.ssh 
-COPY jenkins_home/.ssh/id_rsa /usr/share/jenkins/ref/.ssh/id_rsa
-COPY jenkins_home/.ssh/id_rsa.pub /usr/share/jenkins/ref/.ssh/id_rsa.pub
- RUN cat /usr/share/jenkins/ref/.ssh/id_rsa.pub >> /usr/share/jenkins/ref/.ssh/authorized_keys
+# --------------------------------------------------------------------------------
+
+# SSH
+
+USER root
+
+RUN mkdir -p ~/.ssh 
+
+COPY jenkins_home/.ssh/id_rsa ~/.ssh/id_rsa
+COPY jenkins_home/.ssh/id_rsa.pub ~/.ssh/id_rsa.pub
+ RUN cat /usr/share/jenkins/ref/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+RUN chown jenkins:jenkins ~/.ssh/id_rsa
+RUN chown jenkins:jenkins ~/.ssh/id_rsa.pub
+RUN chown jenkins:jenkins ~/.ssh/authorized_keys
+
+RUN chmod 700 ~/.ssh
+RUN chmod 400 ~/.ssh/id_rsa
+RUN chmod 644 ~/.ssh/id_rsa.pub
+RUN chmod 644 ~/.ssh/authorized_keys
+
+USER jenkins    
+
+RUN eval `ssh-agent -s`
+RUN ls ~/
+RUN ls ~/.ssh
+RUN ssh-add
+
+# --------------------------------------------------------------------------------
+
 
 COPY jenkins_home/users/users.xml /usr/share/jenkins/ref/users/users.xml
 COPY jenkins_home/users/rodrigo_8564643631287127554-config.xml /usr/share/jenkins/ref/users/rodrigo_8564643631287127554/config.xml
@@ -50,18 +76,6 @@ COPY jenkins_home/plugins.txt /usr/share/jenkins/ref/plugins.txt
  RUN /usr/local/bin/install-plugins.sh </usr/share/jenkins/ref/plugins.txt
 
 RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
-
-
-USER root
-
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa.pub
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/authorized_keys
-RUN chmod 700 /usr/share/jenkins/ref/.ssh
-RUN chmod 400 /usr/share/jenkins/ref/.ssh/id_rsa
-RUN chmod 644 /usr/share/jenkins/ref/.ssh/id_rsa.pub
-RUN chmod 644 /usr/share/jenkins/ref/.ssh/authorized_keys
-
 
 
 # plugins
@@ -129,8 +143,3 @@ RUN  echo "===> Installing Dependencies..." \
 
 USER jenkins    
 
-
-RUN eval `ssh-agent -s`
-RUN ls ~/
-RUN ls ~/.ssh
-RUN ssh-add
