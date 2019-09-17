@@ -58,7 +58,7 @@ RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa
 RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa.pub
 RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/authorized_keys
 RUN chmod 700 /usr/share/jenkins/ref/.ssh
-RUN chmod 600 /usr/share/jenkins/ref/.ssh/id_rsa
+RUN chmod 400 /usr/share/jenkins/ref/.ssh/id_rsa
 RUN chmod 644 /usr/share/jenkins/ref/.ssh/id_rsa.pub
 RUN chmod 644 /usr/share/jenkins/ref/.ssh/authorized_keys
 
@@ -128,3 +128,7 @@ RUN apt-get install -y ansible
 # RUN apt-get install -y docker-ce          
 
 USER jenkins    
+
+
+RUN eval `ssh-agent -s`
+RUN ssh-add
