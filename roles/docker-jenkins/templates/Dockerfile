@@ -17,29 +17,13 @@ COPY jenkins_home/init.groovy.d/credentials.groovy /usr/share/jenkins/ref/init.g
 
 # SSH
 
-USER root
-
-RUN mkdir -p ~/.ssh 
-
 COPY jenkins_home/.ssh/id_rsa /usr/share/jenkins/ref/.ssh/id_rsa
-COPY jenkins_home/.ssh/id_rsa.pub /usr/share/jenkins/ref/.ssh/id_rsa.pub
- RUN cat /usr/share/jenkins/ref/.ssh/id_rsa.pub >> /usr/share/jenkins/ref/.ssh/authorized_keys
 
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa.pub
-RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/authorized_keys
+#RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh
+#RUN chown jenkins:jenkins /usr/share/jenkins/ref/.ssh/id_rsa
 
-RUN chmod 777 /usr/share/jenkins/ref/.ssh
-RUN chmod 400 /usr/share/jenkins/ref/.ssh/id_rsa
-RUN chmod 644 /usr/share/jenkins/ref/.ssh/id_rsa.pub
-RUN chmod 644 /usr/share/jenkins/ref/.ssh/authorized_keys
-
-#RUN eval `ssh-agent -s`
-#RUN ssh-add
-
-USER jenkins    
-
+#RUN chmod 777 /usr/share/jenkins/ref/.ssh
+#RUN chmod 400 /usr/share/jenkins/ref/.ssh/id_rsa
 
 # --------------------------------------------------------------------------------
 
