@@ -1,6 +1,0 @@
----
-
-docker_jenkins_directory_name: jenkins
-docker_jenkins_files_owner: root
-docker_jenkins_files_group: root
-docker_jenkins_files_mode: a+x
